@@ -11,6 +11,18 @@ if (unsupportedServerlessTarget) {
   throw new Error('This ShopEasy release does not support Vercel/AWS Lambda serverless deployment: its shared rate limiter is provided by Cloudflare Durable Objects. Deploy with Cloudflare Workers + Turso (see CLOUDFLARE-DEPLOYMENT.md), or use a single persistent Node.js instance with RATE_LIMIT_BACKEND=memory-single-instance. Free plans have hard limits and are not unlimited.');
 }
 
+export const isPostgresStaging = process.env.SHOP_DB_BACKEND === 'postgres-staging';
+let rawClient;
+if (isPostgresStaging) {
+  if (process.env.NODE_ENV !== 'test') throw new Error('PostgreSQL runtime is not release-certified');
+  const connectionString = process.env.SHOP_POSTGRES_TEST_URL;
+  if (!connectionString) throw new Error('SHOP_POSTGRES_TEST_URL is required');
+  const endpoint = new URL(connectionString);
+  if (!['postgres:', 'postgresql:'].includes(endpoint.protocol) || !['localhost','127.0.0.1'].includes(endpoint.hostname) || endpoint.pathname !== '/shopeasy_ci') throw new Error('PostgreSQL tests require a disposable local shopeasy_ci database');
+  const {Pool} = await import('pg');
+  const {createLegacyBridge} = await import('../postgres/bridge.mjs');
+  rawClient = createLegacyBridge(new Pool({connectionString,max:4,connectionTimeoutMillis:5000}),{runtime:true});
+} else {
 const isCloudflareWorker = process.env.CLOUDFLARE_WORKER === '1';
 const isRemoteProduction = isCloudflareWorker;
 
@@ -43,7 +55,7 @@ if (/^file:/i.test(String(url))) {
   const config=expandConfig({url,authToken},true);
   if(!isInMemoryConfig(config)) fs.mkdirSync(path.dirname(path.resolve(config.path)),{recursive:true});
 }
-const rawClient = createClient({ url, authToken });
+rawClient = createClient({ url, authToken });
 const isLocalFileDatabase = /^file:/i.test(String(url || ''));
 
 // WAL keeps local SQLite readers from blocking a writer's COMMIT and is the
@@ -58,6 +70,8 @@ if (isLocalFileDatabase) {
 // local writes and always release the slot after commit, rollback, or close.
 // Remote Turso/Cloudflare keeps the driver's native concurrency behavior.
 if (isLocalFileDatabase) installLocalSqliteTransactionQueue(rawClient);
+
+}
 
 export const db = rawClient;
 
