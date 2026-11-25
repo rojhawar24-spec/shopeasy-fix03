@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {compileLegacyQuery as compile} from './legacy-query.mjs';
+test('bind positional values without embedding input',()=>assert.deepEqual(compile("SELECT * FROM users WHERE email=? AND role=?",["x' OR 1=1 --","customer"]),{text:"SELECT * FROM users WHERE email=$1 AND role=$2",values:["x' OR 1=1 --","customer"]}));
+test('named parameters reused',()=>assert.deepEqual(compile('SELECT * FROM products WHERE name LIKE @term OR description LIKE @term LIMIT @limit',{term:'%a%',limit:3}),{text:'SELECT * FROM products WHERE name LIKE $1 OR description LIKE $1 LIMIT $2',values:['%a%',3]}));
+test('literal placeholders remain untouched',()=>assert.deepEqual(compile("SELECT '? @term it''s' AS text, ? AS x",[7]),{text:"SELECT '? @term it''s' AS text, $1 AS x",values:[7]}));
+test('scalar minimum and maximum vs aggregate',()=>assert.equal(compile('SELECT SUM(MAX(stock-reserved_stock,0)), MIN(stock), MIN(stock,?) FROM products',[5]).text,'SELECT SUM(GREATEST(stock-reserved_stock,0)), MIN(stock), LEAST(stock,$1) FROM products'));
+test('identity return',()=>assert.equal(compile('INSERT INTO users(email) VALUES(?)',['x']).text,'INSERT INTO users(email) VALUES($1) RETURNING id'));
+test('existing RETURNING and nonidentity table',()=>{assert.equal(compile('INSERT INTO users(email) VALUES(?) RETURNING id',['x']).text,'INSERT INTO users(email) VALUES($1) RETURNING id');assert.equal(compile('INSERT INTO settings(key,value) VALUES(?,?)',['x','y']).text,'INSERT INTO settings(key,value) VALUES($1,$2)');});
+test('fail closed on unsupported SQL and missing values',()=>{for(const s of ["SELECT datetime('now')","SELECT x COLLATE NOCASE FROM users","SELECT ?; SELECT 1","SELECT ? -- test","SELECT @missing","SELECT 'unterminated","PRAGMA table_info(users)","INSERT OR IGNORE INTO users(email) VALUES(?)"])assert.throws(()=>compile(s,[]));assert.throws(()=>compile('SELECT ?',[undefined]));assert.throws(()=>compile('SELECT 1',[1]));});
