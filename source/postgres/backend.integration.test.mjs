@@ -14,7 +14,7 @@ test('real PostgreSQL: settings, account, session, category, catalog', async () 
   const categoryId=await core.createCategory('Integration category','integration-category');
   assert.ok(categoryId>0);
   assert.ok((await core.listCategories()).some(c=>c.id===categoryId));
-  const product=await run('INSERT INTO products(name,slug,price_cents,stock,category_id,active) VALUES(?,?,?,?,?,?)',['Integration product','integration-product',1599,8,categoryId,1]);
+  const product=await run('INSERT INTO products(name,slug,sku,price_cents,stock,category_id,active) VALUES(?,?,?,?,?,?,?)',['Integration product','integration-product','INTEGRATION-001',1599,8,categoryId,1]);
   assert.ok(product.lastInsertRowid>0);
   assert.equal((await core.getProductById(product.lastInsertRowid)).name,'Integration product');
   assert.equal(await core.countProducts({search:'integration'}),1);
