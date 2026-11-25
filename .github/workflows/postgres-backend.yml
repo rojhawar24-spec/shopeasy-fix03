@@ -1,0 +1,56 @@
+name: ShopEasy real PostgreSQL backend
+on:
+  push:
+    paths:
+      - '.github/workflows/postgres-backend.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    services:
+      postgres:
+        image: postgres:17.12
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: local-ci-only
+          POSTGRES_DB: shopeasy_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d shopeasy_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGPASSWORD: local-ci-only
+      SHOP_POSTGRES_TEST_URL: postgresql://postgres:local-ci-only@127.0.0.1:5432/shopeasy_ci
+      SHOP_DB_BACKEND: postgres-staging
+      NODE_ENV: test
+      SEED_DEMO_DATA: 'false'
+      STORE_CURRENCY: EUR
+    defaults:
+      run:
+        working-directory: source
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: staging-source
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.22.2'
+      - name: Prepare disposable PostgreSQL schema
+        run: |
+          psql "$SHOP_POSTGRES_TEST_URL" -v ON_ERROR_STOP=1 -c 'CREATE SCHEMA extensions; CREATE ROLE anon NOLOGIN; CREATE ROLE authenticated NOLOGIN; CREATE ROLE service_role NOLOGIN;'
+          psql "$SHOP_POSTGRES_TEST_URL" -v ON_ERROR_STOP=1 -f postgres/schema-candidate.sql
+          psql "$SHOP_POSTGRES_TEST_URL" -v ON_ERROR_STOP=1 -f postgres/runtime-compat.sql
+          psql "$SHOP_POSTGRES_TEST_URL" -v ON_ERROR_STOP=1 -c 'INSERT INTO shopeasy.asset_storage_quota(id,used_bytes,max_bytes) VALUES(1,0,67108864) ON CONFLICT (id) DO NOTHING;'
+      - name: Install dependencies and pinned test-only PostgreSQL driver
+        run: |
+          npm ci --include=dev
+          npm install --no-save --package-lock=false --ignore-scripts pg@8.16.3
+      - name: Test original ShopEasy backend on real PostgreSQL
+        run: node --test postgres/backend.integration.test.mjs
