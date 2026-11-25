@@ -45,3 +45,19 @@ test('explicit read avoids the writer advisory lock; writes still take it',async
   assert.equal(log[0],'BEGIN');
   assert.ok(log.some(q=>typeof q==='string'&&q.includes('pg_advisory_xact_lock')));
 });
+
+test('fixed rate limit call is a single atomic database statement, never the app writer transaction',async()=>{
+  const calls=[];
+  const pool={async connect(){throw Error('unexpected general transaction');},async query(q){calls.push(q);return {rows:[{allowed:false,remaining:'0',reset_at:'1795637000'}]};}};
+  const bridge=createLegacyBridge(pool);
+  const key='a'.repeat(64);
+  assert.deepEqual(await bridge.consumeRequestLimit(key,10,60000),{allowed:false,remaining:0,reset_at:1795637000});
+  assert.deepEqual(calls,[{text:'SELECT * FROM shopeasy.consume_request_limit($1::text,$2::bigint,$3::bigint)',values:[key,10,60000]}]);
+  await assert.rejects(bridge.consumeRequestLimit('bad-key',10,60000),/Invalid request limit/);
+  await assert.rejects(bridge.consumeRequestLimit(key,0,60000),/Invalid request limit/);
+  assert.equal(calls.length,1);
+  pool.query=async()=>({rows:[{allowed:'false',remaining:null,reset_at:'1'}]});
+  await assert.rejects(bridge.consumeRequestLimit(key,10,60000),/Invalid request limit response/);
+  pool.query=async()=>{throw Error('connection failed');};
+  await assert.rejects(bridge.consumeRequestLimit(key,10,60000),/connection failed/);
+});

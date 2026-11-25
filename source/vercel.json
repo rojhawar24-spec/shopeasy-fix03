@@ -1,7 +1,7 @@
 {
   "version": 2,
   "framework": "express",
-  "buildCommand": "node scripts/verify-vercel-preview.mjs",
+  "buildCommand": "node scripts/verify-vercel-preview.mjs && node --check src/server.js && node --check src/shared-rate-limiter.js && node --test postgres/bridge.test.mjs postgres/settings-batcher.test.mjs test/preview-performance-assets.test.js test/product-photo-preview-regression.test.js",
   "regions": [
     "fra1"
   ],

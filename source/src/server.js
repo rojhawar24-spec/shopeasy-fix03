@@ -650,9 +650,14 @@ app.use(async(req,res,next)=>{
   // Never let a shared cache replay one customer's personalized HTML to another visitor.
   if (req.method === 'GET' || req.method === 'HEAD') res.set('Cache-Control','private, no-store');
   try {
-  const [storeName,currency,aiEnabled,launch,supportEmail,legalName,businessAddress,businessPhone,enterpriseNumber,vatNumber,uiDefaultSetting,uiEnabledSetting,featureStoriesSetting,featureWishlistSetting,featureAutocompleteSetting,featureRelatedProductsSetting]=await Promise.all([
+  const [storeName,currency,aiEnabled,launch,supportEmail,legalName,businessAddress,businessPhone,enterpriseNumber,vatNumber,uiDefaultSetting,uiEnabledSetting,featureStoriesSetting,featureWishlistSetting,featureAutocompleteSetting,featureRelatedProductsSetting,appearanceRaw,navRows]=await Promise.all([
     getSetting('store_name',storeNameFallback),getSetting('currency',DEFAULT_STORE_CURRENCY),aiIsEnabled(),storeLaunchConfig(),getSetting('support_email',''),getSetting('legal_name',''),getSetting('business_address',''),getSetting('business_phone',''),getSetting('enterprise_number',''),getSetting('vat_number',''),
-    getSetting('ui_default_locale',getDefaultUiLocale(process.env.DEFAULT_LOCALE)),getSetting('ui_enabled_locales',JSON.stringify(SUPPORTED_UI_LOCALES)),getSetting('feature_stories_enabled','1'),getSetting('feature_wishlist_enabled','1'),getSetting('feature_autocomplete_enabled','1'),getSetting('feature_related_products_enabled','1')
+    getSetting('ui_default_locale',getDefaultUiLocale(process.env.DEFAULT_LOCALE)),getSetting('ui_enabled_locales',JSON.stringify(SUPPORTED_UI_LOCALES)),getSetting('feature_stories_enabled','1'),getSetting('feature_wishlist_enabled','1'),getSetting('feature_autocomplete_enabled','1'),getSetting('feature_related_products_enabled','1'),
+    Promise.all([
+    ...['brand_primary','brand_accent','font','logo','free_shipping_minimum'].map(key=>getSetting(`appearance_${key}`,'')),
+    ...Object.entries(APPEARANCE_SWITCHES).map(([key,enabled])=>getSetting(`appearance_${key}`,enabled?'1':'0'))
+  ]),
+    getCategoryNav()
   ]);
   res.locals.storeName=storeName;
   res.locals.currency=currency;
@@ -669,10 +674,6 @@ app.use(async(req,res,next)=>{
   res.locals.featureWishlistEnabled=featureWishlistSetting!=='0';
   res.locals.featureAutocompleteEnabled=featureAutocompleteSetting!=='0';
   res.locals.featureRelatedProductsEnabled=featureRelatedProductsSetting!=='0';
-  const appearanceRaw=await Promise.all([
-    ...['brand_primary','brand_accent','font','logo','free_shipping_minimum'].map(key=>getSetting(`appearance_${key}`,'')),
-    ...Object.entries(APPEARANCE_SWITCHES).map(([key,enabled])=>getSetting(`appearance_${key}`,enabled?'1':'0'))
-  ]);
   res.locals.appearance=normalizeAppearance({
     brandPrimary:appearanceRaw[0]||undefined,brandAccent:appearanceRaw[1]||undefined,
     font:appearanceRaw[2]||undefined,logo:appearanceRaw[3]||undefined,
@@ -743,7 +744,9 @@ app.use(async(req,res,next)=>{
   res.locals.paymentMode=launch.paymentMode||PAYMENT_MODES.CASH_ON_DELIVERY;
   res.locals.checkoutCardEnabled=Boolean(launch.paymentStatus?.checkoutCardEnabled);
   res.locals.bankTransferEnabled=Boolean(launch.bankTransferReady);
-  res.locals.navCategories=categoryTree(await getCategoryNav());
+  res.locals.navCategories=categoryTree(navRows);
+  // Only the GET dashboard reuses this request's already fetched launch data.
+  if(isPostgresPreview && req.method==='GET' && req.path==='/admin') req.shopLaunchSnapshot=launch;
   next();
   } catch(error) { next(error); }
 });
@@ -2811,7 +2814,7 @@ app.post('/admin/staff/change-password',managerAccountLimiter,requireManager,asy
 // Admin / manager area
 app.get('/admin',requireDashboardAccess,async(req,res)=>{
   if (String(req.user?.role ?? '').trim().toLowerCase() === 'admin') return render(res,'admin/limited-dashboard');
-  const [stats,recentOrders,launch,lowStockInventory]=await Promise.all([getDashboardStats(),listOrders({limit:6,offset:0}),storeLaunchConfig(),listLowStockInventory(12)]);
+  const [stats,recentOrders,launch,lowStockInventory]=await Promise.all([getDashboardStats(),listOrders({limit:6,offset:0}),req.shopLaunchSnapshot??storeLaunchConfig(),listLowStockInventory(12)]);
   render(res,'admin/dashboard',{launch,productCount:Number(stats.products.total||0),activeProducts:Number(stats.products.active||0),soldOutProducts:Number(stats.products.sold_out||0),orderCount:Number(stats.orders.total||0),storyCount:Number(stats.stories.total||0),liveStories:Number(stats.stories.live||0),customerCount:Number(stats.customers.total||0),pendingOrders:Number(stats.orders.pending||0),paidRevenue:Number(stats.orders.revenue||0),grossProfitCents:Number(stats.accounting.gross_profit_cents||0),grossProfitMissingOrders:Number(stats.accounting.completed_orders_missing_cost||0),grossProductRevenueCents:Number(stats.accounting.product_revenue_cents||0),lowStockCount:Number(stats.lowStock?.count||0),lowStockInventory,recentOrders});
 });
 app.get('/admin/categories',requireManager,async(req,res)=>{const editId=validId(req.query.edit)?Number(req.query.edit):null;const categories=await listCategories();const editCategory=editId?categories.find(c=>Number(c.id)===editId) || await getRow('SELECT * FROM categories WHERE id=?',[editId]):null;render(res,'admin/categories',{categories,editCategory,error:null});});

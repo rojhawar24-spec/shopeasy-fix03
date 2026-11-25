@@ -17,6 +17,18 @@ export function createLegacyBridge(pool, {runtime = false} = {}) {
     };
   }
   return {
+    // This one fixed, fully qualified function owns its independent database
+    // transaction lock. PostgreSQL commits the single statement atomically.
+    // Never expose a general-purpose lock-free write entry point.
+    async consumeRequestLimit(actorKey,max,windowMs) {
+      if(typeof actorKey!=='string'||!/^[a-f0-9]{64}$/.test(actorKey)||!Number.isSafeInteger(max)||max<1||max>100000||!Number.isSafeInteger(windowMs)||windowMs<1000||windowMs>86400000)throw new TypeError('Invalid request limit');
+      const result=await pool.query({text:'SELECT * FROM shopeasy.consume_request_limit($1::text,$2::bigint,$3::bigint)',values:[actorKey,max,windowMs]});
+      const row=result.rows?.[0];
+      if(!row||typeof row.allowed!=='boolean'||row.remaining==null||row.reset_at==null)throw new Error('Invalid request limit response');
+      const remaining=Number(row.remaining),reset_at=Number(row.reset_at);
+      if(!Number.isSafeInteger(remaining)||remaining<0||remaining>max||!Number.isSafeInteger(reset_at)||reset_at<0)throw new Error('Invalid request limit response');
+      return {allowed:row.allowed,remaining,reset_at};
+    },
     close:()=>pool.end(),
     execute(input) { const q=compile(input); return native.execute(q.text,q.values); },
     executeRead(input) { const q=compile(input); return native.execute(q.text,q.values,'read'); },
