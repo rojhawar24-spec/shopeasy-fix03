@@ -36,7 +36,7 @@ jobs:
               print("Original CI contract restored")
           PY
       - name: PostgreSQL compatibility unit tests
-        run: node --test postgres/legacy-query.test.mjs
+        run: node --test postgres/legacy-query.test.mjs postgres/bridge.test.mjs
       - name: Install locked dependencies
         run: npm ci
       - name: Syntax and lint
