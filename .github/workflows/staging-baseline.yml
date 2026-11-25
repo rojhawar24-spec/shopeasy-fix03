@@ -1,0 +1,32 @@
+name: ShopEasy staging baseline
+on:
+  push:
+    paths:
+      - '.github/workflows/staging-baseline.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: source
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: staging-source
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.22.2'
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Syntax and lint
+        run: |
+          npm run check
+          npm run lint
+          npm run typecheck:core
+      - name: Regression tests with disposable local databases
+        run: npm test
