@@ -64,10 +64,10 @@
   <% if(typeof breadcrumbJsonLdSafe === 'string' && breadcrumbJsonLdSafe){ %><script type="application/ld+json"><%- breadcrumbJsonLdSafe %></script><% } %>
   <title><%= pageTitle %></title>
   <meta name="shopeasy-design-version" content="editorial-2027">
-  <% if(appearance.darkMode){ %><script src="/js/theme-early-2027.js?v=atelier-1"></script><% } %>
-  <link rel="stylesheet" href="/css/design-foundation.min.css?v=2027-r28">
-  <link rel="stylesheet" href="/theme/shop.css?v=2027-p1">
-  <link rel="stylesheet" href="/css/design-polish.min.css?v=2027-r28.fix03">
+  <% if(appearance.darkMode){ %><script src="/js/theme-early-2027.js?v=atelier-1<%= typeof assetRevision === 'string' ? assetRevision : '' %>"></script><% } %>
+  <link rel="stylesheet" href="/css/design-foundation.min.css?v=2027-r28<%= typeof assetRevision === 'string' ? assetRevision : '' %>">
+  <link rel="stylesheet" href="/theme/shop.css?v=2027-p1<%= typeof themeRevision === 'function' && themeRevision(appearance) ? '&appearance='+themeRevision(appearance) : '' %>">
+  <link rel="stylesheet" href="/css/design-polish.min.css?v=2027-r28.fix03<%= typeof assetRevision === 'string' ? assetRevision : '' %>">
 </head>
 <body data-design-version="research-2027" data-page-kind="<%= isAdminRoute ? 'manager' : isCheckoutRoute ? 'checkout' : 'storefront' %>" data-motion="<%= appearance.motion?'on':'off' %>" class="<%= isAdminRoute ? 'is-admin-app' : 'is-storefront-app' %>">
 <a class="skip-link" href="#main-content"><%= locale==='fr'?'Aller au contenu':'Skip to content' %></a>

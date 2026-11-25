@@ -65,6 +65,9 @@ const root = path.resolve(__dirname,'..');
 const isCloudflareWorker = process.env.CLOUDFLARE_WORKER === '1';
 const usesDatabaseImageStorage = isPostgresPreview || isCloudflareWorker || (process.env.NODE_ENV === 'test' && process.env.TEST_IMAGE_STORAGE_IN_DATABASE === '1');
 const app = express();
+// Static cache keys change with each preview commit. Local and Worker URLs are unchanged.
+app.locals.assetRevision=isPostgresPreview && /^[a-f0-9]{40}$/i.test(process.env.VERCEL_GIT_COMMIT_SHA||'') ? '-'+process.env.VERCEL_GIT_COMMIT_SHA.slice(0,12) : '';
+app.locals.themeRevision=appearance=>isPostgresPreview?crypto.createHash('sha256').update(appearanceCss(appearance)).digest('hex').slice(0,24):'';
 // Rejections before storefront middleware still need a safe interface translator.
 app.locals.customerText = (value, parameters) => customerText('en', value, parameters);
 app.locals.pageText = (value, parameters) => pageText('en', value, parameters);
@@ -378,6 +381,24 @@ app.use((req,res,next)=>{ if(isCheckoutPost(req)) markCheckoutDiagnosticStage(re
 // client could force URL-encoded/JSON parsing work before any rate limiter runs.
 app.use(checkoutDiagnosticStage('general-rate-limit'));
 app.use(generalLimiter);
+// The theme contains only allowlisted public colors/font. It needs no login,
+// customer session, cart, checkout readiness, or private page middleware.
+if(isPostgresPreview) app.get('/theme/shop.css',async(req,res,next)=>{
+  try {
+    const [brandPrimary,brandAccent,font]=await Promise.all([
+      getSetting('appearance_brand_primary',''),
+      getSetting('appearance_brand_accent',''),
+      getSetting('appearance_font','')
+    ]);
+    const appearance=normalizeAppearance({brandPrimary,brandAccent,font});
+    const css=appearanceCss(appearance);
+    const revision=app.locals.themeRevision(appearance);
+    // Do not cache a mismatched old URL with newly changed theme bytes.
+    const versioned=typeof req.query.appearance==='string' && req.query.appearance===revision;
+    res.type('text/css; charset=utf-8').set('Cache-Control',versioned?'private, max-age=86400':'private, no-store');
+    return res.send(css);
+  } catch(error) { return next(error); }
+});
 // Settings can contain four policy texts in English, Sorani, Arabic and Dutch (up to 160k
 // characters total). URL-encoded UTF-8 can expand Arabic/Kurdish text substantially,
 // so allow up to 2 MiB while keeping the request body explicitly bounded.
@@ -400,8 +421,7 @@ app.get('/uploads/:filename',uploadAssetLimiter,async(req,res,next)=>{
       if (cached) return res.status(cached.status).set('Content-Type',cached.headers.get('Content-Type')||'image/webp').set('Cache-Control','public, max-age=31536000, immutable').set('X-Content-Type-Options','nosniff').send(Buffer.from(await cached.arrayBuffer()));
     }
     if (!usesDatabaseImageStorage) return res.sendStatus(404);
-    const result=await db.execute({sql:'SELECT content_type,data FROM uploaded_assets WHERE path=?',args:[`/uploads/${filename}`]});
-    const asset=result.rows[0];
+    const asset=await getRow('SELECT content_type,data FROM uploaded_assets WHERE path=?',[`/uploads/${filename}`]);
     if(!asset) return res.sendStatus(404);
     if(!['image/jpeg','image/png','image/webp'].includes(asset.content_type)) return res.sendStatus(404);
     const bytes=Buffer.from(asset.data);
