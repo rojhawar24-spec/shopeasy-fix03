@@ -1,4 +1,4 @@
-name: ShopEasy real PostgreSQL backend (SKU corrected)
+name: ShopEasy PostgreSQL and Manager MFA regression
 on:
   push:
     paths:
@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: staging-source
+          ref: '8e7ca7e842acee5390634d10d03906a3aa3c888d'
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
@@ -51,6 +51,6 @@ jobs:
       - name: Install dependencies and pinned test-only PostgreSQL driver
         run: |
           npm ci --include=dev
-          npm install --no-save --package-lock=false --ignore-scripts pg@8.16.3
+          node -e "if (require('./package.json').dependencies.pg !== '8.16.3') process.exit(1)"
       - name: Test original ShopEasy backend on real PostgreSQL
-        run: node --test postgres/backend.integration.test.mjs
+        run: node --test postgres/legacy-query.test.mjs postgres/bridge.test.mjs postgres/backend.integration.test.mjs
