@@ -1,0 +1,54 @@
+name: Extract ShopEasy source
+on:
+  push:
+    paths:
+      - '.github/workflows/extract-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Validate and extract nested project
+        run: |
+          python3 - <<'PY'
+          import io, zipfile, stat, pathlib, re
+          with zipfile.ZipFile("ShopEasy-FIX03-GitHub-Upload-Kit.zip") as outer:
+              data=outer.read("ShopEasy-2.8.95-FIX03-FULL-PROJECT.zip")
+          with zipfile.ZipFile(io.BytesIO(data)) as z:
+              items=z.infolist()
+              assert sum(x.file_size for x in items)<500_000_000
+              for x in items:
+                  p=pathlib.PurePosixPath(x.filename)
+                  assert not p.is_absolute() and ".." not in p.parts and chr(92) not in x.filename
+                  assert not stat.S_ISLNK(x.external_attr >> 16)
+              roots=[pathlib.PurePosixPath(x.filename).parent for x in items if pathlib.PurePosixPath(x.filename).name=="package.json" and "node_modules" not in pathlib.PurePosixPath(x.filename).parts]
+              assert roots
+              root=min(roots,key=lambda p:len(p.parts))
+              count=0
+              for x in items:
+                  p=pathlib.PurePosixPath(x.filename)
+                  if x.is_dir() or not p.is_relative_to(root): continue
+                  rel=p.relative_to(root)
+                  if any(k.lower() in {".git",".github","node_modules",".venv","backups","uploads"} for k in rel.parts): continue
+                  n=rel.name.lower()
+                  if (n.startswith(".env") and n not in {".env.example",".env.sample"}) or n.endswith((".sqlite",".sqlite3",".db",".pem",".key",".p12",".pfx",".zip")) or n in {".npmrc",".netrc"}: continue
+                  b=z.read(x)
+                  if re.search(rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|sb_secret_[A-Za-z0-9_-]{15,}|ghp_[A-Za-z0-9]{30,}',b): raise ValueError("Potential secret in "+str(rel))
+                  target=pathlib.Path("source")/rel
+                  target.parent.mkdir(parents=True,exist_ok=True)
+                  target.write_bytes(b)
+                  count+=1
+              print("Extracted files:",count)
+          PY
+      - name: Commit source to separate branch
+        run: |
+          git switch -c staging-source
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add source
+          git commit -m "Extract FIX03 source for staging review"
+          git push origin HEAD:refs/heads/staging-source
