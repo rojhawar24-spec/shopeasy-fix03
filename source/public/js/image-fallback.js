@@ -37,6 +37,8 @@
 
   const handleImageError = (image) => {
     if (!(image instanceof HTMLImageElement)) return;
+    // The upload editor owns its own error state; a placeholder must not pass as a selected photo.
+    if (image.getAttribute('data-product-cover-preview-image') != null || image.closest('[data-gallery-stage]')) return;
     const candidates = candidatesFor(image);
     if (!candidates.length) return;
     const failedUrl = normalize(image.currentSrc || image.src || '');

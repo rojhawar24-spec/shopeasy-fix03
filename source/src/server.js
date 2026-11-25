@@ -164,7 +164,8 @@ app.use(helmet({
       defaultSrc:["'self'"],
       scriptSrc:["'self'"],
       styleSrc:["'self'"],
-      imgSrc:["'self'","data:","https:"],
+      // Local file previews use browser-owned object URLs. This does not allow blob scripts.
+      imgSrc:["'self'","data:","https:","blob:"],
       fontSrc:["'self'"],
       connectSrc:["'self'"],
       objectSrc:["'none'"],

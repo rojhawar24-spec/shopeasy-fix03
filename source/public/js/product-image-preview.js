@@ -24,28 +24,39 @@
     releasePreviewUrl();
     currentObjectUrl = URL.createObjectURL(file);
     const selectedUrl = currentObjectUrl;
-    image.onload = () => {
+    preview.dataset.previewProcessing = 'true';
+    delete preview.dataset.previewInvalid;
+    delete preview.dataset.previewQuality;
+    image.src = '/assets/product-placeholder.svg';
+    status.textContent = 'Checking the selected photo…';
+    // Decode only the actual selected file, never the visible fallback image.
+    const probe = new Image();
+    probe.onload = () => {
       if (currentObjectUrl !== selectedUrl) return;
-      const width = image.naturalWidth, height = image.naturalHeight;
-      if (!width || !height) return;
+      delete preview.dataset.previewProcessing;
+      const width = probe.naturalWidth, height = probe.naturalHeight;
+      if (!width || !height) {
+        markInvalid('This photo cannot be opened. Choose a valid JPG, PNG or WebP and try again.');
+        return;
+      }
+      image.src = selectedUrl;
       const lowResolution = width < 500 || height < 500;
       const nonSquare = Math.abs(width / height - 1) > 0.1;
       preview.dataset.previewQuality = lowResolution || nonSquare ? 'review' : 'good';
-      const sizeInfo = `${width} × ${height} px`;
       const issues = [
         lowResolution ? 'Too small: use at least 500 × 500 px for Google Merchant.' : '',
         nonSquare ? 'ShopEasy crops to square. Keep the whole item centred.' : ''
       ].filter(Boolean);
-      const baseStatus = `${sizeInfo} · ${(file.size / 1024).toFixed(0)} KB.`;
+      const baseStatus = `${width} × ${height} px · ${(file.size / 1024).toFixed(0)} KB.`;
       status.textContent = issues.length ? `${baseStatus} PHOTO CHECK: ${issues.join(' ')}` : `${baseStatus} Ready to save.`;
     };
-    image.onerror = () => {
+    probe.onerror = () => {
       if (currentObjectUrl !== selectedUrl) return;
+      delete preview.dataset.previewProcessing;
       markInvalid('This photo cannot be opened. Choose a valid JPG, PNG or WebP and try again.');
-      image.onerror = null;
       image.src = '/assets/product-placeholder.svg';
     };
-    image.src = selectedUrl;
+    probe.src = selectedUrl;
     preview.hidden = false;
   };
   const markInvalid = (message) => {
@@ -133,7 +144,6 @@
     title.textContent = originalFile.name;
     if (originalFile.size <= MAX_BYTES) {
       showFile(originalFile);
-      status.textContent = `${(originalFile.size / 1024).toFixed(0)} KB · Preview only. Save the product to store this photo.`;
       return;
     }
 
@@ -150,7 +160,6 @@
       delete preview.dataset.previewInvalid;
       showFile(optimizedFile);
       title.textContent = optimizedFile.name;
-      status.textContent = `Optimized to ${(optimizedFile.size / 1024).toFixed(0)} KB · Preview only. Save the product to store this photo.`;
     } catch {
       if (token !== selectionToken) return;
       delete preview.dataset.previewProcessing;
@@ -211,7 +220,7 @@
       event.preventDefault();
       status.textContent = preview.dataset.previewProcessing === 'true'
         ? 'Please wait for photo optimization to finish before saving.'
-        : `${status.textContent} The product was not submitted because this photo is not ready to upload.`;
+        : 'The selected photo could not be read. Select a valid JPG, PNG or WebP before saving.';
       input.focus();
     }
   });
