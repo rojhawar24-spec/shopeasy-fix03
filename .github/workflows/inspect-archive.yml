@@ -1,0 +1,33 @@
+name: Inspect ShopEasy archive
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-archive.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Inspect archive without executing project code
+        run: |
+          python3 - <<'PY'
+          import zipfile
+          from pathlib import PurePosixPath
+          with zipfile.ZipFile("ShopEasy-FIX03-GitHub-Upload-Kit.zip") as z:
+              entries=z.infolist()
+              print("Entries:",len(entries))
+              print("Uncompressed bytes:",sum(x.file_size for x in entries))
+              for x in entries:
+                  p=PurePosixPath(x.filename)
+                  if p.is_absolute() or ".." in p.parts:
+                      raise ValueError("Unsafe archive path")
+              for x in entries[:150]:
+                  print(repr(x.filename))
+              print("Nested archives:", [x.filename for x in entries if x.filename.lower().endswith(".zip")])
+          PY
