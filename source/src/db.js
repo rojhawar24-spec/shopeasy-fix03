@@ -1,6 +1,6 @@
 import crypto from 'node:crypto';
 import { giftCardHash, generateGiftCardCode, validGiftCardCode, giftCardCanCover } from './gift-cards.js';
-import { db, execute, executeMultiple, getRow, getRows, run } from './database.js';
+import { db, execute, executeMultiple, getRow, getRows, run, isPostgresStaging } from './database.js';
 import { normalizeProductDiscountPercent, applyPercentDiscountCents, requirePurchaseCostCents, safeMinorUnitsAdd, safeMinorUnitsMultiply, safePercentOfMinorUnits } from './pricing.js';
 import { isValidPhone, isValidCurrency, currencyMinorUnitFactor, currencyMinorUnitDigits } from './security.js';
 import { CURRENCY_SENSITIVE_COUPON_WHERE } from './settings-inputs.js';
@@ -15,6 +15,9 @@ import { validCustomerApprovalPasswordHash } from './customer-approval-rules.js'
 import { allocateOrderAccounting, addAccountingAmounts } from './order-accounting.js';
 import { ORDER_EMAIL_LEASE_MS, ORDER_EMAIL_RETRY_WINDOW_MS, ORDER_EMAIL_MAX_ATTEMPTS, validOrderEmailPayload } from './order-email-delivery-rules.js';
 
+const upsertSetting = (key,value) => run('INSERT INTO settings(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value',[key,value]);
+
+if (!isPostgresStaging) {
 await execute('PRAGMA foreign_keys = ON');
 await executeMultiple(`
 CREATE TABLE IF NOT EXISTS users (
@@ -489,8 +492,6 @@ CREATE INDEX IF NOT EXISTS idx_product_reviews_public ON product_reviews(product
 
 // Settings writer must exist before startup migrations use it. Keep this declaration
 // immediately after schema creation to avoid a temporal-dead-zone failure at startup.
-const upsertSetting = (key,value) => run('INSERT INTO settings(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value',[key,value]);
-
 // Idempotent column migration helper. Multiple serverless cold starts can race
 // between PRAGMA table_info and ALTER TABLE. Ignore an ALTER error only if a fresh
 // schema read proves another instance already added the exact target column.
@@ -774,6 +775,8 @@ if ((await getSetting('legacy_storewide_discount_migrated','0')) !== '1') {
   const safeLegacy = normalizeProductDiscountPercent(legacy);
   if (safeLegacy > 0) await run('UPDATE products SET automatic_discount_percent=? WHERE automatic_discount_percent=0',[safeLegacy]);
   await upsertSetting('legacy_storewide_discount_migrated', '1');
+}
+
 }
 
 const slugify = (value) => value.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
