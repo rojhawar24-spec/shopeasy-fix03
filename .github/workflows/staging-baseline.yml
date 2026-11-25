@@ -35,6 +35,8 @@ jobs:
               target.write_bytes(inner.read(matches[0]))
               print("Original CI contract restored")
           PY
+      - name: PostgreSQL compatibility unit tests
+        run: node --test postgres/legacy-query.test.mjs
       - name: Install locked dependencies
         run: npm ci
       - name: Syntax and lint
