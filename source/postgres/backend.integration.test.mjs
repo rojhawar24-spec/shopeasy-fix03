@@ -1,0 +1,23 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {db as connection, run} from '../src/database.js';
+const core = await import('../src/db.js');
+test('real PostgreSQL: settings, account, session, category, catalog', async () => {
+  assert.equal(await core.getSetting('currency'), 'EUR');
+  await core.setSettings([['integration_marker','ok'],['integration_marker2','ok']]);
+  assert.equal(await core.getSetting('integration_marker'),'ok');
+  const userId=await core.createUser('integration@example.invalid','fixture-not-a-real-password-hash','customer','Integration User');
+  assert.ok(Number.isSafeInteger(userId)&&userId>0);
+  const sessionId=await core.createSession(userId);
+  const session=await core.getSession(sessionId);
+  assert.equal(session.user_id,userId);
+  const categoryId=await core.createCategory('Integration category','integration-category');
+  assert.ok(categoryId>0);
+  assert.ok((await core.listCategories()).some(c=>c.id===categoryId));
+  const product=await run('INSERT INTO products(name,slug,price_cents,stock,category_id,active) VALUES(?,?,?,?,?,?)',['Integration product','integration-product',1599,8,categoryId,1]);
+  assert.ok(product.lastInsertRowid>0);
+  assert.equal((await core.getProductById(product.lastInsertRowid)).name,'Integration product');
+  assert.equal(await core.countProducts({search:'integration'}),1);
+  assert.ok((await core.listProducts({search:'integration',category:'integration-category'})).some(p=>p.id===product.lastInsertRowid));
+});
+test.after(async()=>{await connection.close();});
