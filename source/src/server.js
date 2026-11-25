@@ -1292,10 +1292,14 @@ function boundedPage(value,total,pageSize) {
 }
 
 app.get('/',async(req,res)=>{
-  const [featuredProducts,latestProducts,categories]=await Promise.all([
+  const [featuredProducts,latestProducts,categories,heroSettings]=await Promise.all([
     listProducts({onlyActive:true,featured:true,sort:'featured',limit:8,offset:0}),
     listProducts({onlyActive:true,sort:'newest',limit:32,offset:0}),
-    listCategories({activeOnly:true})
+    listCategories({activeOnly:true}),
+    Promise.all([
+      ...BRANDING_FIELDS.map(field=>getSetting(`hero_${field}_${BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en'}`,BRANDING_DEFAULTS[BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en'][field])),
+      getSetting('hero_image',''),getSetting('hero_image_mode','catalogue')
+    ])
   ]);
   const products=featuredProducts.length ? featuredProducts : latestProducts.slice(0,8);
   // Always give recent, non-featured products a visible place instead of hiding
@@ -1305,11 +1309,7 @@ app.get('/',async(req,res)=>{
   // A legacy/default /assets hero is not a manager-selected image. Only a real
   // uploaded asset or trusted HTTPS image may override the current catalogue photo.
   // This prevents the old editorial placeholder from masking the seller's product.
-  const [heroEyebrow,heroTitle,heroAccent,heroDescription,savedHeroImage,savedHeroImageMode]=await Promise.all([
-    ...BRANDING_FIELDS.map(field=>getSetting(`hero_${field}_${BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en'}`,BRANDING_DEFAULTS[BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en'][field])),
-    getSetting('hero_image',''),
-    getSetting('hero_image_mode','catalogue')
-  ]);
+  const [heroEyebrow,heroTitle,heroAccent,heroDescription,savedHeroImage,savedHeroImageMode]=heroSettings;
   const rawHeroImage=String(savedHeroImage||'').trim();
   // Only the explicit Manager choice `custom` can replace the product spotlight.
   // Legacy `hero_image` settings are treated as stale defaults and cannot mask new products.
@@ -1336,13 +1336,14 @@ app.get('/category/:slug',async(req,res)=>{
   const resolvedSeo=resolveCatalogueSeoPagination({canonical:res.locals.seoCanonicalUrl,alternates:res.locals.seoAlternateLinks,pageNumber:page});
   res.locals.seoCanonicalUrl=resolvedSeo.canonical;
   res.locals.seoAlternateLinks=resolvedSeo.alternates;
-  const [products,categories,nextProbe,allCategories]=await Promise.all([
-    listProducts({...productQuery,limit:pageSize,offset}),listCategories({activeOnly:true}),
-    listProducts({...productQuery,limit:1,offset:offset+pageSize}),listCategories({activeOnly:true})
+  const [pageRows,categories]=await Promise.all([
+    listProducts({...productQuery,limit:pageSize+1,offset}),listCategories({activeOnly:true})
   ]);
+  const products=pageRows.slice(0,pageSize), allCategories=categories;
+  const hasNext=pageRows.length>pageSize;
   const childCategories=allCategories.filter(c=>Number(c.parent_id)===Number(categoryInfo.id));
   const categoryPath=buildCategoryPath(allCategories,categoryInfo.id);
-  render(res,'shop',{products,categories,search,category:categorySlug,sort,...filters,page,pageSize,hasNext:Boolean(nextProbe.length),hasPrev:page>1,resultCount,aiSearchUsed:false,categoryInfo,childCategories,categoryPath,cartError:safeCartError(req.query.cartError),added:req.query.added==='1',securityNotice:req.query.notice==='security-refresh'});
+  render(res,'shop',{products,categories,search,category:categorySlug,sort,...filters,page,pageSize,hasNext,hasPrev:page>1,resultCount,aiSearchUsed:false,categoryInfo,childCategories,categoryPath,cartError:safeCartError(req.query.cartError),added:req.query.added==='1',securityNotice:req.query.notice==='security-refresh'});
 });
 app.get('/shop',optionalAiShopSearchLimiter,async(req,res)=>{
   const search=cleanText(req.query.search,80),category=cleanText(req.query.category,80),sort=cleanText(req.query.sort,30),pageSize=24;
@@ -1356,11 +1357,11 @@ app.get('/shop',optionalAiShopSearchLimiter,async(req,res)=>{
   const resolvedSeo=resolveCatalogueSeoPagination({canonical:res.locals.seoCanonicalUrl,alternates:res.locals.seoAlternateLinks,pageNumber:page});
   res.locals.seoCanonicalUrl=resolvedSeo.canonical;
   res.locals.seoAlternateLinks=resolvedSeo.alternates;
-  const [products,categories,nextProbe]=await Promise.all([
-    listProducts({...productQuery,limit:pageSize,offset}),listCategories({activeOnly:true}),
-    listProducts({...productQuery,limit:1,offset:offset+pageSize})
+  const [pageRows,categories]=await Promise.all([
+    listProducts({...productQuery,limit:pageSize+1,offset}),listCategories({activeOnly:true})
   ]);
-  render(res,'shop',{products,categories,search,category,sort,...filters,page,pageSize,hasNext:Boolean(nextProbe.length),hasPrev:page>1,resultCount,aiSearchUsed:searchAlternatives.length>0,categoryInfo:null,childCategories:[],categoryPath:[],cartError:safeCartError(req.query.cartError),added:req.query.added==='1',securityNotice:req.query.notice==='security-refresh'});
+  const products=pageRows.slice(0,pageSize),hasNext=pageRows.length>pageSize;
+  render(res,'shop',{products,categories,search,category,sort,...filters,page,pageSize,hasNext,hasPrev:page>1,resultCount,aiSearchUsed:searchAlternatives.length>0,categoryInfo:null,childCategories:[],categoryPath:[],cartError:safeCartError(req.query.cartError),added:req.query.added==='1',securityNotice:req.query.notice==='security-refresh'});
 });
 app.get('/api/search',searchLimiter,async(req,res)=>{
   if(!res.locals.featureAutocompleteEnabled)return res.status(404).json({error:'Autocomplete disabled'});
@@ -1376,15 +1377,16 @@ app.get('/product/:slug',async(req,res)=>{
   const isManager=String(req.user?.role||'').trim().toLowerCase()==='manager';
   // Fetch persisted history/reservation facts only for managers so the customer
   // page can show safe lifecycle controls without adding cost to normal browsing.
-  const managerProduct=isManager?await getProductById(product.id):null;
-  const [currency,variants,images,relatedCandidates,shippingFeeSetting,shippingZoneRulesText,deliveryCountriesSetting]=await Promise.all([
+  const [currency,variants,images,relatedCandidates,shippingFeeSetting,shippingZoneRulesText,deliveryCountriesSetting,managerProduct,reviewData]=await Promise.all([
     getSetting('currency',DEFAULT_STORE_CURRENCY),
     listProductVariants(product.id),
     listProductImages(product.id),
     res.locals.featureRelatedProductsEnabled?listProducts({category:product.category_slug||'',onlyActive:true,limit:12,offset:0,sort:'featured'}):Promise.resolve([]),
     getSetting('shipping_fee_cents','0'),
     getSetting('shipping_zone_rules',''),
-    getSetting('delivery_countries','')
+    getSetting('delivery_countries',''),
+    isManager?getProductById(product.id):Promise.resolve(null),
+    res.locals.appearance.reviews ? Promise.all([visibleReviews(product.id),reviewSummary(product.id),req.user?.role==='customer'?userCanReview(req.user.id,product.id):Promise.resolve(false)]) : Promise.resolve([[],{count:0,average:0},false])
   ]);
   const deliveryCountries=normalizeDeliveryCountries(deliveryCountriesSetting);
   const shippingRuleValidation=parseShippingZoneRules(shippingZoneRulesText,currency,deliveryCountries);
@@ -1428,9 +1430,7 @@ app.get('/product/:slug',async(req,res)=>{
     crumbs.push({'@type':'ListItem',position:crumbs.length+1,name:product.name,item:productUrl});
     res.locals.breadcrumbJsonLdSafe=serializeJsonLdSafely({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:crumbs});
   }
-  const [reviews,reviewStats,canReview]=res.locals.appearance.reviews
-    ? await Promise.all([visibleReviews(product.id),reviewSummary(product.id),req.user?.role==='customer'?userCanReview(req.user.id,product.id):Promise.resolve(false)])
-    : [[],{count:0,average:0},false];
+  const [reviews,reviewStats,canReview]=reviewData;
   render(res,'product',{product,managerProduct,isManager,variants,images,shippingDisplay,selectedVariantId,relatedProducts,reviews,reviewStats,canReview,reviewNotice:cleanText(req.query.review,24),alertNotice:cleanText(req.query.alert,24),description:String(product.short_description||product.description||'').slice(0,290),productJsonLdSafe,cartError:safeCartError(req.query.cartError),added:req.query.added==='1'});
 });
 

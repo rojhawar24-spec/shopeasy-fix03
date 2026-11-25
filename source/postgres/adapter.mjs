@@ -26,8 +26,9 @@ export function createPostgresAdapter(pool) {
       // All adapter writes, including standalone ones, take the same transaction lock.
       // This preserves SQLite's single-writer assumption while the SQL port is validated.
       if (mode === 'write') await client.query('SELECT pg_advisory_xact_lock(183624, 289503)');
-      await client.query('SET LOCAL search_path = pg_catalog, shopeasy, extensions');
-      await client.query("SET LOCAL TIME ZONE 'UTC'");
+      // Both constant SET commands use one simple-protocol round trip.
+      // They stay scoped to this transaction, including through the pooler.
+      await client.query("SET LOCAL search_path = pg_catalog, shopeasy, extensions; SET LOCAL TIME ZONE 'UTC'");
     } catch (error) {
       try { await client.query('ROLLBACK'); } catch {}
       client.release(true);

@@ -23,7 +23,7 @@ if (isPostgresStaging) {
   if (isPostgresPreview && (endpoint.protocol !== 'postgresql:' || !/^aws-[0-9]+-eu-central-1\.pooler\.supabase\.com$/.test(endpoint.hostname) || endpoint.port !== '6543' || endpoint.username !== 'shopeasy_runtime.vpvxztfqwtczflhxzwuw' || endpoint.pathname !== '/postgres' || !endpoint.password || endpoint.search)) throw new Error('Invalid staging database configuration');
   const {Pool} = await import('pg');
   const {createLegacyBridge} = await import('../postgres/bridge.mjs');
-  rawClient = createLegacyBridge(new Pool({connectionString,max:3,connectionTimeoutMillis:5000,idleTimeoutMillis:5000,...(isPostgresPreview ? {ssl:{ca:fs.readFileSync(new URL('../postgres/supabase-ca.pem',import.meta.url),'utf8'),rejectUnauthorized:true}} : {})}),{runtime:true});
+  rawClient = createLegacyBridge(new Pool({connectionString,max:3,connectionTimeoutMillis:5000,idleTimeoutMillis:isPostgresPreview?30000:5000,...(isPostgresPreview ? {ssl:{ca:fs.readFileSync(new URL('../postgres/supabase-ca.pem',import.meta.url),'utf8'),rejectUnauthorized:true}} : {})}),{runtime:true});
 } else {
 const isCloudflareWorker = process.env.CLOUDFLARE_WORKER === '1';
 const isRemoteProduction = isCloudflareWorker;
