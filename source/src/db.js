@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import { createSettingsBatcher } from '../postgres/settings-batcher.mjs';
 import { giftCardHash, generateGiftCardCode, validGiftCardCode, giftCardCanCover } from './gift-cards.js';
 import { db, execute, executeMultiple, getRow, getRows, run, isPostgresStaging } from './database.js';
 import { normalizeProductDiscountPercent, applyPercentDiscountCents, requirePurchaseCostCents, safeMinorUnitsAdd, safeMinorUnitsMultiply, safePercentOfMinorUnits } from './pricing.js';
@@ -15,6 +16,12 @@ import { validCustomerApprovalPasswordHash } from './customer-approval-rules.js'
 import { allocateOrderAccounting, addAccountingAmounts } from './order-accounting.js';
 import { ORDER_EMAIL_LEASE_MS, ORDER_EMAIL_RETRY_WINDOW_MS, ORDER_EMAIL_MAX_ATTEMPTS, validOrderEmailPayload } from './order-email-delivery-rules.js';
 
+// Group concurrent reads, without retaining settings between batches or caching
+// any user/session data. Each missing key retains its caller's own fallback.
+const batchedSetting = createSettingsBatcher(async keys => {
+  const rows = await getRows('SELECT key,value FROM settings WHERE key IN ('+keys.map(()=>'?').join(',')+')',keys);
+  return new Map(rows.map(row=>[row.key,row.value]));
+});
 const upsertSetting = (key,value) => run('INSERT INTO settings(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value',[key,value]);
 
 if (!isPostgresStaging) {
@@ -782,6 +789,26 @@ if ((await getSetting('legacy_storewide_discount_migrated','0')) !== '1') {
 const slugify = (value) => value.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
 const escapeLike = value => String(value ?? '').replace(/!/g,'!!').replace(/%/g,'!%').replace(/_/g,'!_');
 
+if (isPostgresStaging) {
+  const defaults = new Map([
+    ['store_name',getStoreName(process.env.STORE_NAME)],
+    ['ai_enabled','0'],['market_setup_mode','standard'],
+    ['payment_mode','cash_on_delivery'],['payment_provider','none'],
+    ['payment_merchant_country',''],['bank_contact_name',''],
+    ['bank_contact_email',''],['bank_contact_phone',''],['bank_contact_reference','']
+  ]);
+  const keys=[...defaults.keys(),'currency'];
+  const existing=new Set((await getRows('SELECT key FROM settings WHERE key IN ('+keys.map(()=>'?').join(',')+')',keys)).map(row=>row.key));
+  if(!existing.has('currency')){
+    const counts=await Promise.all([getRow('SELECT COUNT(*) AS c FROM products'),getRow('SELECT COUNT(*) AS c FROM orders'),getRow('SELECT COUNT(*) AS c FROM coupons')]);
+    const configured=String(process.env.STORE_CURRENCY||DEFAULT_STORE_CURRENCY).toUpperCase();
+    defaults.set('currency',counts.some(row=>Number(row?.c||0)>0)?'EUR':(isValidCurrency(configured)?configured:'EUR'));
+  }
+  const missing=[...defaults].filter(([key])=>!existing.has(key));
+  if(missing.length) {
+    await db.batch(missing.map(([key,value])=>({sql:'INSERT INTO settings(key,value) VALUES(?,?) ON CONFLICT(key) DO NOTHING',args:[key,value]})),'write');
+  }
+} else {
 if (!await getRow('SELECT 1 FROM settings WHERE key=?',['store_name'])) await upsertSetting('store_name', getStoreName(process.env.STORE_NAME));
 if (!await getRow('SELECT 1 FROM settings WHERE key=?',['currency'])) {
   // Earlier releases stored prices as EUR minor units without always persisting an explicit currency.
@@ -803,6 +830,8 @@ for (const key of ['bank_contact_name','bank_contact_email','bank_contact_phone'
   if (!await getRow('SELECT 1 FROM settings WHERE key=?',[key])) await upsertSetting(key,'');
 }
 
+}
+
 if (process.env.SEED_DEMO_DATA === 'true' && Number((await getRow('SELECT COUNT(*) AS c FROM categories')).c) === 0) {
   for (const name of ['New arrivals', 'Accessories', 'Clothing', 'Home', 'Technology']) await run('INSERT INTO categories(name,slug) VALUES(?,?)',[name,slugify(name)]);
 }
@@ -819,6 +848,16 @@ if (process.env.SEED_DEMO_DATA === 'true' && Number((await getRow('SELECT COUNT(
 
 export async function cleanupSessions() {
   const now=Date.now(), idleMs=2*60*60*1000, absoluteMs=30*24*60*60*1000, loginWindowMs=15*60*1000;
+  if(isPostgresStaging){
+    // One transaction rather than four independently serialized transactions.
+    await db.batch([
+      {sql:'DELETE FROM sessions WHERE expires_at<=? OR (last_activity_at>0 AND last_activity_at<=?) OR (absolute_expires_at>0 AND absolute_expires_at<=?)',args:[now,now-idleMs,now]},
+      {sql:'DELETE FROM account_login_limits WHERE window_started_at_ms<=? AND blocked_until_ms<=?',args:[now-loginWindowMs,now]},
+      {sql:'DELETE FROM email_verification_tokens WHERE expires_at_ms<=?',args:[now]},
+      {sql:'DELETE FROM password_reset_tokens WHERE expires_at_ms<=?',args:[now]}
+    ],'write');
+    return;
+  }
   await run('DELETE FROM sessions WHERE expires_at<=? OR (last_activity_at>0 AND last_activity_at<=?) OR (absolute_expires_at>0 AND absolute_expires_at<=?)',[now,now-idleMs,now]);
   // Bound the lifetime of ephemeral authentication rows. Without this cleanup,
   // random-email login attempts and abandoned verification/reset links can grow
@@ -1731,7 +1770,10 @@ export async function adminCreateOrUpdateCoupon(data) {
   return Number((await run('INSERT INTO coupons(code,type,value,min_subtotal_cents,expires_at,active) VALUES(?,?,?,?,?,?)',values)).lastInsertRowid);
 }
 export async function deleteCoupon(id) { return (await run('DELETE FROM coupons WHERE id=?',[id])).changes===1; }
-export async function getSetting(key, fallback='') { return (await getRow('SELECT value FROM settings WHERE key=?',[key]))?.value ?? fallback; }
+export async function getSetting(key, fallback='') {
+  if (isPostgresStaging && typeof key === 'string') return batchedSetting(key,fallback);
+  return (await getRow('SELECT value FROM settings WHERE key=?',[key]))?.value ?? fallback;
+}
 export function getProductDiscountPercent(product) { return normalizeProductDiscountPercent(product?.automatic_discount_percent); }
 export async function setSetting(key, value) { await upsertSetting(key, value); }
 export async function setSettings(entries) {

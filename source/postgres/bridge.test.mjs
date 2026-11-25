@@ -33,3 +33,15 @@ test('batch commits once',async()=>{
   assert.equal(result.length,2);
   assert.equal(log.filter(x=>x==='COMMIT').length,1);
 });
+
+test('explicit read avoids the writer advisory lock; writes still take it',async()=>{
+  const {log,bridge}=fixture();
+  await bridge.executeRead({sql:'SELECT value FROM settings WHERE key=?',args:['currency']});
+  assert.equal(log[0],'BEGIN READ ONLY');
+  assert.ok(!log.some(q=>typeof q==='string'&&q.includes('pg_advisory_xact_lock')));
+  assert.ok(log.includes('COMMIT'));
+  log.length=0;
+  await bridge.execute({sql:'INSERT INTO products(name) VALUES(?)',args:['fixture']});
+  assert.equal(log[0],'BEGIN');
+  assert.ok(log.some(q=>typeof q==='string'&&q.includes('pg_advisory_xact_lock')));
+});

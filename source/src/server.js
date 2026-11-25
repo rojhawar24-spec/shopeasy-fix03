@@ -85,6 +85,12 @@ app.disable('x-powered-by');
 if (isPostgresPreview) {
   app.use((req,res,next)=>{
     res.set('X-Robots-Tag','noindex, nofollow');
+    const started=performance.now();
+    const originalWriteHead=res.writeHead;
+    res.writeHead=function(...args){
+      if(!this.headersSent) this.setHeader('Server-Timing','app;dur='+(performance.now()-started).toFixed(1));
+      return originalWriteHead.apply(this,args);
+    };
     if (!['GET','HEAD','OPTIONS'].includes(req.method) && (req.path === '/checkout' || req.path.startsWith('/checkout/') || req.path.startsWith('/payments/') || req.path.startsWith('/admin/peppol') || req.path.startsWith('/admin/newsletter/send'))) {
       return res.status(503).type('text/plain').send('Live sales and external deliveries are disabled in this staging environment.');
     }
@@ -4068,6 +4074,7 @@ async function bootstrapManager(){
   }
 }
 await cleanupSessions();
+if(isPostgresPreview) lastRequestMaintenanceAt=Date.now();
 await bootstrapManager();
 const port=Number(process.env.PORT||3000);
 if (process.env.CLOUDFLARE_WORKER === '1') {

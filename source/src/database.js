@@ -85,13 +85,22 @@ export async function executeMultiple(sql, connection = db) {
   return connection.executeMultiple(sql);
 }
 
+// PostgreSQL enforces read-only transactions. Do not route side-effecting
+// SELECT functions or explicit row locks through this path.
+function executeReadQuery(sql, args, connection) {
+  const simpleRead = /^\s*SELECT\b/i.test(sql) && !/\b(?:consume_request_limit|pg_advisory\w*|nextval|setval|set_config|FOR\s+(?:UPDATE|SHARE|NO\s+KEY\s+UPDATE|KEY\s+SHARE))\b/i.test(sql);
+  return isPostgresStaging && connection === db && simpleRead
+    ? db.executeRead({sql,args})
+    : connection.execute({sql,args});
+}
+
 export async function getRow(sql, args = [], connection = db) {
-  const result = await connection.execute({ sql, args });
+  const result = await executeReadQuery(sql,args,connection);
   return result.rows[0] ? { ...result.rows[0] } : undefined;
 }
 
 export async function getRows(sql, args = [], connection = db) {
-  const result = await connection.execute({ sql, args });
+  const result = await executeReadQuery(sql,args,connection);
   return result.rows.map(row => ({ ...row }));
 }
 

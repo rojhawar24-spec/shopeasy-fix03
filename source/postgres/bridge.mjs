@@ -19,6 +19,7 @@ export function createLegacyBridge(pool, {runtime = false} = {}) {
   return {
     close:()=>pool.end(),
     execute(input) { const q=compile(input); return native.execute(q.text,q.values); },
+    executeRead(input) { const q=compile(input); return native.execute(q.text,q.values,'read'); },
     async transaction(mode='write') { return wrap(await native.transaction(mode)); },
     async batch(statements,mode='write') {
       const tx=wrap(await native.transaction(mode));
