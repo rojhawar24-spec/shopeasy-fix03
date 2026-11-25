@@ -1,4 +1,4 @@
-name: ShopEasy real PostgreSQL backend
+name: ShopEasy real PostgreSQL backend (SKU corrected)
 on:
   push:
     paths:
