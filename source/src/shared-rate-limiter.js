@@ -34,7 +34,7 @@ export function createShopRateLimiter({ name, windowMs, max, message, fallback, 
       return (async () => {
         const ip = process.env.VERCEL === '1' ? req.get?.('x-vercel-forwarded-for') : req.ip;
         if (typeof ip !== 'string' || !isIP(ip)) return unavailable(req,res,next);
-        const actorKey=crypto.createHash('sha256').update(name+'\\0'+ip).digest('hex');
+        const actorKey=crypto.createHash('sha256').update(name+'\0'+ip).digest('hex');
         const {isPostgresStaging,getRow}=await import('./database.js');
         if (!isPostgresStaging) return unavailable(req,res,next);
         const result=await getRow('SELECT * FROM shopeasy.consume_request_limit(?,?,?)',[actorKey,max,windowMs]);
