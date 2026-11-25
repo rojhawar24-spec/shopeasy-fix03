@@ -3,10 +3,10 @@ import {compileLegacyQuery} from './legacy-query.mjs';
 
 // Explicit opt-in bridge for staging integration tests, not a production switch.
 // The caller owns the pool, its credentials and its shutdown lifecycle.
-export function createLegacyBridge(pool) {
+export function createLegacyBridge(pool, {runtime = false} = {}) {
   const native = createPostgresAdapter(pool);
   function compile(input) {
-    return typeof input === 'string' ? compileLegacyQuery(input) : compileLegacyQuery(input.sql,input.args ?? []);
+    return typeof input === 'string' ? compileLegacyQuery(input, [], {runtime}) : compileLegacyQuery(input.sql,input.args ?? [], {runtime});
   }
   function wrap(tx) {
     return {
@@ -17,6 +17,7 @@ export function createLegacyBridge(pool) {
     };
   }
   return {
+    close:()=>pool.end(),
     execute(input) { const q=compile(input); return native.execute(q.text,q.values); },
     async transaction(mode='write') { return wrap(await native.transaction(mode)); },
     async batch(statements,mode='write') {
