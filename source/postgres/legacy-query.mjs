@@ -42,6 +42,19 @@ export function compileLegacyQuery(sql, args = [], {runtime = false} = {}) {
     const word=t.text.toUpperCase();
     if(runtime && word==='GLOB' && significant[j-1]?.text.toUpperCase()==='NOT' && n?.text==="'*[^A-Za-z0-9_-]*'"){significant[j-1].text='';t.text='!~';n.text="'[^A-Za-z0-9_-]'";continue;}
     if(['PRAGMA','AUTOINCREMENT','GLOB','ATTACH','DETACH','VACUUM','SQLITE_MASTER'].includes(word))throw new Error('SQLite-only SQL: '+word);
+    if(word==='COLLATE'&&n?.text.toUpperCase()==='BINARY'){
+      if(!runtime)throw new Error('Explicit PostgreSQL collation required');
+      // SQLite binary equality is case-sensitive, including credential emails.
+      // Casting citext to text is essential: COLLATE C alone does not change
+      // citext's case-insensitive equality operator.
+      const field=significant[j-3], op=significant[j-2], param=significant[j-1];
+      if(!field || !['EMAIL','MFA_SECRET'].includes(field.text.toUpperCase()) || op?.text!=='=' || param?.kind!=='parameter')throw new Error('Unsupported binary credential comparison');
+      const qualifier=significant[j-4]?.text==='.'?significant[j-5]:null;
+      if(qualifier){qualifier.text='CAST('+qualifier.text;field.text+=' AS TEXT)';}
+      else field.text='CAST('+field.text+' AS TEXT)';
+      param.text='CAST('+param.text+' AS TEXT)';
+      n.text='"C"';
+    }
     if(word==='COLLATE'&&n?.text.toUpperCase()==='NOCASE'){if(!runtime)throw new Error('Explicit PostgreSQL collation required');n.text='shopeasy.nocase';}
     if(word==='INSERT'&&n?.text.toUpperCase()==='OR')throw new Error('Explicit PostgreSQL conflict clause required');
     if(['MIN','MAX'].includes(word)&&n?.text==='('){

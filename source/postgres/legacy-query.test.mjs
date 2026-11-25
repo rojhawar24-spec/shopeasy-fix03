@@ -8,3 +8,9 @@ test('scalar minimum and maximum vs aggregate',()=>assert.equal(compile('SELECT 
 test('identity return',()=>assert.equal(compile('INSERT INTO users(email) VALUES(?)',['x']).text,'INSERT INTO users(email) VALUES($1) RETURNING id'));
 test('existing RETURNING and nonidentity table',()=>{assert.equal(compile('INSERT INTO users(email) VALUES(?) RETURNING id',['x']).text,'INSERT INTO users(email) VALUES($1) RETURNING id');assert.equal(compile('INSERT INTO settings(key,value) VALUES(?,?)',['x','y']).text,'INSERT INTO settings(key,value) VALUES($1,$2)');});
 test('fail closed on unsupported SQL and missing values',()=>{for(const s of ["SELECT datetime('now')","SELECT x COLLATE NOCASE FROM users","SELECT ?; SELECT 1","SELECT ? -- test","SELECT @missing","SELECT 'unterminated","PRAGMA table_info(users)","INSERT OR IGNORE INTO users(email) VALUES(?)"])assert.throws(()=>compile(s,[]));assert.throws(()=>compile('SELECT ?',[undefined]));assert.throws(()=>compile('SELECT 1',[1]));});
+
+test('binary credential comparison keeps case-sensitive text semantics in PostgreSQL',()=>{
+  assert.equal(compile('SELECT id FROM users u WHERE u.email=? COLLATE BINARY',['Test@Example.invalid'],{runtime:true}).text,'SELECT id FROM users u WHERE CAST(u.email AS TEXT)=CAST($1 AS TEXT) COLLATE "C"');
+  assert.equal(compile('SELECT id FROM users WHERE mfa_secret=? COLLATE BINARY',['fixture'],{runtime:true}).text,'SELECT id FROM users WHERE CAST(mfa_secret AS TEXT)=CAST($1 AS TEXT) COLLATE "C"');
+  assert.throws(()=>compile('SELECT id FROM users WHERE email=? COLLATE BINARY',['x']));
+});

@@ -1080,7 +1080,7 @@ export async function createMfaLoginChallenge(sessionId,{userId,mode,rememberMe=
   const result=await run(`INSERT INTO mfa_login_challenges(session_id,user_id,expires_at_ms,mode,remember_me,next_path,created_at_ms)
     SELECT s.id,u.id,?,?,?,?,? FROM users u JOIN sessions s ON s.id=?
     WHERE u.id=? AND u.password_hash=? AND u.email=? COLLATE BINARY AND u.role=? AND u.role='manager'
-    AND s.user_id IS NULL AND s.expires_at>? AND ?>?`,[
+    AND s.user_id IS NULL AND s.expires_at>? AND CAST(? AS INTEGER)>CAST(? AS INTEGER)`,[
     Number(expiresAtMs),mode,rememberMe?1:0,String(nextPath||'/admin').slice(0,200),now,String(sessionId),Number(userId),...args,now,Number(expiresAtMs),now
   ]);
   if(result.changes!==1) throw new Error('AUTH_CREDENTIALS_CHANGED');

@@ -20,4 +20,28 @@ test('real PostgreSQL: settings, account, session, category, catalog', async () 
   assert.equal(await core.countProducts({search:'integration'}),1);
   assert.ok((await core.listProducts({search:'integration',category:'integration-category'})).some(p=>p.id===product.lastInsertRowid));
 });
+test('real PostgreSQL: manager MFA enrollment, exact credential proof, challenge, attempt limit and replay protection',async()=>{
+  const proof={email:'mfa-fixture@example.invalid',passwordHash:'not-a-real-password-hash',role:'manager'};
+  const id=await core.createUser(proof.email,proof.passwordHash,proof.role,'CI Manager');
+  const seed='fixture-encrypted-secret';
+  assert.equal(await core.setManagerMfaSecret(id,seed,{...proof,email:proof.email.toUpperCase()}),false);
+  assert.equal(await core.setManagerMfaSecret(id,seed,proof),true);
+  const sid=await core.createSession(null,300000);
+  await core.setSessionCsrf(sid,'fixture-csrf');
+  await core.saveSessionCart(sid,[]);
+  await core.saveSessionWishlist(sid,[]);
+  await core.saveSessionCoupon(sid,null);
+  const expiry=Date.now()+300000;
+  assert.equal(await core.setSessionExpiresAt(sid,expiry),true);
+  await assert.rejects(()=>core.createMfaLoginChallenge(sid,{userId:id,mode:'setup',expiresAtMs:Date.now()-1000,credentialProof:proof}));
+  await core.createMfaLoginChallenge(sid,{userId:id,mode:'setup',expiresAtMs:expiry,credentialProof:proof});
+  assert.equal((await core.getMfaLoginChallenge(sid)).mode,'setup');
+  for(let i=1;i<=6;i++)assert.equal((await core.consumeMfaAttempt(id,'fixture',Date.now(),900000,5)).allowed,i<=5);
+  assert.equal(await core.activateManagerMfa(id,{lastTotpStep:100,recoveryHashes:'[]',expectedSecret:seed,credentialProof:proof}),true);
+  assert.equal(await core.getMfaLoginChallenge(sid),undefined);
+  assert.equal(await core.updateManagerTotpStep(id,100),false);
+  assert.equal(await core.updateManagerTotpStep(id,101),true);
+  const authenticated=await core.createAuthenticatedSession(id,proof);
+  assert.equal((await core.getSession(authenticated)).user_id,id);
+});
 test.after(async()=>{await connection.close();});
