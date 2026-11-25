@@ -22,7 +22,7 @@ import { registrationNotice } from './registration-copy.js';
 import { buildStoreOrganizationStructuredData, serializeJsonLdSafely } from './organization-structured-data.js';
 import { buildProductDeleteRedirect } from './product-list-navigation.js';
 import db, { cleanupSessions, getSetting, setSetting, setSettings, saveStoreSettingsWithCurrency, baseEffectivePrice, effectivePrice as dbEffectivePrice, listCategories, createCategory, updateCategory, deleteCategory, listProducts, countProducts, getProductBySlug, getProductById, getCategoryBySlug, listProductVariants, listProductImages, getProductVariantById, getActiveStories, listStories, getStory, listCoupons, getCoupon, getCouponById, createAudit, listAuditLogs, listOrders, countOrders, getOrder, findOrderByPaymentReference, updatePendingOrderPaymentDetails, attachReconciledMolliePaymentReference, recordMolliePaymentFinancialSnapshot, markProviderOrderPaid, cancelProviderPendingOrder, listOrderStatusHistory, listOrderReturns, listOrderReturnRequests, claimOrderEmailDelivery, finishOrderEmailDelivery, createOrderReturnRequest, processOrderReturn, listLowStockInventory, listUserOrders, countUserOrders, getOrderByClientToken, createOrderAtomic, confirmBankTransferOrderPaid, cancelPendingOrder, requestOrderCancellation, decideOrderCancellationRequest, confirmLegacyPendingOrderAsCod, saveSessionCart, mutateSessionCart, saveSessionCoupon, saveSessionCheckoutQuote, clearSessionCartAfterOrder, getSessionCheckoutCredentials, rotateSessionCheckoutCredentials, createUser, deleteAdminUser, updateUserEmail, promoteBootstrapAdminToManager, setOrderStatus, saveSessionWishlist, adminCreateOrUpdateProduct, archiveProduct, restoreProduct, permanentlyDeleteProduct, restockProduct, restockProductVariant, adminCreateOrUpdateStory, deleteStory, adminCreateOrUpdateCoupon, deleteCoupon, listCustomers, countCustomers, getDashboardStats, getUserAuthByEmail, getUserMfaById, setManagerMfaSecret, createMfaLoginChallenge, getMfaLoginChallenge, activateManagerMfa, updateManagerTotpStep, replaceManagerRecoveryHashes, disableManagerMfa, consumeMfaAttempt, clearMfaAttempts, createSession, setSessionCsrf, setSessionExpiresAt, destroySession, updateUserPassword, createPasswordResetToken, resetPasswordWithCode, createEmailVerificationToken, verifyEmailToken, getCustomerForVerification, isAccountLoginBlocked, recordAccountLoginFailure, clearAccountLoginFailures, findOrderForLookup, exportGdprCustomerData, deleteGdprCustomerData, listGdprAuditLogs, deleteProductImage } from './db.js';
-import { getRow, getRows, run } from './database.js';
+import { getRow, getRows, run, isPostgresPreview } from './database.js';
 import { validatePeppolInvoiceForm, peppolPayloadHash, requestRecommand } from './services/peppol-recommand.js';
 import { claimPeppolSubmission, finishPeppolSubmission, listPeppolSubmissions } from './db.js';
 import { issueGiftCard, listGiftCards, getGiftCardLedger, refundGiftCardOrderCredit } from './db.js';
@@ -63,7 +63,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const root = path.resolve(__dirname,'..');
 const isCloudflareWorker = process.env.CLOUDFLARE_WORKER === '1';
-const usesDatabaseImageStorage = isCloudflareWorker || (process.env.NODE_ENV === 'test' && process.env.TEST_IMAGE_STORAGE_IN_DATABASE === '1');
+const usesDatabaseImageStorage = isPostgresPreview || isCloudflareWorker || (process.env.NODE_ENV === 'test' && process.env.TEST_IMAGE_STORAGE_IN_DATABASE === '1');
 const app = express();
 // Rejections before storefront middleware still need a safe interface translator.
 app.locals.customerText = (value, parameters) => customerText('en', value, parameters);
@@ -81,6 +81,16 @@ if (isCloudflareWorker) {
 app.set('view engine','ejs');
 app.set('views',path.join(root,'views'));
 app.disable('x-powered-by');
+// This deployment is an authenticated evaluation environment, not a commercial launch.
+if (isPostgresPreview) {
+  app.use((req,res,next)=>{
+    res.set('X-Robots-Tag','noindex, nofollow');
+    if (!['GET','HEAD','OPTIONS'].includes(req.method) && (req.path === '/checkout' || req.path.startsWith('/checkout/') || req.path.startsWith('/payments/') || req.path.startsWith('/admin/peppol') || req.path.startsWith('/admin/newsletter/send'))) {
+      return res.status(503).type('text/plain').send('Live sales and external deliveries are disabled in this staging environment.');
+    }
+    return next();
+  });
+}
 
 const isProd = process.env.NODE_ENV === 'production';
 // Warn at startup when production public URLs are not configured for HTTPS.
@@ -572,7 +582,7 @@ app.get('/session/csrf', (req,res)=>{
 let lastRequestMaintenanceAt=0;
 let requestMaintenancePromise=null;
 app.use(async(req,res,next)=>{
-  if(process.env.CLOUDFLARE_WORKER!=='1' || Date.now()-lastRequestMaintenanceAt<5*60*1000) return next();
+  if((process.env.CLOUDFLARE_WORKER!=='1' && !isPostgresPreview) || Date.now()-lastRequestMaintenanceAt<5*60*1000) return next();
   if(!requestMaintenancePromise){
     lastRequestMaintenanceAt=Date.now();
     requestMaintenancePromise=(async()=>{
@@ -4063,7 +4073,7 @@ if (process.env.CLOUDFLARE_WORKER === '1') {
   // Required by Cloudflare's official Express httpServerHandler adapter.
   // Do not install intervals in Workers; maintenance is request-triggered above.
   app.listen(port);
-} else if (process.env.NODE_ENV !== 'test') {
+} else if (process.env.NODE_ENV !== 'test' && !isPostgresPreview) {
   const server=app.listen(port,()=>{ if(process.env.NODE_ENV!=='production') console.info('ShopEasy local server started.'); });
   server.keepAliveTimeout=5000;
   server.headersTimeout=10000;
