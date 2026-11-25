@@ -9,7 +9,7 @@ function normalizeResult(result) {
     if (!Number.isSafeInteger(n)) throw new RangeError('Unsafe integer returned by PostgreSQL: ' + key);
     return [key, n];
   })));
-  return { rows, rowsAffected: result.rowCount ?? 0 };
+  return { rows, rowsAffected: result.rowCount ?? 0, lastInsertRowid: result.command === 'INSERT' && rows.length === 1 && Number.isSafeInteger(rows[0].id) ? rows[0].id : 0 };
 }
 function statement(sql, args = []) {
   if (typeof sql !== 'string' || !sql.trim() || !Array.isArray(args)) throw new TypeError('Expected native PostgreSQL SQL and a positional parameter array');
