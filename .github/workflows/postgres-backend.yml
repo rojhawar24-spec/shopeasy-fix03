@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: '8cceabe212b822f06f062badc8eb8ef94c0afd04'
+          ref: '3ad023c6614af4d6265497d82f4756387f357dbd'
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
@@ -53,4 +53,4 @@ jobs:
           npm ci --include=dev
           node -e "if (require('./package.json').dependencies.pg !== '8.16.3') process.exit(1)"
       - name: Test original ShopEasy backend on real PostgreSQL
-        run: node --test postgres/legacy-query.test.mjs postgres/bridge.test.mjs postgres/backend.integration.test.mjs test/product-photo-preview-regression.test.js test/design-v15-image-resilience.test.js
+        run: node --test postgres/legacy-query.test.mjs postgres/bridge.test.mjs postgres/settings-batcher.test.mjs postgres/backend.integration.test.mjs test/product-photo-preview-regression.test.js test/design-v15-image-resilience.test.js
