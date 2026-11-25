@@ -7,21 +7,23 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const unsupportedServerlessTarget = process.env.VERCEL === '1' || Boolean(process.env.AWS_LAMBDA_FUNCTION_NAME);
-if (unsupportedServerlessTarget) {
+export const isPostgresPreview = process.env.VERCEL === '1' && process.env.VERCEL_ENV === 'preview' && process.env.SHOP_DB_BACKEND === 'postgres-preview' && process.env.RATE_LIMIT_BACKEND === 'postgres-shared';
+if (unsupportedServerlessTarget && !isPostgresPreview) {
   throw new Error('This ShopEasy release does not support Vercel/AWS Lambda serverless deployment: its shared rate limiter is provided by Cloudflare Durable Objects. Deploy with Cloudflare Workers + Turso (see CLOUDFLARE-DEPLOYMENT.md), or use a single persistent Node.js instance with RATE_LIMIT_BACKEND=memory-single-instance. Free plans have hard limits and are not unlimited.');
 }
 
-export const isPostgresStaging = process.env.SHOP_DB_BACKEND === 'postgres-staging';
+export const isPostgresStaging = isPostgresPreview || process.env.SHOP_DB_BACKEND === 'postgres-staging';
 let rawClient;
 if (isPostgresStaging) {
-  if (process.env.NODE_ENV !== 'test') throw new Error('PostgreSQL runtime is not release-certified');
-  const connectionString = process.env.SHOP_POSTGRES_TEST_URL;
-  if (!connectionString) throw new Error('SHOP_POSTGRES_TEST_URL is required');
+  if (!isPostgresPreview && process.env.NODE_ENV !== 'test') throw new Error('PostgreSQL runtime is not release-certified');
+  const connectionString = isPostgresPreview ? process.env.SHOP_POSTGRES_URL : process.env.SHOP_POSTGRES_TEST_URL;
+  if (!connectionString) throw new Error('Required PostgreSQL connection is missing');
   const endpoint = new URL(connectionString);
-  if (!['postgres:', 'postgresql:'].includes(endpoint.protocol) || !['localhost','127.0.0.1'].includes(endpoint.hostname) || endpoint.pathname !== '/shopeasy_ci') throw new Error('PostgreSQL tests require a disposable local shopeasy_ci database');
+  if (!isPostgresPreview && (!['postgres:', 'postgresql:'].includes(endpoint.protocol) || !['localhost','127.0.0.1'].includes(endpoint.hostname) || endpoint.pathname !== '/shopeasy_ci')) throw new Error('PostgreSQL tests require a disposable local shopeasy_ci database');
+  if (isPostgresPreview && (endpoint.protocol !== 'postgresql:' || !/^aws-[0-9]+-eu-central-1\.pooler\.supabase\.com$/.test(endpoint.hostname) || endpoint.port !== '6543' || endpoint.username !== 'shopeasy_runtime.vpvxztfqwtczflhxzwuw' || endpoint.pathname !== '/postgres' || !endpoint.password || endpoint.search)) throw new Error('Invalid staging database configuration');
   const {Pool} = await import('pg');
   const {createLegacyBridge} = await import('../postgres/bridge.mjs');
-  rawClient = createLegacyBridge(new Pool({connectionString,max:4,connectionTimeoutMillis:5000}),{runtime:true});
+  rawClient = createLegacyBridge(new Pool({connectionString,max:3,connectionTimeoutMillis:5000,idleTimeoutMillis:5000,...(isPostgresPreview ? {ssl:{rejectUnauthorized:true}} : {})}),{runtime:true});
 } else {
 const isCloudflareWorker = process.env.CLOUDFLARE_WORKER === '1';
 const isRemoteProduction = isCloudflareWorker;
