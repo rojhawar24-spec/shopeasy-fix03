@@ -1,7 +1,7 @@
 // Staging-only legacy SQL compatibility. Never accepts SQL from HTTP clients.
 // Produces native bound PostgreSQL statements; unsupported syntax fails closed.
 const identityTables = new Set(['users','categories','products','product_variants','product_images','coupons','orders','order_items','order_returns','order_status_history','audit_logs','gift_cards','gift_card_ledger','stories','product_reviews','newsletter_campaigns','order_email_deliveries','peppol_submissions']);
-export function compileLegacyQuery(sql, args = []) {
+export function compileLegacyQuery(sql, args = [], {runtime = false} = {}) {
   if (typeof sql !== 'string' || !sql.trim()) throw new TypeError('SQL required');
   if (!Array.isArray(args) && (!args || typeof args !== 'object')) throw new TypeError('SQL bindings required');
   const tokens = [];
@@ -41,7 +41,7 @@ export function compileLegacyQuery(sql, args = []) {
     if(t.kind!=='word')continue;
     const word=t.text.toUpperCase();
     if(['PRAGMA','AUTOINCREMENT','GLOB','ATTACH','DETACH','VACUUM','SQLITE_MASTER'].includes(word))throw new Error('SQLite-only SQL: '+word);
-    if(word==='COLLATE'&&n?.text.toUpperCase()==='NOCASE')throw new Error('Explicit PostgreSQL collation required');
+    if(word==='COLLATE'&&n?.text.toUpperCase()==='NOCASE'){if(!runtime)throw new Error('Explicit PostgreSQL collation required');n.text='shopeasy.nocase';}
     if(word==='INSERT'&&n?.text.toUpperCase()==='OR')throw new Error('Explicit PostgreSQL conflict clause required');
     if(['MIN','MAX'].includes(word)&&n?.text==='('){
       let depth=0,commas=0,closed=false;
@@ -49,7 +49,14 @@ export function compileLegacyQuery(sql, args = []) {
       if(!closed)throw new Error('Unbalanced SQL function');
       if(commas>0)t.text=word==='MIN'?'LEAST':'GREATEST';
     }
-    if(['DATETIME','JULIANDAY','PRINTF','INSTR','STRFTIME','GROUP_CONCAT','IFNULL'].includes(word)&&n?.text==='(')throw new Error('Explicit PostgreSQL function port required: '+word);
+    if(runtime && word==='LIKE')t.text='ILIKE';
+    if(runtime && word==='INTEGER' && significant[j-1]?.text.toUpperCase()==='AS')t.text='BIGINT';
+    if(['DATETIME','JULIANDAY','PRINTF','INSTR','DATE','STRFTIME','GROUP_CONCAT','IFNULL'].includes(word)&&n?.text==='('){
+      if(runtime && ['DATETIME','JULIANDAY','DATE'].includes(word)) t.text='shopeasy.sqlite_'+word.toLowerCase();
+      else if(runtime && word==='INSTR') t.text='strpos';
+      else if(runtime && word==='PRINTF' && significant[j+2]?.text==="'/%d/'"){t.text='format';significant[j+2].text="'/%s/'";}
+      else throw new Error('Explicit PostgreSQL function port required: '+word);
+    }
   }
   let text=tokens.map(t=>t.text).join('');
   if(/^INSERT\s+INTO\s+([a-z_][a-z0-9_]*)\b/i.test(text.trim())){
