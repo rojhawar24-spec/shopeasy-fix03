@@ -1,0 +1,57 @@
+{
+  "implementation": "31 of 31 registered code findings repaired; issue-specific local regressions pass",
+  "suite": {
+    "tests": 1420,
+    "pass": 1420,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "baseline_tests": 1243,
+    "net_new_tests": 177,
+    "duration_ms": 35027.578757,
+    "evidence": "docs/qa/fix03/full-suite-final.txt"
+  },
+  "runtime": {
+    "node": "24.22.3",
+    "npm": "11.19.1",
+    "platform": "linux"
+  },
+  "templates": {
+    "checked": 62,
+    "pass": 62,
+    "fail": 0
+  },
+  "dependency_advisories": {
+    "all_dependencies": 0,
+    "production_dependencies": 0,
+    "meaning": "Known advisories reported by npm at execution time, not proof of absence of all vulnerabilities"
+  },
+  "performance": {
+    "fixture_products": 5000,
+    "fixture_orders": 10000,
+    "before_ms": 20463.332405,
+    "after_ms": 10.561433999999991,
+    "same_24_ordered_product_ids": true,
+    "samples_per_version": 1,
+    "limits": "One local native query on cloned synthetic data; no HTTP, browser, concurrent load, soak or production SLA claim"
+  },
+  "original_preservation": {
+    "source_files": 1162,
+    "changed": 0,
+    "missing": 0,
+    "archive_sha256_unchanged": true
+  },
+  "browser": {
+    "classification": "BLOCKED",
+    "ui_checks_executed": 0,
+    "axe_scans_executed": 0,
+    "causes": [
+      "Pinned Playwright Chromium executable missing",
+      "Existing system Chromium terminates at socket() with Operation not permitted"
+    ]
+  },
+  "packaging": "The final archive contains a separately generated FINAL-VERIFICATION-REPORT.json from its fresh locked verification stage; external verification-log.json records ZIP extraction and SHA-256.",
+  "counting": "Focused runs overlap. They are not added to the full-suite count.",
+  "certification": "No 100/100, zero-defect, live-provider, WCAG, production or legal certification is asserted."
+}

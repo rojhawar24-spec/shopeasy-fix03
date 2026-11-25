@@ -1,0 +1,4 @@
+
+> shopeasy-store-starter@2.8.94 typecheck:core
+> tsc --project tsconfig.typecheck-core.json
+

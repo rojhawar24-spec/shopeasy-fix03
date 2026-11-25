@@ -1,0 +1,248 @@
+/* Optional neutral storefront theme layer. Tune these variables to the customer's brand. */
+:root {
+  --bg: #f7f9f6;
+  --panel: #ffffff;
+  --ink: #24312b;
+  --ink-soft: #384b41;
+  --muted: #64736b;
+  --muted-2: #87938c;
+  --line: #e2e9e3;
+  --line-strong: #cad7ce;
+  --accent: #216044;
+  --accent-dark: #174832;
+  --accent-soft: #e9f2ec;
+  --blue: #216044;
+  --blue-soft: #e9f2ec;
+  --radius-lg: 18px;
+  --radius-md: 13px;
+  --radius-sm: 9px;
+  --shadow-sm: 0 2px 8px rgba(26, 57, 39, .035);
+  --shadow-md: 0 9px 24px rgba(26, 57, 39, .065);
+  --shadow-lg: 0 18px 38px rgba(26, 57, 39, .10);
+}
+html, body { background: var(--bg); }
+body { font-family: Tahoma, Arial, "Noto Sans Arabic", sans-serif; letter-spacing: 0; }
+[dir="rtl"] body { text-align: start; }
+::selection { background: #d9e8dd; color: #213e2c; }
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible { outline-color: #56866a; }
+.announcement { background: #243d32; color: #f8fcf9; }
+.site-header { border-bottom-color: #e2e9e3; }
+.brand-logo { border-radius: 12px; }
+.brand-word { letter-spacing: 0; font-weight: 800; }
+.search button, .nav-links .cart-nav { background: var(--accent); border-color: var(--accent); }
+.search button:hover, .nav-links .cart-nav:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.hero { padding-top: clamp(28px, 4vw, 54px); gap: clamp(24px, 4vw, 48px); }
+.hero h1 { max-width: 12ch; line-height: 1.35; letter-spacing: 0; font-size: clamp(2rem, 4vw, 3.65rem); }
+.hero h1 em { color: var(--accent); font-style: normal; }
+.hero-text { line-height: 1.95; }
+.hero-stage { background: radial-gradient(circle at 84% 14%, rgba(182, 208, 189, .23), transparent 36%), linear-gradient(145deg, #243d32, #216044); border-color: #174832; border-radius: 18px; }
+.stage-image { background: linear-gradient(145deg, #fffdfb, #e6f0e8); border-color: rgba(255,255,255,.8); }
+.stage-copy h2 { letter-spacing: 0; line-height: 1.55; }
+.eyebrow { letter-spacing: 0; font-size: 12px; }
+.section-head h2 { letter-spacing: 0; line-height: 1.5; }
+.category-card-image, .product-card-signature { border-radius: 14px; }
+.category-card-image { border-color: #e2e9e3; }
+.category-card-image:hover { border-color: #a6c5b0; }
+.product-card-signature { padding: 8px; }
+.product-card-signature .product-image { background: #edf4ef; border-color: #e3ebe5; border-radius: 11px; }
+.product-card-signature .product-image img { padding: 10px; }
+.product-card-signature .product-main-cta, .btn-dark, .btn-mint, .checkout-place-order { background: var(--accent); border-color: var(--accent); border-radius: 9px; }
+.product-card-signature .product-main-cta:hover:not(:disabled), .btn-dark:hover:not(:disabled), .btn-mint:hover:not(:disabled), .checkout-place-order:hover:not(:disabled) { background: var(--accent-dark); border-color: var(--accent-dark); }
+.btn, .btn-light, .btn-danger, .back-button, .language-apply, .nav-category-trigger, .menu-toggle { border-radius: 9px; }
+.panel, .summary, .cart-list, .auth-card, .shop-controls, .cart-summary-v5, .checkout-form-v5, .checkout-summary-v5 { border-color: var(--line); }
+.site-footer { background: #edf3ee; border-top-color: var(--line); }
+.mobile-bottom-nav { border-top-color: var(--line); }
+@media (max-width: 700px) {
+  .hero { padding-top: 24px; }
+  .hero h1 { max-width: 100%; font-size: clamp(1.9rem, 8vw, 2.7rem); }
+  .hero-stage { min-height: 280px; }
+  .hero-actions { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+
+/* 2.8.80 regression fix: long or unbroken product copy must never escape its card. */
+.hero-stage .stage-product-description,
+.hero-stage .stage-copy > p {
+  display: -webkit-box;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+.product-card-signature .product-blurb {
+  display: -webkit-box;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.staff-delete-details { min-width: 150px; }
+.staff-delete-details > summary { display: inline-flex; align-items: center; min-height: 36px; padding: 7px 10px; border: 1px solid #e8b6b1; border-radius: 8px; color: #9b2525; background: #fff8f7; cursor: pointer; font-size: 12px; font-weight: 750; }
+.staff-delete-details[open] > summary { margin-bottom: 10px; }
+.staff-delete-form { display: grid; min-width: 220px; gap: 8px; padding: 12px; border: 1px solid #efcbc8; border-radius: 10px; background: #fffafa; }
+.staff-delete-form label { display: grid; gap: 5px; font-size: 12px; font-weight: 750; }
+.staff-delete-form input { width: 100%; min-width: 0; }
+.staff-delete-form .field-note { margin: 0; line-height: 1.45; }
+.staff-delete-form .btn { white-space: normal; }
+
+/* Product detail descriptions must remain inside the copy column, even for unbroken SKU-like text. */
+.product-copy-v5,
+.product-copy-v6,
+.product-info-section,
+.detail-description { min-width: 0; max-width: 100%; }
+.product-copy-v5 .detail-description,
+.product-copy-v6 .detail-description,
+.detail-description { overflow-wrap: anywhere; word-break: normal; }
+
+
+/* Self-hosted, language-aware typography. The actual font files ship with ShopEasy
+   so the site does not depend on installed fonts or an external font CDN. */
+@font-face {
+  font-family: "ShopEasy Inter";
+  src: url("../fonts/inter-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ShopEasy Inter";
+  src: url("../fonts/inter-500.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ShopEasy Inter";
+  src: url("../fonts/inter-600.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ShopEasy Inter";
+  src: url("../fonts/inter-700.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ShopEasy Inter";
+  src: url("../fonts/inter-800.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ShopEasy Sorani";
+  src: url("../fonts/sorani-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ShopEasy Sorani";
+  src: url("../fonts/sorani-700.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ShopEasy Arabic";
+  src: url("../fonts/arabic-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ShopEasy Arabic";
+  src: url("../fonts/arabic-700.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --font-latin: "ShopEasy Inter", "Segoe UI", Arial, sans-serif;
+  --font-sorani: "ShopEasy Sorani", "Noto Sans Arabic UI", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+  --font-arabic: "ShopEasy Arabic", "Noto Naskh Arabic UI", "Noto Naskh Arabic", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+}
+
+/* The English theme previously ended on Tahoma, bypassing the intended Inter stack. */
+html[lang^="en"] body,
+html[lang^="en"] body :not(code):not(pre):not(kbd):not(samp) {
+  font-family: var(--font-latin);
+}
+html[lang^="en"] body { line-height: 1.55; }
+
+/* Sorani Kurdish uses an Arabic-script UI face with the Kurdish-specific glyphs. */
+html[lang^="ckb"] body,
+html[lang^="ckb"] body :not(code):not(pre):not(kbd):not(samp) {
+  font-family: var(--font-sorani);
+  letter-spacing: 0;
+}
+html[lang^="ckb"] body { line-height: 1.8; }
+
+/* Arabic uses the more calligraphic Naskh UI face while preserving comfortable line spacing. */
+html[lang="ar"] body,
+html[lang="ar"] body :not(code):not(pre):not(kbd):not(samp) {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
+}
+html[lang="ar"] body { line-height: 1.8; }
+
+/* Keep code/recovery values monospaced, regardless of selected interface language. */
+.variant-fields textarea,
+.mfa-recovery-codes {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* English display headings use the same UI family, not the old Georgia override. */
+html[lang^="en"] .hero h1,
+html[lang^="en"] .page-head h1,
+html[lang^="en"] .product-copy h1,
+html[lang^="en"] .stage-copy h2,
+html[lang^="en"] .section h2,
+html[lang^="en"] .panel h2,
+html[lang^="en"] .section-head h2,
+html[lang^="en"] .auth-card h1,
+html[lang^="en"] .product-meta h3,
+html[lang^="en"] .category-card-image strong {
+  font-family: var(--font-latin);
+}
+html[lang^="ckb"] .hero h1,
+html[lang^="ckb"] .page-head h1,
+html[lang^="ckb"] .product-copy h1,
+html[lang^="ckb"] .stage-copy h2,
+html[lang^="ckb"] .section h2,
+html[lang^="ckb"] .panel h2,
+html[lang^="ckb"] .section-head h2,
+html[lang^="ckb"] .auth-card h1,
+html[lang^="ckb"] .product-meta h3,
+html[lang^="ckb"] .category-card-image strong,
+html[lang="ar"] .hero h1,
+html[lang="ar"] .page-head h1,
+html[lang="ar"] .product-copy h1,
+html[lang="ar"] .stage-copy h2,
+html[lang="ar"] .section h2,
+html[lang="ar"] .panel h2,
+html[lang="ar"] .section-head h2,
+html[lang="ar"] .auth-card h1,
+html[lang="ar"] .product-meta h3,
+html[lang="ar"] .category-card-image strong {
+  font-family: inherit;
+  letter-spacing: 0;
+  line-height: 1.4;
+}

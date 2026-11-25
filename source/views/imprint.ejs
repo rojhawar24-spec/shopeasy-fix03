@@ -1,0 +1,25 @@
+<%- include('partials/header', {title: title}) %>
+<section class="container page-head policy-head">
+  <%- include('partials/back-button', {fallback: '/'}) %>
+  <span class="eyebrow"><%= customerText(locale==='nl'?'TRANSPARANTIE':locale==='ckb'?'ڕوونی':locale==='ar'?'الشفافية':'TRANSPARENCY') %></span>
+  <h1><%= customerText(locale==='nl'?'Bedrijfsgegevens':locale==='ckb'?'زانیاریی کۆمپانیا':locale==='ar'?'معلومات الشركة':'Business information') %></h1>
+  <p><%= customerText(locale==='nl'?'Dit zijn de gegevens die de winkelbeheerder heeft ingevuld.':locale==='ckb'?'ئەمە ئەو زانیارییانەن کە بەڕێوەبەری فرۆشگا تۆماری کردوون.':locale==='ar'?'هذه هي البيانات التي أدخلها مدير المتجر.':'These are the business details provided by the store operator.') %></p>
+</section>
+<section class="container section policy-section">
+  <article class="panel policy-copy business-imprint" aria-label="<%= title %>">
+    <dl class="legal-detail-list">
+      <div><dt><%= customerText(locale==='nl'?'Winkelnaam':locale==='ckb'?'ناوی فرۆشگا':locale==='ar'?'اسم المتجر':'Store name') %></dt><dd translate="no" data-no-translate><%= storeName %></dd></div>
+      <% if(legalName){ %><div><dt><%= customerText(locale==='nl'?'Juridische naam':locale==='ckb'?'ناوی یاسایی':locale==='ar'?'الاسم القانوني':'Legal business name') %></dt><dd translate="no" data-no-translate><%= legalName %></dd></div><% } %>
+      <% if(businessAddress){ %><div><dt><%= customerText(locale==='nl'?'Vestigingsadres':locale==='ckb'?'ناونیشانی کار':locale==='ar'?'عنوان النشاط':'Business address') %></dt><dd><%= businessAddress %></dd></div><% } %>
+      <% if(enterpriseNumber){ %><div><dt><%= customerText(locale==='nl'?'Ondernemingsnummer / registratie':locale==='ckb'?'ژمارەی تۆمار':locale==='ar'?'رقم التسجيل':'Business registration') %></dt><dd><%= enterpriseNumber %></dd></div><% } %>
+      <% if(vatNumber){ %><div><dt><%= customerText(locale==='nl'?'Btw-nummer':locale==='ckb'?'ژمارەی باج':locale==='ar'?'الرقم الضريبي':'Tax / VAT number') %></dt><dd><%= vatNumber %></dd></div><% } %>
+      <% if(supportEmail){ %><div><dt><%= customerText(locale==='nl'?'E-mail':locale==='ckb'?'ئیمەیڵ':locale==='ar'?'البريد الإلكتروني':'Email') %></dt><dd><a href="mailto:<%= supportEmail %>"><%= supportEmail %></a></dd></div><% } %>
+      <% if(businessPhone){ %><div><dt><%= customerText(locale==='nl'?'Telefoon':locale==='ckb'?'تەلەفۆن':locale==='ar'?'الهاتف':'Telephone') %></dt><dd><a href="tel:<%= String(businessPhone).replace(/[^+0-9]/g,'') %>"><%= businessPhone %></a></dd></div><% } %>
+    </dl>
+    <% if(!legalName||!businessAddress||!enterpriseNumber||!supportEmail||!businessPhone){ %>
+      <div class="alert" role="note"><%= customerText(locale==='nl'?'Niet alle bedrijfsgegevens zijn ingevuld. De winkelbeheerder moet de verplichte informatie voor het land van vestiging aanvullen voordat de winkel live gaat.':locale==='ckb'?'هەموو زانیارییەکانی کۆمپانیا پڕ نەکراونەتەوە. بەڕێوەبەر دەبێت پێش دەستپێکردنی فرۆشتن زانیاریی یاساییی پێویست تەواو بکات.':locale==='ar'?'لم تُستكمل جميع بيانات النشاط التجاري. يجب على مدير المتجر إضافة المعلومات القانونية المطلوبة قبل البيع.':'Some business identity fields are not configured. The operator must provide all legally required details for the actual merchant country before accepting live orders.') %></div>
+    <% } %>
+    <p><a href="/terms"><%= customerText(locale==='nl'?'Algemene voorwaarden':locale==='ckb'?'مەرجەکان':locale==='ar'?'الشروط والأحكام':'Terms & conditions') %></a> · <a href="/privacy"><%= customerText(locale==='nl'?'Privacybeleid':locale==='ckb'?'سیاسەتی تایبەتمەندی':locale==='ar'?'سياسة الخصوصية':'Privacy policy') %></a> · <a href="/shipping-returns"><%= customerText(locale==='nl'?'Verzending en retouren':locale==='ckb'?'گەیاندن و گەڕاندنەوە':locale==='ar'?'الشحن والإرجاع':'Shipping and returns') %></a></p>
+  </article>
+</section>
+<%- include('partials/footer') %>

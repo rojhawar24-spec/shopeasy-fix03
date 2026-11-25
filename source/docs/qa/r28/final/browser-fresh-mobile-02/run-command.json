@@ -1,0 +1,14 @@
+{
+  "label": "VERIFIED",
+  "cwd": "/workspace/presale-r28/work",
+  "command": [
+    "/workspace/presale-r27/tools/qa-python313/bin/python",
+    "/workspace/presale-r28/evidence/run-fresh-mobile-audit.py"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-11-22T23:09:19.748680+00:00",
+  "finished_utc": "2026-11-22T23:09:41.869842+00:00",
+  "output": "browser-results.json",
+  "scope": "Actual executed command; no private output or browser storage retained",
+  "external_helper_source_sha256_recorded_post_run": "76a9748c4d49847fe5668ae16b9410b64e5087057246b0d9cf03353f5a73bdfb"
+}

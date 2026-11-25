@@ -1,0 +1,21 @@
+#6 [build 1/9] FROM docker.io/library/node:24.22.2-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9
+#8 [build 4/9] COPY --chown=node:node package*.json ./
+#9 [build 2/9] WORKDIR /app
+#10 [build 3/9] RUN chown node:node /app
+#11 [build 5/9] COPY --chown=node:node vendor ./vendor
+#12 [build 6/9] RUN --mount=type=secret,id=npm_ca,uid=1000,gid=1000,mode=0400     if [ -f /run/secrets/npm_ca ]; then export NODE_EXTRA_CA_CERTS=/run/secrets/npm_ca; fi;     npm ci --ignore-scripts --no-audit --no-fund
+#13 [build 7/9] COPY --chown=node:node . .
+#14 [build 8/9] RUN --mount=type=secret,id=npm_ca,uid=1000,gid=1000,mode=0400     if [ -f /run/secrets/npm_ca ]; then export NODE_EXTRA_CA_CERTS=/run/secrets/npm_ca; fi;     npm run build:cloudflare     && npm run check     && npm run lint     && npm run typecheck:core     && npm run preflight:release     && npm run audit:static     && node scripts/template-audit.mjs     && npm test     && npm audit --audit-level=low     && npm audit --omit=dev --audit-level=low     && npm run licenses:generate
+#14 42.24 ℹ tests 1166
+#14 42.24 ℹ pass 1166
+#14 42.24 ℹ fail 0
+#14 42.24 ℹ cancelled 0
+#14 42.24 ℹ skipped 0
+#14 42.24 ℹ todo 0
+#14 43.52 Package entries: 105; first-party links (rights UNKNOWN): 1; entries with texts: 104; texts copied: 112; optional absent: 7; unresolved: 0; native review gates: 9
+#15 [build 9/9] RUN --mount=type=secret,id=npm_ca,uid=1000,gid=1000,mode=0400     if [ -f /run/secrets/npm_ca ]; then export NODE_EXTRA_CA_CERTS=/run/secrets/npm_ca; fi;     npm prune --omit=dev --ignore-scripts --no-audit --no-fund
+#9 [build 2/9] WORKDIR /app
+#16 [production 3/4] COPY --from=build --chown=node:node /app /app
+#16 ERROR: failed to prepare 32fibml825issu0wcen58gvma as ogefqeb94mq4bzxbwh5qf7nyv: mkdir /home/dockerd/.local/share/docker/vfs/dir/ogefqeb94mq4bzxbwh5qf7nyv/usr/local/etc: no space left on device
+ > [production 3/4] COPY --from=build --chown=node:node /app /app:
+ERROR: failed to build: failed to solve: ResourceExhausted: failed to prepare 32fibml825issu0wcen58gvma as ogefqeb94mq4bzxbwh5qf7nyv: mkdir /home/dockerd/.local/share/docker/vfs/dir/ogefqeb94mq4bzxbwh5qf7nyv/usr/local/etc: no space left on device

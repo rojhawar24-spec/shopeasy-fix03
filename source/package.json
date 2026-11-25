@@ -1,0 +1,69 @@
+{
+  "name": "shopeasy-store-starter",
+  "version": "2.8.95",
+  "private": true,
+  "description": "Configurable multi-market storefront with product, inventory, checkout and management; English, Sorani, Arabic, Dutch and French UI.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/bootstrap.js",
+    "dev": "node --watch src/bootstrap.js",
+    "test": "node scripts/run-tests.mjs",
+    "check": "node scripts/check-syntax.mjs",
+    "audit:static": "node scripts/static-audit.mjs",
+    "load:local": "node scripts/load-test.mjs",
+    "audit": "npm run build:cloudflare && npm run preflight:release && npm run check && npm test && npm run audit:static && node scripts/template-audit.mjs",
+    "staff:create": "node scripts/create-staff.mjs",
+    "build:cloudflare": "node scripts/build-cloudflare.mjs",
+    "dev:cloudflare": "npm run preflight:cloudflare-auth && npm run build:cloudflare && npx wrangler@4.147.0 dev",
+    "deploy:cloudflare": "npm run preflight:cloudflare-auth && npm run build:cloudflare && npx wrangler@4.147.0 deploy",
+    "dry-run:cloudflare": "npm run preflight:cloudflare-auth && npm run build:cloudflare && npx wrangler@4.147.0 deploy --dry-run",
+    "audit:free-first": "npm run build:cloudflare && npm run preflight:release && npm run check && npm run audit:static && node scripts/template-audit.mjs && npm test",
+    "preflight:release": "node scripts/preflight-release.mjs",
+    "certify:staging": "node scripts/production-certification.mjs",
+    "dev:cloudflare:staging": "npm run preflight:cloudflare-auth && npm run build:cloudflare && npx wrangler@4.147.0 dev --config wrangler.staging.jsonc",
+    "dry-run:cloudflare:staging": "npm run preflight:cloudflare-auth && npm run build:cloudflare && npx wrangler@4.147.0 deploy --config wrangler.staging.jsonc --dry-run",
+    "deploy:cloudflare:staging": "npm run preflight:cloudflare-auth && npm run build:cloudflare && npx wrangler@4.147.0 deploy --config wrangler.staging.jsonc",
+    "pretest": "node scripts/check-test-dependencies.mjs",
+    "test:integration": "node scripts/check-test-dependencies.mjs && node scripts/run-tests.mjs test/manager-dashboard.integration.test.js test/product-variants.integration.test.js test/template-syntax.test.js test/upload-quota.integration.test.js",
+    "licenses:generate": "node scripts/generate-third-party-notices.mjs",
+    "preflight:cloudflare-auth": "node scripts/preflight-cloudflare-auth.mjs",
+    "benchmark:password-hashing": "node scripts/benchmark-password-hashing.mjs",
+    "backup:database": "node scripts/backup-database.mjs",
+    "restore:database": "node scripts/restore-database.mjs",
+    "start:prod": "node scripts/start-production.mjs",
+    "build:design-css": "node scripts/build-design-css.mjs",
+    "diagnose:checkout": "node scripts/diagnose-checkout.mjs",
+    "audit:ads": "node scripts/audit-google-ads.mjs",
+    "audit:free-db": "node scripts/audit-free-local-database.mjs",
+    "audit:images": "node scripts/audit-local-product-images.mjs",
+    "verify:package": "node scripts/verify-release-files.mjs",
+    "lint": "node scripts/lint-project.mjs",
+    "typecheck:core": "tsc --project tsconfig.typecheck-core.json",
+    "release:verify": "node scripts/verify-and-package.mjs"
+  },
+  "engines": {
+    "node": ">=24.22.2 <25"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0",
+    "@libsql/core": "0.18.0",
+    "cookie-parser": "1.4.7",
+    "dotenv": "18.0.10",
+    "ejs": "7.0.2",
+    "express": "5.3.0",
+    "express-rate-limit": "8.7.5",
+    "helmet": "8.3.0",
+    "multer": "2.5.0",
+    "promise-limit": "file:vendor/promise-limit",
+    "qrcode-generator": "2.0.4"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "clean-css": "5.3.3",
+    "jsqr": "1.4.0",
+    "typescript": "6.0.3"
+  },
+  "overrides": {
+    "promise-limit": "$promise-limit"
+  }
+}

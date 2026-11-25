@@ -1,0 +1,15 @@
+<%- include('partials/header',{title:title||'Save your recovery codes'}) %>
+<section class="auth-wrap">
+  <div class="auth-card mfa-auth-card">
+    <span class="eyebrow"><%= customerText("MFA ACTIVATED") %></span>
+    <h1><%= customerText("Save your recovery codes") %></h1>
+    <div class="success-alert" role="status"><%= customerText("Two-factor authentication is active. Existing Manager sessions have been revoked.") %></div>
+    <p><%= customerText("Each recovery code can be used once if you cannot access your authenticator app. These codes are shown only now. Store them somewhere private and separate from your password.") %></p>
+    <ul class="mfa-recovery-codes">
+      <% for (const code of codes) { %><li><code><%= code %></code></li><% } %>
+    </ul>
+    <p class="field-note"><%= customerText("Do not share these codes. ShopEasy stores only SHA-256 hashes, not the displayed codes.") %></p>
+    <a class="btn btn-dark btn-wide" href="<%= nextPath %>"><%= customerText("Continue to Manager dashboard") %></a>
+  </div>
+</section>
+<%- include('partials/footer') %>

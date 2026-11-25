@@ -1,0 +1,19 @@
+{
+  "utc_started": "2026-11-20T22:50:48.375195+00:00",
+  "utc_finished": "2026-11-20T22:51:05.471219+00:00",
+  "cwd": "/workspace/presale-r28/proposals/dependencies/work",
+  "command": [
+    "node",
+    "scripts/run-tests.mjs",
+    "test/dependency-upgrade-r28.test.js",
+    "test/template-syntax.test.js",
+    "test/integration-dependency-contract.test.js",
+    "test/dependency-upgrade-p1-4.test.js",
+    "test/startup-bootstrap.test.js",
+    "test/order-access-http.integration.test.js",
+    "test/manager-dashboard.integration.test.js"
+  ],
+  "exit_code": 0,
+  "output_file": "upgraded-runtime-compatibility.txt",
+  "inherited_application_credentials": "removed; credential values not printed"
+}

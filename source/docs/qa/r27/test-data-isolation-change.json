@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-13T23:27:25.780522+00:00",
+  "label": "VERIFIED",
+  "scope": "Only the R27 disposable working copy; immutable baseline has no data directory. No database content opened. The user application/database/env/venv elsewhere was not accessed.",
+  "quarantined_metadata": [
+    {
+      "path": "data/shop.db",
+      "bytes": 430080,
+      "mtime_ns": 1794611383271377013
+    }
+  ],
+  "source_defect": "test/upload-quota.integration.test.js previously statically imported db.js and updated quota tables without selecting its own temporary database. It now selects its own database before dynamic imports; npm test also isolates every worker.",
+  "remaining": "New launcher and complete suite execution pending."
+}

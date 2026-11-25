@@ -1,0 +1,30 @@
+ShopEasy 2.8.95 R28 FIX03 — CURRENT REMEDIATION CANDIDATE
+NOT PRODUCTION-CERTIFIED.
+
+IMPLEMENTED: 31/31 tracked audit items have code remediations. See REMEDIATION-FIX03.md and docs/qa/fix03/ for item-level evidence and limits.
+LOCAL SUITE PASS: 1420 tests; passed 1420; failed 0; cancelled 0; skipped 0; todo 0. Linux / Node 24.22.3.
+NET NEW TESTS: 177 over the 1243-test repair baseline. Targeted reruns overlap and must not be added to this total.
+TEMPLATE AUDIT PASS: 62 EJS templates. Structural/compile checks are not visual verification.
+BROWSER BLOCKED BEFORE STARTUP: pinned executable unavailable; system-browser launch failed with socket() Operation not permitted.
+CURRENT AXE / LIGHTHOUSE: not executed for FIX03; no current browser/accessibility/performance certificate.
+EXTERNAL VALIDATION REMAINS: live providers, real assistive technology/physical devices, Windows, buyer hosting/recovery, legal/commercial clearance.
+
+EXACT CLEAN-PACKAGE OUTCOME: read FINAL-VERIFICATION-REPORT.json for the actual FIX03 candidate and match the source/archive identity. These local results do not anticipate the packaging outcome. A report naming an earlier candidate is historical.
+CURRENT REFERENCES: REMEDIATION-FIX03.md; docs/qa/fix03/; QA-REPORT-2.8.95.md; RELEASE-VERIFICATION.md.
+
+HISTORICAL RECORD BELOW — retained verbatim, superseded for FIX03.
+Earlier dates, pass counts, browser scores, fingerprints, candidate labels and external artifact descriptions apply only to their original releases.
+--------------------------------------------------------------------------
+REMEDIATION CANDIDATE FIX02-B — NOT READY FOR RELEASE. Historical R28 statements below do not certify this candidate. Current evidence: REMEDIATION-FIX02-B.md.
+
+ShopEasy 2.8.95 R28 — actual local integration, 22 November 2026
+VERIFIED: 1205 tests, pass1205, fail0, cancelled0, skipped0, todo0; 11 group-C checks exit0.
+VERIFIED: Browser201/201; drawer10/10; fresh-mobile28/28; strict axe violations0; main incomplete84 pending manual review.
+VERIFIED: Local private-CA TLS18/18; synthetic SEO115 URLs/3 sitemaps/0 page problems; current CLI20/20; final Docker build/runtime observed.
+VERIFIED: Six frozen-runtime Lighthouse runs: Home mobile99/100/100/100 and Shop desktop100/100/100/100; three per scenario, local descriptive observations only.
+VERIFIED: 152 runtime files, fingerprint a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81 (not ZIP digest).
+SOURCE-CHECKED: Exact dependency inventory107 rows/114 notice texts/0 collector gaps; nine native composition gates UNKNOWN.
+NOT TESTED: Windows/public hosting/live providers/full manual WCAG-ASVS-every-file review/physical assistive devices/offsite custody.
+UNKNOWN: Source/asset ownership, effective buyer sale grant, Git/private credential history/operator legal facts.
+Final packager records its actual fresh verification in FINAL-VERIFICATION-REPORT.json.
+External CONTENTS.json, verification-log.json, INDEPENDENT-ARCHIVE-VALIDATION.json, SECRETS-SCAN-TRIAGE.json and RELEASE-SCORECARD.json are authoritative for the actual delivered ZIP.

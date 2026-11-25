@@ -1,0 +1,70 @@
+[
+  {
+    "policy_fallback": "fr",
+    "javascript": true,
+    "merchant_text_unchanged": true
+  },
+  {
+    "policy_fallback": "fr",
+    "javascript": false,
+    "merchant_text_unchanged": true
+  },
+  {
+    "policy_fallback": "nl",
+    "javascript": true,
+    "merchant_text_unchanged": true
+  },
+  {
+    "policy_fallback": "nl",
+    "javascript": false,
+    "merchant_text_unchanged": true
+  },
+  {
+    "policy_fallback": "ar",
+    "javascript": true,
+    "merchant_text_unchanged": true
+  },
+  {
+    "policy_fallback": "ar",
+    "javascript": false,
+    "merchant_text_unchanged": true
+  },
+  {
+    "policy_fallback": "ckb",
+    "javascript": true,
+    "merchant_text_unchanged": true
+  },
+  {
+    "policy_fallback": "ckb",
+    "javascript": false,
+    "merchant_text_unchanged": true
+  },
+  {
+    "route": "/contact",
+    "locale": "fr",
+    "javascript": true,
+    "native_copy": true
+  },
+  {
+    "route": "/faq",
+    "locale": "fr",
+    "javascript": true,
+    "native_copy": true
+  },
+  {
+    "route": "/contact",
+    "locale": "fr",
+    "javascript": false,
+    "native_copy": true
+  },
+  {
+    "route": "/faq",
+    "locale": "fr",
+    "javascript": false,
+    "native_copy": true
+  },
+  {
+    "return_history": "seller name preserved after French browser translation",
+    "passed": true
+  }
+]

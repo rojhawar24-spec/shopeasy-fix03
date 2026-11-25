@@ -1,0 +1,14 @@
+{
+  "utc_started": "2026-11-22T23:01:05.271229+00:00",
+  "utc_finished": "2026-11-22T23:01:06.382995+00:00",
+  "cwd": "/workspace/presale-r28/work",
+  "command": [
+    "npm",
+    "run",
+    "typecheck:core"
+  ],
+  "exit_code": 0,
+  "output_file": "group-b-types.txt",
+  "inherited_application_credentials": "removed; credential values not printed",
+  "original_output_file": "group-b-types.log"
+}

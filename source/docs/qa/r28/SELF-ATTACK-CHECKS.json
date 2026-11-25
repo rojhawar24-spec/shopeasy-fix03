@@ -1,0 +1,99 @@
+{
+  "utc": "2026-11-22T23:23:00.151121+00:00",
+  "scope": "Read-only independent audit of final runtime bytes and retained actual execution evidence. No application or full-suite test rerun.",
+  "checks": [
+    {
+      "id": "self-attack-01",
+      "label": "VERIFIED",
+      "challenge": "Could final browser evidence belong to different runtime bytes?",
+      "passed": true,
+      "result": {
+        "files": 152,
+        "sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+        "changed_paths": []
+      },
+      "limit": "Only src/views/public excluding uploads/generated/package.json; not dependencies, tests, docs or ZIP."
+    },
+    {
+      "id": "self-attack-02",
+      "label": "VERIFIED",
+      "challenge": "Could the full suite be a stale or partial success footer?",
+      "passed": true,
+      "result": {
+        "footer": {
+          "tests": 1205,
+          "pass": 1205,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "group_c_checks": 11,
+        "group_c_failed_checks": [],
+        "fresh_locked_install": "group-b-install.json exit0; group-c reused that install"
+      },
+      "limit": "Observed release count, not coverage percentage; no fresh test execution in this report preparation."
+    },
+    {
+      "id": "self-attack-03",
+      "label": "SOURCE-CHECKED",
+      "challenge": "Could a no-JavaScript Login error page satisfy a weak oracle?",
+      "passed": true,
+      "result": {
+        "oracle_sha256": "59c7f1f84398d697803e58e32d29e3a51b42389c9e0f1dcbb33eab9921efca86",
+        "runner_matches_executed": true,
+        "checks": "HTTP200, exactly one expected localized H1, actual Login action/method, required email/password, CSRF >=16 chars and submit"
+      },
+      "limit": "Read-only oracle check and recorded full browser execution; no new standalone oracle mutation test was run."
+    },
+    {
+      "id": "self-attack-04",
+      "label": "SOURCE-CHECKED",
+      "challenge": "Could synthetic local checks be misreported as live provider or secret custody proof?",
+      "passed": true,
+      "result": {
+        "node_command_credential_filter_present": true,
+        "browser_environment_allowlist_present": true,
+        "source_private_state_guard_present": true,
+        "providers": "NOT TESTED",
+        "actual_credential_validity_reuse_rotation": "UNKNOWN"
+      },
+      "limit": "This checks scope and retained metadata; does not establish actual provider credentials, ownership, history, reuse, validity or rotation."
+    },
+    {
+      "id": "self-attack-05",
+      "label": "VERIFIED",
+      "challenge": "Could a successful restore hide destructive negative behavior?",
+      "passed": true,
+      "result": {
+        "recorded_checks": 20,
+        "all_passed": true,
+        "exact_snapshot_equality": true,
+        "command_exit_code": 0,
+        "cleanup": {
+          "temporaryTreeRemoved": true,
+          "keyPersisted": false,
+          "syntheticDatabasesDisposed": true,
+          "syntheticUploadsDisposed": true,
+          "encryptedArtifactDisposed": true
+        },
+        "negative_cases": [
+          "wrong key refusal",
+          "wrong key leaves no committed schema",
+          "checksum mismatch refusal",
+          "source target refusal DATABASE_URL",
+          "source target refusal SHOP_DATABASE_URL",
+          "source target refusal TURSO_DATABASE_URL",
+          "nonempty database refusal",
+          "nonempty database sentinel preserved",
+          "nonempty uploads refusal",
+          "occupied media refusal leaves no committed schema",
+          "nonempty uploads sentinel preserved"
+        ],
+        "all_five_recorded_source_hashes_match_current": true
+      },
+      "limit": "Actual current-source20-check Linux synthetic CLI rerun; all five recorded source hashes match current bytes without normalization and cleanup completed. Not buyer host/offsite/Windows, remote commit semantics, disaster recovery or two-resource crash atomicity."
+    }
+  ],
+  "all_passed": true
+}

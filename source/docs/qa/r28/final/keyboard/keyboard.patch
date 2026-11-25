@@ -1,0 +1,209 @@
+--- a/public/js/app.js
++++ b/public/js/app.js
+@@ -986,9 +986,23 @@
+       if (marketingInput) marketingInput.checked = Boolean(cookieConsent?.marketing);
+     };
+     const closeCookiePreferences = ({ restoreFocus = true } = {}) => {
++      const wasOpen = !cookieOverlay.hidden;
+       cookieOverlay.hidden = true;
+       document.body.classList.remove('cookie-preferences-open');
+-      if (restoreFocus && cookieFocusReturn instanceof HTMLElement && cookieFocusReturn.isConnected) cookieFocusReturn.focus();
++      if (!restoreFocus || !wasOpen) return;
++      const available = element => element instanceof HTMLElement && element.isConnected &&
++        element.getClientRects().length > 0 && getComputedStyle(element).visibility !== 'hidden' &&
++        !element.closest('[hidden],[inert],[aria-hidden="true"]') && !element.matches(':disabled');
++      if (available(cookieFocusReturn) && cookieFocusReturn !== document.body) {
++        cookieFocusReturn.focus();
++        return;
++      }
++      // Saving a choice removes the initial banner and its opener. Continue at
++      // a visible main-content control rather than leave focus on the body.
++      const next = [...document.querySelectorAll('main a[href],main button,main input:not([type="hidden"]),main select,main textarea,main [tabindex]')]
++        .find(element => element.tabIndex >= 0 && available(element));
++      const fallback = next || [...document.querySelectorAll('[data-cookie-open]')].find(available);
++      fallback?.focus();
+     };
+     const openCookiePreferences = () => {
+       cookieFocusReturn = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+@@ -1043,12 +1057,20 @@
+       cookieBanner.querySelector('[data-cookie-reject]')?.focus();
+     });
+     cookieDialog?.addEventListener('keydown', event => {
+-      if (event.key !== 'Tab') return;
++      if (event.key !== 'Tab' || event.ctrlKey || event.altKey || event.metaKey) return;
+       const focusable = Array.from(cookieDialog.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),[tabindex]:not([tabindex="-1"])'))
+-        .filter(element => !element.hidden && element.getAttribute('aria-hidden') !== 'true');
++        .filter(element => element.tabIndex >= 0 && element.getClientRects().length > 0 &&
++          getComputedStyle(element).visibility !== 'hidden' && !element.closest('[hidden],[inert],[aria-hidden="true"]'));
+       if (!focusable.length) { event.preventDefault(); cookieDialog.focus(); return; }
+       const first = focusable[0];
+       const last = focusable[focusable.length - 1];
++      // The dialog itself receives initial focus so its title/description can be
++      // announced. Reverse Tab from that non-tabbable container must not escape.
++      if (document.activeElement === cookieDialog) {
++        event.preventDefault();
++        (event.shiftKey ? last : first).focus();
++        return;
++      }
+       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+     });
+--- a/public/js/retail-2027.js
++++ b/public/js/retail-2027.js
+@@ -201,7 +201,13 @@
+     });
+     close.addEventListener('click',()=>drawer.close());
+     drawer.addEventListener('click',event=>{if(event.target===drawer)drawer.close();});
+-    drawer.addEventListener('close',()=>opener?.focus());
++    drawer.addEventListener('close',()=>{
++      // Mobile navigation closes when its cart link opens the drawer. Return to
++      // the visible navigation control rather than a link now hidden inside it.
++      const target=opener?.getClientRects().length ? opener
++        : opener?.closest('[data-nav]') ? q('[data-menu-toggle]') : null;
++      if(target?.getClientRects().length)target.focus();
++    });
+   }
+   // Privacy-preserving suggestion: browser language only; no IP lookup/geolocation.
+   const languagePrompt=q('[data-language-suggestion]');
+--- a/qa/fixture-server.mjs
++++ b/qa/fixture-server.mjs
+@@ -6,7 +6,7 @@
+ import { pathToFileURL } from 'node:url';
+ import { registerHooks } from 'node:module';
+ 
+-const [runtimeRoot, dependencyRoot, privateDir, mode] = process.argv.slice(2);
++const [runtimeRoot, dependencyRoot, privateDir, mode, drawerMode] = process.argv.slice(2);
+ const send = value => process.stdout.write(`${JSON.stringify(value)}\n`);
+ // Application/library diagnostics may include request data. Keep them out of evidence.
+ console.log = console.info = console.warn = console.error = () => {};
+@@ -50,6 +50,7 @@
+   store = await import(pathToFileURL(path.join(runtimeRoot, 'src/db.js')));
+   const {hashPassword} = await import(pathToFileURL(path.join(runtimeRoot, 'src/password-hashing.js')));
+   const settings = {store_name: 'Disposable QA Store', support_email: 'support@example.test', business_phone: '+442079460000', enterprise_number: 'SYNTHETIC-QA-ONLY', legal_name: 'Disposable QA Business', business_address: '1 Test Street, London, United Kingdom', delivery_countries: 'United Kingdom', prices_include_tax: '1', shipping_fee_cents: '350', currency: 'GBP', currency_price_review_required: '0', feature_gift_cards_enabled: '1', ui_default_locale: 'en', ui_enabled_locales: '["en","ckb","fr","nl","ar"]'};
++  if (drawerMode === 'enabled-cart-drawer') settings.appearance_cartDrawer = '1';
+   for (const key of ['privacy_policy', 'terms_policy', 'shipping_policy', 'returns_policy']) settings[key] = 'Synthetic test policy only. This disposable content does not describe actual business practices and has not received legal review.';
+   for (const [key, value] of Object.entries(settings)) await store.setSetting(key, value);
+   const categoryId = await store.createCategory('QA collection', 'qa-collection');
+--- a/qa/run-browser-qa.py
++++ b/qa/run-browser-qa.py
+@@ -87,7 +87,7 @@
+             env = safe_environment()
+             env.update({"NODE_ENV": "test", "HOME": str(self.private), "USERPROFILE": str(self.private)})
+             self.process = subprocess.Popen(
+-                [self.args.node, str(Path(__file__).with_name("fixture-server.mjs")), str(runtime), str(self.args.app_root), str(self.private), "simulated-email" if self.args.simulated_email else "disabled-email"],
++                [self.args.node, str(Path(__file__).with_name("fixture-server.mjs")), str(runtime), str(self.args.app_root), str(self.private), "simulated-email" if self.args.simulated_email else "disabled-email", "enabled-cart-drawer" if getattr(self.args, "cart_drawer", False) else "default-cart-drawer"],
+                 cwd=self.private, env=env, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                 stderr=subprocess.DEVNULL, text=True, encoding="utf-8", bufsize=1,
+             )
+@@ -171,6 +171,7 @@
+         self.phase = "setup"
+         self.secret_values = set()
+         self.results = {"started_utc": dt.datetime.now(dt.timezone.utc).isoformat(), "status": "RUNNING", "runtime": {"python": sys.version.split()[0], "platform": sys.platform}, "configuration": {"suite": args.suite, "locales": args.locales, "widths": args.widths, "screenshots": args.screenshots, "email": "SIMULATED local intercepted provider; no actual delivery" if args.simulated_email else "DISABLED; delivery NOT TESTED"}, "checks": [], "limitations": ["Actual Windows PowerShell 5.1 execution NOT TESTED in Linux audit", "Source ownership UNKNOWN", "No live inbox delivery, provider payment/settlement/refunds, Peppol delivery, full manual WCAG review or screen-reader/device matrix tested", "Axe incomplete items require manual disposition; automated checks are not WCAG certification"]}
++        self.results["configuration"]["cart_drawer"] = bool(getattr(args, "cart_drawer", False))
+ 
+     def redact(self, value):
+         if isinstance(value, str):
+@@ -488,6 +489,82 @@
+             require(outside.evaluate("e=>document.activeElement===e"), "navigation-outside-click-preserves-focus")
+         self.record("Navigation keyboard regression", route="/shop", locale=locale, width=width, mobile_menu=mobile, category_explicit_disclosure=True, category_escape_returns_focus=True, outer_escape_returns_focus=True if mobile else "NOT APPLICABLE (desktop)", outside_focus_preserved=True if mobile else "NOT APPLICABLE (desktop)", screen_reader="NOT TESTED")
+ 
++    def cookie_keyboard(self, page, locale, width):
++        require(self.goto(page, "/login").status == 200, "cookie-keyboard-login-http-200")
++        page.set_viewport_size({"width": width, "height": 900})
++        overlay = page.locator("[data-cookie-preferences]")
++        dialog = overlay.locator('[role="dialog"]')
++        banner = page.locator("[data-cookie-banner]")
++        footer_opener = page.locator("[data-cookie-open]")
++        if not banner.is_visible():
++            footer_opener.focus()
++            page.keyboard.press("Enter")
++            dialog.locator("[data-cookie-reset]").focus()
++            page.keyboard.press("Enter")
++            require(banner.is_visible() and not overlay.is_visible(), "cookie-reset-reopens-choice")
++        opener = banner.locator("[data-cookie-customize]")
++        opener.focus()
++        page.keyboard.press("Enter")
++        require(overlay.is_visible() and dialog.evaluate("e=>document.activeElement===e"), "cookie-initial-dialog-focus")
++        focusable = dialog.locator('a[href],button:not([disabled]),input:not([disabled]),[tabindex]:not([tabindex="-1"])').filter(visible=True)
++        require(focusable.count() >= 2, "cookie-dialog-tabbable-controls")
++        first, last = focusable.first, focusable.last
++        page.keyboard.press("Shift+Tab")
++        require(last.evaluate("e=>document.activeElement===e"), "cookie-initial-reverse-tab-stays-modal")
++        dialog.focus()
++        page.keyboard.press("Tab")
++        require(first.evaluate("e=>document.activeElement===e"), "cookie-initial-forward-tab-first-control")
++        first.focus()
++        page.keyboard.press("Shift+Tab")
++        require(last.evaluate("e=>document.activeElement===e"), "cookie-first-reverse-tab-last-control")
++        last.focus()
++        page.keyboard.press("Tab")
++        require(first.evaluate("e=>document.activeElement===e"), "cookie-last-forward-tab-first-control")
++        page.keyboard.press("Escape")
++        require(not overlay.is_visible() and opener.evaluate("e=>document.activeElement===e"), "cookie-escape-restores-banner-opener")
++        opener.focus()
++        page.keyboard.press("Enter")
++        dialog.locator("[data-cookie-save]").focus()
++        page.keyboard.press("Enter")
++        require(not overlay.is_visible() and not banner.is_visible(), "cookie-keyboard-save-closes-choice")
++        require(page.evaluate("()=>document.activeElement!==document.body&&document.activeElement.tabIndex>=0&&document.activeElement.getClientRects().length>0&&!!document.activeElement.closest('main')"), "cookie-save-focuses-visible-main-control-when-banner-opener-hides")
++        footer_opener.focus()
++        page.keyboard.press("Enter")
++        require(overlay.is_visible() and dialog.evaluate("e=>document.activeElement===e"), "cookie-saved-choice-footer-reopen")
++        page.keyboard.press("Escape")
++        require(not overlay.is_visible() and footer_opener.evaluate("e=>document.activeElement===e"), "cookie-escape-restores-footer-opener")
++        self.record("Cookie dialog keyboard regression", route="/login", locale=locale, width=width,
++                    initial_container_forward_reverse_tab=True, boundary_tab_wrap=True,
++                    escape_and_focus_return=True, keyboard_save_and_footer_reopen=True, save_focuses_visible_main_control=True,
++                    actual_screen_reader="NOT TESTED")
++
++    def cart_drawer_keyboard(self, page, locale, width):
++        page.set_viewport_size({"width": width, "height": 900})
++        require(self.goto(page, "/shop").status == 200, "drawer-keyboard-shop-http200")
++        self.dismiss(page)
++        nav = page.locator("[data-nav]")
++        menu = page.locator("[data-menu-toggle]")
++        mobile = menu.is_visible()
++        if mobile:
++            menu.focus()
++            page.keyboard.press("Enter")
++            require(nav.is_visible(), "drawer-mobile-menu-open")
++        opener = nav.locator("[data-cart-drawer-trigger]").filter(visible=True).first
++        require(opener.count() == 1, "drawer-enabled-visible-opener")
++        opener.focus()
++        page.keyboard.press("Enter")
++        drawer = page.locator("[data-cart-drawer]")
++        drawer.wait_for(state="visible")
++        require(drawer.evaluate("e=>e.open&&e.contains(document.activeElement)"), "drawer-open-focus-contained")
++        if mobile:
++            require(not nav.is_visible(), "drawer-mobile-nav-closed-behind-modal")
++        page.keyboard.press("Escape")
++        drawer.wait_for(state="hidden")
++        target = menu if mobile else opener
++        require(target.evaluate("e=>document.activeElement===e&&e.getClientRects().length>0"), "drawer-close-returns-visible-opener")
++        self.record("Cart drawer keyboard regression", route="/shop", locale=locale, width=width,
++                    mobile_menu=mobile, focus_contained=True, escape_returns_visible_control=True)
++
+     def public(self):
+         routes = ["/", "/shop", "/category/qa-collection", "/product/qa-product-1", "/product/qa-product-11", "/cart", "/login", "/register", "/forgot-password", "/order-lookup", "/stories", "/contact", "/faq", "/privacy", "/terms", "/shipping-returns", "/imprint", "/cookies", "/withdrawal-form"]
+         axe_routes = {"/", "/shop", "/product/qa-product-11", "/login", "/register", "/contact", "/faq"}
+@@ -528,6 +605,12 @@
+                         navigation_widths = sorted({min(self.args.widths), max(self.args.widths), min(self.args.widths, key=lambda width: abs(width - 768))})
+                         for width in navigation_widths:
+                             self.run(f"Navigation keyboard {locale} {width}", lambda width=width: self.navigation_keyboard(page, locale, width))
++                    if route == "/shop" and getattr(self.args, "cart_drawer", False):
++                        for width in sorted({min(self.args.widths), max(self.args.widths)}):
++                            self.run(f"Cart drawer keyboard {locale} {width}", lambda width=width: self.cart_drawer_keyboard(page, locale, width))
++                    if route == "/login":
++                        for width in sorted({min(self.args.widths), max(self.args.widths)}):
++                            self.run(f"Cookie keyboard {locale} {width}", lambda width=width: self.cookie_keyboard(page, locale, width))
+                 self.run(f"Public {locale} {route}", check)
+             context.close()
+             context = self.context(java_script_enabled=False)
+@@ -679,6 +762,7 @@
+     parser.add_argument("--widths", default="390,768,1440")
+     parser.add_argument("--screenshots", action="store_true")
+     parser.add_argument("--simulated-email", action="store_true", help="SIMULATED local intercepted provider; no actual delivery")
++    parser.add_argument("--cart-drawer", action="store_true", help="Enable the synthetic cart-drawer appearance option and exercise its keyboard paths")
+     args = parser.parse_args()
+     if sys.version_info[:2] != (3, 13):
+         parser.error("Python 3.13 is required")

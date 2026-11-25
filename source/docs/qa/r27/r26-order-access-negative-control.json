@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-13T14:34:46.523783+00:00",
+  "label": "VERIFIED",
+  "command": [
+    "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+    "--test",
+    "test/order-access-http.integration.test.js"
+  ],
+  "control": "Disposable exact R26 baseline copy, plus new regression test and symlinked matching node_modules",
+  "original_source_mismatches_before_test": [],
+  "exit_code": 1,
+  "output_file": "r26-order-access-negative-control.log",
+  "scope": "VERIFIED: command exited1 during fixture setup with INVALID_PHONE before authorization/cache assertions. This run does not prove the original access/cache defect. Original actual HTTP evidence is /workspace/presale-r26-audit/evidence/security-runtime-probe.json. No Windows or remote production claim.",
+  "correction": "2026-11-14 final evidence self-challenge: removed unsupported inference from setup failure."
+}

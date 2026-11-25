@@ -1,0 +1,55 @@
+{
+  "label": "VERIFIED",
+  "scope": "Read-only final integrated CSS byte/hash inventory, not transferred page bytes",
+  "source_files": 5,
+  "authoring_bytes": 321094,
+  "compiled_files": 2,
+  "compiled_bytes": 299832,
+  "all_source_hashes_match_manifest": true,
+  "all_compiled_hashes_match_manifest": true,
+  "bundles": [
+    {
+      "output": "public/css/design-foundation.min.css",
+      "sha256": "08dc4207dc536af2a750e23ed82dbcd008db7e21270c7666a1537479c6a0b73c",
+      "inputBytes": 229901,
+      "bytes": 213946,
+      "sources": [
+        {
+          "path": "public/css/app.css",
+          "bytes": 132643,
+          "sha256": "45602396ac5a1dc1d2941ec306a0db2bc29abccd5e7420145e05204342ba9319"
+        },
+        {
+          "path": "public/css/design-tokens.css",
+          "bytes": 3612,
+          "sha256": "2bb30c8bebcc65c39bb02ff13dfdd84048fe90beb77e808347ffdb6a4c171c92"
+        },
+        {
+          "path": "public/css/retail-2027.css",
+          "bytes": 41133,
+          "sha256": "725c18a6b40552db1a27d11009b54ce53f5d576d250764f0ca2358714bd3d835"
+        },
+        {
+          "path": "public/css/editorial-2027.css",
+          "bytes": 52513,
+          "sha256": "e0967e119256af22dd7dd668e7cb57a03964e0655bbf9786c1f883ba962d0872"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "output": "public/css/design-polish.min.css",
+      "sha256": "503e05811f02b28414a0581ce1e57e1e3a5ad1ba2282dab65229489550d81de3",
+      "inputBytes": 91193,
+      "bytes": 85886,
+      "sources": [
+        {
+          "path": "public/css/research-polish-2027.css",
+          "bytes": 91193,
+          "sha256": "67229a249f8770d0e1594da54efcbf6a61d40887cf3cf84d33ceccb6d8381253"
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}

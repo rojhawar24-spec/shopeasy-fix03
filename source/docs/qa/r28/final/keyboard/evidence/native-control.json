@@ -1,0 +1,43 @@
+{
+  "label": "VERIFIED",
+  "purpose": "Independent native Chromium dialog focus-boundary control; no application code or credentials.",
+  "utc": "2026-11-20T22:51:21.369179+00:00",
+  "states": [
+    {
+      "step": "last-control",
+      "active": "last",
+      "in_dialog": true,
+      "document_has_focus": true
+    },
+    {
+      "step": "Tab-after-last",
+      "active": "BODY",
+      "in_dialog": false,
+      "document_has_focus": false
+    },
+    {
+      "step": "second-Tab",
+      "active": "first",
+      "in_dialog": true,
+      "document_has_focus": true
+    },
+    {
+      "step": "ShiftTab-before-first",
+      "active": "last",
+      "in_dialog": true,
+      "document_has_focus": true
+    },
+    {
+      "step": "second-ShiftTab",
+      "active": "first",
+      "in_dialog": true,
+      "document_has_focus": true
+    },
+    {
+      "step": "programmatic-background-focus-attempt",
+      "active": "first",
+      "in_dialog": true,
+      "document_has_focus": true
+    }
+  ]
+}

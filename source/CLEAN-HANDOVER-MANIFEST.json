@@ -1,0 +1,78 @@
+{
+  "label": "LOCAL PREPACKAGING EVIDENCE — FIX03 REMEDIATION CANDIDATE",
+  "version": "2.8.95",
+  "release": "R28-FIX03",
+  "candidate_report": "REMEDIATION-FIX03.md",
+  "evidence_directory": "docs/qa/fix03/",
+  "implementation": {
+    "tracked_items": 31,
+    "code_remediations": 31,
+    "meaning": "Code remediation completion; external browser/provider/production acceptance is separate."
+  },
+  "actual_integrated_evidence": {
+    "scope": "Final local prepackaging suite",
+    "tests": 1420,
+    "pass": 1420,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "repair_baseline_tests": 1243,
+    "net_new_tests": 177,
+    "node": "24.22.3",
+    "platform": "linux",
+    "evidence": "docs/qa/fix03/full-suite-final.txt"
+  },
+  "templates": {
+    "checked": 62,
+    "pass": 62,
+    "fail": 0,
+    "scope": "Structural/compile audit; not visual verification"
+  },
+  "browser": {
+    "status": "BLOCKED",
+    "ui_checks_executed": 0,
+    "axe_scans_executed": 0,
+    "current_lighthouse_measurements": 0,
+    "causes": [
+      "Pinned browser executable unavailable",
+      "System-browser launch failed: socket() Operation not permitted"
+    ],
+    "certificate": null
+  },
+  "archive_authority": "Read FINAL-VERIFICATION-REPORT.json from the actual FIX03 package and its matching external archive/content/re-extraction records. The release wrapper replaces the source prepackaging report inside its private stage.",
+  "current_archive_sha256": null,
+  "current_archive_sha256_status": "Not assigned by this document; use the actual final archive digest after packaging.",
+  "runtime_scope": "The full local suite used Node 24.22.3; the schema exporter used Node 24.22.2. The final clean-package stage records its own runtime.",
+  "release_verdict": "Code remediation and local suite complete; exact clean-package outcome is separate. NOT production-certified.",
+  "rights": "UNKNOWN where recorded in RIGHTS-CLEARANCE-REGISTER.md",
+  "remaining_external_validation": [
+    "Actual browser/responsive/RTL/focus/BFCache",
+    "Assistive technology and manual accessibility",
+    "Live providers and recipient/settlement behavior",
+    "Windows and buyer deployment/recovery",
+    "Legal/commercial/source and asset rights clearance"
+  ],
+  "historical_records": [
+    {
+      "classification": "HISTORICAL — superseded for FIX03; original values retained without treating any digest or status as current",
+      "record": {
+        "label": "PARTIALLY VERIFIED — REMEDIATION CANDIDATE FIX02-B",
+        "version": "2.8.95",
+        "release": "R28-FIX02-B",
+        "baseline_sha256": "ba433a2c7dffb30bf8a404f01f0c461351e575cf9a2bebab060d3f26e031594b",
+        "actual_integrated_evidence": "NOT TESTED for FIX02-B; historical R28 evidence only",
+        "archive_authority": "SHA256SUMS.txt plus external candidate ZIP digest",
+        "secret_scan_authority": "No fresh comprehensive secret scan; original archive retained without private files",
+        "rights": "UNKNOWN",
+        "manual_every_file_review": "NOT TESTED",
+        "baseline_archive_sha256": "0d4fec7d5947b7d003edcc8cb7ac846f7883a3b5535a75be5ff09d047854748d",
+        "baseline_runtime_fingerprint_sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+        "baseline_runtime_files": 152,
+        "candidate_report": "REMEDIATION-FIX02-B.md",
+        "release_verdict": "NOT READY FOR RELEASE",
+        "prior_candidate_archive_sha256": "82580e15af1fa823135e16b88dcb89a149a6e59a244727d98e93fa3e1fc56767"
+      }
+    }
+  ]
+}

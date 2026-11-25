@@ -1,0 +1,51 @@
+<%- include('../partials/header',{title:'GDPR customer tools'}) %>
+<%- include('../partials/admin-nav') %>
+<section class="container page-head admin-head">
+  <%- include('../partials/back-button', { fallback: '/admin' }) %>
+  <div><span class="eyebrow">CUSTOMER DATA REQUESTS</span><h1>GDPR tools</h1><p>Export a customer's stored account/order data or remove a customer account and linked records. Only a signed-in Manager can use these tools.</p></div>
+</section>
+<section class="container form-page">
+  <% if(error){ %><div class="alert" role="alert"><%= notice || 'The requested operation could not be completed.' %></div><% } %>
+  <% if(deleted){ %><div class="success-alert" role="status">Customer data deletion completed. The action is recorded in the GDPR audit log below.</div><% } %>
+  <% if(typeof minimized!=='undefined'&&minimized){ %><div class="success-alert" role="status" data-no-translate><%= privacyCopy.completed %></div><% } %>
+  <section class="panel form-stack">
+    <div class="panel-head"><div><span class="eyebrow">PORTABILITY</span><h2>Export customer data</h2></div></div>
+    <p class="muted">Enter exactly one customer ID or email address. The JSON includes account details (excluding password/security secrets), orders and items, wishlist, and associated sessions.</p>
+    <form class="form-stack" method="post" action="/admin/gdpr/export">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <label>Customer ID<input type="number" name="customerId" min="1" step="1" value="<%= customerId || '' %>" inputmode="numeric"></label>
+      <label>Customer email<input type="email" name="email" maxlength="254" value="<%= email || '' %>" autocomplete="email"></label>
+      <div class="form-actions"><button type="submit" class="btn btn-dark">Export customer data</button></div>
+    </form>
+  </section>
+  <section class="panel form-stack section">
+    <div class="panel-head"><div><span class="eyebrow">ERASURE</span><h2>Delete customer data</h2></div></div>
+    <p class="muted">This permanently deletes the matching customer account, matching linked/guest orders and items, associated sessions and wishlist data. Any open/shipped stock reservations are reconciled in the same database transaction. This cannot be undone.</p>
+    <p class="field-note">Customer uploads are not currently tracked as customer-owned records. Storefront images are shared store assets and will not be deleted as part of a customer request.</p>
+    <p class="field-note" data-no-translate><%= privacyCopy.warning %></p>
+    <form class="form-stack" method="post" action="/admin/gdpr/delete">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <label>Customer ID<input type="number" name="customerId" min="1" step="1" value="<%= customerId || '' %>" inputmode="numeric"></label>
+      <label>Customer email<input type="email" name="email" maxlength="254" value="<%= email || '' %>" autocomplete="email"></label>
+      <label data-no-translate><%= privacyCopy.mode %><select name="privacyMode" aria-describedby="privacy-minimization-description"><option value="delete"><%= privacyCopy.deletion %></option><option value="minimize-retain-financial"><%= privacyCopy.minimization %></option></select></label>
+      <p class="field-note" id="privacy-minimization-description" data-no-translate><%= privacyCopy.explanation %></p>
+      <label data-no-translate><%= privacyCopy.policy %><input type="text" name="retentionPolicyReference" maxlength="200" autocomplete="off" aria-describedby="privacy-policy-hint"></label>
+      <p class="field-note" id="privacy-policy-hint" data-no-translate><%= privacyCopy.policyHint %></p>
+      <label class="check-row" data-no-translate><input type="checkbox" name="retentionAcknowledged"><span><%= privacyCopy.acknowledgement %></span></label>
+      <label>Type DELETE to confirm<input type="text" name="confirmation" required pattern="DELETE" autocomplete="off" spellcheck="false"></label>
+      <div class="form-actions"><button type="submit" class="btn btn-danger">Delete customer data</button></div>
+    </form>
+  </section>
+  <section class="panel section" id="gdpr-audit-log">
+    <div class="panel-head"><div><span class="eyebrow">TRACEABILITY</span><h2>GDPR audit log</h2></div><span class="status"><%= logs.length %> latest actions</span></div>
+    <p class="muted">The table shows up to the latest 150 GDPR exports and deletions: who performed the action, when it happened, what was done, and the affected record reference.</p>
+    <p><a class="btn btn-light" href="#gdpr-audit-log">View audit log</a></p>
+    <div class="table-wrap" role="region" aria-label="Privacy activity log table" tabindex="0"><table><thead><tr><th>When</th><th>Who</th><th>Action</th><th>Target</th><th>Details</th></tr></thead><tbody>
+      <% logs.forEach(log=>{ let meta={}; try { meta=JSON.parse(log.meta_json || '{}') || {}; } catch {} %>
+      <tr><td><%= log.created_at %></td><td><%= log.email || 'Account no longer available' %></td><td><%= log.action === 'gdpr_customer_export' ? 'Customer data export' : meta.mode==='minimize-retain-financial' ? privacyCopy.minimization : log.action === 'gdpr_customer_delete' ? 'Customer data deletion' : log.action %></td><td><%= log.target_type %><%= log.target_id ? ' #'+log.target_id : '' %></td><td><%= log.action === 'gdpr_customer_export' ? `${Number(meta.orders_exported||0)} orders, ${Number(meta.sessions_exported||0)} sessions exported` : `${Number(meta.orders_deleted||0)} orders, ${Number(meta.sessions_deleted||0)} sessions deleted; account ${meta.account_deleted?'deleted':'not present'}` %><% if(meta.mode==='minimize-retain-financial'){ %><p data-no-translate><%= privacyCopy.minimization %>: <%= Number(meta.financial_records_retained||0) %><br><%= privacyCopy.policy %>: <%= meta.retention_policy_reference || '' %></p><% } %></td></tr>
+      <% }) %>
+      <% if(!logs.length){ %><tr><td colspan="5"><div class="empty compact"><h3>No GDPR actions yet.</h3><p class="muted">Completed customer exports and deletions will appear here.</p></div></td></tr><% } %>
+    </tbody></table></div>
+  </section>
+</section>
+<%- include('../partials/footer',{managerWorkspaceShell:user?.role==='manager'}) %>

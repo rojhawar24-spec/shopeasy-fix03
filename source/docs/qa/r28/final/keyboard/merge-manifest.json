@@ -1,0 +1,78 @@
+{
+  "label": "VERIFIED",
+  "created_utc": "2026-11-21T23:01:30.789337+00:00",
+  "baseline_archive": "/workspace/delivery/ShopEasy-R27-2026-11-15/ShopEasy-2.8.94-technical-checks.zip",
+  "baseline_archive_sha256": "ba433a2c7dffb30bf8a404f01f0c461351e575cf9a2bebab060d3f26e031594b",
+  "main_and_r27_edited": false,
+  "changes": [
+    {
+      "path": "public/js/app.js",
+      "before_sha256": "b9af2bf4fb706298a30ac463f485447dc73b63aade5bb85e3243e5e44bcc7917",
+      "after_sha256": "f97ae51f564f57338f321baaae60bfd2eb965fd4c859d6579e1f823b3664211f",
+      "after_bytes": 67315
+    },
+    {
+      "path": "public/js/retail-2027.js",
+      "before_sha256": "c8bd1834d8db045d0f2e45ed1e073373e58fc9df7239dd6cce5d58d5318ef188",
+      "after_sha256": "91bf8b1f760b234c6bbc5ea0402c050a518cb3d13e02e6a4f4f4020bb122889f",
+      "after_bytes": 15091
+    },
+    {
+      "path": "qa/fixture-server.mjs",
+      "before_sha256": "35d900feca5b54326ba54211169fbb6ad7edbbdf88ea5b69f85af03d3d8cc2db",
+      "after_sha256": "c33910f299be6e75f17f1900eda06eb838d7b6af13b478b070a453132c9f830c",
+      "after_bytes": 7201
+    },
+    {
+      "path": "qa/run-browser-qa.py",
+      "before_sha256": "b5a97cb436f205c2bb81faea71120ca04b1f24cdf55764553f393b6ae941ef3a",
+      "after_sha256": "16c347881f98463271b6cd577874e40c868844c0c4935f0652abf759ba082a6e",
+      "after_bytes": 52803
+    }
+  ],
+  "anchors": {
+    "const closeCookiePreferences": {
+      "file": "public/js/app.js",
+      "line": 988
+    },
+    "The dialog itself receives initial focus": {
+      "file": "public/js/app.js",
+      "line": 1067
+    },
+    "drawer.addEventListener('close'": {
+      "file": "public/js/retail-2027.js",
+      "line": 204
+    },
+    "def cookie_keyboard": {
+      "file": "qa/run-browser-qa.py",
+      "line": 492
+    },
+    "def cart_drawer_keyboard": {
+      "file": "qa/run-browser-qa.py",
+      "line": 541
+    },
+    "if (drawerMode === 'enabled-cart-drawer')": {
+      "file": "qa/fixture-server.mjs",
+      "line": 53
+    }
+  },
+  "patch": "keyboard.patch",
+  "patch_sha256": "6897233266f3febca6158254353ca509a6fb7a794c8be766fa0b344d824b42b2",
+  "latest_focused_method_groups": {
+    "label": "VERIFIED",
+    "passed_method_groups": 20,
+    "failed_method_groups": 0,
+    "temporary_fixture_removed": true,
+    "full_buyer_suite": "NOT TESTED by this focused harness"
+  },
+  "runtime_fingerprint": {
+    "sha256": "03f29f72544b53d2e4f7e9efe951dad4cb0b4e80527a27ceb30f9a387ff75803",
+    "files": 147,
+    "scope": "Copied src, views, public excluding uploads, generated and package.json"
+  },
+  "integration_instruction": "Apply source patch hunks. retail-2027.js drawer-close hunk is independent of accessibility theme-SVG edits; preserve both. Run final complete source suite and full buyer QA after all parent merges. Pass --cart-drawer to exercise enabled drawer fixture paths.",
+  "limits": [
+    "NOT TESTED: actual screen-reader output, voice control, Windows, physical devices, actual browser desktop zoom and full WCAG conformance.",
+    "Earlier260-assertion corrected broad probe used an earlier proposal fingerprint. Current20 shipped method groups and mobile25 before/after proof are narrower final-source evidence."
+  ]
+}

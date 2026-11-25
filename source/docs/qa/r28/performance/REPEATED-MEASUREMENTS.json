@@ -1,0 +1,488 @@
+{
+  "label": "VERIFIED",
+  "execution_dates": "Lighthouse2026-11-21; local load2026-11-22",
+  "definition": "Three serial paired baseline/proposal repeats, two scenarios each. Local synthetic fixtures with simulated Lighthouse throttling; no production confidence or causal attribution guarantee.",
+  "runtime_scope": "Performance proposal only. Parent accessibility/backend/dependency/version integration requires new final-runtime checks.",
+  "runs": [
+    {
+      "group": "baseline",
+      "repeat": 1,
+      "scenario": "home-mobile",
+      "performance": 95,
+      "bytes": 298434,
+      "fcp_ms": 2418.9786,
+      "lcp_ms": 2418.9786,
+      "runtime_sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "interactive",
+        "largest-contentful-paint",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "speed-index",
+        "unminified-css",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "evidence": "measurements/baseline-1/lighthouse-summary.json"
+    },
+    {
+      "group": "baseline",
+      "repeat": 1,
+      "scenario": "shop-desktop",
+      "performance": 100,
+      "bytes": 302204,
+      "fcp_ms": 608.719,
+      "lcp_ms": 708.7190000000002,
+      "runtime_sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "largest-contentful-paint",
+        "lcp-discovery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-css",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "evidence": "measurements/baseline-1/lighthouse-summary.json"
+    },
+    {
+      "group": "proposal",
+      "repeat": 1,
+      "scenario": "home-mobile",
+      "performance": 99,
+      "bytes": 139262,
+      "fcp_ms": 1558.6529,
+      "lcp_ms": 1558.6529,
+      "runtime_sha256": "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "largest-contentful-paint",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "evidence": "measurements/proposal-1/lighthouse-summary.json"
+    },
+    {
+      "group": "proposal",
+      "repeat": 1,
+      "scenario": "shop-desktop",
+      "performance": 100,
+      "bytes": 143032,
+      "fcp_ms": 514.0443,
+      "lcp_ms": 605.06645,
+      "runtime_sha256": "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "largest-contentful-paint",
+        "lcp-discovery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "evidence": "measurements/proposal-1/lighthouse-summary.json"
+    },
+    {
+      "group": "baseline",
+      "repeat": 2,
+      "scenario": "home-mobile",
+      "performance": 94,
+      "bytes": 306349,
+      "fcp_ms": 2285.795,
+      "lcp_ms": 2660.795,
+      "runtime_sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "interactive",
+        "largest-contentful-paint",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "speed-index",
+        "unminified-css",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "evidence": "measurements/baseline-2/lighthouse-summary.json"
+    },
+    {
+      "group": "baseline",
+      "repeat": 2,
+      "scenario": "shop-desktop",
+      "performance": 99,
+      "bytes": 317084,
+      "fcp_ms": 712.944,
+      "lcp_ms": 818.4159999999999,
+      "runtime_sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "largest-contentful-paint",
+        "lcp-discovery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "speed-index",
+        "unminified-css",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "evidence": "measurements/baseline-2/lighthouse-summary.json"
+    },
+    {
+      "group": "proposal",
+      "repeat": 2,
+      "scenario": "home-mobile",
+      "performance": 99,
+      "bytes": 139262,
+      "fcp_ms": 1573.4665,
+      "lcp_ms": 1573.4665,
+      "runtime_sha256": "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "largest-contentful-paint",
+        "max-potential-fid",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "evidence": "measurements/proposal-2/lighthouse-summary.json"
+    },
+    {
+      "group": "proposal",
+      "repeat": 2,
+      "scenario": "shop-desktop",
+      "performance": 100,
+      "bytes": 143032,
+      "fcp_ms": 522.8987999999999,
+      "lcp_ms": 704.3481999999999,
+      "runtime_sha256": "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "largest-contentful-paint",
+        "lcp-discovery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "speed-index",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "evidence": "measurements/proposal-2/lighthouse-summary.json"
+    },
+    {
+      "group": "baseline",
+      "repeat": 3,
+      "scenario": "home-mobile",
+      "performance": 94,
+      "bytes": 355807,
+      "fcp_ms": 2473.4365,
+      "lcp_ms": 2473.4365,
+      "runtime_sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+      "audit_errors": [],
+      "run_warnings": 1,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "interactive",
+        "largest-contentful-paint",
+        "mainthread-work-breakdown",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "speed-index",
+        "unminified-css",
+        "unminified-javascript",
+        "unused-css-rules",
+        "unused-javascript"
+      ],
+      "evidence": "measurements/baseline-3/lighthouse-summary.json"
+    },
+    {
+      "group": "baseline",
+      "repeat": 3,
+      "scenario": "shop-desktop",
+      "performance": 99,
+      "bytes": 361484,
+      "fcp_ms": 630.761,
+      "lcp_ms": 776.9024999999999,
+      "runtime_sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "largest-contentful-paint",
+        "lcp-discovery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-css",
+        "unminified-javascript",
+        "unused-css-rules",
+        "unused-javascript"
+      ],
+      "evidence": "measurements/baseline-3/lighthouse-summary.json"
+    },
+    {
+      "group": "proposal",
+      "repeat": 3,
+      "scenario": "home-mobile",
+      "performance": 99,
+      "bytes": 139262,
+      "fcp_ms": 1587.3415,
+      "lcp_ms": 1587.3415,
+      "runtime_sha256": "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "largest-contentful-paint",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "evidence": "measurements/proposal-3/lighthouse-summary.json"
+    },
+    {
+      "group": "proposal",
+      "repeat": 3,
+      "scenario": "shop-desktop",
+      "performance": 100,
+      "bytes": 143032,
+      "fcp_ms": 497.7568,
+      "lcp_ms": 632.1351999999999,
+      "runtime_sha256": "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572",
+      "audit_errors": [],
+      "run_warnings": 0,
+      "remaining_performance_audits": [
+        "bf-cache",
+        "document-latency-insight",
+        "forced-reflow-insight",
+        "largest-contentful-paint",
+        "lcp-discovery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "evidence": "measurements/proposal-3/lighthouse-summary.json"
+    }
+  ],
+  "group_summaries": [
+    {
+      "group": "baseline",
+      "scenario": "home-mobile",
+      "repeats": 3,
+      "performance": {
+        "values": [
+          95,
+          94,
+          94
+        ],
+        "minimum": 94,
+        "median": 94,
+        "maximum": 95
+      },
+      "bytes": {
+        "values": [
+          298434,
+          306349,
+          355807
+        ],
+        "minimum": 298434,
+        "median": 306349,
+        "maximum": 355807
+      },
+      "fcp_ms": {
+        "values": [
+          2418.9786,
+          2285.795,
+          2473.4365
+        ],
+        "minimum": 2285.795,
+        "median": 2418.9786,
+        "maximum": 2473.4365
+      },
+      "lcp_ms": {
+        "values": [
+          2418.9786,
+          2660.795,
+          2473.4365
+        ],
+        "minimum": 2418.9786,
+        "median": 2473.4365,
+        "maximum": 2660.795
+      }
+    },
+    {
+      "group": "baseline",
+      "scenario": "shop-desktop",
+      "repeats": 3,
+      "performance": {
+        "values": [
+          100,
+          99,
+          99
+        ],
+        "minimum": 99,
+        "median": 99,
+        "maximum": 100
+      },
+      "bytes": {
+        "values": [
+          302204,
+          317084,
+          361484
+        ],
+        "minimum": 302204,
+        "median": 317084,
+        "maximum": 361484
+      },
+      "fcp_ms": {
+        "values": [
+          608.719,
+          712.944,
+          630.761
+        ],
+        "minimum": 608.719,
+        "median": 630.761,
+        "maximum": 712.944
+      },
+      "lcp_ms": {
+        "values": [
+          708.7190000000002,
+          818.4159999999999,
+          776.9024999999999
+        ],
+        "minimum": 708.7190000000002,
+        "median": 776.9024999999999,
+        "maximum": 818.4159999999999
+      }
+    },
+    {
+      "group": "proposal",
+      "scenario": "home-mobile",
+      "repeats": 3,
+      "performance": {
+        "values": [
+          99,
+          99,
+          99
+        ],
+        "minimum": 99,
+        "median": 99,
+        "maximum": 99
+      },
+      "bytes": {
+        "values": [
+          139262,
+          139262,
+          139262
+        ],
+        "minimum": 139262,
+        "median": 139262,
+        "maximum": 139262
+      },
+      "fcp_ms": {
+        "values": [
+          1558.6529,
+          1573.4665,
+          1587.3415
+        ],
+        "minimum": 1558.6529,
+        "median": 1573.4665,
+        "maximum": 1587.3415
+      },
+      "lcp_ms": {
+        "values": [
+          1558.6529,
+          1573.4665,
+          1587.3415
+        ],
+        "minimum": 1558.6529,
+        "median": 1573.4665,
+        "maximum": 1587.3415
+      }
+    },
+    {
+      "group": "proposal",
+      "scenario": "shop-desktop",
+      "repeats": 3,
+      "performance": {
+        "values": [
+          100,
+          100,
+          100
+        ],
+        "minimum": 100,
+        "median": 100,
+        "maximum": 100
+      },
+      "bytes": {
+        "values": [
+          143032,
+          143032,
+          143032
+        ],
+        "minimum": 143032,
+        "median": 143032,
+        "maximum": 143032
+      },
+      "fcp_ms": {
+        "values": [
+          514.0443,
+          522.8987999999999,
+          497.7568
+        ],
+        "minimum": 497.7568,
+        "median": 514.0443,
+        "maximum": 522.8987999999999
+      },
+      "lcp_ms": {
+        "values": [
+          605.06645,
+          704.3481999999999,
+          632.1351999999999
+        ],
+        "minimum": 605.06645,
+        "median": 632.1351999999999,
+        "maximum": 704.3481999999999
+      }
+    }
+  ]
+}

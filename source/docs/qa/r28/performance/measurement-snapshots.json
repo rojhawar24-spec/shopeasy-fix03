@@ -1,0 +1,12 @@
+{
+  "baseline": {
+    "root": "/workspace/presale-r27/work",
+    "sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+    "files": 147
+  },
+  "proposal": {
+    "root": "/workspace/presale-r28/proposals/performance/work",
+    "sha256": "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572",
+    "files": 150
+  }
+}

@@ -1,0 +1,152 @@
+<%
+  const themeModeLabel = ({en:'Use dark mode',ckb:'دۆخی تاریک بەکاربهێنە',ar:'استخدام الوضع الداكن',nl:'Donkere modus gebruiken',fr:'Activer le mode sombre'})[locale] || 'Use dark mode';
+  const announcementLabel = ({en:'Store announcements',ckb:'ڕاگەیاندنەکانی فرۆشگا',ar:'إعلانات المتجر',nl:'Winkelmededelingen',fr:'Annonces de la boutique'})[locale] || 'Store announcements';
+  const titleTranslations = {
+    fr: {'Home':'Accueil','Shop':'Boutique','Account':'Compte','Cart':'Panier','Checkout':'Paiement','Sign in':'Se connecter','Create account':'Créer un compte','Products':'Produits','Product not found':'Produit introuvable','Order not found':'Commande introuvable','Page not found':'Page introuvable','FAQ':'Questions fréquentes','Contact':'Contact','Terms':'Conditions générales','Privacy':'Confidentialité','Shipping & returns':'Livraison et retours','Business information':'Mentions légales','Withdrawal form':'Formulaire de rétractation','Store manager':'Gestion de la boutique','Store settings':'Paramètres de la boutique','Categories':'Catégories','Order status':'Statut de commande','Wishlist':'Favoris','Orders':'Commandes','Customers':'Clients','Product':'Produit','Account security':'Sécurité du compte'},
+    nl: {'Home':'Startpagina','Account security':'Accountbeveiliging','Account':'Account','Cart':'Winkelmandje','Checkout':'Afrekenen','Forgot your password?':'Wachtwoord vergeten?','Create account':'Account aanmaken','Sign in':'Inloggen','Information':'Informatie','Shop':'Winkel','Stories':'Verhalen','Checkout cancelled':'Afrekenen geannuleerd','Order status':'Bestelstatus','Wishlist':'Verlanglijst','Audit log':'Auditlogboek','Storefront branding':'Winkelpresentatie','Categories':'Categorieën','Coupons':'Kortingsbonnen','Customers':'Klanten','Store manager':'Winkelbeheer','Orders':'Bestellingen','Products':'Producten','Store settings':'Winkelinstellingen','Add product':'Product toevoegen','Edit product':'Product bewerken','Add story':'Verhaal toevoegen','Edit story':'Verhaal bewerken','Privacy':'Privacy','Terms':'Voorwaarden','Shipping & returns':'Verzending & retouren','FAQ':'Veelgestelde vragen','Contact':'Contact','Business information':'Bedrijfsgegevens','Withdrawal form':'Herroepingsformulier','Page not found':'Pagina niet gevonden','Order not found':'Bestelling niet gevonden','Product not found':'Product niet gevonden'},
+    ckb: {'Home':'سەرەکی','Account security':'پاراستنی هەژمار','Account':'هەژمار','Cart':'سەبەتە','Checkout':'تەواوکردنی کڕین','Forgot your password?':'وشەی نهێنیت لەبیرچووە؟','Create account':'دروستکردنی هەژمار','Sign in':'چوونەژوورەوە','Information':'زانیاری','Shop':'فرۆشگا','Stories':'چیرۆکەکان','Checkout cancelled':'هەڵوەشاندنەوەی داواکاری','Order status':'دۆخی داواکاری','Wishlist':'لیستی دڵخوازەکان','Audit log':'تۆماری پشکنین','Storefront branding':'دیزاینی فرۆشگا','Categories':'پۆلەکان','Coupons':'کۆدەکانی داشکاندن','Customers':'کڕیارەکان','Store manager':'بەڕێوەبردنی فرۆشگا','Orders':'داواکارییەکان','Products':'بەرهەمەکان','Store settings':'ڕێکخستنەکانی فرۆشگا','Add product':'زیادکردنی بەرهەم','Edit product':'دەستکاریکردنی بەرهەم','Add story':'زیادکردنی چیرۆک','Edit story':'دەستکاریکردنی چیرۆک','Privacy':'پاراستنی تایبەتمەندی','Terms':'مەرجەکان','Shipping & returns':'گەیاندن و گەڕاندنەوە','Business information':'زانیاریی بازرگانی','Withdrawal form':'فۆرمی پاشگەزبوونەوە','Page not found':'پەڕە نەدۆزرایەوە','Order not found':'داواکاری نەدۆزرایەوە','Product not found':'بەرهەم نەدۆزرایەوە'},
+    ar: {'Home':'الرئيسية','Account security':'أمان الحساب','Account':'الحساب','Cart':'سلة التسوق','Checkout':'إتمام الطلب','Forgot your password?':'هل نسيت كلمة المرور؟','Create account':'إنشاء حساب','Sign in':'تسجيل الدخول','Information':'معلومات','Shop':'المتجر','Stories':'القصص','Checkout cancelled':'تم إلغاء الطلب','Order status':'حالة الطلب','Wishlist':'قائمة الأمنيات','Audit log':'سجل التدقيق','Storefront branding':'تصميم واجهة المتجر','Categories':'الفئات','Coupons':'القسائم','Customers':'العملاء','Store manager':'إدارة المتجر','Orders':'الطلبات','Products':'المنتجات','Store settings':'إعدادات المتجر','Add product':'إضافة منتج','Edit product':'تعديل المنتج','Add story':'إضافة قصة','Edit story':'تعديل القصة','Privacy':'سياسة الخصوصية','Terms':'الشروط والأحكام','Shipping & returns':'الشحن والإرجاع','Business information':'معلومات الشركة','Withdrawal form':'نموذج الانسحاب','Page not found':'الصفحة غير موجودة','Order not found':'الطلب غير موجود','Product not found':'المنتج غير موجود'}
+  };
+  const rawTitle = title || storeName;
+  const titlePath = typeof path === 'string' ? path : '';
+  const merchantTitle = (/^\/product\//i.test(titlePath) && typeof product !== 'undefined' && product && product.name === rawTitle) ||
+    (/^\/category\//i.test(titlePath) && typeof categoryInfo !== 'undefined' && categoryInfo && categoryInfo.name === rawTitle);
+  const localizedTitle = merchantTitle ? rawTitle : (titleTranslations[locale]?.[rawTitle] ||
+    (typeof customerText === 'function' ? customerText(rawTitle) : rawTitle));
+  const pageTitle = title ? `${localizedTitle} · ${storeName}` : storeName;
+  const defaultDescription = locale === 'fr'
+    ? `${localizedTitle} chez ${storeName}. Découvrez nos produits, comparez les prix et commandez en toute sécurité.`
+    : locale === 'nl'
+    ? `${localizedTitle} bij ${storeName}. Bekijk producten, vergelijk duidelijke prijzen en plaats veilig een bestelling. Betaal bij levering wanneer deze optie beschikbaar is.`
+    : locale === 'ckb'
+    ? `${localizedTitle} لە ${storeName}. بەرهەمەکان ببینە، نرخە ڕوونەکان بەراورد بکە و بە پارەدان لە کاتی گەیاندن داواکاری بکە.`
+    : locale === 'ar'
+      ? `${localizedTitle} في ${storeName}. تصفح المنتجات وقارن الأسعار الواضحة واطلب مع الدفع نقدًا عند التسليم.`
+      : `${localizedTitle} at ${storeName}. Browse products, compare clear prices and place a secure cash-on-delivery order.`;
+  const pageDescription = (typeof description === 'string' && description.trim())
+    ? description.trim().slice(0,300)
+    : defaultDescription.slice(0,300);
+  const privatePrefixes = ['/admin','/account','/cart','/checkout','/login','/register','/forgot-password','/wishlist','/success','/order','/order-lookup','/local-manager-recovery','/verify-email','/mfa','/session','/payments','/api'];
+  const privateRoutePath = String(path || '/').toLowerCase();
+  const noIndexPage = Boolean((typeof seoNoIndex !== 'undefined' && seoNoIndex) || isAdminRoute || isCheckoutRoute || privatePrefixes.some(prefix => privateRoutePath === prefix || privateRoutePath.startsWith(`${prefix}/`)));
+  const canonicalUrl = !noIndexPage && typeof seoCanonicalUrl === 'string' ? seoCanonicalUrl : '';
+  const alternateLinks = !noIndexPage && Array.isArray(seoAlternateLinks) ? seoAlternateLinks : [];
+  const socialLocale = locale === 'ckb' ? 'ckb' : locale === 'ar' ? 'ar' : locale === 'nl' ? 'nl_BE' : locale === 'fr' ? 'fr_BE' : 'en_GB';
+  // All pages use app.css. This allow-list only scopes storefront-specific mobile-search markup.
+  const routePath = String(path || '/').split('?')[0].replace(/\/$/, '') || '/';
+  const isStorefrontPage = routePath === '/' ||
+    ['/shop','/wishlist','/cart','/checkout','/checkout/success','/order-lookup','/success','/privacy','/terms','/cookies','/shipping-returns','/imprint','/withdrawal-form','/faq','/contact','/policy','/stories','/error','/login','/forgot-password'].includes(routePath) ||
+    ['/category/','/product/','/order/','/account/order/'].some(prefix => routePath.startsWith(prefix));
+%>
+<!doctype html>
+<html lang="<%= locale==='ckb'?'ckb':locale==='ar'?'ar':locale==='nl'?'nl-BE':locale==='fr'?'fr-BE':'en-GB' %>" dir="<%= ['ckb','ar'].includes(locale)?'rtl':'ltr' %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="<%= pageDescription %>">
+  <meta name="robots" content="<%= noIndexPage?'noindex, nofollow':'index, follow' %>">
+  <meta property="og:title" content="<%= pageTitle %>">
+  <meta property="og:description" content="<%= pageDescription %>">
+  <% if(typeof socialImageUrl === 'string' && /^https:\/\/[^\s<>]+$/i.test(socialImageUrl)){ %><meta property="og:image" content="<%= socialImageUrl %>"><% } %>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="<%= storeName %>">
+  <meta property="og:locale" content="<%= socialLocale %>">
+  <% if(canonicalUrl){ %><meta property="og:url" content="<%= canonicalUrl %>"><link rel="canonical" href="<%= canonicalUrl %>"><% alternateLinks.forEach(alternate => { %><link rel="alternate" hreflang="<%= alternate.hreflang %>" href="<%= alternate.href %>"><% }); %><% } %>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="<%= pageTitle %>">
+  <meta name="twitter:description" content="<%= pageDescription %>">
+  <link rel="icon" href="<%= safeImageUrl(shopLogo) %>" type="<%= shopLogo.endsWith('.png') ? 'image/png' : shopLogo.endsWith('.webp') ? 'image/webp' : shopLogo.endsWith('.jpg') ? 'image/jpeg' : 'image/svg+xml' %>">
+  <meta name="csrf-token" content="<%= csrf %>">
+  <meta name="theme-color" content="#F7F6F2">
+  <meta name="color-scheme" content="light dark">
+  <% if(typeof productJsonLdSafe === 'string' && productJsonLdSafe){ %><script type="application/ld+json"><%- productJsonLdSafe %></script><% } %>
+  <% if(typeof organizationJsonLdSafe === 'string' && organizationJsonLdSafe){ %><script type="application/ld+json"><%- organizationJsonLdSafe %></script><% } %>
+  <% if(typeof breadcrumbJsonLdSafe === 'string' && breadcrumbJsonLdSafe){ %><script type="application/ld+json"><%- breadcrumbJsonLdSafe %></script><% } %>
+  <title><%= pageTitle %></title>
+  <meta name="shopeasy-design-version" content="editorial-2027">
+  <% if(appearance.darkMode){ %><script src="/js/theme-early-2027.js?v=atelier-1"></script><% } %>
+  <link rel="stylesheet" href="/css/design-foundation.min.css?v=2027-r28">
+  <link rel="stylesheet" href="/theme/shop.css?v=2027-p1">
+  <link rel="stylesheet" href="/css/design-polish.min.css?v=2027-r28.fix03">
+</head>
+<body data-design-version="research-2027" data-page-kind="<%= isAdminRoute ? 'manager' : isCheckoutRoute ? 'checkout' : 'storefront' %>" data-motion="<%= appearance.motion?'on':'off' %>" class="<%= isAdminRoute ? 'is-admin-app' : 'is-storefront-app' %>">
+<a class="skip-link" href="#main-content"><%= locale==='fr'?'Aller au contenu':'Skip to content' %></a>
+<div class="announcement" role="region" aria-label="<%= announcementLabel %>"><div class="container announcement-inner"><div class="announcement-message"><span><%= checkoutCardEnabled ? (locale==='ckb'?'کاش و کارت':locale==='ar'?'الدفع نقدًا وبالبطاقة':locale==='nl'?'Contant of met kaart betalen':locale==='fr'?'Paiement à la livraison ou par carte':'Cash on delivery and card') : (locale==='ckb'?'پارەدان لە کاتی گەیاندن':locale==='ar'?'الدفع نقدًا عند التسليم':locale==='nl'?'Contant betalen bij levering':locale==='fr'?'Paiement à la livraison':'Cash on delivery') %><% if(bankTransferEnabled){ %><%= locale==='ckb'?' · گواستنەوەی بانکی':locale==='ar'?' · تحويل مصرفي':locale==='nl'?' · Bankoverschrijving':locale==='fr'?' · Virement bancaire':' · Bank transfer' %><% } %></span><span class="announcement-divider" aria-hidden="true">·</span><span><%= locale==='ckb'?'نرخی ڕوون':locale==='ar'?'أسعار واضحة':locale==='nl'?'Duidelijke prijzen':locale==='fr'?'Prix transparents':'Clear pricing' %></span></div><div class="announcement-tools"><form class="language-switch" action="/language" method="post" aria-label="<%= locale==='fr'?'Choisir la langue':'Choose language' %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="returnTo" value="<%= returnTo||path||'/' %>"><label class="sr-only" for="site-language"><%= locale==='fr'?'Langue':'Language' %></label><select id="site-language" name="language" data-language-select aria-label="Language"><% if((availableUiLocales||['en','ckb','ar','nl','fr']).includes('en')){ %><option value="en" <%= locale==='en'?'selected':'' %>>English</option><% } %><% if((availableUiLocales||['en','ckb','ar','nl','fr']).includes('ckb')){ %><option value="ckb" <%= locale==='ckb'?'selected':'' %>>کوردی (سۆرانی)</option><% } %><% if((availableUiLocales||['en','ckb','ar','nl','fr']).includes('ar')){ %><option value="ar" <%= locale==='ar'?'selected':'' %>>العربية</option><% } %><% if((availableUiLocales||['en','ckb','ar','nl','fr']).includes('nl')){ %><option value="nl" <%= locale==='nl'?'selected':'' %>>Nederlands</option><% } %><% if((availableUiLocales||['en','ckb','ar','nl','fr']).includes('fr')){ %><option value="fr" <%= locale==='fr'?'selected':'' %>>Français</option><% } %></select><noscript><button class="language-apply" type="submit"><%= locale==='fr'?'Appliquer':'Apply' %></button></noscript></form><% if(appearance.darkMode&&!isAdminRoute){ %><button type="button" class="theme-toggle theme-toggle-inline" data-theme-toggle data-no-translate aria-label="<%= themeModeLabel %>" aria-pressed="false" title="<%= themeModeLabel %>"><span data-theme-icon aria-hidden="true"><%- include('ui-icon',{iconName:'moon',iconClass:'theme-icon-moon'}) %><%- include('ui-icon',{iconName:'sun',iconClass:'theme-icon-sun'}) %></span><span class="sr-only" data-theme-label><%= themeModeLabel %></span></button><% } %></div></div></div>
+<header class="site-header">
+  <div class="container nav-row">
+    <a class="brand" href="/" aria-label="<%= storeName %> home"><img class="brand-logo" src="<%= safeImageUrl(shopLogo) %>" alt="" width="38" height="38"><span class="brand-word" translate="no" data-no-translate><%= storeName %></span></a>
+    <% if (!isAdminRoute && isStorefrontPage) { %>
+    <div class="search-box storefront-search" <%= featureAutocompleteEnabled?'data-search-box':'' %>>
+      <form class="search" action="/shop" method="get" role="search">
+        <span class="search-icon" aria-hidden="true"><%- include('ui-icon',{iconName:'search'}) %></span>
+        <input data-search-input name="search" autocomplete="off" aria-label="<%= locale==='fr'?'Rechercher des produits':'Search products' %>" placeholder="<%= locale==='fr'?'Rechercher des produits…':'Search products…' %>" value="<%= typeof search !== 'undefined' ? search : '' %>">
+        <button type="submit" aria-label="<%= locale==='fr'?'Rechercher':'Search' %>"><%- include('ui-icon',{iconName:'arrow'}) %></button>
+      </form>
+      <div class="search-results" data-search-results hidden></div><% if(typeof aiEnabled !== 'undefined' && aiEnabled){ %><small class="search-ai-disclosure"><%= locale==='nl'?'AI-zoekhulp bij volledig zoeken; je zoekterm wordt gedeeld met de ingestelde AI-dienst.':locale==='ckb'?'یارمەتی گەڕانی AI لە گەڕانی تەواودا؛ تەنها وشەی گەڕان بۆ خزمەتگوزاری AI دەنێردرێت.':locale==='ar'?'بحث بمساعدة الذكاء الاصطناعي عند إرسال البحث؛ تتم مشاركة عبارة البحث فقط مع خدمة الذكاء الاصطناعي المهيأة.':locale==='fr'?'Recherche assistée par IA lors de la recherche complète ; seule votre requête est transmise au service d’IA configuré.':'AI-assisted results on full search; only your search phrase is sent to the configured AI service.' %></small><% } %>
+    </div>
+    <% } else if (!isAdminRoute) { %>
+    <div class="search-box" <%= featureAutocompleteEnabled?'data-search-box':'' %>>
+      <form class="search" action="/shop" method="get" role="search">
+        <span class="search-icon" aria-hidden="true"><%- include('ui-icon',{iconName:'search'}) %></span>
+        <input data-search-input name="search" autocomplete="off" aria-label="<%= locale==='fr'?'Rechercher des produits':'Search products' %>" placeholder="<%= locale==='fr'?'Rechercher des produits…':'Search products…' %>" value="<%= typeof search !== 'undefined' ? search : '' %>">
+        <button type="submit" aria-label="<%= locale==='fr'?'Rechercher':'Search' %>"><%- include('ui-icon',{iconName:'arrow'}) %></button>
+      </form>
+      <div class="search-results" data-search-results hidden></div><% if(typeof aiEnabled !== 'undefined' && aiEnabled){ %><small class="search-ai-disclosure"><%= locale==='nl'?'AI-zoekhulp bij volledig zoeken; je zoekterm wordt gedeeld met de ingestelde AI-dienst.':locale==='ckb'?'یارمەتی گەڕانی AI لە گەڕانی تەواودا؛ تەنها وشەی گەڕان بۆ خزمەتگوزاری AI دەنێردرێت.':locale==='ar'?'بحث بمساعدة الذكاء الاصطناعي عند إرسال البحث؛ تتم مشاركة عبارة البحث فقط مع خدمة الذكاء الاصطناعي المهيأة.':locale==='fr'?'Recherche assistée par IA lors de la recherche complète ; seule votre requête est transmise au service d’IA configuré.':'AI-assisted results on full search; only your search phrase is sent to the configured AI service.' %></small><% } %>
+    </div>
+    <% } %>
+    <% if (isAdminRoute) { %>
+    <div class="admin-header-actions" role="group" aria-label="Manager account actions">
+      <% if(appearance.darkMode){ %><button type="button" class="theme-toggle theme-toggle-admin" data-theme-toggle data-no-translate aria-label="<%= themeModeLabel %>" aria-pressed="false" title="<%= themeModeLabel %>"><span data-theme-icon aria-hidden="true"><%- include('ui-icon',{iconName:'moon',iconClass:'theme-icon-moon'}) %><%- include('ui-icon',{iconName:'sun',iconClass:'theme-icon-sun'}) %></span><span class="sr-only" data-theme-label><%= themeModeLabel %></span></button><% } %>
+      <form class="admin-header-language" action="/language" method="post" aria-label="Change language">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <input type="hidden" name="returnTo" value="<%= returnTo||path||'/admin' %>">
+        <label class="sr-only" for="admin-language"><%= locale==='fr'?'Langue':'Language' %></label>
+        <select id="admin-language" name="language" data-language-select aria-label="Language">
+          <% if((availableUiLocales||['en','ckb','ar','nl','fr']).includes('en')){ %><option value="en" <%= locale==='en'?'selected':'' %>>EN</option><% } %>
+          <% if((availableUiLocales||['en','ckb','ar','nl','fr']).includes('ckb')){ %><option value="ckb" <%= locale==='ckb'?'selected':'' %>>CKB</option><% } %>
+          <% if((availableUiLocales||['en','ckb','ar','nl','fr']).includes('ar')){ %><option value="ar" <%= locale==='ar'?'selected':'' %>>AR</option><% } %>
+          <% if((availableUiLocales||['en','ckb','ar','nl','fr']).includes('nl')){ %><option value="nl" <%= locale==='nl'?'selected':'' %>>NL</option><% } %>
+          <% if((availableUiLocales||['en','ckb','ar','nl','fr']).includes('fr')){ %><option value="fr" <%= locale==='fr'?'selected':'' %>>FR</option><% } %>
+        </select>
+        <noscript><button type="submit" class="admin-header-language-submit"><%= locale==='fr'?'Appliquer':'Apply' %></button></noscript>
+      </form>
+      <% if (String(user?.role||'').toLowerCase() === 'manager') { %><a class="admin-header-account" href="/admin/staff"><%= locale==='ckb'?'هەژمار':locale==='ar'?'الحساب':locale==='nl'?'Account':'Account' %></a><% } else { %><a class="admin-header-account" href="/admin"><%= locale==='ckb'?'پوختە':locale==='ar'?'نظرة عامة':locale==='nl'?'Overzicht':'Overview' %></a><% } %>
+      <form class="admin-header-logout" method="post" action="/logout"><input type="hidden" name="_csrf" value="<%= csrf %>"><button type="submit"><%= locale==='ckb'?'چوونەدەرەوە':locale==='ar'?'تسجيل الخروج':locale==='nl'?'Uitloggen':locale==='fr'?'Se déconnecter':'Log out' %></button></form>
+    </div>
+    <% } else { %>
+    <nav class="nav-links" data-nav aria-label="Primary navigation" id="site-navigation">
+      <a href="/shop">Shop</a>
+      <% function renderNavCategory(c,depth=0){ %><div class="nav-category-node depth-<%= depth %>"><a href="/category/<%= encodeURIComponent(c.slug) %>" data-no-translate><% if(depth===0){ %><strong><%= c.name %></strong><% } else { %><%= c.name %><% } %></a><% if(c.children?.length){ %><div class="nav-category-children"><% c.children.forEach(child=>renderNavCategory(child,depth+1)); %></div><% } %></div><% } %><% if(navCategories?.length){ %><div class="nav-category-menu"><button type="button" class="nav-category-trigger" aria-expanded="false" aria-controls="site-category-panel">Categories <span aria-hidden="true">⌄</span></button><div class="nav-category-panel" id="site-category-panel"><% navCategories.forEach(c=>renderNavCategory(c)); %><a class="nav-category-all" href="/shop">View all products →</a></div></div><% } %>
+      <% if(featureStoriesEnabled){ %><a href="/stories">Stories</a><% } %>
+      <% if (isLoggedIn) { %><% if(featureWishlistEnabled){ %><a href="/wishlist"><%= locale==='fr'?'Favoris':'Saved' %> <b data-wishlist-count><%= wishlistCount %></b></a><% } %><a href="/account"><%= locale==='fr'?'Compte':'Account' %></a><% } else { %><a href="/login"><%= locale==='fr'?'Se connecter':'Sign in' %></a><% } %>
+      <a class="cart-nav" href="/cart"<% if(appearance.cartDrawer){ %> data-cart-drawer-trigger<% } %>><%= locale==='ckb'?'سەبەتە':locale==='ar'?'السلة':locale==='nl'?'Winkelmandje':locale==='fr'?'Panier':'Bag' %> <b><%= cartCount %></b></a>
+      <% if (user && ['admin','manager'].includes(user.role)) { %><a class="admin-link" href="/admin">Manage</a><% } %>
+      <% if (isLoggedIn) { %><form class="inline-form nav-logout" method="post" action="/logout"><input type="hidden" name="_csrf" value="<%= csrf %>"><button type="submit"><%= locale==='fr'?'Se déconnecter':'Log out' %></button></form><% } %>
+    </nav>
+    <% if (isStorefrontPage) { %><button type="button" class="storefront-search-toggle" data-search-toggle aria-expanded="false" aria-controls="mobile-storefront-search" aria-label="Open search"><span aria-hidden="true">⌕</span></button><% } %>
+    <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation"><%- include('ui-icon',{iconName:'menu'}) %></button>
+    <% } %>
+  </div>
+  <% if (!isAdminRoute && isStorefrontPage) { %>
+  <div class="container mobile-search storefront-mobile-search" id="mobile-storefront-search" <%= featureAutocompleteEnabled?'data-search-box':'' %> hidden>
+    <form class="search" action="/shop" method="get" role="search">
+      <label class="sr-only" for="mobile-storefront-search-input"><%= locale==='fr'?'Rechercher des produits':'Search products' %></label>
+      <span class="search-icon" aria-hidden="true"><%- include('ui-icon',{iconName:'search'}) %></span>
+      <input id="mobile-storefront-search-input" data-search-input name="search" autocomplete="off" aria-label="<%= locale==='fr'?'Rechercher des produits':'Search products' %>" placeholder="<%= locale==='fr'?'Rechercher des produits…':'Search products…' %>" value="<%= typeof search !== 'undefined' ? search : '' %>">
+      <button type="submit" aria-label="<%= locale==='fr'?'Rechercher':'Search' %>"><%- include('ui-icon',{iconName:'arrow'}) %></button>
+      <button type="button" data-search-close aria-label="Close search"><span aria-hidden="true">×</span></button>
+    </form>
+    <div class="search-results" data-search-results hidden></div><% if(typeof aiEnabled !== 'undefined' && aiEnabled){ %><small class="search-ai-disclosure"><%= locale==='nl'?'AI-zoekhulp bij volledig zoeken; je zoekterm wordt gedeeld met de ingestelde AI-dienst.':locale==='ckb'?'یارمەتی گەڕانی AI لە گەڕانی تەواودا؛ تەنها وشەی گەڕان بۆ خزمەتگوزاری AI دەنێردرێت.':locale==='ar'?'بحث بمساعدة الذكاء الاصطناعي عند إرسال البحث؛ تتم مشاركة عبارة البحث فقط مع خدمة الذكاء الاصطناعي المهيأة.':locale==='fr'?'Recherche assistée par IA lors de la recherche complète ; seule votre requête est transmise au service d’IA configuré.':'AI-assisted results on full search; only your search phrase is sent to the configured AI service.' %></small><% } %>
+  </div>
+  <% } else if (!isAdminRoute) { %>
+  <div class="container mobile-search" <%= featureAutocompleteEnabled?'data-search-box':'' %>>
+    <form class="search" action="/shop" method="get" role="search">
+      <span class="search-icon" aria-hidden="true"><%- include('ui-icon',{iconName:'search'}) %></span>
+      <input data-search-input name="search" autocomplete="off" aria-label="<%= locale==='fr'?'Rechercher des produits':'Search products' %>" placeholder="<%= locale==='fr'?'Rechercher des produits…':'Search products…' %>" value="<%= typeof search !== 'undefined' ? search : '' %>">
+      <button type="submit" aria-label="<%= locale==='fr'?'Rechercher':'Search' %>"><%- include('ui-icon',{iconName:'arrow'}) %></button>
+    </form>
+    <div class="search-results" data-search-results hidden></div><% if(typeof aiEnabled !== 'undefined' && aiEnabled){ %><small class="search-ai-disclosure"><%= locale==='nl'?'AI-zoekhulp bij volledig zoeken; je zoekterm wordt gedeeld met de ingestelde AI-dienst.':locale==='ckb'?'یارمەتی گەڕانی AI لە گەڕانی تەواودا؛ تەنها وشەی گەڕان بۆ خزمەتگوزاری AI دەنێردرێت.':locale==='ar'?'بحث بمساعدة الذكاء الاصطناعي عند إرسال البحث؛ تتم مشاركة عبارة البحث فقط مع خدمة الذكاء الاصطناعي المهيأة.':locale==='fr'?'Recherche assistée par IA lors de la recherche complète ; seule votre requête est transmise au service d’IA configuré.':'AI-assisted results on full search; only your search phrase is sent to the configured AI service.' %></small><% } %>
+  </div>
+  <% } %>
+</header>
+<main id="main-content" class="<%= isAdminRoute ? 'admin-main' : 'storefront-main' %>">

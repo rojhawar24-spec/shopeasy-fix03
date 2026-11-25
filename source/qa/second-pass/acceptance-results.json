@@ -1,0 +1,92 @@
+[
+  {
+    "stale_login_locale": "en",
+    "passed": true
+  },
+  {
+    "stale_login_locale": "fr",
+    "passed": true
+  },
+  {
+    "stale_login_locale": "nl",
+    "passed": true
+  },
+  {
+    "stale_login_locale": "ar",
+    "passed": true
+  },
+  {
+    "stale_login_locale": "ckb",
+    "passed": true
+  },
+  {
+    "home_no_javascript_locale": "fr",
+    "passed": true
+  },
+  {
+    "home_no_javascript_locale": "nl",
+    "passed": true
+  },
+  {
+    "home_no_javascript_locale": "ar",
+    "passed": true
+  },
+  {
+    "home_no_javascript_locale": "ckb",
+    "passed": true
+  },
+  {
+    "page": "home-empty",
+    "theme": "light",
+    "width": 1440,
+    "keyboard_and_axe": true
+  },
+  {
+    "page": "home-empty",
+    "theme": "light",
+    "width": 390,
+    "keyboard_and_axe": true
+  },
+  {
+    "page": "home-empty",
+    "theme": "dark",
+    "width": 390,
+    "keyboard_and_axe": true
+  },
+  {
+    "page": "home-populated",
+    "theme": "light",
+    "width": 1440,
+    "keyboard_and_axe": true
+  },
+  {
+    "page": "home-populated",
+    "theme": "light",
+    "width": 390,
+    "keyboard_and_axe": true
+  },
+  {
+    "page": "home-populated",
+    "theme": "dark",
+    "width": 390,
+    "keyboard_and_axe": true
+  },
+  {
+    "page": "login",
+    "theme": "light",
+    "width": 1440,
+    "keyboard_and_axe": true
+  },
+  {
+    "page": "login",
+    "theme": "light",
+    "width": 390,
+    "keyboard_and_axe": true
+  },
+  {
+    "page": "login",
+    "theme": "dark",
+    "width": 390,
+    "keyboard_and_axe": true
+  }
+]

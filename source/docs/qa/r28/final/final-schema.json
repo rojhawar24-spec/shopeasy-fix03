@@ -1,0 +1,13 @@
+{
+  "utc_started": "2026-11-22T23:06:15.086927+00:00",
+  "utc_finished": "2026-11-22T23:06:15.468377+00:00",
+  "cwd": "/workspace/presale-r28/work",
+  "command": [
+    "node",
+    "scripts/export-schema-reference.mjs"
+  ],
+  "exit_code": 0,
+  "output_file": "final-schema.txt",
+  "inherited_application_credentials": "removed; credential values not printed",
+  "original_output_file": "final-schema.log"
+}

@@ -1,0 +1,17 @@
+<%- include('../partials/header',{title:'Bundle promotions'}) %>
+<%- include('../partials/admin-nav') %>
+<section class="container page-head admin-head"><div><span class="eyebrow">STORE PROMOTIONS</span><h1>Bundle offers</h1><p>Give a percentage reduction on the lower-priced item when a customer buys one of each selected product. Product totals, taxes and payment amount are recalculated on the server before placing an order.</p></div></section>
+<section class="container form-page"><div class="panel">
+<% if(error){ %><div role="alert" class="alert"><%= error %></div><% } %>
+<% if(saved){ %><div role="status" class="success-alert">Bundle settings saved.</div><% } %>
+<form method="post" action="/admin/bundles" class="form-stack">
+<input type="hidden" name="_csrf" value="<%= csrf %>">
+<label class="checkbox-inline"><input type="checkbox" name="enabled" <%= enabled?'checked':'' %>> Enable automatic bundle discounts</label>
+<p class="field-note">Use exactly two different active product IDs. Leave all three rule fields blank to remove the bundle. Discounts never stack with another bundle for the same item.</p>
+<div class="form-grid"><label>First product ID<input type="number" min="1" name="productIdA" value="<%= rules?.[0]?.productIds?.[0]??'' %>"></label>
+<label>Second product ID<input type="number" min="1" name="productIdB" value="<%= rules?.[0]?.productIds?.[1]??'' %>"></label>
+<label>Discount on cheaper product (%)<input type="number" min="1" max="50" name="discountPercent" value="<%= rules?.[0]?.discountPercent??'' %>"></label></div>
+<button type="submit" class="btn btn-dark">Save bundle offer</button></form>
+<p class="field-note">Promotions are separate from gift-card tender. Tax treatment and consumer-pricing disclosures require merchant review.</p>
+</div></section>
+<%- include('../partials/footer',{managerWorkspaceShell:user?.role==='manager'}) %>

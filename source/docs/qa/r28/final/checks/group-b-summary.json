@@ -1,0 +1,131 @@
+{
+  "utc": "2026-11-22T23:02:38.306194+00:00",
+  "label": "VERIFIED",
+  "phase": "group-b",
+  "node_runtime": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+  "results": [
+    {
+      "check": "install",
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--fetch-retries=0",
+        "--fetch-timeout=30000"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-install.json"
+    },
+    {
+      "check": "build",
+      "command": [
+        "npm",
+        "run",
+        "build:cloudflare"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-build.json"
+    },
+    {
+      "check": "syntax",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-syntax.json"
+    },
+    {
+      "check": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-lint.json"
+    },
+    {
+      "check": "types",
+      "command": [
+        "npm",
+        "run",
+        "typecheck:core"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-types.json"
+    },
+    {
+      "check": "static",
+      "command": [
+        "npm",
+        "run",
+        "audit:static"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-static.json"
+    },
+    {
+      "check": "preflight",
+      "command": [
+        "npm",
+        "run",
+        "preflight:release"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-preflight.json"
+    },
+    {
+      "check": "templates",
+      "command": [
+        "node",
+        "scripts/template-audit.mjs"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-templates.json"
+    },
+    {
+      "check": "tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit_code": 1,
+      "evidence": "group-b-tests.json"
+    },
+    {
+      "check": "notices",
+      "command": [
+        "npm",
+        "run",
+        "licenses:generate"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-notices.json"
+    },
+    {
+      "check": "production-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--omit=dev",
+        "--json"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-production-advisories.json"
+    },
+    {
+      "check": "all-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--json"
+      ],
+      "exit_code": 0,
+      "evidence": "group-b-all-advisories.json"
+    }
+  ]
+}

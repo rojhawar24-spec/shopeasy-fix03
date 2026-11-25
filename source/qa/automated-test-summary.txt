@@ -1,0 +1,18 @@
+R26 — archive recheck, 11 November 2026
+R25 ZIP SHA-256/CRC and 555 internal checksums passed.
+Extracted R25 full suite:1052 passed, 0 failed; no tracked payload changed after rebuild.
+Final R26 full suite:
+ℹ tests 1055
+ℹ suites 0
+ℹ pass 1055
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26014.915466
+
+Broad browser recheck:136 customer + 52 Manager + 20 filled Cart/Checkout = 208 passed.
+New content/shared-footer regressions: 13 passed. Total 221 groups.
+Broad axe scenarios: 116, zero automated violations.
+Build, syntax, lint, core typecheck, static audit, release preflight and 59 EJS templates passed.
+See RECHECK-R26.md and qa/recheck/. No production deployment or provider transactions.

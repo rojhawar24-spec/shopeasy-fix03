@@ -1,0 +1,200 @@
+{
+  "label": "VERIFIED",
+  "started_utc": "2026-11-21T22:56:05.528791+00:00",
+  "scope": "Enabled cart drawer reached by keyboard through collapsed mobile navigation; synthetic fixture only. No credentials or cookie values retained.",
+  "checks": [
+    {
+      "label": "VERIFIED",
+      "check": "Mobile navigation opens",
+      "observed_success": true,
+      "locale": "en"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer opens from mobile nav and takes focus",
+      "observed_success": true,
+      "locale": "en"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Navigation closes behind opened drawer",
+      "observed_success": true,
+      "locale": "en"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer Escape closes",
+      "observed_success": true,
+      "locale": "en"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer Escape returns visible mobile menu trigger",
+      "observed_success": true,
+      "locale": "en",
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "visible": true,
+        "in_hidden_nav": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Mobile navigation opens",
+      "observed_success": true,
+      "locale": "ckb"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer opens from mobile nav and takes focus",
+      "observed_success": true,
+      "locale": "ckb"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Navigation closes behind opened drawer",
+      "observed_success": true,
+      "locale": "ckb"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer Escape closes",
+      "observed_success": true,
+      "locale": "ckb"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer Escape returns visible mobile menu trigger",
+      "observed_success": true,
+      "locale": "ckb",
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "visible": true,
+        "in_hidden_nav": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Mobile navigation opens",
+      "observed_success": true,
+      "locale": "ar"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer opens from mobile nav and takes focus",
+      "observed_success": true,
+      "locale": "ar"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Navigation closes behind opened drawer",
+      "observed_success": true,
+      "locale": "ar"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer Escape closes",
+      "observed_success": true,
+      "locale": "ar"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer Escape returns visible mobile menu trigger",
+      "observed_success": true,
+      "locale": "ar",
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "visible": true,
+        "in_hidden_nav": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Mobile navigation opens",
+      "observed_success": true,
+      "locale": "nl"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer opens from mobile nav and takes focus",
+      "observed_success": true,
+      "locale": "nl"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Navigation closes behind opened drawer",
+      "observed_success": true,
+      "locale": "nl"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer Escape closes",
+      "observed_success": true,
+      "locale": "nl"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer Escape returns visible mobile menu trigger",
+      "observed_success": true,
+      "locale": "nl",
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "visible": true,
+        "in_hidden_nav": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Mobile navigation opens",
+      "observed_success": true,
+      "locale": "fr"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer opens from mobile nav and takes focus",
+      "observed_success": true,
+      "locale": "fr"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Navigation closes behind opened drawer",
+      "observed_success": true,
+      "locale": "fr"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer Escape closes",
+      "observed_success": true,
+      "locale": "fr"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Drawer Escape returns visible mobile menu trigger",
+      "observed_success": true,
+      "locale": "fr",
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "visible": true,
+        "in_hidden_nav": false
+      }
+    }
+  ],
+  "fixture_server_sha256": "7b96613aba7d02517e528130d9098311a6a4cc171772ee4e89c7c6f89348104f",
+  "runtime_fingerprint": {
+    "sha256": "4ec98fcda0a313303eba29cdc4be5d9da80ecf7869676e5cc3b8a79d61136880",
+    "files": 147,
+    "scope": "Copied src, views, public excluding uploads, generated and package.json"
+  },
+  "chromium": "156.0.8078.79",
+  "temporary_fixture_removed": true,
+  "summary": {
+    "successful_assertions": 25,
+    "unsuccessful_assertions": 0
+  },
+  "finished_utc": "2026-11-21T22:56:23.412139+00:00"
+}

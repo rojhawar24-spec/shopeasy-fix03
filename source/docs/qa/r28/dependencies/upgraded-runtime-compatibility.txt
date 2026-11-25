@@ -1,0 +1,37 @@
+✔ P1-4 pins Express 5.3.0 and Helmet 8.3.0 with an integrity-verified npm lockfile (4.738116ms)
+✔ Express 5.3 required transitive contracts remain supported after direct dependency updates (1.146284ms)
+✔ Express 5 migration contract stays explicit for redirects, response APIs, body parsing, uploads and Helmet CSP (11.875677ms)
+✔ dotenv bootstrap loads a disposable file before consumers without informational or debug output (76.234347ms)
+✔ updated EJS preserves escaped multilingual seller content and trusted relative includes (4.191326ms)
+✔ updated rate limiter enforces the configured HTTP boundary and emits modern limit headers (120.179527ms)
+✔ integration dependencies are declared, lockfile-pinned, and never silently skipped (65.838056ms)
+✔ Manager MFA, staff dashboard and customer registration integration flow completes (14612.475732ms)
+[license] License metadata is incomplete (LICENSOR_NAME, LICENSED_TO, LICENSE_EMAIL, LICENSE_KEY, LICENSE_DATE). Store will continue; this is not proof of a valid license.
+No Manager account exists. Configure MANAGER_NAME, MANAGER_EMAIL and a MANAGER_PASSWORD of 15–200 characters that is not common or repeated in .env, then restart ShopEasy. Existing Admin/customer accounts are never promoted automatically.
+▶ order lookup and return HTTP routes enforce account ownership or guest bearer proof
+  ✔ an existing customer can still sign in with a legacy 12-character password (232.388767ms)
+  ✔ anonymous email/order knowledge does not expose a registered purchase or create a return (48.594735ms)
+  ✔ another authenticated customer cannot access or return the registered purchase (33.290169ms)
+  ✔ the authenticated owner can view the purchase and persist its return request (34.609123ms)
+  ✔ guest email/order knowledge without bearer proof does not expose its purchase (13.602835ms)
+  ✔ incorrect guest bearer proof is rejected for lookup and return (25.851644ms)
+  ✔ valid guest proof in a POST enables cookie-protected lookup and return without account attribution (30.627589ms)
+  ✔ the existing guest-order cookie authorizes lookup without entering its proof again (13.471365ms)
+  ✔ a signed-in customer holding valid guest proof can still access that guest order (12.864433ms)
+  ✔ a guest proof never substitutes for ownership of an account-owned order (11.634764ms)
+  ✔ opening an existing guest confirmation migrates its scoped proof to a root cookie (116.036157ms)
+  ✔ early missing-CSRF error pages are private/no-store and retain a fresh form token (20.944571ms)
+  ✔ Manager privacy routes require explicit financial retention choices and expose the correct result (134.453781ms)
+✔ order lookup and return HTTP routes enforce account ownership or guest bearer proof (1254.380337ms)
+✔ Node entrypoint loads .env before importing the application and database module graph (4.734821ms)
+✔ expired Manager MFA submission returns to login with a clear restart message (3.549531ms)
+✔ local checkout diagnostic also checks the Manager MFA schema without reading secret values (0.456284ms)
+✔ all EJS templates compile before any manager/customer request can render them (53.391868ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16939.211936

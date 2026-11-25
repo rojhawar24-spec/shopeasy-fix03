@@ -1,0 +1,14 @@
+<%
+  const paths = {
+    menu: 'M4 6h16M4 12h16M4 18h16',
+    search: 'M21 21l-5-5M10.5 3a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15Z',
+    arrow: 'M5 12h14M13 6l6 6-6 6',
+    plus: 'M12 5v14M5 12h14',
+    minus: 'M5 12h14',
+    moon: 'M20.5 14a8.5 8.5 0 0 1-10.5-10.5A8.5 8.5 0 1 0 20.5 14Z',
+    sun: 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42'
+  };
+  if (!Object.hasOwn(paths, iconName)) throw new Error('Unknown UI icon');
+  const pathData = paths[iconName];
+  const classValue = 'ui-icon' + (typeof iconClass === 'string' && iconClass ? ' ' + iconClass : '');
+%><svg class="<%= classValue %>" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="<%= pathData %>"/></svg>

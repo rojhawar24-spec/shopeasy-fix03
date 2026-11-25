@@ -1,0 +1,42 @@
+{
+  "dotenv": {
+    "current": "16.6.1",
+    "wanted": "16.6.1",
+    "latest": "18.0.10",
+    "dependent": "work",
+    "location": "/workspace/presale-r27/work/node_modules/dotenv",
+    "type": "dependencies",
+    "homepage": "https://github.com/motdotla/dotenv#readme",
+    "dependedByLocation": ""
+  },
+  "ejs": {
+    "current": "6.0.1",
+    "wanted": "6.0.1",
+    "latest": "7.0.2",
+    "dependent": "work",
+    "location": "/workspace/presale-r27/work/node_modules/ejs",
+    "type": "dependencies",
+    "homepage": "https://github.com/mde/ejs",
+    "dependedByLocation": ""
+  },
+  "express-rate-limit": {
+    "current": "8.7.3",
+    "wanted": "8.7.3",
+    "latest": "8.7.4",
+    "dependent": "work",
+    "location": "/workspace/presale-r27/work/node_modules/express-rate-limit",
+    "type": "dependencies",
+    "homepage": "https://github.com/express-rate-limit/express-rate-limit",
+    "dependedByLocation": ""
+  },
+  "typescript": {
+    "current": "5.8.3",
+    "wanted": "5.8.3",
+    "latest": "7.0.2",
+    "dependent": "work",
+    "location": "/workspace/presale-r27/work/node_modules/typescript",
+    "type": "devDependencies",
+    "homepage": "https://www.typescriptlang.org/",
+    "dependedByLocation": ""
+  }
+}

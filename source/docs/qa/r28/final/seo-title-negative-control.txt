@@ -1,0 +1,92 @@
+✖ static French page titles use the same server translations as page headings (6.02032ms)
+✖ merchant product and category names are not translated when they collide with interface labels (1.358348ms)
+✖ cookie metadata uses the localized policy title instead of a stale caller title (1.893462ms)
+✖ category pages pass their actual merchant category name to the page header (0.705395ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16.496137
+
+✖ failing tests:
+
+test at test/seo-title-localization-r28.test.js:19:1
+✖ static French page titles use the same server translations as page headings (6.02032ms)
+  AssertionError [ERR_ASSERTION]: French metadata must not fall back to an English interface label
+      at TestContext.<anonymous> (file:///workspace/presale-r28/proposals/root-seo/work/test/seo-title-localization-r28.test.js:22:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/seo-title-localization-r28.test.js:26:1
+✖ merchant product and category names are not translated when they collide with interface labels (1.358348ms)
+  AssertionError [ERR_ASSERTION]: merchant names remain literal
+      at TestContext.<anonymous> (file:///workspace/presale-r28/proposals/root-seo/work/test/seo-title-localization-r28.test.js:29:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/seo-title-localization-r28.test.js:36:1
+✖ cookie metadata uses the localized policy title instead of a stale caller title (1.893462ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'Cookie policy'
+  - 'Politique des cookies'
+  
+      at TestContext.<anonymous> (file:///workspace/presale-r28/proposals/root-seo/work/test/seo-title-localization-r28.test.js:40:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Cookie policy',
+    expected: 'Politique des cookies',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/seo-title-localization-r28.test.js:43:1
+✖ category pages pass their actual merchant category name to the page header (0.705395ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'Shop' !== 'Account'
+  
+      at TestContext.<anonymous> (file:///workspace/presale-r28/proposals/root-seo/work/test/seo-title-localization-r28.test.js:47:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Shop',
+    expected: 'Account',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

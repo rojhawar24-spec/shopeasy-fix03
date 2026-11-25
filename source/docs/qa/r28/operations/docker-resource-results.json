@@ -1,0 +1,19 @@
+{
+  "label": "VERIFIED",
+  "reviewed_utc": "2026-11-22T17:18:40.356932+00:00",
+  "docker_server": "29.9.2",
+  "build_context": "private Ops proposal based on R27 2.8.94; not final integrated R28",
+  "container_checks": "VERIFIED: corrected unprivileged build stage completed all checks,1166 tests/pass1166/fail0/skipped0 and notice collection0unresolved; log observations retained.",
+  "final_image": "NOT TESTED: final production COPY failed ENOSPC in managed VFS storage; no completed image or runtime smoke is claimed.",
+  "baseline": "VERIFIED: original build needed proxy CA trust; CA-only original variant exposed root execution failure in deployment safety guard. Missing local vendor was a hypothesis disproved when npm ci succeeded, not a reported defect.",
+  "trust": "TLS verification preserved; optional read-only BuildKit secret npm_ca supplied /etc/ssl/certs/ca-certificates.crt; CA not copied into image layers.",
+  "resource_recovery": "No containers/volumes existed. Only unused task build cache was pruned after failure; Docker reported333MB cache and df then showed3.7GBfree. No images,volumes,source or user state deleted.",
+  "build_command": "env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock build --progress=plain --secret id=npm_ca,src=/etc/ssl/certs/ca-certificates.crt -t shopeasy-r28-ops-audit:proposal .",
+  "prune_command": "env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock builder prune --all --force",
+  "prohibited_claims": [
+    "No final production image success",
+    "No Windows execution",
+    "No offsite/live restore",
+    "No globally crash-atomic DB+filesystem guarantee"
+  ]
+}

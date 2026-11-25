@@ -1,0 +1,31 @@
+<%- include('partials/header', {title: title}) %>
+
+<section class="container page-head policy-head">
+  <%- include('partials/back-button', { fallback: '/' }) %>
+  <span class="eyebrow"><%= customerText("INFORMATION") %></span>
+  <h1><%= heading %></h1>
+  <p><%= customerText(locale==='nl'?'Lees deze informatie zorgvuldig door voordat je de winkel gebruikt.':locale==='fr'?'Veuillez lire attentivement ces informations avant d’utiliser la boutique.':locale==='ckb'?'تکایە پێش بەکارهێنانی فرۆشگا ئەم زانیارییانە بە وردی بخوێنەرەوە.':locale==='ar'?'يرجى قراءة هذه المعلومات بعناية قبل استخدام المتجر.':'Please read this information carefully before using the store.') %></p>
+</section>
+
+<section class="container section policy-section">
+  <% if(policyFallback){ %>
+    <div class="alert" role="status"><% if(locale==='ckb'){ %>ئەم دەقە بە زمانی ئینگلیزی پیشان دەدرێت، چونکە وەرگێڕانی پێداچوونەوەکراوی سۆرانی بۆ ئەم فرۆشگایە دانەنراوە.<% } else if(locale==='ar'){ %>يُعرض هذا النص باللغة الإنجليزية لأن المتجر لم يضف ترجمة عربية مُراجعة لهذه السياسة بعد.<% } else if(locale==='nl'){ %>Dit beleid wordt momenteel in het Engels getoond omdat de winkel nog geen nagekeken Nederlandse vertaling heeft toegevoegd.<% } else if(locale==='fr'){ %>Ce document est actuellement affiché en anglais, car la boutique n’a pas encore ajouté de traduction française vérifiée.<% } else { %><%= customerText("This policy is currently shown in English because a reviewed translation for the selected language has not been provided by the store.") %><% } %></div>
+  <% } %>
+  <article
+    class="panel policy-copy"
+    data-no-translate
+    aria-label="<%= heading %>"
+  >
+    <% if (body && body.trim()) { %>
+
+      <%= body %>
+
+    <% } else { %>
+
+      <p class="policy-empty"><%= customerText(locale==='nl'?'Deze informatie is nog niet toegevoegd.':locale==='fr'?'Ces informations n’ont pas encore été ajoutées.':locale==='ckb'?'ئەم زانیارییە هێشتا زیاد نەکراوە.':locale==='ar'?'لم تتم إضافة هذه المعلومات بعد.':'This information has not been added yet.') %></p>
+
+    <% } %>
+  </article>
+</section>
+
+<%- include('partials/footer') %>

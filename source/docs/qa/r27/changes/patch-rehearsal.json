@@ -1,0 +1,20 @@
+{
+  "label": "VERIFIED",
+  "utc": "2026-11-15T11:33:51.716463+00:00",
+  "command": [
+    "patch",
+    "-p1",
+    "--batch",
+    "--forward",
+    "--input",
+    "/workspace/presale-r27/proposals/final-changes/R26-TO-R27.patch"
+  ],
+  "exit_code": 0,
+  "actual_files": 768,
+  "expected_files": 768,
+  "baseline_snapshot_sha256": "aed9e9073dc60c848f7c0c60a7a2988e9baee1ff01990a4ad67c212fd8221237",
+  "r27_snapshot_sha256": "0a968a8f72d0af8d9f84fda3fd975ef87ac42dd09fded11fb8095add730e6ea8",
+  "patch_sha256": "065af40dbf08ab37ddcd73ab3821fda45a16d248f0638d454afde11e023e384f",
+  "mismatched_paths": [],
+  "interpretation": "Patch applied only in a disposable baseline copy; resulting every-file SHA-256/byte sizes compared to captured R27 manifest. Source and baseline not modified."
+}

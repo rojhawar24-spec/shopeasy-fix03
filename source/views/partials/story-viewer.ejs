@@ -1,0 +1,26 @@
+<dialog class="story-viewer" data-story-viewer aria-label="Story viewer">
+  <div class="story-viewer-shell">
+    <button type="button" class="story-viewer-close" data-story-close aria-label="Close story">×</button>
+    <button type="button" class="story-viewer-nav story-viewer-prev" data-story-prev aria-label="Previous story">‹</button>
+    <div class="story-viewer-media">
+      <img data-story-image data-fallback-src="/assets/story.svg" src="/assets/story.svg" alt="" width="900" height="1200" decoding="async">
+    </div>
+    <div class="story-viewer-content">
+      <span class="eyebrow" data-story-expiry></span>
+      <h2 data-story-title data-no-translate></h2>
+      <p data-story-body data-no-translate></p>
+      <div class="story-viewer-actions">
+        <a class="btn btn-mint" data-story-product-link href="/shop" hidden>View & buy</a>
+        <form method="post" action="/cart/add" data-story-buy-form hidden>
+          <input type="hidden" name="_csrf" data-story-csrf>
+          <input type="hidden" name="productId" data-story-product-id>
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="btn btn-mint">Add to bag</button>
+        </form>
+        <a class="btn btn-light" data-story-link href="/stories" hidden>Open story link</a>
+      </div>
+      <div class="story-viewer-status" data-story-status aria-live="polite"></div>
+    </div>
+    <button type="button" class="story-viewer-nav story-viewer-next" data-story-next aria-label="Next story">›</button>
+  </div>
+</dialog>

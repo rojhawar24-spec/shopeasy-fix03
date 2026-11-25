@@ -1,0 +1,8 @@
+ShopEasy2.8.94 R27
+Canonical file-integrity manifest: SHA256SUMS.txt (every other shipped regular file).
+Canonical actual ZIP enumeration: external CONTENTS.json (each member, byte size and SHA256).
+Canonical ZIP digest: external archive.sha256 and CONTENTS.json.
+No precomputed self-referential file count is claimed here.
+Product source/test/config/asset/notice/handover content is retained; private state and installed tools are excluded.
+Evidence and limits: R27-CLEANUP-REPORT.md, QA-REPORT-2.8.94.md, FINAL-VERIFICATION-REPORT.json.
+UNKNOWN: NOT CLEARED FOR COMMERCIAL RESALE; no effective ownership grant invented.

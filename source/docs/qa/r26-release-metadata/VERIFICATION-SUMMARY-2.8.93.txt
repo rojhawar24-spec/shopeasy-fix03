@@ -1,0 +1,62 @@
+ShopEasy 2.8.93 R12.10 — corrective repack verification summary
+Date: 2026-11-01
+Candidate archive: ShopEasy-2.8.93-R12.10-FIXED-2026-11-01.zip
+Product version remains 2.8.93; R12.10 is a candidate revision label, not a production release.
+
+Corrective follow-up checks
+- The Windows-reported shared Manager navigation, Audit active-state, Settings draft-copy and Save-dock text regressions were corrected. Regression tests now inspect the shared navigation architecture and verify active/inactive routes rather than requiring obsolete duplicated page-local links.
+- Low-stock tests verify available quantity as physical stock minus reserved stock, separate base-product and active-variant rows, reorder-level filtering and agreement between displayed inventory rows and dashboard counts.
+- The new `package-lock.json` is lockfile v3, version-aligned with package.json, has exact root dependency alignment and SHA-512 integrity metadata for all 104 resolved package entries. Current security baseline: Express 5.3.0, Helmet 8.3.0, body-parser 2.4.0, qs 6.17.1 and Multer 2.5.0.
+- Focused regression tests executed in this container: 44 PASS, 0 FAIL. This group includes Settings draft/save behavior, product gallery/Manager inventory UX, branding authorization contracts, low-stock calculation contracts, lockfile/security metadata and translated grouped Manager navigation contracts.
+- Syntax: 192 JS/MJS files PASS. Static source/config audit: 87 files PASS, 1,828 aligned EN/CKB/AR/NL dictionary keys. Static EJS template audit: 46 templates PASS. CSS build PASS. Cloudflare source bundle PASS (46 templates). Release preflight PASS (86 production files).
+
+Runtime limitation for this repack
+- The authoring runtime is Node.js 22.16.0, while the project requires Node.js >=24 <25. npm registry DNS is unavailable here, so a clean npm ci could not be completed. As a result the complete `npm test`, EJS engine rendering, live HTTP/database/browser workflows and fresh `npm audit` were not completed here. Do not interpret the 44 focused tests as the full suite.
+- On Windows with Node.js 24, run `npm ci`, then `npm audit`, then `npm test`. The package lock contains the versions and SRI values for npm to verify during installation.
+- The prior independent design audit remains relevant for its static fixture and production-gate findings. The R12.10 candidate remains **NO-GO for production** until all remaining runtime, staging, payment, backup/restore, accessibility, legal and commercial-rights gates are cleared.
+
+---
+
+ShopEasy 2.8.93 R12.10 — independent full from-scratch verification summary
+Date: 2026-11-01
+Candidate archive: ShopEasy-R12.10-DESIGN-HARD-AUDIT-CANDIDATE-2026-11-01.zip
+Product version remains 2.8.93; R12.10 is a candidate revision label, not a production release.
+
+Clean extraction and archive hygiene
+- R12.10 ZIP was extracted to a new, clean audit directory before checking.
+- The final candidate archive is built from the clean audited source and excludes `.env`, `node_modules`, local databases and backups. ZIP CRC/integrity is checked after creation.
+- Release preflight passes: package/package-lock version and engine alignment, Multer pin/integrity, deployment entrypoints and required production files.
+
+Source, language and build gates
+- JavaScript/MJS syntax: PASS, all 189 files.
+- Static source/config audit: PASS, 86 files; 1,757 matching dictionary keys in EN/CKB/AR/NL.
+- EJS static template audit: PASS, 45 templates. This is a source/template inspection, not dynamic rendering.
+- CSS build: PASS; `public/css/app.css` is the single active stylesheet.
+- Cloudflare source bundle: PASS; 45 EJS templates generated. This does not mean Cloudflare deployment is approved or supported for production authentication.
+- Release preflight: PASS; 85 production files scanned.
+- Focused design/responsive/RTL/checkout/account/order/Manager tests: PASS, 128/128.
+- Static Chromium fixture QA: 184 renders across representative page families, LTR/RTL and mobile/tablet/desktop widths; 0 page-level horizontal overflow and 0 broken fixture images. These are static HTML/CSS fixtures, not a live EJS/server session.
+
+Full test diagnostic
+- Direct `node --test test/*.test.js`: 657 total, 642 passed, 15 failed at dependency import/integration startup.
+- 9 SQLite concurrency tests and 3 database-backed integration tests (Manager dashboard, product variants, upload quota) cannot load `@libsql/client`.
+- MFA QR generation and QR decode tests cannot load `qrcode-generator` and `jsqr`.
+- Dynamic template syntax test cannot load `ejs`.
+- The official `npm test` command fails its pretest dependency check before running tests; no tests are skipped or falsely reported as passing.
+- No assertion-level application regression was isolated among the 15 environment-blocked test cases, but their behavior remains unverified until dependencies are installed and the tests are rerun.
+
+Runtime and external verification not completed
+- Available Node.js is 22.16.0; package.json requires Node.js `>=24 <25`. No supported-Node clean install or full suite was completed.
+- `npm audit` was not completed.
+- Dynamic EJS rendering, authenticated browser QA on desktop/mobile, live storefront/cart/checkout journey, database concurrency under installed libsql, MFA QR rendering/scan, upload quota integration, production HTTP readiness, and deployment were not verified.
+- No real Mollie transaction, webhook, refund or chargeback sandbox test was performed. COD remains the default. Mollie-hosted online card checkout is conditional and must remain disabled until merchant approval and staging tests pass. Bancontact, iDEAL/Wero, Apple Pay and Google Pay are not separate integrated adapters in this candidate.
+- Database backup/restore was not rehearsed against a real staging database. Legal/privacy/tax review and native Belgian Dutch proofread remain open.
+- `LICENSE.txt` remains DRAFT ONLY; package is private/UNLICENSED. Commercial resale, redistribution and sublicensing rights are not established.
+
+Dutch UI status
+- `nl` is included as Dutch (Belgium), `nl-BE`, LTR, selectable by a Manager and opt-in for existing shops. Four locale dictionaries contain the same 1,757 keys, including placeholder parity and dynamic/runtime handling.
+- Dedicated Dutch branding and policy fields, language selection, accessibility text, cookie-storage failure copy, checkout locale and transactional email copy are present.
+- A machine/static consistency check cannot replace independent Belgian Dutch language review. Merchant-provided policies must be reviewed by the shop owner/legal adviser; English fallback is disclosed when a localized policy is absent.
+
+Release decision
+NO-GO for production. Do not accept real customer orders or live card payments from this candidate until Node 24 clean install, complete tests, npm audit, dynamic/browser/database verification, Mollie staging, backup/restore rehearsal, legal review and commercial-rights clearance are complete. See DESIGN-HARD-AUDIT-2026-11-01.md and R12.10-FROM-SCRATCH-AUDIT-2026-11-01.md.

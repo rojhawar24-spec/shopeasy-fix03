@@ -1,0 +1,43 @@
+<%- include('../partials/header',{title:'Storefront branding'}) %>
+<% const hasCustomHero = branding?.heroImageMode === 'custom' && typeof branding?.heroImage === 'string' && (/^\/uploads\/[a-f0-9]{32}\.(?:png|jpg|webp)$/i.test(branding.heroImage.trim()) || /^https:\/\//i.test(branding.heroImage.trim())); const currentHero = hasCustomHero ? branding.heroImage.trim() : ''; %>
+<%- include('../partials/admin-nav') %>
+<section class="container page-head admin-head">
+  <%- include('../partials/back-button', { fallback: '/admin' }) %>
+  <div><span class="eyebrow">YOUR SHOP, YOUR BRAND</span><h1>Storefront appearance.</h1><p>Change the shop name and the homepage message customers see. Enter each language separately so every translation is reviewed; Sorani and Arabic use right-to-left layout.</p></div>
+  <a class="btn btn-light" href="/" target="_blank" rel="noopener noreferrer">Preview store ↗</a>
+</section>
+<section class="container form-page">
+  <% if(error){ %><div class="alert" role="alert"><%= error %></div><% } %>
+  <% if(saved){ %><div class="alert success-alert" role="status">Storefront branding saved. Open the preview to check all five languages.</div><% } %>
+  <form class="panel form-stack" method="post" action="/admin/branding" enctype="multipart/form-data">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="form-section">
+      <span class="eyebrow">01 · SHOP IDENTITY</span><h2>Company name</h2>
+      <label for="store-name">Store name <span class="field-note">Shown in the header, page titles and footer.</span></label>
+      <input id="store-name" name="storeName" maxlength="100" minlength="2" required value="<%= branding.storeName %>">
+    </div>
+    <div class="form-section">
+      <span class="eyebrow">02 · HOMEPAGE VISUAL</span><h2>Hero image</h2>
+      <p class="field-note">Optional: upload a store-owned JPG, PNG or WebP image up to 2 MiB. By default, ShopEasy features a real product photo from the catalogue. A custom hero replaces that product spotlight only after you upload it here. Older saved hero defaults will not mask product photos.</p>
+      <div class="branding-hero-preview"><img src="<%= safeImageUrl(currentHero) %>" data-fallback-src="/assets/product-placeholder.svg" alt="Current custom homepage hero preview" width="180" height="220" loading="lazy" decoding="async"><div><strong><%= hasCustomHero ? 'Custom hero image selected' : 'Catalogue-led homepage in use' %></strong><span class="field-note"><%= hasCustomHero ? 'This image is shown only in the homepage hero. Product photos remain separate.' : 'Without a custom hero, the homepage uses a real uploaded product photo. It never substitutes generic editorial artwork.' %></span><label for="hero-image-upload">Upload a custom homepage image (optional)</label><input id="hero-image-upload" name="heroImage" type="file" accept="image/jpeg,image/png,image/webp"><label class="branding-remove-image"><input type="checkbox" name="removeHeroImage" value="1"> Remove custom image and show a catalogue product instead</label></div></div>
+    </div>
+    <% branding.locales.forEach(language => { %>
+      <div class="form-section" lang="<%= language.code==='ckb'?'ckb':language.code==='ar'?'ar':language.code==='nl'?'nl-BE':language.code==='fr'?'fr-BE':'en' %>" dir="<%= language.dir %>">
+        <span class="eyebrow">03 · LANGUAGE SETTINGS</span><h2><span data-no-translate><%= language.label %></span> homepage text</h2>
+        <p class="field-note">These four fields appear on the homepage in this language. Text is shown exactly as entered; it is not automatically translated.</p>
+        <label for="hero-eyebrow-<%= language.code %>">Small heading <span class="field-note">Max 80 characters</span></label>
+        <input id="hero-eyebrow-<%= language.code %>" name="heroEyebrow_<%= language.code %>" maxlength="80" minlength="2" required value="<%= language.eyebrow %>" dir="<%= language.dir %>">
+        <label for="hero-title-<%= language.code %>">Main heading <span class="field-note">Max 90 characters</span></label>
+        <input id="hero-title-<%= language.code %>" name="heroTitle_<%= language.code %>" maxlength="90" minlength="2" required value="<%= language.title %>" dir="<%= language.dir %>">
+        <label for="hero-accent-<%= language.code %>">Highlighted heading <span class="field-note">Max 90 characters</span></label>
+        <input id="hero-accent-<%= language.code %>" name="heroAccent_<%= language.code %>" maxlength="90" minlength="2" required value="<%= language.accent %>" dir="<%= language.dir %>">
+        <label for="hero-description-<%= language.code %>">Short description <span class="field-note">Max 500 characters</span></label>
+        <textarea id="hero-description-<%= language.code %>" name="heroDescription_<%= language.code %>" maxlength="500" minlength="10" rows="4" required dir="<%= language.dir %>"><%= language.description %></textarea>
+      </div>
+    <% }) %>
+    <button class="btn btn-mint btn-wide" type="submit">Save storefront branding</button>
+  </form>
+  <div class="panel"><a class="btn btn-light" href="/admin/appearance">Open design studio · logo, colours, fonts and feature switches →</a></div>
+  <div class="panel setup-status"><div class="panel-head"><div><span class="eyebrow">BEFORE PUBLISHING</span><h2>Quick check</h2></div></div><p>Check your shop name for spelling, then switch the storefront language to English, Dutch, French, Sorani and Arabic. Confirm the text wraps properly on a phone. Saving only changes branding text; products, customers, orders, prices and stock are not deleted or reset.</p></div>
+</section>
+<%- include('../partials/footer',{managerWorkspaceShell:user?.role==='manager'}) %>

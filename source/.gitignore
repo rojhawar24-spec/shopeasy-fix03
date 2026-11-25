@@ -1,0 +1,26 @@
+node_modules/
+data/
+.env
+public/uploads/*
+!public/uploads/.gitkeep
+*.log
+.DS_Store
+
+.vercel
+.env*
+!.env.example
+
+# Worker build output and local Wrangler secrets
+.cloudflare-build/
+.dev.vars
+.wrangler/
+
+# Customer backups contain sensitive personal/order data; never commit them.
+backups/
+*.jsonl.gz.enc
+*.jsonl.gz.enc.sha256
+
+# Disposable buyer QA tools and synthetic output
+.qa-venv/
+.qa-tools/
+qa-output*/

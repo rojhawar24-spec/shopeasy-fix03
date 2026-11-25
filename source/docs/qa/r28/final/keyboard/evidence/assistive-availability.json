@@ -1,0 +1,18 @@
+{
+  "label": "VERIFIED",
+  "utc": "2026-11-21T23:00:44.046171+00:00",
+  "command": "Read-only shutil.which checks; no installation or desktop interaction performed.",
+  "executables": {
+    "orca": null,
+    "espeak": null,
+    "espeak-ng": null,
+    "speech-dispatcher": null,
+    "spd-say": null,
+    "vosk": null,
+    "dragon": null,
+    "nvda": null
+  },
+  "screen_reader_output": "NOT TESTED",
+  "voice_control": "NOT TESTED",
+  "meaning": "The listed tools are absent from PATH. This is not proof that every possible assistive technology is unavailable, and Chromium/CDP accessibility data is not screen-reader output."
+}

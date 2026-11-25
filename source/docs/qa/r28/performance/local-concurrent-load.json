@@ -1,0 +1,55 @@
+{
+  "label": "VERIFIED",
+  "started_utc": "2026-11-22T17:10:29.073437+00:00",
+  "scope": "Read-only 25-client/8-round load against an exclusive local synthetic NODE_ENV=test store; real SQLite, no remote database or production hosting.",
+  "command": [
+    "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+    "scripts/load-test.mjs"
+  ],
+  "load_script_sha256": "60825942a1ec1e4401ed91e9a8de673cb1f7c453d77b4c4f261a1e4e3f892288",
+  "application_runtime": {
+    "sha256": "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572",
+    "files": 150,
+    "scope": "Copied src, views, public excluding uploads, generated and package.json"
+  },
+  "exit_code": 0,
+  "result": {
+    "targetReachable": true,
+    "checks": [
+      {
+        "endpoint": "/health",
+        "status": 200
+      },
+      {
+        "endpoint": "/ready",
+        "status": 200
+      }
+    ],
+    "clients": 25,
+    "rounds": 8,
+    "requests": 200,
+    "completedResponses": 200,
+    "errors": 0,
+    "rateLimitedResponses": 0,
+    "clientErrorResponses": 0,
+    "serverErrorResponses": 0,
+    "networkErrors": 0,
+    "statusCodes": {
+      "200": 200
+    },
+    "skipped": false,
+    "latencyDefinition": "nearest-rank percentiles from request start through complete response-body consumption; failed-body requests have no latency sample",
+    "totalMs": 3408,
+    "requestsPerSecond": 58.69,
+    "p50Ms": 315.2,
+    "p95Ms": 608.5,
+    "p99Ms": 1933.4
+  },
+  "temporary_fixture_removed": true,
+  "finished_utc": "2026-11-22T17:10:33.494160+00:00",
+  "limitations": [
+    "One local synthetic run only; no production, remote-DB, physical-device, provider or field-CWV claim.",
+    "The workload makes read-only storefront requests without retaining customer session cookies; it is not an authenticated checkout/contention workload.",
+    "Response-body timing is included. HTTP429, server and network errors are separate failed counters, not treated as successful requests."
+  ]
+}

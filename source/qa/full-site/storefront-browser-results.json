@@ -1,0 +1,1410 @@
+[
+  {
+    "flow": "customer registration, variant bag, checkout and owned order",
+    "passed": true
+  },
+  {
+    "route": "/",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/shop",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/shop?search=QA",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/shop?sort=newest",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/shop?page=999",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/category/qa-collection",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/product/qa-product-0",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/product/qa-variants",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/cart",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/login",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/register",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/forgot-password",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/order-lookup",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/stories",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/contact",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/faq",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/privacy",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/terms",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/shipping-returns",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/imprint",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/cookies",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/withdrawal-form",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/account",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/account/security",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/wishlist",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/account/order/3",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/checkout/success",
+    "locale": "en",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/shop",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/shop?search=QA",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/shop?sort=newest",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/shop?page=999",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/category/qa-collection",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/product/qa-product-0",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/product/qa-variants",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/cart",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/login",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/register",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/forgot-password",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/order-lookup",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/stories",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/contact",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/faq",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/privacy",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/terms",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/shipping-returns",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/imprint",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/cookies",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/withdrawal-form",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/account",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/account/security",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/wishlist",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/account/order/3",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/checkout/success",
+    "locale": "ckb",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop?search=QA",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop?sort=newest",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop?page=999",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/category/qa-collection",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/product/qa-product-0",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/product/qa-variants",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/cart",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/login",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/register",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/forgot-password",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/order-lookup",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/stories",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/contact",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/faq",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/privacy",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/terms",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shipping-returns",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/imprint",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/cookies",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/withdrawal-form",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/account",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/account/security",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/wishlist",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/account/order/3",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/checkout/success",
+    "locale": "ar",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop?search=QA",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop?sort=newest",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop?page=999",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/category/qa-collection",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/product/qa-product-0",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/product/qa-variants",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/cart",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/login",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/register",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/forgot-password",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/order-lookup",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/stories",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/contact",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/faq",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/privacy",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/terms",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shipping-returns",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/imprint",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/cookies",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/withdrawal-form",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/account",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/account/security",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/wishlist",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/account/order/3",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/checkout/success",
+    "locale": "nl",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop?search=QA",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop?sort=newest",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shop?page=999",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/category/qa-collection",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/product/qa-product-0",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/product/qa-variants",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/cart",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/login",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/register",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/forgot-password",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/order-lookup",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/stories",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/contact",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/faq",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/privacy",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/terms",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/shipping-returns",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/imprint",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/cookies",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/withdrawal-form",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/account",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/account/security",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/wishlist",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/account/order/3",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  },
+  {
+    "route": "/checkout/success",
+    "locale": "fr",
+    "widths": [
+      390,
+      1440
+    ],
+    "status": 200,
+    "passed": true
+  }
+]

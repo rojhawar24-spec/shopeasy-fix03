@@ -1,0 +1,182 @@
+{
+  "checked_at_utc": "2026-11-14T20:26:38.894804+00:00",
+  "status": "SOURCE-CHECKED",
+  "platform": "Linux x86_64",
+  "windows_status": "NOT TESTED",
+  "purpose": "Optional actual-source observations supporting the four-package Python QA licence register. These tools are outside the distributed product; this is not a bundled-runtime redistribution assessment.",
+  "vulnerability_scan_status": "NOT TESTED",
+  "tools": [
+    {
+      "name": "Chromium",
+      "version": "156.0.8078.79",
+      "distribution_version": "156.0.8078.79-1~deb13u1",
+      "executable": "/usr/bin/chromium",
+      "status": "SOURCE-CHECKED",
+      "licence_summary": "Chromium files default to BSD-3-clause; numerous bundled third-party licence statements appear in the installed Debian copyright register. Do not treat the whole binary as BSD-only.",
+      "source_urls": [
+        "http://www.chromium.org/Home"
+      ],
+      "source_url_origin": "Installed Debian copyright Source field; no remote retrieval in this optional inspection",
+      "notice_files": [
+        {
+          "path": "/usr/share/doc/chromium/copyright",
+          "sha256": "4d3870eb06ebaf12b49dee272ae4eea8e796a5352fb0c9fdaf37c0adcdc13ff2",
+          "bytes": 284783,
+          "retained_copy": "optional-tool-notices/chromium--copyright",
+          "status": "SOURCE-CHECKED"
+        }
+      ],
+      "license_fields_in_installed_debian_copyright": [
+        "Apache-2.0",
+        "Apple-license",
+        "BSD-2-clause",
+        "BSD-3-clause",
+        "BSL-1",
+        "GPL-2+",
+        "GPL-2.0",
+        "GPL-3+",
+        "ICU",
+        "ISC",
+        "LGPL-2",
+        "LGPL-2+",
+        "LGPL-2.0+",
+        "LGPL-2.1",
+        "LGPL-2.1+",
+        "MIT",
+        "MPL-1.1",
+        "MPL-1.1 or GPL-2+ or LGPL-2.1+",
+        "MPL-1.1 or GPL-2.0 or LGPL-2.1",
+        "MPL-2.0",
+        "Ms-PL",
+        "Public-domain",
+        "Unicode",
+        "zlib"
+      ],
+      "scope": "External browser used for QA. Browser binary is outside the product and is not included in the product ZIP; any future browser redistribution needs its complete corresponding licence/notice review.",
+      "limitations": "Shared system-library licences and exact build-to-source correspondence were not independently reconstructed."
+    },
+    {
+      "name": "axe-core",
+      "version": "4.11.0",
+      "status": "SOURCE-CHECKED",
+      "licence_summary": "MPL-2.0; installed LICENSE-3RD-PARTY.txt also includes MIT and ISC notices for bundled portions.",
+      "source_urls": [
+        "https://github.com/dequelabs/axe-core.git",
+        "https://www.deque.com/axe/"
+      ],
+      "source_url_origin": "Installed package.json; no remote retrieval in this optional inspection",
+      "notice_files": [
+        {
+          "path": "/tmp/shopeasy-a11y/node_modules/axe-core/LICENSE",
+          "sha256": "af175b9d96ee93c21a036152e1b905b0b95304d4ae8c2c921c7609100ba8df7e",
+          "bytes": 15921,
+          "retained_copy": "optional-tool-notices/axe-core--LICENSE",
+          "status": "SOURCE-CHECKED"
+        },
+        {
+          "path": "/tmp/shopeasy-a11y/node_modules/axe-core/LICENSE-3RD-PARTY.txt",
+          "sha256": "4f8563870d0fca38bbc3e00b6f670cb7fa9f380ba9f26a7f7d1184a6b18b1653",
+          "bytes": 3766,
+          "retained_copy": "optional-tool-notices/axe-core--LICENSE-3RD-PARTY.txt",
+          "status": "SOURCE-CHECKED"
+        }
+      ],
+      "metadata_file": {
+        "path": "/tmp/shopeasy-a11y/node_modules/axe-core/package.json",
+        "sha256": "fcb422339fc993faea31642bf75ede519bcba8a344dbba6fdc1a6e610896eeef",
+        "bytes": 6821,
+        "retained_copy": "optional-tool-notices/axe-core--package.json",
+        "status": "SOURCE-CHECKED"
+      },
+      "scope": "External injected accessibility QA engine. The package is outside the product and is not included in the product ZIP. A future bundled copy would need the MPL-2.0 terms and bundled third-party notices reviewed.",
+      "third_party_notice_names": {
+        "MIT": [
+          "colorjs.io",
+          "core-js-pure",
+          "css-selector-parser",
+          "doT.js (including jQote2 portions)",
+          "emoji-regex",
+          "es6-iterator",
+          "es6-promise",
+          "event-emitter",
+          "is-promise",
+          "lru-queue",
+          "typedarray",
+          "weakmap-polyfill"
+        ],
+        "ISC": [
+          "d",
+          "es5-ext",
+          "es6-symbol",
+          "es6-weak-map",
+          "ext",
+          "memoizee",
+          "next-tick",
+          "timers-ext",
+          "type"
+        ]
+      }
+    },
+    {
+      "name": "Node.js",
+      "version": "v24.22.2",
+      "status": "SOURCE-CHECKED",
+      "executable": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+      "licence_summary": "MIT for Node.js core; complete installed LICENSE includes externally maintained library notices and must not be reduced to MIT-only.",
+      "source_urls": [
+        "https://github.com/joyent/node"
+      ],
+      "source_url_origin": "Installed LICENSE; this historical source URL is reproduced as supplied, not asserted as the current release URL",
+      "notice_files": [
+        {
+          "path": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/LICENSE",
+          "sha256": "5888dbb9a1d2b18f2c3e6c5f6af1b39de658372b402a0577b002777f14c62ace",
+          "bytes": 157609,
+          "retained_copy": "optional-tool-notices/node-v24.22.2-linux-x64--LICENSE",
+          "status": "SOURCE-CHECKED"
+        }
+      ],
+      "scope": "External application/QA runtime, not included in product ZIP. This optional record covers the Node distribution main LICENSE, not an exhaustive npm/corepack package inventory."
+    },
+    {
+      "name": "CPython",
+      "version": "3.13.5",
+      "distribution_version": "3.13.5-2+deb13u5",
+      "status": "SOURCE-CHECKED",
+      "executable": "/usr/bin/python3.13",
+      "licence_summary": "Installed Debian copyright includes the Python licence history, PSF terms, incorporated-software acknowledgements and additional file-specific licences. Retain the whole notice rather than PSF terms alone.",
+      "source_urls": [
+        "http://python.org/"
+      ],
+      "source_url_origin": "Installed Debian copyright download-origin statement; no remote retrieval in this optional inspection",
+      "notice_files": [
+        {
+          "path": "/usr/share/doc/python3.13/copyright",
+          "sha256": "f1cbf908e1daa8789b389fdcf17811ed36b675d736b39a103591399861350382",
+          "bytes": 49855,
+          "retained_copy": "optional-tool-notices/python3.13--copyright",
+          "status": "SOURCE-CHECKED"
+        }
+      ],
+      "scope": "External QA Python interpreter; venv interpreter resolves to /usr/bin/python3.13. Interpreter binaries are outside the product and not in the product ZIP. Shared system-library licences were not independently inventoried."
+    },
+    {
+      "name": "Lighthouse",
+      "status": "UNKNOWN",
+      "version": null,
+      "licence_summary": "UNKNOWN: no installed executable/package licence source located in the inspected tool, /tmp, /usr/bin or /opt locations. No licence is inferred.",
+      "source_urls": [],
+      "notice_files": [],
+      "scope": "Optional external audit tool; installation and licence source were not available in this inspection."
+    },
+    {
+      "name": "Gitleaks",
+      "status": "UNKNOWN",
+      "version": null,
+      "licence_summary": "UNKNOWN: no installed executable/licence source located in the inspected tool, /tmp, /usr/bin or /opt locations. No licence is inferred.",
+      "source_urls": [],
+      "notice_files": [],
+      "scope": "Optional external audit tool; installation and licence source were not available in this inspection."
+    }
+  ]
+}

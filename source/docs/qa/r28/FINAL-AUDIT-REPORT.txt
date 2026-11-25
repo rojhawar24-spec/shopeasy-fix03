@@ -1,0 +1,91 @@
+ShopEasy 2.8.95 / R28 technical audit checkpoint
+Prepared 22 November 2026. Final archive acceptance is pending.
+
+R28 corrects reproducible backend, backup/restore, keyboard, accessibility, dependency and asset-delivery defects. The final integrated Linux Node suite observed 1,205 passed, 0 failed and 0 skipped. Eleven group-c commands exited 0 after the successful group-b locked install. These results establish the stated local checks; they do not establish complete application coverage, absence of defects, a live deployment or commercial rights.
+
+VERIFIED means a described behavior or byte comparison was actually observed. SOURCE-CHECKED means retained source, declarations or records were inspected. NOT TESTED means execution evidence for the named environment or behavior is absent. UNKNOWN means the underlying facts or clearance are not established. These labels apply to each stated scope, not to the whole product.
+
+What changed and why
+
+Backend: seven actual defects were reproduced and fixed. Cart mutations now apply bounded compare-and-swap intents to the latest stored state, preserve unrelated concurrent edits and return 409 on retry exhaustion. No-op cart reads retain checkout state. Token issuance/cooldown and credential/session revocation now commit transactionally, so injected failures preserve the earlier usable state. Anonymous stock-alert repeats preserve confirmed/in-flight consent. French Manager branding uses the complete locale registry. The focused before/after evidence observed 93 passing tests; the final integrated suite then passed 1,205. Neither result covers every concurrency ordering or remote outage.
+
+Keyboard and sampled accessibility: cookie dialog, mobile navigation/search and cart drawer handling retain keyboard containment and visible focus return. Sampled visible-label/name mismatches and table labelling problems were corrected. Final browser acceptance observed 201 passing checks, 0 failures, 0 axe violations and 84 incomplete rule items: 41 color-contrast items affecting 421 node occurrences and 43 hidden-content items affecting 670. These are pending manual review. There are no remaining label/name or table incomplete items in that sampled final report. The independent drawer matrix passed 10/10 across 5 locales at 320/1440 widths. Fresh 320px mobile checks passed 28/28 with 12 strict scans and 24 additional contrast/hidden incomplete rule items; those repeated observations are not unique defects. Automated browser checks do not establish screen-reader output, voice control, every state or WCAG conformance.
+
+Operations: guarded backup publication refuses source/sidecar collisions, occupied destinations and concurrent writer conflicts; asynchronous pipeline errors are handled. Restore validates occupied media before schema changes, checks foreign keys/integrity and rolls back handled failures. Real local focused runs passed 6 backup-output and 12 restore/metadata tests. The final current-source encrypted CLI drill passed 20 checks, comparing 172 application rows plus 12 sqlite_sequence rows, 184 total across 33 tables, with exact schema/financial/BLOB/file data and negative refusals. All five recorded source hashes match the current main files, including the merged environment loader imports; the actual current entry scripts ran, exited 0 and cleaned temporary state. Local handled-failure cleanup does not prove global database/filesystem crash atomicity or remote commit acknowledgement semantics.
+
+Container: the final integrated Docker 29.9.2 BuildKit build completed with exit 0, using the existing session CA as a read-only build secret while keeping TLS verification enabled. Its uncached build-stage suite passed 1,205/1,205, with 0 failed/cancelled/skipped/todo. The actual final image runs Node 24.22.2 as uid 1000; actual database readiness and Login returned HTTP 200. The local synthetic HTTP smoke observed private/no-store/noindex Login, host/HttpOnly/Secure/SameSite=Lax cookie attributes, HSTS and strict CSP with a forwarded HTTPS indication. This smoke is not a TLS client/browser transport test or public deployment; separate private-CA TLS evidence supplies the local HTTPS observations. No Windows/macOS/Docker Desktop or provider proof is implied.
+
+Dependencies: dotenv 18.0.10, EJS 7.0.2, express-rate-limit 8.7.5 and TypeScript 6.0.3 were selected and tested; clean-css 5.3.3/source-map 0.6.1 support deterministic CSS builds. The explicit TypeScript decision keeps the pure JavaScript6.x compiler; candidate 7.0.2 also passed the scoped check but adds 20 native platform artifacts. TypeScript 7 was deferred, not labelled vulnerable. The lock inventory has 107 node_modules entries: 106 external and 1 local. Notice collection retained 114 texts and 0 unresolved collector items. Nine native component/SBOM gates remain UNKNOWN. Metadata and companion notices are not authoritative per-binary composition or legal compatibility clearance. Actual npm all/prod advisory queries on 22 November report 0 known advisories, not absence of unknown vulnerabilities.
+
+Performance: deterministic level0 CSS serialization preserves authoring sources and dynamic cascade. Two compiled files replace five stylesheet requests; the final integrated byte/hash inventory observes 321,094 authoring bytes→299,832 compiled bytes. Earlier proposal-only codec measurements were 320,342→299,146 raw bytes, gzip 59,772→55,285 and Brotli 63,124→57,141; those codec totals are not the final integrated bytes. Compression uses a bounded 21-asset queue and actual representation validators. The load tool measures complete bodies and treats errors/throttles as failures. Twelve proposal Lighthouse measurements provide three paired observations for two scenarios, with preserved raw settings and manifests. One synthetic local read workload completed 200/200 requests with no errors; this is not authenticated checkout capacity, production load or remote database latency. Proposal metrics must not be reported as final integrated runtime metrics. Six final frozen-runtime Lighthouse runs completed with exit 0: three mobile Home runs scored 99/100/100/100 and three desktop Shop runs 100/100/100/100 for performance/accessibility/best-practices/SEO. All six 152-file runtime manifests equal the final frozen source. Median Home FCP/LCP were 1561.8/1573.4ms and transfer 141,068bytes; median Shop FCP/LCP 477.4/574.4ms and transfer 144,876bytes. These are descriptive n=3 local synthetic measurements with simulated throttling, no confidence interval, field metrics or production guarantee. Category 100 does not establish manual accessibility or complete security. Render-blocking, unused-CSS, unminified-JS and back-forward-cache opportunities remain.
+
+Local HTTPS and SEO: a real loopback TLS reverse proxy, ephemeral private CA and verified Python HTTPS client passed 18/18 cookie/transport checks on the same frozen runtime. TLS 1.2/1.3 were observed, and Secure cookies were not transmitted over actual HTTP. This does not establish browser cookie behavior, a public certificate/domain/CDN or shared multi-instance limiting. The local synthetic SEO crawl visited all 115 listed URLs and 3 sitemaps, all 200 with 0 reported page problems. This does not establish external search-engine indexing, live structured-data eligibility or native-language semantic correctness.
+
+Evidence identity
+
+Final browser, drawer, fresh-mobile, local HTTPS and SEO observations identify 152 copied runtime files with SHA256 a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81. A fresh read-only comparison in SELF-ATTACK-CHECKS.json found all 152 files byte-for-byte unchanged. This scope includes src, views, public excluding uploads, generated and package.json. It excludes installed dependencies, tests, tools, documentation and the final archive. It is not a ZIP digest.
+
+Actual runtime: Linux; Node 24.22.2; Python 3.13.5; Playwright 1.62.0; Chromium 156.0.8078.79. The browser runner verified both the pinned SDK resolver and actual running driver executable selected Node 24.22.2. Core typecheck covers four modules only: store-config, launch-gate, seo-locales and services/bank-transfer; it is not a whole-source typecheck.
+
+Database schema inventory: 32 application tables, 312 columns, 63 indexes including SQLite implicit indexes, 37 explicit indexes, 37 foreign keys and 5 triggers; integrity_check returned ok. The CLI drill's 33-table count includes sqlite_sequence and does not contradict 32 application tables.
+
+Five self-attacks
+
+1. Recomputed every frozen runtime file hash and aggregate:152/152 unchanged.
+2. Parsed actual suite footer, command results and install exit:1,205 pass/0 fail/0 skip,11 group-c exits0, fresh group-b install0.
+3. Matched runner/oracle hashes to executed browser evidence; source requires HTTP 200, expected localized H1, actual Login form/action, required controls and nonempty CSRF. An error heading alone cannot satisfy this source oracle. This step is SOURCE-CHECKED, not a newly executed oracle mutation test.
+4. Checked credential filters, fixture allowlist and private-state source guard; retained logs explicitly record removal of inherited application credentials. This is SOURCE-CHECKED and proves no live provider or actual-secret-custody fact.
+5. Reconciled 20 final current-source CLI observations and exact source/target snapshots, wrong-key/checksum/source/nonempty-target refusals, preserved sentinels and no committed app schema after relevant refusals. All five raw source hashes match current bytes without normalization; exit 0 and complete cleanup were retained.
+
+Score and sale status
+
+The original 100 one-point criteria are retained. R27 scored 59. Two narrow R28 accessibility points are newly evidenced: cookie-dialog keyboard containment and sampled visible-label/name agreement. The conservative candidate is 62/100 after current archive gates complete: two new sampled accessibility points and one final CA-adapted container point. The current score is pending, and RELEASE-SCORECARD-PREPARATION.json must not be presented as a final awarded score. Final integrated Docker, current-source CLI and six frozen-runtime Lighthouse runs are now complete. ZIP integrity/privacy/secret scans remain pending here. The earlier proposal container production-stage ENOSPC failure is historical and was closed by the successful final integrated image build/runtime evidence.
+
+No new point is awarded for local HTTPS as deployed shared infrastructure, local synthetic sitemap crawling as an external crawl, deferred outdated candidates as complete upgrades, repeated proposal measurements as production confidence, or documentation as actual Windows installation. Commercial clearance remains UNKNOWN/P0 regardless of the eventual technical evidence score.
+
+Honesty table
+
+Area | Label | Established scope / remaining requirement
+Node checks | VERIFIED | Actual Linux 1,205-test run and11 successful commands; not exhaustive coverage.
+Browser | VERIFIED | Synthetic local Chromium 201 checks, plus 10 drawer and 28 mobile; sampled states only.
+Axe review | NOT TESTED | Full manual disposition remains; 84 main incomplete items retained.
+Local private-CA HTTPS | VERIFIED | 18 actual Python client/TLS checks; public TLS/browser transport NOT TESTED.
+Public hosting and providers | NOT TESTED | No public URL, account credentials or live email/payment/Peppol journeys provided.
+Windows/macOS/physical devices | NOT TESTED | Commands supplied; actual machines and buyer setup not executed.
+Screen reader/voice/WCAG | NOT TESTED | Full manual assessment remains.
+Backup/restore | VERIFIED | Final current-source 20-check Linux CLI; buyer offsite custody/recovery NOT TESTED.
+Container | VERIFIED | Final image/build 1205 tests and uid 1000 readiness/Login smoke; public deployment NOT TESTED.
+Lighthouse | VERIFIED | Six final local runs, three per scenario; descriptive only, no field/confidence proof.
+Dependency declarations/texts | SOURCE-CHECKED | Inventory and exact retained notice records; nine native gates UNKNOWN.
+Actual secrets/history/rotation | UNKNOWN | No Git history, actual custody, credential validity/reuse or rotation proof provided.
+Rights and operator legal facts | UNKNOWN / P0 | Effective source/asset grants, trademarks, buyer terms, controller/retention facts and qualified legal approval remain open.
+Final archive | NOT TESTED | Digest, inventory, extraction/privacy and secret-scan results pending at this checkpoint.
+
+Evidence locations verified to exist when preparing this report
+
+/workspace/presale-r28/evidence/group-c-summary.json
+/workspace/presale-r28/evidence/group-c-tests.log
+/workspace/presale-r28/evidence/group-b-install.json
+/workspace/presale-r28/evidence/browser-final-01/final-browser-summary.json
+/workspace/presale-r28/evidence/browser-final-01/browser-results.json
+/workspace/presale-r28/evidence/browser-drawer-final-01/browser-results.json
+/workspace/presale-r28/evidence/browser-fresh-mobile-02/browser-results.json
+/workspace/presale-r28/evidence/tls-final-01.json
+/workspace/presale-r28/evidence/seo-final-01.json
+/workspace/presale-r28/work/database-schema.json
+/workspace/presale-r28/work/docs/qa/r28/backend/BACKEND-FIX-REPORT.md
+/workspace/presale-r28/work/docs/qa/r28/operations/OPERATIONS-REPORT.md
+/workspace/presale-r28/work/docs/qa/r28/operations/cli-drill-results.json
+/workspace/presale-r28/work/docs/qa/r28/dependencies/DEPENDENCY-UPGRADE-REPORT.md
+/workspace/presale-r28/work/docs/qa/r28/performance/REPEATED-MEASUREMENTS.json
+/workspace/presale-r28/proposals/keyboard/KEYBOARD-REPORT.md
+/workspace/presale-r28/proposals/accessibility/INCOMPLETE-NODE-DISPOSITION.json
+/workspace/presale-r28/work/qa/README.md
+/workspace/delivery/ShopEasy-R27-2026-11-15/RELEASE-SCORECARD.json
+
+/workspace/presale-r28/evidence/container-final-01/results.json
+/workspace/presale-r28/evidence/container-final-01/build.txt
+/workspace/presale-r28/evidence/backup-final-01/r28-results.json
+/workspace/presale-r28/evidence/backup-final-cli.json
+/workspace/presale-r28/evidence/lighthouse-frozen-01/final-lighthouse-summary.json
+/workspace/presale-r28/work/docs/qa/r28/final/EVIDENCE-COPY-MAP.json

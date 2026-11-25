@@ -1,0 +1,85 @@
+{
+  "label": "VERIFIED",
+  "started_utc": "2026-11-14T20:48:54.854087+00:00",
+  "scope": "Actual production wrapper and production runtime in separate disposable source/dependency copy; synthetic local SQLite and random bootstrap credentials only; HTTP loopback transport, no TLS or external providers.",
+  "application_runtime": {
+    "files": 147,
+    "sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d"
+  },
+  "command": [
+    "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+    "audit-start.mjs",
+    "[private observed-mode file]"
+  ],
+  "entrypoint": "audit-start.mjs imports unchanged scripts/start-production.mjs, then records non-secret process mode; no app/runtime guard was changed.",
+  "wrapper_sha256": "1c446f6373588470c45f91225b97b5b2fa56e519931f45943d7877bb1fc15b7a",
+  "started": true,
+  "observed_process_mode": {
+    "nodeEnv": "production",
+    "node": "v24.22.2",
+    "rateLimitBackend": "memory-single-instance"
+  },
+  "login": {
+    "status": 200,
+    "cache_control": "private, no-store",
+    "pragma": "no-cache",
+    "x_robots_tag": "noindex, nofollow, noarchive",
+    "cookie_name": "__Host-sid",
+    "cookie_secure": true,
+    "cookie_http_only": true,
+    "cookie_same_site_lax": true,
+    "cookie_path_root": true,
+    "cookie_has_domain": false,
+    "csp": "default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'none';img-src 'self' data: https:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self';upgrade-insecure-requests;connect-src 'self'",
+    "hsts": "max-age=31536000; includeSubDomains",
+    "x_frame_options": "SAMEORIGIN",
+    "referrer_policy": "no-referrer",
+    "x_content_type_options": "nosniff",
+    "csrf_form_present": true
+  },
+  "early_csrf": {
+    "status": 403,
+    "cache_control": "private, no-store, max-age=0",
+    "pragma": "no-cache",
+    "fresh_csrf_present": true
+  },
+  "unauthenticated_manager": {
+    "status": 302,
+    "location": "/login?next=%2Fadmin"
+  },
+  "home": {
+    "status": 200,
+    "title_present": true,
+    "h1_count": 1
+  },
+  "configured_server_exit_code": 0,
+  "missing_rate_backend_guard": {
+    "ready": false,
+    "process_exit": null
+  },
+  "checks": {
+    "actual_production_mode": true,
+    "login_200": true,
+    "secure_host_cookie": true,
+    "login_private_no_store": true,
+    "private_noindex": true,
+    "hsts_present": true,
+    "strict_csp": true,
+    "csrf403_no_store": true,
+    "manager_redirect": true,
+    "home200": true,
+    "production_missing_rate_backend_refused": false
+  },
+  "successful_checks": 10,
+  "checks_total": 11,
+  "finding": "One or more observed checks false; inspect safe fields.",
+  "server_exit_code": 0,
+  "cleanup_temporary_tree_removed": true,
+  "finished_utc": "2026-11-14T20:49:04.488449+00:00",
+  "limitations": [
+    "NOT TESTED: real deployment/TLS termination, browser Secure-cookie transport, actual reverse proxy/CDN, sustained load, live providers and production/offsite recovery.",
+    "This run uses local loopback HTTP and synthetic X-Forwarded-Proto=https with TRUST_PROXY=1. It proves emitted production header/cookie flags, not HTTPS delivery.",
+    "No .env, real database, .venv or inherited application credentials were opened; random synthetic credential values and response bodies were not retained.",
+    "NODE_ENV was development in the child environment before the unchanged production wrapper set it to production; observed process mode was recorded after import."
+  ]
+}

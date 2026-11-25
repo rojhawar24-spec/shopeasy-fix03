@@ -1,0 +1,6 @@
+<%- include('partials/header',{title:title}) %>
+<section class="container section engagement-confirm-page"><div class="panel"><span class="eyebrow"><%= customerText("EMAIL PREFERENCE") %></span><h1><%= title %></h1>
+<% if(success==='confirmed'){ %><p role="status"><%= customerText("Your choice has been confirmed.") %></p><a class="btn btn-dark" href="/shop"><%= customerText("Continue shopping") %></a>
+<% } else if(success==='invalid' || !token){ %><p role="alert"><%= customerText("This request has expired, was already used, or is not valid.") %></p><a href="/shop" class="btn btn-light"><%= customerText("Back to shop") %></a>
+<% } else { %><p><%= customerText("Only confirm this request if you made it yourself. Nothing changes until you select the button.") %></p><form method="post" action="<%= action %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="token" value="<%= token %>"><button type="submit" class="btn btn-dark"><%= customerText(purpose==='unsubscribe'?'Unsubscribe':purpose==='stock'?'Confirm stock alert':'Confirm subscription') %></button></form><% } %>
+</div></section><%- include('partials/footer') %>

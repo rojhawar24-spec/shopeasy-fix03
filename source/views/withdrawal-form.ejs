@@ -1,0 +1,26 @@
+<%- include('partials/header', {title: title}) %>
+<section class="container page-head policy-head">
+  <%- include('partials/back-button', {fallback: '/shipping-returns'}) %>
+  <span class="eyebrow"><%= customerText(locale==='nl'?'CONSUMENTENRECHTEN':locale==='ckb'?'مافی کڕیار':locale==='ar'?'حقوق المستهلك':'CONSUMER RIGHTS') %></span>
+  <h1><%= customerText(locale==='nl'?'Modelformulier voor herroeping':locale==='ckb'?'فۆرمی نموونەی پاشگەزبوونەوە':locale==='ar'?'نموذج العدول عن الشراء':'Model withdrawal form') %></h1>
+  <p><%= customerText(locale==='nl'?'Gebruik dit formulier als het herroepingsrecht op je aankoop van toepassing is. Je bent niet verplicht dit formulier te gebruiken.':locale==='ckb'?'ئەگەر مافی پاشگەزبوونەوە بۆ کڕینەکەت دەگونجێت، دەتوانیت ئەم فۆرمە بەکاربهێنیت؛ بەکارهێنانی ئەم فۆرمە مەرج نییە.':locale==='ar'?'يمكنك استخدام هذا النموذج إذا كان حق العدول ينطبق على مشترياتك؛ ولا يشترط استخدام هذا النموذج.':'You can use this model if the right of withdrawal applies to your purchase; use of this particular form is optional.') %></p>
+</section>
+<section class="container section policy-section">
+  <article class="panel policy-copy withdrawal-model">
+    <p><strong><%= customerText(locale==='nl'?'Aan':locale==='ckb'?'بۆ':locale==='ar'?'إلى':'To') %>:</strong> <span translate="no" data-no-translate><%= legalName||storeName %></span><% if(businessAddress){ %>, <%= businessAddress %><% } %><% if(supportEmail){ %> · <a href="mailto:<%= supportEmail %>"><%= supportEmail %></a><% } %></p>
+    <p><%= customerText(locale==='nl'?'Hierbij deel ik mee dat ik de overeenkomst betreffende de volgende goederen/diensten wil herroepen:':locale==='ckb'?'بەمە ئاگادارتان دەکەمەوە کە دەمەوێت لە گرێبەستی کڕینی ئەم کاڵا/خزمەتگوزارییانە پاشگەز ببمەوە:':locale==='ar'?'أبلغكم برغبتي في العدول عن العقد المتعلق بالسلع/الخدمات التالية:':'I hereby give notice that I wish to withdraw from my contract of sale of the following goods/services:') %></p>
+    <div class="withdrawal-line" aria-hidden="true"></div>
+    <dl class="legal-detail-list">
+      <div><dt><%= customerText(locale==='nl'?'Bestelnummer':locale==='ckb'?'ژمارەی داواکاری':locale==='ar'?'رقم الطلب':'Order reference') %></dt><dd class="withdrawal-blank">______________________________</dd></div>
+      <div><dt><%= customerText(locale==='nl'?'Besteld op / ontvangen op':locale==='ckb'?'ڕێکەوتی داواکردن / وەرگرتن':locale==='ar'?'تاريخ الطلب / الاستلام':'Ordered on / received on') %></dt><dd class="withdrawal-blank">______________________________</dd></div>
+      <div><dt><%= customerText(locale==='nl'?'Naam consument':locale==='ckb'?'ناوی کڕیار':locale==='ar'?'اسم المستهلك':'Consumer name') %></dt><dd class="withdrawal-blank">______________________________</dd></div>
+      <div><dt><%= customerText(locale==='nl'?'Adres consument':locale==='ckb'?'ناونیشانی کڕیار':locale==='ar'?'عنوان المستهلك':'Consumer address') %></dt><dd class="withdrawal-blank">______________________________</dd></div>
+      <div><dt><%= customerText(locale==='nl'?'Datum':locale==='ckb'?'ڕێکەوت':locale==='ar'?'التاريخ':'Date') %></dt><dd class="withdrawal-blank">______________________________</dd></div>
+      <div><dt><%= customerText(locale==='nl'?'Handtekening (alleen op papier)':locale==='ckb'?'واژۆ (تەنها لە کاغەز)':locale==='ar'?'التوقيع (للنسخة الورقية فقط)':'Signature (paper form only)') %></dt><dd class="withdrawal-blank">______________________________</dd></div>
+    </dl>
+    <p><%= customerText(locale==='nl'?'In België en andere toepasselijke EU-consumentenverkopen geldt doorgaans een herroepingstermijn van 14 dagen, met wettelijke uitzonderingen. De regels in andere landen kunnen verschillen. Raadpleeg het retourbeleid van deze winkel.':locale==='ckb'?'لە هەندێک کڕینی کڕیاری یەکێتی ئەوروپادا بە گشتی ١٤ ڕۆژ مافی پاشگەزبوونەوە هەیە، بەڵام جیاوازیی یاسایی هەیە. لە وڵاتانی تر ڕێساکان جیاوازن. سیاسەتی گەڕاندنەوەی ئەم فرۆشگایە بخوێنەرەوە.':locale==='ar'?'تسري عادةً مهلة 14 يومًا على مشتريات المستهلك المؤهلة في الاتحاد الأوروبي، مع استثناءات قانونية. قد تختلف القواعد في الدول الأخرى. راجع سياسة إرجاع المتجر.':'Eligible EU consumer sales normally have a 14-day withdrawal period, subject to legal exceptions. Rules may differ outside the EU. Consult this store’s returns policy.') %></p>
+    <p><a href="/shipping-returns"><%= customerText(locale==='nl'?'Retourbeleid lezen':locale==='ckb'?'سیاسەتی گەڕاندنەوە بخوێنەوە':locale==='ar'?'قراءة سياسة الإرجاع':'Read the returns policy') %></a><% if(supportEmail){ %> · <a href="mailto:<%= supportEmail %>?subject=<%= encodeURIComponent('Withdrawal request') %>"><%= customerText(locale==='nl'?'Stuur een e-mail naar de winkel':locale==='ckb'?'ئیمەیڵ بۆ فرۆشگا بنێرە':locale==='ar'?'أرسل بريدًا للمتجر':'Email the store') %></a><% } %></p>
+    <p class="field-note"><%= customerText(locale==='nl'?'Je kunt deze pagina afdrukken via de afdrukfunctie van je browser.':locale==='ckb'?'دەتوانیت لە ڕێگەی وێبگەڕەکەت ئەم پەڕەیە چاپ بکەیت.':locale==='ar'?'يمكنك طباعة هذه الصفحة من المتصفح.':'Use your browser’s Print command to print this form.') %></p>
+  </article>
+</section>
+<%- include('partials/footer') %>

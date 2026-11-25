@@ -1,0 +1,75 @@
+{
+  "label": "VERIFIED",
+  "scope": "Five authoring CSS files versus two compiled delivery files; dynamic /theme/shop.css and page HTML/JS excluded; not page-load transfer totals.",
+  "compression": {
+    "gzipLevel": 6,
+    "brotliQuality": 4
+  },
+  "groups": {
+    "baseline": [
+      {
+        "path": "/css/app.css",
+        "bytes": 132041,
+        "gzipBytes": 23153,
+        "brotliBytes": 24671,
+        "sha256": "deb4539778b627094a33292f8f71ed605fc9b4450e68f6d840b351df5dee7237"
+      },
+      {
+        "path": "/css/design-tokens.css",
+        "bytes": 3612,
+        "gzipBytes": 1654,
+        "brotliBytes": 1651,
+        "sha256": "2bb30c8bebcc65c39bb02ff13dfdd84048fe90beb77e808347ffdb6a4c171c92"
+      },
+      {
+        "path": "/css/retail-2027.css",
+        "bytes": 41136,
+        "gzipBytes": 8838,
+        "brotliBytes": 9282,
+        "sha256": "a6a2ead87f4829141d8c1a95af02c33ec3f037c528440c29b6391832089fdad0"
+      },
+      {
+        "path": "/css/editorial-2027.css",
+        "bytes": 52360,
+        "gzipBytes": 9561,
+        "brotliBytes": 10066,
+        "sha256": "62a466b27affe94748f3efb7bce7f7a619c80a158dc790dd7515415155840933"
+      },
+      {
+        "path": "/css/research-polish-2027.css",
+        "bytes": 91193,
+        "gzipBytes": 16566,
+        "brotliBytes": 17454,
+        "sha256": "67229a249f8770d0e1594da54efcbf6a61d40887cf3cf84d33ceccb6d8381253"
+      }
+    ],
+    "proposal": [
+      {
+        "path": "/css/design-foundation.min.css",
+        "bytes": 213260,
+        "gzipBytes": 39774,
+        "brotliBytes": 40717,
+        "sha256": "9c4da67547df6c380775ed9b34ff60b28b3cc4068996223be2450a52322b126f"
+      },
+      {
+        "path": "/css/design-polish.min.css",
+        "bytes": 85886,
+        "gzipBytes": 15511,
+        "brotliBytes": 16424,
+        "sha256": "503e05811f02b28414a0581ce1e57e1e3a5ad1ba2282dab65229489550d81de3"
+      }
+    ]
+  },
+  "totals": {
+    "baseline": {
+      "bytes": 320342,
+      "gzipBytes": 59772,
+      "brotliBytes": 63124
+    },
+    "proposal": {
+      "bytes": 299146,
+      "gzipBytes": 55285,
+      "brotliBytes": 57141
+    }
+  }
+}

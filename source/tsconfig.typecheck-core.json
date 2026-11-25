@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": []
+  },
+  "files": [
+    "src/store-config.js",
+    "src/launch-gate.js",
+    "src/seo-locales.js",
+    "src/services/bank-transfer.js"
+  ]
+}

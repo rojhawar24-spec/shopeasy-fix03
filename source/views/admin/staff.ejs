@@ -1,0 +1,59 @@
+<%- include('../partials/header',{title:'Staff & manager account'}) %>
+<%- include('../partials/admin-nav') %>
+<section class="container page-head admin-head">
+  <%- include('../partials/back-button', { fallback: '/admin' }) %>
+  <div><span class="eyebrow">ACCESS CONTROL</span><h1>Staff &amp; Manager account</h1><p>Manage the Manager login and create restricted Admin accounts. Only a signed-in Manager can use this page.</p></div>
+</section>
+<section class="container form-page">
+  <% if(error){ %><div class="alert" role="alert"><%= pageText(error) %></div><% } %>
+  <% if(adminCreated){ %><div class="success-alert" role="status">Admin account created successfully. It can sign in to the read-only overview only.</div><% } %>
+  <% if(adminDeleted){ %><div class="success-alert" role="status">Admin removed.</div><% } %>
+  <% if(emailChanged){ %><div class="success-alert" role="status">Manager email changed. Other Manager sessions were signed out.</div><% } %>
+  <% if(passwordChanged){ %><div class="success-alert" role="status">Manager password changed. Other Manager sessions were signed out and unused password-reset codes were invalidated.</div><% } %>
+
+  <section class="panel form-stack">
+    <div class="panel-head"><div><span class="eyebrow">FULL ACCESS</span><h2>Manager account</h2></div><span class="status">Manager</span></div>
+    <p class="muted">This is the account with full access to products, categories, stock, orders, discounts, stories, customers, storefront settings, audit records and licensing.</p>
+    <div class="customer-detail"><div><span>Account name</span><strong><%= user.full_name||'Store Manager' %></strong></div><div><span>Current email</span><strong><%= user.email %></strong></div></div>
+    <form class="form-stack" method="post" action="/admin/staff/update-email">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <div class="form-section"><span class="eyebrow">CHANGE LOGIN EMAIL</span><h3>Update Manager email</h3><p class="field-note">The current password is required. The new email must not be used by another account.</p></div>
+      <label>New email address<input type="email" name="newEmail" required maxlength="120" autocomplete="email" value="<%= user.email %>"></label>
+      <label>Current Manager password<input type="password" name="currentPassword" required minlength="8" maxlength="200" autocomplete="current-password"></label>
+      <div class="form-actions"><button type="submit" class="btn btn-dark">Change email</button></div>
+    </form>
+    <div class="rule"></div>
+    <form class="form-stack" method="post" action="/admin/staff/change-password">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <div class="form-section"><span class="eyebrow">CHANGE LOGIN PASSWORD</span><h3>Update Manager password</h3><p class="field-note"><%= pageText("Use 15–200 characters. Avoid common or repeated passwords.") %></p></div>
+      <label>Current Manager password<input type="password" name="currentPassword" required minlength="8" maxlength="200" autocomplete="current-password"></label>
+      <label>New password<input type="password" name="newPassword" required minlength="15" maxlength="200" autocomplete="new-password"></label>
+      <label>Confirm new password<input type="password" name="confirmPassword" required minlength="15" maxlength="200" autocomplete="new-password"></label>
+      <div class="form-actions"><button type="submit" class="btn btn-dark">Change password</button></div>
+    </form>
+  </section>
+
+  <section class="panel form-stack section">
+    <div class="panel-head"><div><span class="eyebrow">LIMITED ACCESS</span><h2>Create an Admin account</h2></div><span class="status">Read-only</span></div>
+    <p class="muted">Admin accounts can sign in and view the restricted overview only. They cannot create accounts, edit the shop, change settings, or open Manager-only pages. Admin accounts are created here; they are not created from `.env`.</p>
+    <form class="form-stack" method="post" action="/admin/staff/create-admin" autocomplete="off">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <label>Admin full name<input type="text" name="fullName" required maxlength="120" autocomplete="off" value="<%= formName %>"></label>
+      <label>Admin email<input type="email" name="email" required maxlength="120" autocomplete="off" value="<%= formEmail %>"></label>
+      <label>Temporary password<input type="password" name="password" required minlength="15" maxlength="200" autocomplete="new-password"></label>
+      <label>Confirm temporary password<input type="password" name="confirmPassword" required minlength="15" maxlength="200" autocomplete="new-password"></label>
+      <p class="field-note">Give the new Admin the login email and password securely. The password is never shown again after creating the account.</p>
+      <div class="form-actions"><button type="submit" class="btn btn-dark">Create Admin account</button></div>
+    </form>
+  </section>
+
+  <section class="panel section">
+    <div class="panel-head"><div><span class="eyebrow">EXISTING ACCOUNTS</span><h2>Admin accounts</h2></div><span class="status"><%= adminAccounts.length %> total</span></div>
+    <p class="muted">Only Admin accounts are listed here. Passwords and password hashes are never displayed.</p>
+    <div class="table-wrap" role="region" aria-label="Staff accounts table" tabindex="0"><table><thead><tr><th>Name</th><th>Email</th><th>Created</th><th>Access level</th><th>Actions</th></tr></thead><tbody>
+      <% adminAccounts.forEach(account=>{ %><tr><td data-no-translate><%= account.full_name||'Admin' %></td><td data-no-translate><%= account.email %></td><td><%= account.created_at||'—' %></td><td><span class="status">Restricted Admin</span></td><td><details class="staff-delete-details"><summary>Delete Admin</summary><form class="staff-delete-form" method="post" action="/admin/staff/delete-admin"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="adminId" value="<%= account.id %>"><label>Current Manager password<input type="password" name="currentPassword" required minlength="8" maxlength="200" autocomplete="current-password"></label><button type="submit" class="btn btn-danger">Delete Admin</button></form></details></td></tr><% }) %>
+      <% if(!adminAccounts.length){ %><tr><td colspan="5"><div class="empty compact"><h3>No Admin accounts yet.</h3><p class="muted">Create one above if someone needs read-only access to the overview.</p></div></td></tr><% } %>
+    </tbody></table></div>
+  </section>
+</section>
+<%- include('../partials/footer',{managerWorkspaceShell:user?.role==='manager'}) %>

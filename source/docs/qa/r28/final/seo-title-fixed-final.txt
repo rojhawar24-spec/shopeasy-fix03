@@ -1,0 +1,12 @@
+✔ static French page titles use the same server translations as page headings (9.023593ms)
+✔ merchant product and category names are not translated when they collide with interface labels (4.7347ms)
+✔ cookie metadata uses the localized policy title instead of a stale caller title (1.571467ms)
+✔ category pages pass their actual merchant category name to the page header (1.55319ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 53.332954

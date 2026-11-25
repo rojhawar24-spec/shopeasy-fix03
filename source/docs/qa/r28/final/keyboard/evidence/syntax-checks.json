@@ -1,0 +1,33 @@
+{
+  "label": "VERIFIED",
+  "utc": "2026-11-21T23:02:33.783315+00:00",
+  "checks": [
+    {
+      "command": [
+        "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+        "--check",
+        "/workspace/presale-r28/proposals/keyboard/work/public/js/app.js"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+        "--check",
+        "/workspace/presale-r28/proposals/keyboard/work/public/js/retail-2027.js"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+        "--check",
+        "/workspace/presale-r28/proposals/keyboard/work/qa/fixture-server.mjs"
+      ],
+      "exit_code": 0,
+      "output": ""
+    }
+  ]
+}

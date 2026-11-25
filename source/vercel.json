@@ -1,0 +1,5 @@
+{
+  "version": 2,
+  "buildCommand": "node scripts/reject-vercel-deploy.mjs",
+  "outputDirectory": "public"
+}

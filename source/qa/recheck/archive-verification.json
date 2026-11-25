@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-11",
+  "archive": "ShopEasy-Whole-Website-R25.zip",
+  "sha256": "9a206a4e4e5fbe1076257cf2eb1dc7cfe360ac5ce78e51364d35f1ff7fb3766b",
+  "zip_crc": "passed",
+  "internal_checksums_passed": 555,
+  "extracted_full_suite": {
+    "passed": 1052,
+    "failed": 0,
+    "skipped": 0
+  },
+  "tracked_files_unchanged_after_rebuild": true,
+  "new_r26_tests": {
+    "passed": 1055,
+    "failed": 0,
+    "skipped": 0
+  },
+  "new_content_regression_groups": 13,
+  "findings_fixed": 4,
+  "refreshed_browser_acceptance_groups": 221,
+  "shared_footer_checked": true
+}

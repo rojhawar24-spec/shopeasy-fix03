@@ -1,0 +1,41 @@
+<%- include('partials/header',{title:'FAQ'}) %>
+<% const content = {
+ fr: {"eyebrow": "SERVICE CLIENT", "title": "Questions et réponses.", "desc": "Des informations utiles avant, pendant et après votre commande.", "mini": "AIDE AUX ACHATS", "intro": "Bon à savoir.", "introText": "Les conditions réelles de livraison, de retour et de paiement de la boutique sont confirmées avant la commande. Cette page ne déclenche jamais de paiement.", "cta": "Contacter la boutique", "links": "Politiques de la boutique", "questions": [["Comment savoir si un produit est disponible ?", "Consultez les informations de stock sur la fiche produit. La disponibilité est à nouveau vérifiée lors de la commande."], ["Quels moyens de paiement sont disponibles ?", "Seuls les moyens de paiement activés par ce commerçant apparaissent lors de la commande. Les paiements par carte, lorsqu’ils sont disponibles, sont traités par le prestataire de paiement configuré."], ["Combien coûte la livraison ?", "Les frais dépendent des règles de livraison de la boutique et de votre destination. Le total est indiqué avant la confirmation finale."], ["Puis-je suivre une commande sans compte ?", "Oui. Utilisez la page de suivi avec les informations demandées. Seul l’acheteur doit accéder aux détails de sa commande."], ["Puis-je annuler ou retourner une commande ?", "Les droits d’annulation, de rétractation et de retour dépendent de la commande et du droit applicable. Consultez les conditions de la boutique avant de commander."], ["Le prix inclut-il les taxes ?", "Le traitement fiscal dépend de la configuration du commerçant et de la destination de livraison. Vérifiez le total final et les détails des taxes avant de passer commande."]]},
+ en: {eyebrow:'CUSTOMER CARE',title:'Questions, answered.',desc:'Helpful information before, during and after your order.',mini:'SHOPPING HELP',intro:'Good to know.',introText:'The shop’s actual delivery, return and payment conditions are confirmed before an order. This page never starts a payment.',cta:'Contact the store',links:'Store policies', questions:[
+ ['How do I know a product is available?','See the stock information on the product page. Availability is checked again when placing an order.'],
+ ['Which payment methods are available?','Only payment methods enabled by this merchant appear at checkout. Card payments, when available, are processed by the configured payment provider.'],
+ ['How much does delivery cost?','Shipping costs depend on this shop’s configured delivery rules and your destination. The total is shown before final confirmation.'],
+ ['Can I track an order without an account?','Yes. Use the order lookup page and the information required there. Only the purchaser should access their order.'],
+ ['Can I cancel or return an order?','Applicable cancellation, withdrawal and return rights depend on the order and relevant law. Read the store policy before you order.'],
+ ['Does the price include tax?','Tax treatment depends on the merchant’s tax setup and delivery destination. Review the final checkout total and tax details before placing an order.']]},
+ nl: {eyebrow:'KLANTENSERVICE',title:'Veelgestelde vragen.',desc:'Duidelijke antwoorden vóór, tijdens en na je bestelling.',mini:'HULP BIJ BESTELLEN',intro:'Goed om te weten.',introText:'De echte leverings-, retour- en betaalvoorwaarden van de winkel worden bevestigd vóór je bestelt. Op deze pagina wordt nooit een betaling gestart.',cta:'Contacteer de winkel',links:'Winkelvoorwaarden', questions:[
+ ['Hoe weet ik of een product op voorraad is?','De voorraad staat op de productpagina. Bij het plaatsen van je bestelling wordt de beschikbaarheid opnieuw gecontroleerd.'],
+ ['Welke betaalmethodes kan ik gebruiken?','Je ziet bij het afrekenen enkel de betaalmethodes die deze winkel heeft ingeschakeld. Kaartbetalingen verlopen, indien beschikbaar, via de ingestelde betaalprovider.'],
+ ['Hoeveel kost de levering?','De leveringskosten hangen af van de ingestelde leveringsregels en je bestemming. Je ziet het totaal vóór de definitieve bevestiging.'],
+ ['Kan ik een bestelling volgen zonder account?','Ja. Gebruik de pagina Bestelling volgen met de gevraagde gegevens. Enkel de koper mag die bestelgegevens gebruiken.'],
+ ['Kan ik een bestelling annuleren of retourneren?','Je rechten op annulering, herroeping of retour hangen af van je bestelling en de toepasselijke wetgeving. Lees vooraf het retourbeleid.'],
+ ['Is de btw inbegrepen in de prijs?','De btw-behandeling hangt af van de winkelinstellingen en het leveringsland. Controleer het definitieve totaal en de belastinggegevens vóór je bestelt.']]},
+ ckb: {eyebrow:'خزمەتگوزاری کڕیار',title:'پرسیار و وەڵامەکان.',desc:'زانیاریی ڕوون پێش داواکردن و لە دوای داواکردندا.',mini:'یارمەتی کڕین',intro:'باشە بیزانیت.',introText:'مەرجە ڕاستەقینەکانی گەیاندن، گەڕاندنەوە و پارەدان پێش داواکردن پیشان دەدرێن. لەم پەڕەیەدا هیچ پارەدانێک دەست پێ ناکات.',cta:'پەیوەندی بە فرۆشگا',links:'مەرجەکانی فرۆشگا', questions:[
+ ['چۆن بزانم بەرهەمێک بەردەستە؟','زانیاریی کۆگا لە پەڕەی بەرهەمەکەدا هەیە. کاتی تۆمارکردنی داواکاری، بەردەستبوون دووبارە دەپشکنرێت.'],
+ ['چ شێوازێکی پارەدان بەردەستە؟','تەنها ئەو شێوازانە لە کاتی تەواوکردنی داواکاری پیشان دەدرێن کە فرۆشگا چالاکی کردوون. پارەدانی کارت لە ڕێی دابینکەری پارەدانەوە ئەنجام دەدرێت.'],
+ ['کرێی گەیاندن چەندە؟','کرێی گەیاندن بە پێی ڕێساکانی فرۆشگا و شوێنی گەیاندن دیاری دەکرێت. کۆی کۆتایی پێش پشتڕاستکردنەوە پیشان دەدرێت.'],
+ ['بێ هەژمار دەتوانم داواکارییەکەم بەدوادا بچم؟','بەڵێ. پەڕەی بەدواداچوونی داواکاری بەکاربهێنە و زانیاریی داواکراو بنووسە. تەنها خاوەنی داواکاری دەبێت دەستی پێ بگات.'],
+ ['دەتوانم داواکاری هەڵبوەشێنمەوە یان بیگەڕێنمەوە؟','مافەکانی هەڵوەشاندنەوە و گەڕاندنەوە بە جۆری داواکاری و یاسای پەیوەندیدارەوە بەستنەوە. پێش کڕین سیاسەتی فرۆشگا بخوێنەوە.'],
+ ['باج لە نرخدا هەژمار کراوە؟','باج بە پێی ڕێکخستنەکانی فرۆشگا و وڵاتی گەیاندن دیاری دەکرێت. پێش داواکردن کۆی کۆتایی و وردەکاریی باج بپشکنە.']]},
+ ar: {eyebrow:'خدمة العملاء',title:'أسئلة وإجابات.',desc:'معلومات واضحة قبل الطلب وأثناءه وبعده.',mini:'مساعدة التسوق',intro:'من المفيد أن تعرف.',introText:'تظهر شروط التوصيل والإرجاع والدفع الفعلية قبل إتمام الطلب. لا تبدأ أي عملية دفع من هذه الصفحة.',cta:'اتصل بالمتجر',links:'سياسات المتجر', questions:[
+ ['كيف أعرف أن المنتج متوفر؟','تظهر معلومات المخزون في صفحة المنتج، ويتم التحقق من التوفر مرة أخرى عند تقديم الطلب.'],
+ ['ما طرق الدفع المتاحة؟','تظهر عند إتمام الطلب طرق الدفع التي فعّلها هذا المتجر فقط. تتم مدفوعات البطاقة، عند توفرها، عبر مزوّد الدفع المهيّأ.'],
+ ['كم تكلفة التوصيل؟','تعتمد الرسوم على قواعد التوصيل التي حددها المتجر وعلى وجهة الشحن. يظهر المجموع قبل التأكيد النهائي.'],
+ ['هل يمكن تتبع طلب من دون حساب؟','نعم. استخدم صفحة تتبع الطلب وأدخل المعلومات المطلوبة. ينبغي أن يصل صاحب الطلب فقط إلى تفاصيله.'],
+ ['هل يمكن إلغاء الطلب أو إرجاعه؟','تعتمد حقوق الإلغاء والانسحاب والإرجاع على الطلب والقانون المعمول به. اقرأ سياسة المتجر قبل الشراء.'],
+ ['هل السعر شامل للضريبة؟','تختلف المعاملة الضريبية بحسب إعدادات التاجر ووجهة التوصيل. راجع المجموع النهائي والتفاصيل الضريبية قبل تأكيد الطلب.']]}
+}; const t=content[locale]||content.en; %>
+<section class="container page-head"><span class="eyebrow"><%= t.eyebrow %></span><h1><%= t.title %></h1><p><%= t.desc %></p></section>
+<section class="container section faq-layout">
+ <div class="faq-intro"><span class="eyebrow"><%= t.mini %></span><h2><%= t.intro %></h2><p><%= t.introText %></p><a class="btn btn-dark" href="/contact"><%= t.cta %> →</a></div>
+ <div class="faq-items">
+ <% t.questions.forEach(([question,answer],index)=>{ %><details <%= index===0?'open':'' %>><summary><%= question %></summary><p><%= answer %></p></details><% }); %>
+ <div class="panel"><strong><%= t.links %></strong><div class="contact-shortcuts"><a href="/shipping-returns"><%= customerText(locale==='nl'?'Levering en retour':locale==='ckb'?'گەیاندن و گەڕاندنەوە':locale==='ar'?'التوصيل والإرجاع':'Shipping & returns') %></a><a href="/terms"><%= customerText(locale==='nl'?'Algemene voorwaarden':locale==='ckb'?'مەرجەکان':locale==='ar'?'الشروط والأحكام':'Terms and conditions') %></a><a href="/order-lookup"><%= customerText(locale==='nl'?'Bestelling volgen':locale==='ckb'?'بەدواداچوونی داواکاری':locale==='ar'?'تتبع الطلب':'Track an order') %></a></div></div>
+ </div>
+</section>
+<%- include('partials/footer') %>

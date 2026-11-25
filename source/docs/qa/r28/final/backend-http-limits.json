@@ -1,0 +1,25 @@
+{
+  "label": "VERIFIED",
+  "utc": "2026-11-22T17:25:33.024Z",
+  "scope": "Actual current integrated Express POST/cart/add and actual disposable SQLite. No real env/database/venv or provider traffic; random cookie/CSRF/checkout values were not retained.",
+  "node": "v24.22.2",
+  "checks": {
+    "quantity_initial_add_succeeds": true,
+    "quantity_limit_recoverable303": true,
+    "quantity_feedback_returns_to_product": true,
+    "quantity_quantity_preserved": true,
+    "quantity_cart_bytes_preserved": true,
+    "quantity_revision_preserved": true,
+    "quantity_checkout_bearer_preserved": true,
+    "stock_initial_add_succeeds": true,
+    "stock_limit_recoverable303": true,
+    "stock_feedback_returns_to_product": true,
+    "stock_quantity_preserved": true,
+    "stock_cart_bytes_preserved": true,
+    "stock_revision_preserved": true,
+    "stock_checkout_bearer_preserved": true
+  },
+  "checks_total": 14,
+  "checks_passed": 14,
+  "temporary_fixture_removed": true
+}

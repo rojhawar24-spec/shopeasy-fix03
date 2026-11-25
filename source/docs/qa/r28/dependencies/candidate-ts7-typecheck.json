@@ -1,0 +1,13 @@
+{
+  "utc_started": "2026-11-20T22:47:57.850354+00:00",
+  "utc_finished": "2026-11-20T22:47:58.373495+00:00",
+  "cwd": "/workspace/presale-r28/proposals/dependencies/work",
+  "command": [
+    "npm",
+    "run",
+    "typecheck:core"
+  ],
+  "exit_code": 0,
+  "output_file": "candidate-ts7-typecheck.txt",
+  "inherited_application_credentials": "removed; credential values not printed"
+}

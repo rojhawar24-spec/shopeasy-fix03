@@ -1,0 +1,4868 @@
+{
+  "started_utc": "2026-11-22T23:09:19.748680+00:00",
+  "status": "PASS",
+  "runtime": {
+    "python": "3.13.5",
+    "platform": "linux",
+    "node": "v24.22.2",
+    "playwright": "1.62.0",
+    "qa_runner_sha256": "498d0e4f1d67776b27db269df81d9022319f01e7c4af1e2d33c12e3fc43ac979",
+    "fixture_server_sha256": "c33910f299be6e75f17f1900eda06eb838d7b6af13b478b070a453132c9f830c",
+    "login_oracle_sha256": "59c7f1f84398d697803e58e32d29e3a51b42389c9e0f1dcbb33eab9921efca86",
+    "axe_sha256": "e9e5863c33a874f09bc01acd9234b7e3c871479f5eef8802fa582544465e6d01",
+    "application_runtime": {
+      "sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+      "files": 152,
+      "scope": "Copied src, views, public excluding uploads, generated and package.json",
+      "manifest_file": "application-runtime-manifest.json"
+    },
+    "playwright_driver": {
+      "selection": "validated --node through PLAYWRIGHT_NODEJS_PATH",
+      "node": "v24.22.2",
+      "node_sha256": "904a6d3484241d466989f9df9ba3aab822b1496191bdb28230eb491a55c32a52",
+      "sdk_driver_source_sha256": "9a15469de4b0e15773169d32df12a2a694298a8b03ee68655c504532a27d4eaa",
+      "sdk_resolved_node_matches_selected": true,
+      "spawned_node_matches_selected": true,
+      "process_running_observed": true,
+      "evidence_method": "Pinned SDK resolver and actual asyncio child-process executable; no subprocess arguments or environment retained"
+    },
+    "browser": "156.0.8078.79",
+    "browser_selection": "explicit executable"
+  },
+  "configuration": {
+    "suite": "public",
+    "locales": [
+      "en",
+      "ckb",
+      "ar",
+      "nl",
+      "fr"
+    ],
+    "widths": [
+      320
+    ],
+    "screenshots": false,
+    "email": "DISABLED; delivery NOT TESTED",
+    "cart_drawer": false
+  },
+  "checks": [
+    {
+      "check": "axe fresh320 en light",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-symbol"
+                ],
+                "visible_text": "☷",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-chevron"
+                ],
+                "visible_text": "⌄",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > span:nth-child(1) > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "◇",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-sun"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "Shop\n      Categories ⌄QA collectionView all products →\n      Stories\n      Sign in\n      Bag 0",
+                "aria_label": "Primary navigation",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionView all products →",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "Search products\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#shop-filter-form"
+                ],
+                "visible_text": "FIND YOUR PRODUCTSSearch & filterChoose your category, price and sort order, then apply the filters.\n    CategoryAll categoriesQA collection\n    SortFeaturedNewestPrice: low to highPrice: high to lowName: A–Z\n    Search products\n    Minimum",
+                "aria_label": "Filter products",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Product preview\n Review sizes, variants, availability and shipping on the full product page.View full product →",
+                "aria_label": null,
+                "labelled_by_text": "Product preview"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Compare products · 0/3\n Compare selection",
+                "aria_label": "Products selected for comparison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Compare your selection×\n Compare displayed prices and open each product for current stock, delivery and complete specifications.",
+                "aria_label": null,
+                "labelled_by_text": "Compare your selection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "PRIVACY CHOICES\n      Cookie choices\n      Necessary storage supports your account, basket and security. Analytics and marketing stay off by default.\n      \n        Read the cookie policy\n        Customize\n      \n      \n    \n    \n      Reje",
+                "aria_label": null,
+                "labelled_by_text": "Cookie choices"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "PRIVACY CHOICES",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "PRIVACY SETTINGSCookie preferences×\n    Necessary storage is always on. Your choice is saved on this device for 180 days. No analytics or advertising scripts are loaded in this release.\n    \n      NecessaryRequired for sessions, security an",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Fresh mobile shop headings/theme",
+      "status": "PASS",
+      "locale": "en",
+      "width": 320,
+      "theme": "light",
+      "initial_navigation_viewport": 320,
+      "h1_count": 1,
+      "h2_count": 6,
+      "desktop_to_mobile_resize_used": false
+    },
+    {
+      "check": "Final representative computed contrast",
+      "status": "PASS",
+      "selector": "body",
+      "theme": "light",
+      "locale": "en",
+      "foreground": "rgb(23, 34, 29)",
+      "background": "rgb(247, 246, 242)",
+      "ratio": 15.136,
+      "minimum": 4.5,
+      "limitation": "Four representative body/heading samples; not every node, image background or manual WCAG criterion"
+    },
+    {
+      "check": "Final representative computed contrast",
+      "status": "PASS",
+      "selector": "h1",
+      "theme": "light",
+      "locale": "en",
+      "foreground": "rgb(23, 34, 29)",
+      "background": "rgb(247, 246, 242)",
+      "ratio": 15.136,
+      "minimum": 4.5,
+      "limitation": "Four representative body/heading samples; not every node, image background or manual WCAG criterion"
+    },
+    {
+      "check": "axe fresh320 en dark",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-symbol"
+                ],
+                "visible_text": "☷",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-chevron"
+                ],
+                "visible_text": "⌄",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > span:nth-child(1) > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "◇",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-moon"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "Shop\n      Categories ⌄QA collectionView all products →\n      Stories\n      Sign in\n      Bag 0",
+                "aria_label": "Primary navigation",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionView all products →",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "Search products\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#shop-filter-form"
+                ],
+                "visible_text": "FIND YOUR PRODUCTSSearch & filterChoose your category, price and sort order, then apply the filters.\n    CategoryAll categoriesQA collection\n    SortFeaturedNewestPrice: low to highPrice: high to lowName: A–Z\n    Search products\n    Minimum",
+                "aria_label": "Filter products",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Product preview\n Review sizes, variants, availability and shipping on the full product page.View full product →",
+                "aria_label": null,
+                "labelled_by_text": "Product preview"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Compare products · 0/3\n Compare selection",
+                "aria_label": "Products selected for comparison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Compare your selection×\n Compare displayed prices and open each product for current stock, delivery and complete specifications.",
+                "aria_label": null,
+                "labelled_by_text": "Compare your selection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "PRIVACY CHOICES\n      Cookie choices\n      Necessary storage supports your account, basket and security. Analytics and marketing stay off by default.\n      \n        Read the cookie policy\n        Customize\n      \n      \n    \n    \n      Reje",
+                "aria_label": null,
+                "labelled_by_text": "Cookie choices"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "PRIVACY CHOICES",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "PRIVACY SETTINGSCookie preferences×\n    Necessary storage is always on. Your choice is saved on this device for 180 days. No analytics or advertising scripts are loaded in this release.\n    \n      NecessaryRequired for sessions, security an",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Fresh mobile shop headings/theme",
+      "status": "PASS",
+      "locale": "en",
+      "width": 320,
+      "theme": "dark",
+      "initial_navigation_viewport": 320,
+      "h1_count": 1,
+      "h2_count": 6,
+      "desktop_to_mobile_resize_used": false
+    },
+    {
+      "check": "Final representative computed contrast",
+      "status": "PASS",
+      "selector": "body",
+      "theme": "dark",
+      "locale": "en",
+      "foreground": "rgb(246, 245, 237)",
+      "background": "rgb(16, 23, 19)",
+      "ratio": 16.64,
+      "minimum": 4.5,
+      "limitation": "Four representative body/heading samples; not every node, image background or manual WCAG criterion"
+    },
+    {
+      "check": "Final representative computed contrast",
+      "status": "PASS",
+      "selector": "h1",
+      "theme": "dark",
+      "locale": "en",
+      "foreground": "rgb(246, 245, 237)",
+      "background": "rgb(16, 23, 19)",
+      "ratio": 16.64,
+      "minimum": 4.5,
+      "limitation": "Four representative body/heading samples; not every node, image background or manual WCAG criterion"
+    },
+    {
+      "check": "axe final contact en light",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-sun"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "Shop\n      Categories ⌄QA collectionView all products →\n      Stories\n      Sign in\n      Bag 0",
+                "aria_label": "Primary navigation",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionView all products →",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "Search products\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Product preview\n Review sizes, variants, availability and shipping on the full product page.View full product →",
+                "aria_label": null,
+                "labelled_by_text": "Product preview"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Compare products · 0/3\n Compare selection",
+                "aria_label": "Products selected for comparison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Compare your selection×\n Compare displayed prices and open each product for current stock, delivery and complete specifications.",
+                "aria_label": null,
+                "labelled_by_text": "Compare your selection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "PRIVACY CHOICES\n      Cookie choices\n      Necessary storage supports your account, basket and security. Analytics and marketing stay off by default.\n      \n        Read the cookie policy\n        Customize\n      \n      \n    \n    \n      Reje",
+                "aria_label": null,
+                "labelled_by_text": "Cookie choices"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "PRIVACY CHOICES",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "PRIVACY SETTINGSCookie preferences×\n    Necessary storage is always on. Your choice is saved on this device for 180 days. No analytics or advertising scripts are loaded in this release.\n    \n      NecessaryRequired for sessions, security an",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Final contact link computed contrast",
+      "status": "PASS",
+      "selector": ".contact-method a",
+      "theme": "light",
+      "locale": "en",
+      "minimum": 4.5,
+      "samples": [
+        {
+          "foreground": "rgb(36, 81, 62)",
+          "background": "rgb(255, 255, 255)",
+          "ratio": 9.0457
+        },
+        {
+          "foreground": "rgb(36, 81, 62)",
+          "background": "rgb(255, 255, 255)",
+          "ratio": 9.0457
+        }
+      ],
+      "limitation": "Actual final light/dark contact-link regression witness; not complete manual accessibility conformance"
+    },
+    {
+      "check": "axe final contact en dark",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-moon"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "Shop\n      Categories ⌄QA collectionView all products →\n      Stories\n      Sign in\n      Bag 0",
+                "aria_label": "Primary navigation",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionView all products →",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "Search products\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Product preview\n Review sizes, variants, availability and shipping on the full product page.View full product →",
+                "aria_label": null,
+                "labelled_by_text": "Product preview"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Compare products · 0/3\n Compare selection",
+                "aria_label": "Products selected for comparison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Compare your selection×\n Compare displayed prices and open each product for current stock, delivery and complete specifications.",
+                "aria_label": null,
+                "labelled_by_text": "Compare your selection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "PRIVACY CHOICES\n      Cookie choices\n      Necessary storage supports your account, basket and security. Analytics and marketing stay off by default.\n      \n        Read the cookie policy\n        Customize\n      \n      \n    \n    \n      Reje",
+                "aria_label": null,
+                "labelled_by_text": "Cookie choices"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "PRIVACY CHOICES",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "PRIVACY SETTINGSCookie preferences×\n    Necessary storage is always on. Your choice is saved on this device for 180 days. No analytics or advertising scripts are loaded in this release.\n    \n      NecessaryRequired for sessions, security an",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Final contact link computed contrast",
+      "status": "PASS",
+      "selector": ".contact-method a",
+      "theme": "dark",
+      "locale": "en",
+      "minimum": 4.5,
+      "samples": [
+        {
+          "foreground": "rgb(189, 224, 197)",
+          "background": "rgb(27, 36, 31)",
+          "ratio": 11.0957
+        },
+        {
+          "foreground": "rgb(189, 224, 197)",
+          "background": "rgb(27, 36, 31)",
+          "ratio": 11.0957
+        }
+      ],
+      "limitation": "Actual final light/dark contact-link regression witness; not complete manual accessibility conformance"
+    },
+    {
+      "check": "axe fresh320 ckb light",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-symbol"
+                ],
+                "visible_text": "☷",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-chevron"
+                ],
+                "visible_text": "⌄",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > span:nth-child(1) > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "◇",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".mobile-nav-icon[aria-hidden=\"true\"] > b"
+                ],
+                "visible_text": "0",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-sun"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "فرۆشگا\n      پۆلەکان ⌄QA collectionبینینی هەموو بەرهەمەکان ←\n      چیرۆکەکان\n      چوونەژوورەوە\n      سەبەتە 0",
+                "aria_label": "پێڕستی سەرەکی",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionبینینی هەموو بەرهەمەکان ←",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "گەڕان لە بەرهەمەکان\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#shop-filter-form"
+                ],
+                "visible_text": "دۆزینەوەی بەرهەمگەڕان و پاڵاوتنپۆل، نرخ و ڕیزبەندی هەڵبژێرە، پاشان پاڵاوتن جێبەجێ بکە.\n    پۆلهەموو پۆلەکانQA collection\n    ڕیزبەندیتایبەتکراونوێتریننرخ: لە کەمەوە بۆ زۆرنرخ: لە زۆرەوە بۆ کەمناو: A–Z\n    گەڕانی بەرهەم\n    کەمترین نرخ\n    ز",
+                "aria_label": "Filter بەرهەم",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Product preview\n Review sizes, variants, availability and shipping on the full product page.بینینی full product →",
+                "aria_label": null,
+                "labelled_by_text": "Product preview"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Compare products · 0/3\n Compare selection",
+                "aria_label": "Products selected for comparison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Compare your selection×\n Compare displayed prices and open each product for current stock, delivery and complete specifications.",
+                "aria_label": null,
+                "labelled_by_text": "Compare your selection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "تایبەتمەندی\n      ڕێکخستنی کوکی\n      بیرگەی پێویست بۆ هەژمار، سەبەتە و ئاسایشە. ئامار و ڕیکلام بە بنەڕەت ناچالاکن.\n      \n        سیاسەتی کوکی بخوێنەوە\n        ڕێکخستن\n      \n      \n    \n    \n      ڕەتکردنەوەی هەڵبژاردەکان\n      قبوڵکردنی ",
+                "aria_label": null,
+                "labelled_by_text": "ڕێکخستنی کوکی"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "تایبەتمەندی",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "ڕێکخستنەکانی تایبەتمەندیهەڵبژاردەکانی کوکی×\n    کوکیی پێویست هەمیشە چالاکە. هەڵبژاردەکانت لەسەر ئەم ئامێرە هەڵدەگیرێن بۆ ١٨٠ ڕۆژ. لەم وەشانەدا هیچ کۆدی ئامار یان ڕیکلام بار ناکرێت.\n    \n      کوکیی پێویستبۆ سەشن، ئاسایش و بەڕێوەبردنی داواکا",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Fresh mobile shop headings/theme",
+      "status": "PASS",
+      "locale": "ckb",
+      "width": 320,
+      "theme": "light",
+      "initial_navigation_viewport": 320,
+      "h1_count": 1,
+      "h2_count": 6,
+      "desktop_to_mobile_resize_used": false
+    },
+    {
+      "check": "axe fresh320 ckb dark",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-symbol"
+                ],
+                "visible_text": "☷",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-chevron"
+                ],
+                "visible_text": "⌄",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > span:nth-child(1) > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "◇",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".mobile-nav-icon[aria-hidden=\"true\"] > b"
+                ],
+                "visible_text": "0",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-moon"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "فرۆشگا\n      پۆلەکان ⌄QA collectionبینینی هەموو بەرهەمەکان ←\n      چیرۆکەکان\n      چوونەژوورەوە\n      سەبەتە 0",
+                "aria_label": "پێڕستی سەرەکی",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionبینینی هەموو بەرهەمەکان ←",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "گەڕان لە بەرهەمەکان\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#shop-filter-form"
+                ],
+                "visible_text": "دۆزینەوەی بەرهەمگەڕان و پاڵاوتنپۆل، نرخ و ڕیزبەندی هەڵبژێرە، پاشان پاڵاوتن جێبەجێ بکە.\n    پۆلهەموو پۆلەکانQA collection\n    ڕیزبەندیتایبەتکراونوێتریننرخ: لە کەمەوە بۆ زۆرنرخ: لە زۆرەوە بۆ کەمناو: A–Z\n    گەڕانی بەرهەم\n    کەمترین نرخ\n    ز",
+                "aria_label": "Filter بەرهەم",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Product preview\n Review sizes, variants, availability and shipping on the full product page.بینینی full product →",
+                "aria_label": null,
+                "labelled_by_text": "Product preview"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Compare products · 0/3\n Compare selection",
+                "aria_label": "Products selected for comparison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Compare your selection×\n Compare displayed prices and open each product for current stock, delivery and complete specifications.",
+                "aria_label": null,
+                "labelled_by_text": "Compare your selection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "تایبەتمەندی\n      ڕێکخستنی کوکی\n      بیرگەی پێویست بۆ هەژمار، سەبەتە و ئاسایشە. ئامار و ڕیکلام بە بنەڕەت ناچالاکن.\n      \n        سیاسەتی کوکی بخوێنەوە\n        ڕێکخستن\n      \n      \n    \n    \n      ڕەتکردنەوەی هەڵبژاردەکان\n      قبوڵکردنی ",
+                "aria_label": null,
+                "labelled_by_text": "ڕێکخستنی کوکی"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "تایبەتمەندی",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "ڕێکخستنەکانی تایبەتمەندیهەڵبژاردەکانی کوکی×\n    کوکیی پێویست هەمیشە چالاکە. هەڵبژاردەکانت لەسەر ئەم ئامێرە هەڵدەگیرێن بۆ ١٨٠ ڕۆژ. لەم وەشانەدا هیچ کۆدی ئامار یان ڕیکلام بار ناکرێت.\n    \n      کوکیی پێویستبۆ سەشن، ئاسایش و بەڕێوەبردنی داواکا",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Fresh mobile shop headings/theme",
+      "status": "PASS",
+      "locale": "ckb",
+      "width": 320,
+      "theme": "dark",
+      "initial_navigation_viewport": 320,
+      "h1_count": 1,
+      "h2_count": 6,
+      "desktop_to_mobile_resize_used": false
+    },
+    {
+      "check": "axe fresh320 ar light",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-symbol"
+                ],
+                "visible_text": "☷",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-chevron"
+                ],
+                "visible_text": "⌄",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > span:nth-child(1) > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "◇",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".mobile-nav-icon[aria-hidden=\"true\"] > b"
+                ],
+                "visible_text": "0",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-sun"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "المتجر\n      الفئات ⌄QA collectionعرض جميع المنتجات ←\n      القصص\n      تسجيل الدخول\n      السلة 0",
+                "aria_label": "التنقل الرئيسي",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionعرض جميع المنتجات ←",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "البحث عن المنتجات\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#shop-filter-form"
+                ],
+                "visible_text": "ابحث عن المنتجاتالبحث والتصفيةاختر الفئة والسعر والترتيب ثم طبّق الفلاتر.\n    الفئةكل الفئاتQA collection\n    الترتيبمميّزالأحدثالسعر: من الأقل إلى الأعلىالسعر: من الأعلى إلى الأقلالاسم: أ–ي\n    بحث عن المنتجات\n    أقل سعر\n    أعلى سعر\n    ",
+                "aria_label": "Filter منتجات",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Product preview\n Review sizes, variants, availability and shipping on the full product page.عرض full product →",
+                "aria_label": null,
+                "labelled_by_text": "Product preview"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Compare products · 0/3\n Compare selection",
+                "aria_label": "Products selected for comparison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Compare your selection×\n Compare displayed prices and open each product for current stock, delivery and complete specifications.",
+                "aria_label": null,
+                "labelled_by_text": "Compare your selection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "الخصوصية\n      خيارات ملفات تعريف الارتباط\n      التخزين الضروري يدعم الحساب والسلة والأمان. التحليلات والتسويق متوقفان افتراضيًا.\n      \n        اقرأ سياسة ملفات تعريف الارتباط\n        تخصيص\n      \n      \n    \n    \n      رفض الاختيارية\n   ",
+                "aria_label": null,
+                "labelled_by_text": "خيارات ملفات تعريف الارتباط"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "الخصوصية",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "إعدادات الخصوصيةتفضيلات ملفات تعريف الارتباط×\n    الملفات الضرورية مفعّلة دائمًا. تُحفظ اختياراتك على هذا الجهاز لمدة 180 يومًا. لا يتم تحميل أدوات التحليلات أو الإعلانات في هذا الإصدار.\n    \n      الضروريةمطلوبة للجلسة والأمان وإدارة الطلب",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Fresh mobile shop headings/theme",
+      "status": "PASS",
+      "locale": "ar",
+      "width": 320,
+      "theme": "light",
+      "initial_navigation_viewport": 320,
+      "h1_count": 1,
+      "h2_count": 6,
+      "desktop_to_mobile_resize_used": false
+    },
+    {
+      "check": "axe fresh320 ar dark",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-symbol"
+                ],
+                "visible_text": "☷",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-chevron"
+                ],
+                "visible_text": "⌄",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > span:nth-child(1) > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "◇",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".mobile-nav-icon[aria-hidden=\"true\"] > b"
+                ],
+                "visible_text": "0",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-moon"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "المتجر\n      الفئات ⌄QA collectionعرض جميع المنتجات ←\n      القصص\n      تسجيل الدخول\n      السلة 0",
+                "aria_label": "التنقل الرئيسي",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionعرض جميع المنتجات ←",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "البحث عن المنتجات\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#shop-filter-form"
+                ],
+                "visible_text": "ابحث عن المنتجاتالبحث والتصفيةاختر الفئة والسعر والترتيب ثم طبّق الفلاتر.\n    الفئةكل الفئاتQA collection\n    الترتيبمميّزالأحدثالسعر: من الأقل إلى الأعلىالسعر: من الأعلى إلى الأقلالاسم: أ–ي\n    بحث عن المنتجات\n    أقل سعر\n    أعلى سعر\n    ",
+                "aria_label": "Filter منتجات",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Product preview\n Review sizes, variants, availability and shipping on the full product page.عرض full product →",
+                "aria_label": null,
+                "labelled_by_text": "Product preview"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Compare products · 0/3\n Compare selection",
+                "aria_label": "Products selected for comparison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Compare your selection×\n Compare displayed prices and open each product for current stock, delivery and complete specifications.",
+                "aria_label": null,
+                "labelled_by_text": "Compare your selection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "الخصوصية\n      خيارات ملفات تعريف الارتباط\n      التخزين الضروري يدعم الحساب والسلة والأمان. التحليلات والتسويق متوقفان افتراضيًا.\n      \n        اقرأ سياسة ملفات تعريف الارتباط\n        تخصيص\n      \n      \n    \n    \n      رفض الاختيارية\n   ",
+                "aria_label": null,
+                "labelled_by_text": "خيارات ملفات تعريف الارتباط"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "الخصوصية",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "إعدادات الخصوصيةتفضيلات ملفات تعريف الارتباط×\n    الملفات الضرورية مفعّلة دائمًا. تُحفظ اختياراتك على هذا الجهاز لمدة 180 يومًا. لا يتم تحميل أدوات التحليلات أو الإعلانات في هذا الإصدار.\n    \n      الضروريةمطلوبة للجلسة والأمان وإدارة الطلب",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Fresh mobile shop headings/theme",
+      "status": "PASS",
+      "locale": "ar",
+      "width": 320,
+      "theme": "dark",
+      "initial_navigation_viewport": 320,
+      "h1_count": 1,
+      "h2_count": 6,
+      "desktop_to_mobile_resize_used": false
+    },
+    {
+      "check": "axe fresh320 nl light",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-symbol"
+                ],
+                "visible_text": "☷",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-chevron"
+                ],
+                "visible_text": "⌄",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > span:nth-child(1) > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "◇",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "a[href=\"/login?next=%2Fwishlist\"] > .mobile-nav-label"
+                ],
+                "visible_text": "Opgeslagen",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-sun"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "Winkel\n      Categorieën ⌄QA collectionAlle producten bekijken →\n      Verhalen\n      Inloggen\n      Winkelmandje 0",
+                "aria_label": "Primaire navigatie",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionAlle producten bekijken →",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "Producten zoeken\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#shop-filter-form"
+                ],
+                "visible_text": "PRODUCTEN VINDENZoek en filterKies een categorie, prijs of sortering en pas alles in één keer toe.\n    CATEGORIEAlle categorieënQA collection\n    SorterenUitgelichtNieuwstePrijs: laag naar hoogPrijs: hoog naar laagNaam: A–Z\n    Zoek product",
+                "aria_label": "Filter producten",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Product preview\n Review sizes, variants, availability and shipping on the full product page.full product → bekijken",
+                "aria_label": null,
+                "labelled_by_text": "Product preview"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Compare products · 0/3\n Compare selection",
+                "aria_label": "Products selected for comparison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Compare your selection×\n Compare displayed prices and open each product for current stock, delivery and complete specifications.",
+                "aria_label": null,
+                "labelled_by_text": "Compare your selection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "PRIVACYKEUZES\n      Cookiekeuzes\n      Noodzakelijke opslag ondersteunt je account, winkelmandje en beveiliging. Analyses en marketing zijn standaard uitgeschakeld.\n      \n        Lees het cookiebeleid\n        Instellingen\n      \n      \n   ",
+                "aria_label": null,
+                "labelled_by_text": "Cookiekeuzes"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "PRIVACYKEUZES",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "PRIVACYINSTELLINGENCookie-instellingen×\n    Noodzakelijke opslag is altijd ingeschakeld. Je keuze wordt 180 dagen op dit apparaat bewaard. In deze versie worden geen analyse- of advertentiescripts geladen.\n    \n      NoodzakelijkVereist voo",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Fresh mobile shop headings/theme",
+      "status": "PASS",
+      "locale": "nl",
+      "width": 320,
+      "theme": "light",
+      "initial_navigation_viewport": 320,
+      "h1_count": 1,
+      "h2_count": 6,
+      "desktop_to_mobile_resize_used": false
+    },
+    {
+      "check": "axe fresh320 nl dark",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-symbol"
+                ],
+                "visible_text": "☷",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-chevron"
+                ],
+                "visible_text": "⌄",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > span:nth-child(1) > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "◇",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "a[href=\"/login?next=%2Fwishlist\"] > .mobile-nav-label"
+                ],
+                "visible_text": "Opgeslagen",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-moon"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "Winkel\n      Categorieën ⌄QA collectionAlle producten bekijken →\n      Verhalen\n      Inloggen\n      Winkelmandje 0",
+                "aria_label": "Primaire navigatie",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionAlle producten bekijken →",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "Producten zoeken\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#shop-filter-form"
+                ],
+                "visible_text": "PRODUCTEN VINDENZoek en filterKies een categorie, prijs of sortering en pas alles in één keer toe.\n    CATEGORIEAlle categorieënQA collection\n    SorterenUitgelichtNieuwstePrijs: laag naar hoogPrijs: hoog naar laagNaam: A–Z\n    Zoek product",
+                "aria_label": "Filter producten",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Product preview\n Review sizes, variants, availability and shipping on the full product page.full product → bekijken",
+                "aria_label": null,
+                "labelled_by_text": "Product preview"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Compare products · 0/3\n Compare selection",
+                "aria_label": "Products selected for comparison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Compare your selection×\n Compare displayed prices and open each product for current stock, delivery and complete specifications.",
+                "aria_label": null,
+                "labelled_by_text": "Compare your selection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "PRIVACYKEUZES\n      Cookiekeuzes\n      Noodzakelijke opslag ondersteunt je account, winkelmandje en beveiliging. Analyses en marketing zijn standaard uitgeschakeld.\n      \n        Lees het cookiebeleid\n        Instellingen\n      \n      \n   ",
+                "aria_label": null,
+                "labelled_by_text": "Cookiekeuzes"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "PRIVACYKEUZES",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "PRIVACYINSTELLINGENCookie-instellingen×\n    Noodzakelijke opslag is altijd ingeschakeld. Je keuze wordt 180 dagen op dit apparaat bewaard. In deze versie worden geen analyse- of advertentiescripts geladen.\n    \n      NoodzakelijkVereist voo",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Fresh mobile shop headings/theme",
+      "status": "PASS",
+      "locale": "nl",
+      "width": 320,
+      "theme": "dark",
+      "initial_navigation_viewport": 320,
+      "h1_count": 1,
+      "h2_count": 6,
+      "desktop_to_mobile_resize_used": false
+    },
+    {
+      "check": "axe fresh320 fr light",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-symbol"
+                ],
+                "visible_text": "☷",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-chevron"
+                ],
+                "visible_text": "⌄",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > span:nth-child(1) > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "◇",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-sun"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "Boutique\n      Catégories ⌄QA collectionVoir tous les produits →\n      Actualités\n      Se connecter\n      Panier 0",
+                "aria_label": "Navigation principale",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionVoir tous les produits →",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "Rechercher des produits\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#shop-filter-form"
+                ],
+                "visible_text": "RECHERCHER DES PRODUITSRechercher et filtrerChoisissez une catégorie, un prix et un tri, puis appliquez les filtres.\n    CATÉGORIEToutes les catégoriesQA collection\n    TrierÀ la unePlus récentsPrix : du plus bas au plus élevéPrix : du plus",
+                "aria_label": "Filter produits",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Aperçu du produit\n Consultez les tailles, variantes, disponibilités et conditions de livraison sur la fiche du produit.Voir la fiche du produit →",
+                "aria_label": null,
+                "labelled_by_text": "Aperçu du produit"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Comparer les produits · 0/3\n Comparer la sélection",
+                "aria_label": "Produits sélectionnés pour la comparaison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Comparer votre sélection×\n Comparez les prix affichés et consultez chaque produit pour vérifier le stock, la livraison et les caractéristiques.",
+                "aria_label": null,
+                "labelled_by_text": "Comparer votre sélection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "VIE PRIVÉE\n      Choix des cookies\n      Les données nécessaires assurent le fonctionnement du compte, du panier et de la sécurité. Les mesures d’audience et la publicité sont désactivées par défaut.\n      \n        Consulter la politique de",
+                "aria_label": null,
+                "labelled_by_text": "Choix des cookies"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "VIE PRIVÉE",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "CONFIDENTIALITÉParamètres des cookies×\n    Les cookies nécessaires sont toujours actifs. Votre choix est conservé pendant 180 jours sur cet appareil. Aucun script statistique ou publicitaire n’est chargé dans cette version.\n    \n      Néces",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Fresh mobile shop headings/theme",
+      "status": "PASS",
+      "locale": "fr",
+      "width": 320,
+      "theme": "light",
+      "initial_navigation_viewport": 320,
+      "h1_count": 1,
+      "h2_count": 6,
+      "desktop_to_mobile_resize_used": false
+    },
+    {
+      "check": "axe fresh320 fr dark",
+      "status": "PASS",
+      "axe": {
+        "version": "4.11.0",
+        "rule_count": 99,
+        "label_content_name_mismatch_included": true,
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "⌕",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-symbol"
+                ],
+                "visible_text": "☷",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".shop-filter-chevron"
+                ],
+                "visible_text": "⌄",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > span:nth-child(1) > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "◇",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "✓",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".btn-small.product-main-cta[href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+                ],
+                "visible_text": "→",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          },
+          {
+            "id": "hidden-content",
+            "impact": "minor",
+            "help": "Hidden content on the page should be analyzed",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=axeAPI",
+            "nodes": [
+              {
+                "target": [
+                  ".announcement-divider"
+                ],
+                "visible_text": "·",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".theme-icon-moon"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".search-box"
+                ],
+                "visible_text": "",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-navigation"
+                ],
+                "visible_text": "Boutique\n      Catégories ⌄QA collectionVoir tous les produits →\n      Actualités\n      Se connecter\n      Panier 0",
+                "aria_label": "Navigation principale",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#site-category-panel"
+                ],
+                "visible_text": "QA collectionVoir tous les produits →",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#mobile-storefront-search"
+                ],
+                "visible_text": "Rechercher des produits\n      \n\n      \n      \n\n      ×",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "#shop-filter-form"
+                ],
+                "visible_text": "RECHERCHER DES PRODUITSRechercher et filtrerChoisissez une catégorie, un prix et un tri, puis appliquez les filtres.\n    CATÉGORIEToutes les catégoriesQA collection\n    TrierÀ la unePlus récentsPrix : du plus bas au plus élevéPrix : du plus",
+                "aria_label": "Filter produits",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(1) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(2) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(3) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(4) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(5) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(6) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(7) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(8) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(9) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(10) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  "article:nth-child(11) > .product-card-body > .product-card-main > .product-title-block > .product-blurb"
+                ],
+                "visible_text": "Synthetic browser test product.",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".quick-view-dialog"
+                ],
+                "visible_text": "×\n \n Aperçu du produit\n Consultez les tailles, variantes, disponibilités et conditions de livraison sur la fiche du produit.Voir la fiche du produit →",
+                "aria_label": null,
+                "labelled_by_text": "Aperçu du produit"
+              },
+              {
+                "target": [
+                  ".compare-tray"
+                ],
+                "visible_text": "Comparer les produits · 0/3\n Comparer la sélection",
+                "aria_label": "Produits sélectionnés pour la comparaison",
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".compare-dialog"
+                ],
+                "visible_text": "Comparer votre sélection×\n Comparez les prix affichés et consultez chaque produit pour vérifier le stock, la livraison et les caractéristiques.",
+                "aria_label": null,
+                "labelled_by_text": "Comparer votre sélection"
+              },
+              {
+                "target": [
+                  ".cookie-consent-banner"
+                ],
+                "visible_text": "VIE PRIVÉE\n      Choix des cookies\n      Les données nécessaires assurent le fonctionnement du compte, du panier et de la sécurité. Les mesures d’audience et la publicité sont désactivées par défaut.\n      \n        Consulter la politique de",
+                "aria_label": null,
+                "labelled_by_text": "Choix des cookies"
+              },
+              {
+                "target": [
+                  ".cookie-consent-copy > .eyebrow"
+                ],
+                "visible_text": "VIE PRIVÉE",
+                "aria_label": null,
+                "labelled_by_text": null
+              },
+              {
+                "target": [
+                  ".cookie-preferences-overlay"
+                ],
+                "visible_text": "CONFIDENTIALITÉParamètres des cookies×\n    Les cookies nécessaires sont toujours actifs. Votre choix est conservé pendant 180 jours sur cet appareil. Aucun script statistique ou publicitaire n’est chargé dans cette version.\n    \n      Néces",
+                "aria_label": null,
+                "labelled_by_text": null
+              }
+            ]
+          }
+        ]
+      },
+      "manual_review": "PENDING"
+    },
+    {
+      "check": "Fresh mobile shop headings/theme",
+      "status": "PASS",
+      "locale": "fr",
+      "width": 320,
+      "theme": "dark",
+      "initial_navigation_viewport": 320,
+      "h1_count": 1,
+      "h2_count": 6,
+      "desktop_to_mobile_resize_used": false
+    }
+  ],
+  "limitations": [
+    "Actual Windows PowerShell 5.1 execution NOT TESTED in Linux audit",
+    "Source ownership UNKNOWN",
+    "No live inbox delivery, provider payment/settlement/refunds, Peppol delivery, full manual WCAG review or screen-reader/device matrix tested",
+    "Axe incomplete items require manual disposition; automated checks are not WCAG certification"
+  ],
+  "finished_utc": "2026-11-22T23:09:41.869842+00:00",
+  "summary": {
+    "passed_checks": 28,
+    "failed_or_not_run": 0,
+    "axe_violation_items": 0,
+    "axe_incomplete_items_pending_manual_review": 24
+  },
+  "temporary_fixture_removed": true
+}

@@ -1,0 +1,62 @@
+{
+  "label": "VERIFIED",
+  "scope": "Exact R28 fixing-source comparison against the delivered R27-derived working baseline; not Git history or exhaustive manual source review.",
+  "changes": [
+    {
+      "file": "src/server.js",
+      "before_line": 310,
+      "after_line": 310,
+      "before": "French branding was labelled Dutch by a four-language ternary.",
+      "after": "Uses the existing complete UI_LOCALE_OPTIONS registry, retaining all five languages.",
+      "reason_and_execution": "The real Manager branding response now labels the French section French."
+    },
+    {
+      "file": "src/db.js",
+      "before_line": 864,
+      "after_line": 882,
+      "before": "Cart mutations blindly persisted the middleware session snapshot; concurrent adds lost another request's product.",
+      "after": "Applies each add/update/remove intent to the latest stored cart using cart revision and exact JSON compare-and-swap, retrying at most32 times. Saturation returns an explicit409 instead of false success.",
+      "reason_and_execution": "Forced same-snapshot real HTTP additions preserve both products; eight same-product adds accumulate; concurrent update/remove preserves unrelated latest changes."
+    },
+    {
+      "file": "src/server.js",
+      "before_line": 1459,
+      "after_line": 1492,
+      "before": "An unchanged GET/cart incremented revision, rotated checkout bearers and erased its saved quote. Stale normalization/coupon clearing could replace newer state.",
+      "after": "No-op writes do not change revision/quote/bearers. Normalization and conditional coupon clearing use the exact revision/state read by that request.",
+      "reason_and_execution": "Actual GET leaves revision/quote unchanged; missing product cleanup invalidates once; old readers cannot overwrite newer cart/coupon/quote."
+    },
+    {
+      "file": "src/db.js",
+      "before_line": 1142,
+      "after_line": 1184,
+      "before": "Parallel issuance could both pass cooldown and create two active tokens; an insert failure could delete the previous token.",
+      "after": "Cooldown read, previous-token deletion and insertion share one write transaction.",
+      "reason_and_execution": "Eight concurrent calls produce one issuance; injected insert failure preserves the prior usable token."
+    },
+    {
+      "file": "src/db.js",
+      "before_line": 1081,
+      "after_line": 1123,
+      "before": "Password changed before a separately executed session-revocation failure, leaving the new credential and old sessions active.",
+      "after": "Credential update, reset-token invalidation and authenticated/pending-MFA session revocation commit together; a stale expected password hash cannot authorize another change.",
+      "reason_and_execution": "Injected revocation failure preserves old password/all sessions; success preserves only the current session, or none for local/default recovery."
+    },
+    {
+      "file": "src/db.js",
+      "before_line": 1070,
+      "after_line": 1109,
+      "before": "Manager email could commit before revocation failed, while the route incorrectly reported a duplicate-email409.",
+      "after": "Manager-only email change and revocations are transactional; only the actual users.email uniqueness error is classified as duplicate. Other failures return500 without a committed change.",
+      "reason_and_execution": "Injected failure preserves the original email; true duplicate409 preserves state; successful replacement revokes authenticated and pending-MFA sessions except the current one."
+    },
+    {
+      "file": "src/customer-engagement.js",
+      "before_line": 37,
+      "after_line": 37,
+      "before": "Anonymous repeat requests reset confirmed/in-flight stock-alert consent to pending and sent another confirmation.",
+      "after": "Conflict updates are limited to pending or previously sent alerts; confirmed and sending states retain their consent/delivery claim.",
+      "reason_and_execution": "Actual confirmed and sending rows survive repeats; a previously sent alert may request fresh confirmation again."
+    }
+  ]
+}

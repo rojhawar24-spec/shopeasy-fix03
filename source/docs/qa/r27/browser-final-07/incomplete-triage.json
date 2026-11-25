@@ -1,0 +1,165 @@
+{
+  "reference_run": "browser-results.json",
+  "status": "TRIAGE ONLY; incomplete items remain pending in the original axe report",
+  "rule_item_counts": {
+    "color-contrast": 43,
+    "hidden-content": 43,
+    "label-content-name-mismatch": 39,
+    "th-has-data-cells": 1
+  },
+  "node_occurrences": {
+    "color-contrast": 523,
+    "hidden-content": 627,
+    "label-content-name-mismatch": 46,
+    "th-has-data-cells": 1
+  },
+  "glyph_only_label_candidates": {
+    "unique_selector_label_variants": 13,
+    "all_have_semantic_aria_labels": true,
+    "all_visible_text_is_symbolic": true,
+    "examples": [
+      {
+        "target": [
+          ".search-box > .search[action=\"/shop\"][method=\"get\"] > button[aria-label=\"Search\"][type=\"submit\"]"
+        ],
+        "visible_text": "→",
+        "aria_label": "Search",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          "button[data-cart-qty-step=\"-1\"]"
+        ],
+        "visible_text": "−",
+        "aria_label": "Decrease quantity of QA product 11",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          "button[data-cart-qty-step=\"1\"]"
+        ],
+        "visible_text": "+",
+        "aria_label": "Increase quantity of QA product 11",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          ".menu-toggle"
+        ],
+        "visible_text": "☰",
+        "aria_label": "Open navigation",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          ".mobile-search > .search[action=\"/shop\"][method=\"get\"] > button[aria-label=\"Search\"][type=\"submit\"]"
+        ],
+        "visible_text": "→",
+        "aria_label": "Search",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          ".menu-toggle"
+        ],
+        "visible_text": "☰",
+        "aria_label": "کردنەوەی ڕێنیشاندەر",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          ".mobile-search > .search[action=\"/shop\"][method=\"get\"] > button[aria-label=\"گەڕان\"][type=\"submit\"]"
+        ],
+        "visible_text": "→",
+        "aria_label": "گەڕان",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          ".menu-toggle"
+        ],
+        "visible_text": "☰",
+        "aria_label": "فتح قائمة التنقل",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          ".mobile-search > .search[action=\"/shop\"][method=\"get\"] > button[aria-label=\"بحث\"][type=\"submit\"]"
+        ],
+        "visible_text": "→",
+        "aria_label": "بحث",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          ".menu-toggle"
+        ],
+        "visible_text": "☰",
+        "aria_label": "Navigatie openen",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          ".mobile-search > .search[action=\"/shop\"][method=\"get\"] > button[aria-label=\"Zoeken\"][type=\"submit\"]"
+        ],
+        "visible_text": "→",
+        "aria_label": "Zoeken",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          ".menu-toggle"
+        ],
+        "visible_text": "☰",
+        "aria_label": "Ouvrir la navigation",
+        "labelled_by_text": null
+      },
+      {
+        "target": [
+          ".mobile-search > .search[action=\"/shop\"][method=\"get\"] > button[aria-label=\"Rechercher\"][type=\"submit\"]"
+        ],
+        "visible_text": "→",
+        "aria_label": "Rechercher",
+        "labelled_by_text": null
+      }
+    ],
+    "disposition": "Observed symbols with semantic names. Manual symbolic-text review remains pending; no screen-reader execution or conformance disposition"
+  },
+  "hidden_content_groups_node_occurrences": {
+    "collapsed dialogs, consent or comparison panels": 274,
+    "responsive navigation and other hidden content": 154,
+    "responsive table labels": 55,
+    "simplified setup profile alternatives": 9,
+    "responsive product blurbs": 135
+  },
+  "hidden_content_disposition": "Collapsed and responsive alternate states require activation, focus and assistive-technology review; static hidden observations do not complete that review",
+  "empty_table_case": {
+    "check": "axe Manager /admin/gift-cards",
+    "selector": "table",
+    "evidence": "Synthetic fixture has no issued gift cards; visible report text contains column headers only, and source renders an empty tbody when cards is empty",
+    "disposition": "Empty data state candidate; populated table and screen-reader association remain untested"
+  },
+  "computed_color_evidence": {
+    "initial_unique_samples": "../browser-incomplete-inspection/computed-color-samples.json",
+    "corrected_light_dark_samples": "../browser-fixed-contrast-05/light-dark-contrast.json",
+    "light_placeholder_ratio": 6.261,
+    "dark_placeholder_ratio": 9.17,
+    "white_order_total_and_note_gradient_endpoint_ratios": [
+      9.621,
+      12.823
+    ],
+    "samples_in_corrected_probe": 18,
+    "theme_switch_settle_ms": 400,
+    "disposition": "Two sampled style defects were corrected and representative colors verified; remaining incomplete nodes and alternate states still need manual review",
+    "superseded_probe": "../browser-fixed-contrast/README.txt explains immediate-transition sampling artifact",
+    "all_sample_targets_found": true,
+    "exact_runtime_fingerprint_matches": true,
+    "source_fingerprint": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d"
+  },
+  "limitations": [
+    "Real screen readers and physical devices NOT TESTED",
+    "Windows PowerShell 5.1 and macOS execution NOT TESTED",
+    "Email SIMULATED; actual inbox delivery and live providers NOT TESTED",
+    "No full manual WCAG or all-browser conformance certification"
+  ]
+}

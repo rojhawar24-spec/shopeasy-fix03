@@ -1,0 +1,68 @@
+/* SHOP EASY / ATELIER 2027 — SINGLE SOURCE OF DESIGN TOKENS.
+   All page families (including Manager) consume these accessible semantic values. */
+:root {
+  color-scheme:light;
+  --brand-primary:#244C40;--brand-highlight:#D8B68A;
+  --brand-font:system-ui,-apple-system,"Segoe UI",sans-serif;
+  --canvas:#F7F6F2;--paper:#FFFFFF;--surface:#FFFFFF;--on-brand:#FFFFFF;
+  --surface-soft:#F3F2ED;--surface-muted:#ECECE5;
+  --text:#17221D;--muted:#58635C;
+  --line:#E2E5DC;--line-strong:#B8C2B8;--control:#718276;
+  --navy:#214538;--navy-deep:#12251D;
+  --accent:#D8B68A;--accent-strong:#244C40;--accent-soft:#E6EFE8;
+  --blue:#244C40;--blue-soft:#E6EFE8;
+  --success:#096B4B;--success-soft:#E9F7F0;
+  --warning:#765100;--warning-soft:#FFF7E1;
+  --danger:#AD233E;--danger-soft:#FFF0F3;
+  --accent-hover:#16382D;--sidebar:#15221C;
+  --sidebar-text:#F8F8F4;--sidebar-muted:#C5D0C8;
+  --sidebar-line:#34443A;--focus:#1D6452;
+  --white-glass:rgb(255 255 255 / 95%);
+  --overlay-dark:rgb(13 25 19 / 55%);
+  --overlay-heavy:rgb(13 25 19 / 85%);
+  --shadow-soft:0 3px 13px rgb(17 36 25 / 4%);
+  --shadow-card:0 15px 36px rgb(17 36 25 / 8%);
+  --shadow-pop:0 23px 64px rgb(8 22 14 / 22%);
+  --shadow-focus:0 0 0 4px rgb(36 76 64 / 18%);
+  --radius-xl:22px;--radius-lg:15px;--radius:12px;
+  --radius-sm:9px;--radius-xs:6px;--pill:999px;
+  --font-body:var(--brand-font);
+  --font-12:.75rem;--font-14:.875rem;--font-16:1rem;
+  --font-18:1.125rem;--font-20:1.25rem;
+  --font-24:1.5rem;--font-32:2rem;--font-48:3rem;
+  --font-display:clamp(3.25rem,7vw,7.5rem);
+  --font-headline:clamp(2.4rem,4.2vw,4.8rem);
+  --space-4:4px;--space-8:8px;--space-12:12px;
+  --space-16:16px;--space-20:20px;--space-24:24px;
+  --space-32:32px;--space-40:40px;--space-48:48px;
+  --space-64:64px;--space-80:80px;
+  --container:1380px;--target:44px;--header-desktop:84px;--header-mobile:66px;
+  --motion-fast:150ms;--motion:280ms;
+  --ease:cubic-bezier(.19,.75,.24,1);
+  --mobile-dock-bg:rgb(255 255 255 / 98%);
+  --mobile-dock-shadow:0 -10px 28px rgb(15 31 22 / 10%);
+  --color-focus-ring:var(--focus);
+}
+/* Accent is used on decorative/surface roles. On-brand content uses white text. */
+html[data-theme="dark"]{
+  color-scheme:dark;--canvas:#101713;--paper:#1B241F;--surface:#1B241F;
+  --surface-soft:#242F28;--surface-muted:#303E34;
+  --text:#F6F5ED;--muted:#BAC8BE;--line:#35443A;
+  --line-strong:#708275;--control:#AABEB0;
+  --navy:#C7E1CD;--navy-deep:#9CC5AC;
+  --accent-strong:#B6D8BF;--blue:#B6D8BF;--blue-soft:#293F33;
+  --accent-soft:#243B2E;--success:#A5F0C7;--success-soft:#173D32;
+  --warning:#FFE3A2;--warning-soft:#40351A;--danger:#FFABB9;--danger-soft:#482230;
+  --shadow-soft:0 8px 22px rgb(0 0 0 / 15%);
+  --shadow-card:0 18px 45px rgb(0 0 0 / 16%);
+  --mobile-dock-bg:#1B241F;
+}
+html[data-theme="dark"] body { background:var(--canvas);color:var(--text); }
+html[data-theme="dark"] img { color-scheme:light; }
+
+/* Editorial palette is split from action colors: dark-mode links never rely on a dark action-green. */
+:root{--ink-accent:#24513E;--ink-quiet:#667369;--hero-wash:#ECE9DF;--hero-secondary:#DCE1D5;--image-wash:#ECECE5;--gold:#997243;--panel-tint:#EFF1EA;--footer-ink:#F6F5F0;}
+html[data-theme="dark"]{--ink-accent:#BDE0C5;--ink-quiet:#B5C7B8;--hero-wash:#27362D;--hero-secondary:#1D2B24;--image-wash:#2A352E;--gold:#D5B48B;--panel-tint:#26352C;--footer-ink:#F6F5F0;}
+
+/* Platform fallbacks preserve readable Arabic/Sorani when no local font assets are distributed. */
+:root{--font-sorani:"Noto Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;--font-arabic:"Noto Naskh Arabic","Noto Sans Arabic",Tahoma,system-ui,serif;}

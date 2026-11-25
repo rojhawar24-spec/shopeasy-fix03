@@ -1,0 +1,23 @@
+{
+  "utc_started": "2026-11-22T17:10:52.167766+00:00",
+  "utc_finished": "2026-11-22T17:10:58.616040+00:00",
+  "cwd": "/workspace/presale-r28/proposals/backend/work",
+  "command": [
+    "node",
+    "scripts/run-tests.mjs",
+    "test/backend-state-atomicity.integration.test.js",
+    "test/r20-cart-handler-execution.test.js",
+    "test/design-v12-regression.test.js",
+    "test/local-manager-recovery-contract.test.js",
+    "test/r21-error-page-regressions.test.js",
+    "test/p2-account-security.test.js",
+    "test/manager-staff-management.test.js",
+    "test/checkout-intent.test.js",
+    "test/checkout-success-cart-safety.test.js",
+    "test/customer-engagement-regression.test.js",
+    "test/order-access-http.integration.test.js"
+  ],
+  "exit_code": 0,
+  "output_file": "final-focused-contracts.txt",
+  "inherited_application_credentials": "removed; credential values not printed"
+}

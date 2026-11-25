@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-12T06:47:45.236Z",
+  "production_headers": {
+    "hsts": "max-age=31536000; includeSubDomains",
+    "csp": "default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'none';img-src 'self' data: https:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self';upgrade-insecure-requests;connect-src 'self'",
+    "frame_options": "SAMEORIGIN",
+    "referrer_policy": "no-referrer",
+    "cookie_http_only": true,
+    "cookie_secure": true
+  },
+  "anonymous_lookup": {
+    "http_status": 200,
+    "login_used": false,
+    "email_control_challenge_used": false,
+    "guest_order_bearer_used": false,
+    "order_belongs_to_registered_account": true,
+    "private_product_name_exposed": true,
+    "total_exposed": true,
+    "csrf_present": true
+  },
+  "anonymous_return": {
+    "http_status": 200,
+    "login_used": false,
+    "email_control_challenge_used": false,
+    "guest_order_bearer_used": false,
+    "success_notice": true,
+    "persisted_as_account_owner": true,
+    "persisted_status": "requested"
+  },
+  "early_csrf_response": {
+    "http_status": 403,
+    "cache_control": null,
+    "pragma": null,
+    "contains_fresh_csrf_field": true
+  },
+  "normal_login_response": {
+    "http_status": 200,
+    "cache_control": "private, no-store",
+    "pragma": "no-cache"
+  }
+}

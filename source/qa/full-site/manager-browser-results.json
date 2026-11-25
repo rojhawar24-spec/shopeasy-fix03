@@ -1,0 +1,522 @@
+[
+  {
+    "route": "/admin",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/products",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/products/new",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/products/1/edit",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/categories",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/stories",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/stories/new",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/stories/1/edit",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/orders",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/orders/1",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/orders/2",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/returns",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/coupons",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/bundles",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/gift-cards",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/customers",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/reviews",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/newsletter",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/e-invoicing",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/audit",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/gdpr",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/license",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/staff",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/appearance",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/branding",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/settings",
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/products",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/products/new",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/products/1/edit",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/categories",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/stories",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/stories/new",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/stories/1/edit",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/orders",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/orders/1",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/orders/2",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/returns",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/coupons",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/bundles",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/gift-cards",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/customers",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/reviews",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/newsletter",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/e-invoicing",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/audit",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/gdpr",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/license",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/staff",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/appearance",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/branding",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  },
+  {
+    "route": "/admin/settings",
+    "locale": "ckb",
+    "width": 390,
+    "status": 200,
+    "h1_count": 1,
+    "horizontal_document_overflow": false,
+    "javascript_errors": [],
+    "axe_violations": []
+  }
+]

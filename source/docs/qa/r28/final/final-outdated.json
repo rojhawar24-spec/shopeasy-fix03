@@ -1,0 +1,14 @@
+{
+  "utc_started": "2026-11-22T23:27:09.664535+00:00",
+  "utc_finished": "2026-11-22T23:27:11.279719+00:00",
+  "cwd": "/workspace/presale-r28/work",
+  "command": [
+    "npm",
+    "outdated",
+    "--json"
+  ],
+  "exit_code": 1,
+  "output_file": "final-outdated.txt",
+  "inherited_application_credentials": "removed; credential values not printed",
+  "original_output_file": "final-outdated.log"
+}

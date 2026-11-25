@@ -1,0 +1,1 @@
+Design CSS build passed: five versioned static layers compiled to two deterministic assets, with dynamic /theme/shop.css between them; no CSS purging or selector/declaration reordering.

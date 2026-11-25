@@ -1,0 +1,34 @@
+<%- include('../partials/header',{title:'Structured e-invoicing'}) %>
+<%- include('../partials/admin-nav') %>
+<section class="container page-head admin-head"><div><span class="eyebrow">BELGIUM · B2B</span><h1>Structured e-invoicing</h1><p>Recommand Peppol access-point adapter. Validate draft invoices with your provider before any intentional submission. A ShopEasy order is not automatically a compliant B2B invoice.</p></div></section>
+<section class="container form-page e-invoicing-page">
+<div class="panel form-stack"><h2>Connection and operational safety</h2>
+<p>Provider: Recommand · <a href="https://docs.recommand.eu/getting-started/belgium/business/sending" target="_blank" rel="noopener noreferrer">Official integration guide</a>.</p>
+<p><strong><%= configured?'API environment configured':'API credentials not configured' %></strong> · <%= isPlayground?'Environment flag: playground — verify the connected API key belongs to the playground team':'Environment flag: production or unspecified — submission is locked until explicitly approved' %></p>
+<p>Peppol submission requires PEPPOL_SEND_APPROVED=1 for any team; production also needs PEPPOL_PRODUCTION_SEND_APPROVED=1. The environment flag alone does not prove the credentials belong to a test team. You must create and verify your own business with the certified access-point provider, and ensure your accounting and tax data is correct. Receiving supplier invoices and processing credit notes require separate accounting processes.</p>
+<form method="post" action="/admin/e-invoicing/toggle"><input type="hidden" name="_csrf" value="<%= csrf %>"><label class="checkbox-inline"><input type="checkbox" name="enabled" <%= typeof peppolEnabled!=='undefined'&&peppolEnabled?'checked':'' %>> Enable the Peppol adapter</label><button type="submit" class="btn btn-light">Save switch</button></form>
+<% if(error){ %><div role="alert" class="alert"><%= error %></div><% } %><% if(result){ %><div role="status" class="success-alert"><%= result %></div><% } %>
+<form action="/admin/e-invoicing" method="post" class="form-stack"><input type="hidden" name="_csrf" value="<%= csrf %>"><h2>Prepare a Belgian B2B invoice</h2>
+<div class="form-grid">
+<label>Invoice number *<input name="invoiceNumber" required maxlength="50" placeholder="INV-2026-001"></label>
+<label>Issue date *<input name="issueDate" type="date" required></label>
+<label>Due date *<input name="dueDate" type="date" required></label>
+<label>Buyer Peppol ID *<input name="recipient" maxlength="15" pattern="0208:[01][0-9]{9}" required placeholder="0208:0123456848"></label>
+<label>Buyer VAT *<input name="buyerVatNumber" maxlength="14" required placeholder="BE0123456848"></label>
+<label>Registered buyer name *<input name="buyerName" maxlength="160" required></label>
+<label>Buyer street and house number *<input name="buyerStreet" maxlength="200" required></label>
+<label>Buyer postcode *<input name="buyerPostalZone" maxlength="4" required></label>
+<label>Buyer city *<input name="buyerCity" maxlength="100" required></label>
+<label>Your IBAN *<input name="iban" maxlength="34" required autocomplete="off"></label>
+<label>Line name *<input name="itemName" maxlength="180" required></label>
+<label>Quantity *<input name="quantity" inputmode="decimal" required placeholder="1.00"></label>
+<label>Net unit price EUR (excl. VAT) *<input name="netPriceAmount" inputmode="decimal" required placeholder="100.00"></label>
+<label>VAT percentage *<select name="vatRate"><option value="21">21% — standard</option><option value="12">12%</option><option value="6">6%</option><option value="0">0% — only if legally applicable</option></select></label></div>
+<p class="field-note">The API validates BIS 3 UBL. VAT category, exemption reason, discounts, shipping costs, buyer status and the invoice totals require legal/accounting review; this basic one-line form is not sufficient for all invoice types.</p>
+<button class="btn btn-light" type="submit" name="action" value="validate">Validate with provider (no sending)</button>
+<label>To send: type <strong>SEND PEPPOL</strong><input name="confirmation" maxlength="20" autocomplete="off"></label>
+<button class="btn btn-dark" type="submit" name="action" value="send" <%= configured?'':'disabled' %>>Submit invoice to access point</button></form></div>
+<div class="panel"><h2>Submission records</h2><p>"Submitted" means API acceptance, not confirmed delivery. If status requires reconciliation, inspect the provider dashboard before any further action.</p>
+<div class="table-scroll"><table><thead><tr><th>Invoice</th><th>Recipient</th><th>Status</th><th>Created</th></tr></thead><tbody><% submissions.forEach(row=>{ %><tr><td><%= row.invoice_number %></td><td><%= row.recipient %></td><td><%= row.status %></td><td><%= row.created_at %></td></tr><% }) %></tbody></table></div></div>
+</section>
+<%- include('../partials/footer',{managerWorkspaceShell:user?.role==='manager'}) %>

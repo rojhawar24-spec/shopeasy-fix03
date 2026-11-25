@@ -1,0 +1,20 @@
+Working directory: /workspace/presale-r27/work
+Execution environment: Linux; local network capability enabled for disposable loopback fixture.
+Preconditions: phase-d1-install.json and phase-d1-build.json exit 0; .env/data absent; no concurrent dependency install. Integrated runner SHA-256 b5a97cb436f205c2bb81faea71120ca04b1f24cdf55764553f393b6ae941ef3a.
+
+/workspace/presale-r27/tools/qa-python313/bin/python qa/run-browser-qa.py --node /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node --app-root /workspace/presale-r27/work --browser-executable /usr/bin/chromium --axe-path /tmp/shopeasy-a11y/node_modules/axe-core/axe.min.js --output /workspace/presale-r27/evidence/browser-final-07 --suite all --locales en,ckb,ar,nl,fr --widths 320,390,768,1440 --simulated-email
+
+Exit code: 0
+Console output:
+PASS: 191 checks passed; 0 failed/not run; 0 axe violations; 126 axe incomplete items. Report: /workspace/presale-r27/evidence/browser-final-07/browser-results.json
+
+This is the full shipped-runner execution after the mobile menu, explicit category disclosure and nested Escape/focus fixes. It includes six shipped navigation regression groups (en/ckb at 320/768/1440) and strengthens all five existing no-JavaScript Login groups with actual no-store/noindex response and document assertions.
+
+Application version: 2.8.94
+Runtime SHA-256: 6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d
+Copied runtime files: 147
+Post-run source matching is recorded in source-still-matches.json, including the runner/fixture/oracle hashes. Documentation/evidence/archives outside the runtime allowlist are excluded from the application runtime comparison.
+
+Email: SIMULATED local intercepted provider; actual inbox delivery NOT TESTED.
+Windows/PowerShell, macOS, screen readers, physical devices and live provider transactions NOT TESTED by this suite.
+All strict axe incomplete items remain pending manual review. No screenshots were captured in this run; browser-final-04 screenshots remain explicitly historical.

@@ -1,0 +1,13 @@
+{
+  "utc_started": "2026-11-15T11:30:32.515131+00:00",
+  "utc_finished": "2026-11-15T11:30:43.135831+00:00",
+  "cwd": "/workspace/presale-r27/work",
+  "command": [
+    "npm",
+    "run",
+    "check"
+  ],
+  "exit_code": 0,
+  "output_file": "phase-e1-syntax.txt",
+  "inherited_application_credentials": "removed; credential values not printed"
+}

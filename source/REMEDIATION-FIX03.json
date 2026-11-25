@@ -1,0 +1,701 @@
+{
+  "project": "ShopEasy 2.8.95 R28 FIX03 remediation",
+  "source_sha256": "a51866cfb1bbc5e36701e58ea6563258a43f97d11dada04761a90680003be341",
+  "authorization": "User authorized step-by-step remediation of all problems; source preserved in audit/project.",
+  "status": "ALL 31 REGISTERED CODE FINDINGS REPAIRED AND LOCALLY VERIFIED; EXTERNAL VERIFICATION LIMITS RETAINED",
+  "issues": [
+    {
+      "id": "COM-001",
+      "severity": "P1",
+      "title": "Privacyverwijdering wist betaalorders en geeft gereserveerde voorraad vrij",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Beide privacybewerkingen weigeren onopgeloste orders en open retouren voordat gegevens of voorraad wijzigen. Alleen de normale orderafhandeling kan een reservering vrijgeven.",
+      "verification": "Pending Mollie, bevestigde bankbetaling, cadeaukaartbewaring, annulering vóór verwijdering en late gesimuleerde betaling zijn afgedekt.",
+      "test_files": [
+        "test/fix03-commerce-privacy.test.js"
+      ]
+    },
+    {
+      "id": "COM-002",
+      "severity": "P2",
+      "title": "Betaalherstel voor het laatste artikel blokkeert op de eigen reservering",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "De checkout herkent eerst eigendom en exact dezelfde betaalintentie. De eigen reservering blokkeert hervatting niet meer; ook verversen en een winkel met slechts één resterend product werken.",
+      "verification": "Afwijkend adres, andere sessie, gewijzigde providercredential en verstreken hersteltermijn worden geweigerd; één order, één reservering en dezelfde providersleutel blijven behouden.",
+      "test_files": [
+        "test/fix03-routes.integration.test.js"
+      ]
+    },
+    {
+      "id": "COM-003",
+      "severity": "P2",
+      "title": "Verzonden omruilartikelen worden niet van de voorraad afgeboekt",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Het verzenden van een omruiling boekt het oorspronkelijke product of de oorspronkelijke variant en retourhoeveelheid atomair af. Gereserveerde voorraad blijft beschermd.",
+      "verification": "Basisproduct, variant, gelijktijdige dubbele verzending, voorraadtekort, ontbrekende variant en rollback na databasefout zijn getest.",
+      "test_files": [
+        "test/fix03-commerce-workflows.test.js"
+      ],
+      "boundary": "Uitsluitend hetzelfde oorspronkelijke product/variant en retouraantal; daadwerkelijke vervangende verzending en koerierafhandeling blijven handmatig."
+    },
+    {
+      "id": "COM-004",
+      "severity": "P2",
+      "title": "Productwinst negeert coupon- en bundelkorting",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Productoverzicht en dashboard gebruiken dezelfde exacte verdeling van coupon- en bundelkortingen over orderregels. Een volledige order met ontbrekende historische kostprijs wordt consequent uitgesloten.",
+      "verification": "Een verkoop van 100,00 met 50% korting en 40,00 kosten levert op beide schermen 10,00 brutowinst op; afrondingsgevallen en deelrapportages zijn gecontroleerd.",
+      "test_files": [
+        "test/fix03-commerce-accounting.test.js"
+      ],
+      "boundary": "Brutowinst op erkende afgeronde verkopen vóór afzonderlijke refunds/chargebacks en zonder operationele kosten. Ontbreekt een historische kostprijs, dan wordt de volledige order consequent uitgesloten."
+    },
+    {
+      "id": "COM-005",
+      "severity": "P2",
+      "title": "Winst die als exclusief belasting wordt getoond bevat inbegrepen belasting",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Inbegrepen productbelasting wordt uit omzet gehaald voordat de als exclusief belasting getoonde winst wordt berekend. Een numerieke belastingsnapshot blijft behouden na privacyminimalisatie.",
+      "verification": "121,00 inclusief 21,00 belasting en 50,00 kosten geeft 50,00 brutowinst; belastbare en niet-belastbare verzending, oude orders en minimalisatie zijn getest.",
+      "test_files": [
+        "test/fix03-commerce-accounting.test.js"
+      ],
+      "boundary": "Brutowinst op erkende afgeronde verkopen vóór afzonderlijke refunds/chargebacks en zonder operationele kosten. Ontbreekt een historische kostprijs, dan wordt de volledige order consequent uitgesloten."
+    },
+    {
+      "id": "COM-006",
+      "severity": "P2",
+      "title": "Winkellogo ontbreekt in mediaverwijzingen en back-upcontrole",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "appearance_logo telt mee als beschermde mediaverwijzing en als vereiste media bij back-up en herstel. Verwijderen van een product mag een gedeeld winkellogo niet verwijderen.",
+      "verification": "Werkelijke lokale HTTP-verwijdering bewaart het logo-BLOB en de opslagquota; ontbrekende logomedia en restore-controles zijn toegevoegd.",
+      "test_files": [
+        "test/fix03-routes.integration.test.js"
+      ]
+    },
+    {
+      "id": "COM-007",
+      "severity": "P2",
+      "title": "Een mislukte bestelmail kan niet opnieuw worden geclaimd",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Bestelmails bewaren exact dezelfde berichtinhoud, ontvanger, providersleutel en provideridentiteit. Een lease en een token per poging voorkomen dubbel afronden. Manager-herstel controleert de bekeken generatie en poging.",
+      "verification": "Mislukking, leaseverval, verouderde afronding, dagquotum, drie pogingen, hersteltermijn, providerwijziging, expliciete reconciliatie, oude formulieren en historische statusmails zijn getest.",
+      "test_files": [
+        "test/fix03-commerce-email.test.js",
+        "test/fix03-routes.integration.test.js",
+        "test/fix03-email-payload.test.js"
+      ],
+      "boundary": "Lease 60 seconden; maximaal drie pogingen binnen 23 uur. Onzekere/oude/providergewijzigde pogingen vereisen daadwerkelijke providercontrole door een Manager. Bevestigd niet-verzonden maakt een nieuwe sleutelgeneratie; reconciliatie verstuurt niet automatisch."
+    },
+    {
+      "id": "COM-008",
+      "severity": "P2",
+      "title": "Gelijktijdige verlanglijstwijzigingen overschrijven elkaar",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Verlanglijstwijzigingen lezen en wijzigen de laatste opgeslagen lijst binnen één transactie. Een GET overschrijft geen nieuwere wijziging meer; de limiet wordt eerlijk teruggegeven.",
+      "verification": "Gelijktijdige verschillende toevoegingen, dubbele toggles, verdwenen producten, de limiet van 50 en verlopen sessies zijn afgedekt, inclusief echte lokale HTTP-concurrentie.",
+      "test_files": [
+        "test/fix03-commerce-workflows.test.js",
+        "test/fix03-routes.integration.test.js"
+      ]
+    },
+    {
+      "id": "PERF-001",
+      "severity": "P2",
+      "title": "Catalogusquery scant bestelgeschiedenis herhaaldelijk zonder productindex",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json",
+        "docs/qa/fix03/performance-before-after.json"
+      ],
+      "change": "Een index op order_items(product_id) en afzonderlijke, gebundelde beheeranalyses vervangen de dure herhaalde catalogusscans. De publieke lijst vraagt geen beheercijfers op.",
+      "verification": "Dezelfde query op klonen van dezelfde fixture met 5.000 producten en 10.000 orders geeft dezelfde 24 product-ID’s; daarnaast zijn winstberekening en indexmigratie getest.",
+      "test_files": [
+        "test/fix03-commerce-accounting.test.js",
+        "test/fix03-commerce-upgrade.test.js"
+      ]
+    },
+    {
+      "id": "SEC-001",
+      "severity": "P2",
+      "title": "Ongeldige CSRF veroorzaakt op publieke routes een foutpagina met HTTP 500",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Vroege foutpagina’s krijgen veilige SEO- en navigatiestandaarden. Een ongeldige CSRF-aanvraag veroorzaakt daardoor de bedoelde afwijzing in plaats van een fout tijdens het renderen.",
+      "verification": "Productiemodus: logout, taalwisseling en nieuwsbrief met ontbrekend of verkeerd CSRF leveren HTTP 403 op zonder de bedoelde gegevenswijziging.",
+      "test_files": [
+        "test/fix03-security-ops-http.test.js"
+      ]
+    },
+    {
+      "id": "UI-001",
+      "severity": "P2",
+      "title": "Herhaald Enter verstuurt dubbele AI-verzoeken en toont verouderde antwoorden",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "AI-verzoeken worden geserialiseerd; herhaald Enter start geen dubbele aanvraag en verouderde antwoorden vervangen de actuele reactie niet.",
+      "verification": "Uitvoering van de echte handler met herhaald Enter, vertraagde antwoorden en fout/herstel.",
+      "test_files": [
+        "test/fix03-frontend-handlers.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-002",
+      "severity": "P2",
+      "title": "Een late reactie vervuilt de opnieuw geopende winkelmandlade",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Een winkelmandlade negeert antwoorden uit een vorige openingsronde. Sluiten, opnieuw openen en fouten behouden de juiste toestand.",
+      "verification": "Werkelijke handlers met omgekeerde antwoordvolgorde, gesloten lade en foutreacties.",
+      "test_files": [
+        "test/fix03-frontend-handlers.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-003",
+      "severity": "P2",
+      "title": "IQD-bedragen verliezen drie decimalen in de geteste formatter",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Alle betrokken prijsformatters tonen expliciete valutaprecisie. IQD behoudt drie decimalen; tekstfallbacks rekenen met dezelfde hoofdeenheden, ook zonder Intl.",
+      "verification": "Nul, twee en drie decimalen, IQD 1,234/1,001 en geforceerde formatteruitval zijn getest in frontend en ordermail.",
+      "test_files": [
+        "test/fix03-frontend-handlers.test.js",
+        "test/fix03-email-payload.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-006",
+      "severity": "P2",
+      "title": "Meerdere schermen laten noodzakelijke variantkenmerken weg",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Checkout, gastretouren en voorraadbeheer tonen de benodigde productopties samen met product/variantidentiteit.",
+      "verification": "Beide optieassen en variant-SKU’s zijn in de relevante templates getest.",
+      "test_files": [
+        "test/fix03-frontend-templates.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-010",
+      "severity": "P2",
+      "title": "Annuleringsknoppen bieden onuitvoerbare acties en een onjuiste bevestiging",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Formulieren en serverroutes delen één annuleringsbeleid. Een actie die niet is toegestaan wordt niet ten onrechte als reeds aangevraagd bevestigd.",
+      "verification": "Klant en gast: pending COD, processing COD, pending bank, processing bank en Mollie, plus herhaalde echte verzoeken.",
+      "test_files": [
+        "test/fix03-commerce-workflows.test.js",
+        "test/fix03-routes.integration.test.js",
+        "test/fix03-frontend-templates.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "OPS-001",
+      "severity": "P3",
+      "title": "Actuele documentatie spreekt versies en toegangsbeleid tegen",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "De huidige documentatie noemt de echte dependencyversies, Manager/Admin-rechten, gasttokens en nieuwe herstel- en verificatieroutes. Oude bewijzen zijn herkenbaar als historisch.",
+      "verification": "Alle declaratieve routes staan in de API-inventaris; versies, integriteitsvelden, lokale links en actuele gedragsbeschrijvingen zijn vergeleken.",
+      "test_files": [
+        "test/release-documentation.test.js"
+      ]
+    },
+    {
+      "id": "OPS-002",
+      "severity": "P3",
+      "title": "Offsite back-up toont een verkeerd downloadpad bij een aangepaste map",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Het offsite downloadpad verwijst ook bij een aangepaste doelmap naar het juiste back-upbestand; argumenten en bijzondere tekens blijven correct gescheiden.",
+      "verification": "Gerichte tests omvatten lokale scp/SFTP-overdracht en mappen met spaties, quotes en metatekens.",
+      "test_files": [
+        "test/fix03-security-ops-backup.test.js"
+      ]
+    },
+    {
+      "id": "OPS-003",
+      "severity": "P3",
+      "title": "Licentiemetadata accepteert een niet-bestaande kalenderdatum",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "De licentiedatum moet een werkelijk bestaande kalenderdatum zijn. JavaScript-normalisatie kan onmogelijke dagen niet meer stilzwijgend accepteren.",
+      "verification": "Ongeldige dagen, schrikkeljaren, maandgrenzen en correcte datums zijn getest.",
+      "test_files": [
+        "test/fix03-security-ops-backup.test.js"
+      ]
+    },
+    {
+      "id": "SEC-002",
+      "severity": "P3",
+      "title": "Een gestructureerde sessiecookie veroorzaakt herhaalde HTTP 500-fouten",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Gestructureerde, ongeldige sessiecookies worden eerst op type en formaat gecontroleerd en daarna veilig vervangen. Ze veroorzaken geen aanhoudende HTTP 500 meer.",
+      "verification": "Object-, array- en overige ongeldige cookies zijn via echte HTTP getest, inclusief nieuwe veilige cookies en herstel bij een volgende aanvraag.",
+      "test_files": [
+        "test/fix03-security-ops-http.test.js"
+      ]
+    },
+    {
+      "id": "SEC-003",
+      "severity": "P3",
+      "title": "Een onvolledige PNG wordt als geldig winkellogo opgeslagen",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "PNG-containers, CRC’s, eindstructuur en gecomprimeerde beelddata worden binnen vaste grenzen gecontroleerd. JPEG- en WebP-structuren krijgen volledige containercontroles.",
+      "verification": "De onvolledige PNG van 33 bytes wordt geweigerd zonder logo-, media- of quotawijziging; echte PNG, progressieve JPEG en WebP met transparantie blijven bruikbaar.",
+      "test_files": [
+        "test/fix03-security-ops-images.test.js",
+        "test/fix03-security-ops-upload.test.js"
+      ]
+    },
+    {
+      "id": "UI-004",
+      "severity": "P3",
+      "title": "Variantwijziging zet de vertaalde bestelknop terug naar Engels",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "De dynamische bestelknop blijft in de gekozen interfacetaal wanneer een variant verandert.",
+      "verification": "Nieuwe handlers en vertaalde knopteksten zijn voor de ondersteunde talen gecontroleerd.",
+      "test_files": [
+        "test/fix03-frontend-localization.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-005",
+      "severity": "P3",
+      "title": "Automatische vertaling wijzigt zichtbare merk- en categorienamen",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Merk-, product- en categorienamen en andere winkelinhoud worden expliciet beschermd tegen automatische interfacevertaling.",
+      "verification": "Template- en vertaalcontroles bevestigen behoud van aangeleverde winkelteksten.",
+      "test_files": [
+        "test/fix03-frontend-localization.test.js",
+        "test/fix03-frontend-templates.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-007",
+      "severity": "P3",
+      "title": "Fotozoom onderdrukt de gewone Ctrl-klik op de afbeelding",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Fotozoom laat Ctrl-, Cmd-, Shift- en andere aangepaste klikacties aan de browser over.",
+      "verification": "Gewone zoomklik en alternatieve klikacties zijn afzonderlijk uitgevoerd.",
+      "test_files": [
+        "test/fix03-frontend-handlers.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-008",
+      "severity": "P3",
+      "title": "Terugknop bij wachtwoordherstel verliest de aanmeldbestemming",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "De terugknop bewaart een gevalideerd lokaal pad inclusief query en fragment, zodat de oorspronkelijke aanmeldbestemming behouden blijft.",
+      "verification": "Behoud van veilige next-parameters en weigering van externe, protocol-relatieve en gemanipuleerde bestemmingen.",
+      "test_files": [
+        "test/fix03-frontend-templates.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-009",
+      "severity": "P3",
+      "title": "Vorige productpagina verliest het gekozen statusfilter",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "De vorige productpagina bewaart het gekozen statusfilter.",
+      "verification": "Links voor actief, gearchiveerd en andere ondersteunde filters zijn gecontroleerd.",
+      "test_files": [
+        "test/fix03-frontend-templates.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-011",
+      "severity": "P4",
+      "title": "Lokaal Manager-herstel bevat twee identieke main-content-ID’s",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "De lokale Manager-herstelpagina gebruikt unieke document-ID’s en één hoofdinhoudsdoel.",
+      "verification": "Gerenderde templatecontrole op dubbele ID’s en het skiplinkdoel.",
+      "test_files": [
+        "test/fix03-frontend-templates.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "SEC-004",
+      "severity": "P3",
+      "title": "Registratie zonder e-mailcontrole maakt bestaande accounts onderscheidbaar",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Nieuwe publieke accounts blijven pending; bestaande en nieuwe adressen krijgen dezelfde zichtbare reactie. Offline Manager-goedkeuring vervangt het wachtwoord na identiteitscontrole. E-mailverificatie vereist een token én het actuele registratiewachtwoord op een CSRF-beschermde POST.",
+      "verification": "Geen automatische login, geen activering door een linkklik alleen, rol/MFA/CSRF-controles, geweigerde wachtwoordherhaling, token- en sessie-intrekking, races en atomair wachtwoordbewijs zijn afgedekt.",
+      "test_files": [
+        "test/fix03-commerce-verification.test.js",
+        "test/fix03-security-ops-http.test.js",
+        "test/manager-dashboard.integration.test.js"
+      ],
+      "boundary": "Offline identiteitscontrole is een menselijke Manager-taak. De e-mailcontrole vergelijkt het actuele opgeslagen wachtwoord, inclusief een eventuele geldige wachtwoordreset."
+    },
+    {
+      "id": "UI-RISK-01",
+      "severity": "P3",
+      "title": "Winkelmandvergrendeling herstellen na terug/vooruit-navigatie",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Herstel via pageshow maakt achtergebleven winkelmandvergrendelingen vrij, zodat plus/min weer kunnen reageren.",
+      "verification": "Synthetisch herstel van een bewaard document en afgebroken submitpaden; echte BFCache-uitvoering blijft een browsercontrole.",
+      "test_files": [
+        "test/fix03-frontend-handlers.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-RISK-02",
+      "severity": "P3",
+      "title": "Zoeksuggesties bedienen en aankondigen met het toetsenbord",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "Zoeksuggesties ondersteunen Escape, pijltjestoetsen, selectie met Enter, comboboxrelaties en aankondiging van het aantal resultaten.",
+      "verification": "Toetsen, actieve optie, live-status, fouten en verouderde zoekreacties zijn met de echte handler uitgevoerd.",
+      "test_files": [
+        "test/fix03-frontend-handlers.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-RISK-03",
+      "severity": "P3",
+      "title": "Toegankelijke naam voor de meter voor gratis verzending",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "De meter voor gratis verzending heeft een programmatische naam en duidelijke waarde-informatie.",
+      "verification": "Gerenderde attributen en vertaalde naam/waarde in de ondersteunde talen zijn gecontroleerd.",
+      "test_files": [
+        "test/fix03-frontend-templates.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    },
+    {
+      "id": "UI-RISK-04",
+      "severity": "P2",
+      "title": "Alle retourverzoeken bereikbaar maken boven honderd resultaten",
+      "state": "REPAIRED; ISSUE-SPECIFIC LOCAL REGRESSION VERIFIED",
+      "evidence": [
+        "docs/qa/fix03/full-suite-final.txt",
+        "docs/qa/fix03/verification-summary.json"
+      ],
+      "change": "De retourwachtrij heeft gefilterde paginering van 50 verzoeken per pagina, inclusief begrensde paginanummers en totaal.",
+      "verification": "Een werkelijke lokale HTTP-test bereikt alle 101 verzoeken over drie pagina’s, inclusief het oudste verzoek en een te groot paginanummer.",
+      "test_files": [
+        "test/fix03-routes.integration.test.js"
+      ],
+      "local_method": "Handleruitvoering in synthetische DOM/VM en/of gerenderde EJS; valutaprecisie met Node ICU en expliciete fallback. Geen echte browser- of AT-uitvoering."
+    }
+  ],
+  "verification_gaps": [
+    {
+      "id": "GAP-01",
+      "area": "Real browser / responsive / visual",
+      "status": "BLOCKED",
+      "reason": "Both final browser workflows stopped before UI checks: the pinned Chromium executable is missing; explicitly selected existing system Chromium aborts because socket() is not permitted. No current rendered-browser, responsive or visual result is claimed.",
+      "required_next_step": "Run the shipped pinned browser harness on an allowed host for five locales, light/dark and all eight requested widths; inspect screenshots."
+    },
+    {
+      "id": "GAP-02",
+      "area": "Accessibility and assistive technology",
+      "status": "BLOCKED",
+      "reason": "Handler/DOM/template regression tests pass, but no actual axe scan, rendered focus/contrast/zoom test or assistive-technology result was executed.",
+      "required_next_step": "Execute automated checks plus manual WCAG2.2AA journeys; include RTL, reduced motion and error recovery."
+    },
+    {
+      "id": "GAP-03",
+      "area": "Mollie sandbox and real payment lifecycle",
+      "status": "BLOCKED",
+      "reason": "No authorized provider account/credentials supplied; transport was mocked.",
+      "required_next_step": "Use authorized sandbox with timeout/retry/late/replayed/mismatched amount/currency/status and refund cases."
+    },
+    {
+      "id": "GAP-04",
+      "area": "Email delivery and rendering",
+      "status": "BLOCKED",
+      "reason": "No real provider dispatch/delivered message or mail-client rendering.",
+      "required_next_step": "Use authorized test recipients/provider sandbox and confirm delivery, bounce, retry and all five email locales."
+    },
+    {
+      "id": "GAP-05",
+      "area": "Peppol / Recommand integration",
+      "status": "NOT TESTED",
+      "reason": "Source/baseline mocks do not verify account onboarding or network acceptance.",
+      "required_next_step": "Approved sandbox generation and explicit send/receipt checks with synthetic invoice data."
+    },
+    {
+      "id": "GAP-06",
+      "area": "Production deployment and operator recovery",
+      "status": "NOT TESTED",
+      "reason": "Encrypted local backup/restore and an actual local OpenSSH/SFTP subsystem transfer pass. No production host, public TLS/alerts, remote offsite custody or clean-host disaster recovery was exercised.",
+      "required_next_step": "Staging install on supported persistent Node host, cert/proxy/secure cookies, alerting and full clean-host restore rehearsal."
+    },
+    {
+      "id": "GAP-07",
+      "area": "Remote libSQL and multi-instance behavior",
+      "status": "NOT TESTED",
+      "reason": "Executed database mode is native local SQLite; intended single instance.",
+      "required_next_step": "If selected, independently verify remote transaction/latency/consistency and documented session/rate-limit deployment constraints."
+    },
+    {
+      "id": "GAP-08",
+      "area": "Historical upgrades and migration permutations",
+      "status": "PARTIALLY VERIFIED",
+      "reason": "Fresh schema, FIX02-B forward migration with existing data, idempotent repeat initialization and selected restore/rollback paths pass. Other historical schema/data permutations remain outside this run.",
+      "required_next_step": "Build anonymized upgrade fixtures for every supported prior schema, with rollback and backup validation."
+    },
+    {
+      "id": "GAP-09",
+      "area": "Long-duration load, memory, CPU and production capacity",
+      "status": "PARTIALLY VERIFIED",
+      "reason": "A bounded local native catalogue query on cloned data with 5000 products and 10000 orders improved from 20463.332405 ms to 10.561434 ms with identical ordered IDs. Long-duration load, HTTP latency, memory/CPU capacity and concurrent production checkout have not been measured.",
+      "required_next_step": "Measure cold/warm HTTP, realistic catalogue/order history, checkout contention, RSS/CPU, soak and explicit SLO."
+    },
+    {
+      "id": "GAP-10",
+      "area": "BFCache cart recovery",
+      "status": "PARTIALLY VERIFIED",
+      "reason": "The real JavaScript handler passes a synthetic pageshow restoration test that clears stale cart locks. Genuine browser BFCache eligibility/restoration remains unexecuted.",
+      "required_next_step": "Reproduce genuine Back/Forward restoration under the deployed cache and session headers."
+    },
+    {
+      "id": "GAP-11",
+      "area": "Autocomplete semantics and shipping meter accessible name",
+      "status": "PARTIALLY VERIFIED",
+      "reason": "Real handlers and rendered EJS tests verify Escape, arrow/Enter navigation, live count, combobox relationships and meter name/value. Accessibility-tree and screen-reader behavior remains unexecuted.",
+      "required_next_step": "Test Escape, active item announcements, focus and the meter name/value with browser/assistive technology."
+    },
+    {
+      "id": "GAP-12",
+      "area": "Returns queue above 100 matches",
+      "status": "LOCALLY VERIFIED",
+      "reason": "A native local HTTP scenario seeded 101 same-status return requests, reached all records across three pages, included the oldest request and checked out-of-range pagination. Browser layout remains part of GAP-01.",
+      "required_next_step": "No remaining local-data pagination task; include returns navigation in the browser run when that environment is available."
+    },
+    {
+      "id": "GAP-13",
+      "area": "Linguistic quality",
+      "status": "NOT TESTED",
+      "reason": "Dictionary keys and placeholders checked; no native-speaker signoff of all literals.",
+      "required_next_step": "Review NL/FR/AR/CKB transactional and interface text and protected merchant content."
+    },
+    {
+      "id": "GAP-14",
+      "area": "Upstream dependencies and native binaries",
+      "status": "PARTIALLY VERIFIED",
+      "reason": "All-dependency and production npm advisory scans returned zero known advisories. Dependency notices were regenerated; nine native composition/rights gates remain UNKNOWN. This is not an exhaustive upstream/OS audit.",
+      "required_next_step": "Repeat current advisory scan at release, review native distribution/license evidence and platform patches."
+    },
+    {
+      "id": "GAP-15",
+      "area": "Rights and formal regulatory assessment",
+      "status": "NOT TESTED",
+      "reason": "Registers contain UNKNOWN rights/clearance items; audit is technical.",
+      "required_next_step": "Obtain executed rights/asset/dependency evidence and qualified legal/privacy/payment assessment for intended market."
+    },
+    {
+      "id": "GAP-16",
+      "area": "Exhaustive file semantics and branch coverage",
+      "status": "PARTIALLY VERIFIED",
+      "reason": "All 1162 original inventoried files remain byte-identical. The repaired release has 1420 passing tests, including 177 net new cases, but not every semantic branch, asset, translation literal or dependency has been exhaustively reviewed.",
+      "required_next_step": "Use the file matrix to target inventory-only/structural/targeted rows; instrument coverage and add risk-based scenarios without claiming100%."
+    },
+    {
+      "id": "GAP-17",
+      "area": "Windows/macOS operational behavior",
+      "status": "NOT TESTED",
+      "reason": "Execution used Linux. PowerShell argument construction and a local OpenSSH/SFTP transfer passed; PowerShell, Windows installation/Robocopy and macOS workflows were not actually executed.",
+      "required_next_step": "Run documented PowerShell/Robocopy/install/backup flows in supported Windows and macOS environments."
+    },
+    {
+      "id": "GAP-18",
+      "area": "Optional integrations and feature combinations",
+      "status": "PARTIALLY VERIFIED",
+      "reason": "Not all settings, currencies, locales, roles, transitions, outage timing and extreme-input combinations executed.",
+      "required_next_step": "Use the feature matrix and issue-specific regression plan to extend high-risk combinations and recovery states."
+    }
+  ],
+  "verified_at_utc": "2026-11-24T22:21:09.353161+00:00",
+  "source_release": "ShopEasy 2.8.95 R28 FIX02-B",
+  "target_release": "ShopEasy 2.8.95 R28 FIX03",
+  "scope": {
+    "confirmed_findings": 26,
+    "additional_risks": 5,
+    "registered_total": 31,
+    "original_source_preserved": true,
+    "external_providers": "SIMULATED ONLY",
+    "production_deployment": "NOT PERFORMED"
+  },
+  "verification_summary": {
+    "implementation": "31 of 31 registered code findings repaired; issue-specific local regressions pass",
+    "suite": {
+      "tests": 1420,
+      "pass": 1420,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "baseline_tests": 1243,
+      "net_new_tests": 177,
+      "duration_ms": 35027.578757,
+      "evidence": "docs/qa/fix03/full-suite-final.txt"
+    },
+    "runtime": {
+      "node": "24.22.3",
+      "npm": "11.19.1",
+      "platform": "linux"
+    },
+    "templates": {
+      "checked": 62,
+      "pass": 62,
+      "fail": 0
+    },
+    "dependency_advisories": {
+      "all_dependencies": 0,
+      "production_dependencies": 0,
+      "meaning": "Known advisories reported by npm at execution time, not proof of absence of all vulnerabilities"
+    },
+    "performance": {
+      "fixture_products": 5000,
+      "fixture_orders": 10000,
+      "before_ms": 20463.332405,
+      "after_ms": 10.561433999999991,
+      "same_24_ordered_product_ids": true,
+      "samples_per_version": 1,
+      "limits": "One local native query on cloned synthetic data; no HTTP, browser, concurrent load, soak or production SLA claim"
+    },
+    "original_preservation": {
+      "source_files": 1162,
+      "changed": 0,
+      "missing": 0,
+      "archive_sha256_unchanged": true
+    },
+    "browser": {
+      "classification": "BLOCKED",
+      "ui_checks_executed": 0,
+      "axe_scans_executed": 0,
+      "causes": [
+        "Pinned Playwright Chromium executable missing",
+        "Existing system Chromium terminates at socket() with Operation not permitted"
+      ]
+    },
+    "packaging": "The final archive contains a separately generated FINAL-VERIFICATION-REPORT.json from its fresh locked verification stage; external verification-log.json records ZIP extraction and SHA-256.",
+    "counting": "Focused runs overlap. They are not added to the full-suite count.",
+    "certification": "No 100/100, zero-defect, live-provider, WCAG, production or legal certification is asserted."
+  }
+}

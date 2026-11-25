@@ -1,0 +1,1 @@
+{"output":"/workspace/presale-r27/work/database-schema.json","sourceSha256":"27e90e42794968a9dd1782181a69b7b6bcdf15f51b755c63d8e82e276e01f9c9","applicationTables":32,"columns":312,"indexes":63,"explicitIndexes":37,"foreignKeyRows":37,"triggers":5,"views":0,"integrityCheck":"ok","foreignKeyViolations":0}

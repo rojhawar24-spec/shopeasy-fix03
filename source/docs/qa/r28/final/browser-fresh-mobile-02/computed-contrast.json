@@ -1,0 +1,99 @@
+{
+  "label": "VERIFIED",
+  "runtime_sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+  "groups": 6,
+  "samples": 8,
+  "checks": [
+    {
+      "check": "Final representative computed contrast",
+      "status": "PASS",
+      "selector": "body",
+      "theme": "light",
+      "locale": "en",
+      "foreground": "rgb(23, 34, 29)",
+      "background": "rgb(247, 246, 242)",
+      "ratio": 15.136,
+      "minimum": 4.5,
+      "limitation": "Four representative body/heading samples; not every node, image background or manual WCAG criterion"
+    },
+    {
+      "check": "Final representative computed contrast",
+      "status": "PASS",
+      "selector": "h1",
+      "theme": "light",
+      "locale": "en",
+      "foreground": "rgb(23, 34, 29)",
+      "background": "rgb(247, 246, 242)",
+      "ratio": 15.136,
+      "minimum": 4.5,
+      "limitation": "Four representative body/heading samples; not every node, image background or manual WCAG criterion"
+    },
+    {
+      "check": "Final representative computed contrast",
+      "status": "PASS",
+      "selector": "body",
+      "theme": "dark",
+      "locale": "en",
+      "foreground": "rgb(246, 245, 237)",
+      "background": "rgb(16, 23, 19)",
+      "ratio": 16.64,
+      "minimum": 4.5,
+      "limitation": "Four representative body/heading samples; not every node, image background or manual WCAG criterion"
+    },
+    {
+      "check": "Final representative computed contrast",
+      "status": "PASS",
+      "selector": "h1",
+      "theme": "dark",
+      "locale": "en",
+      "foreground": "rgb(246, 245, 237)",
+      "background": "rgb(16, 23, 19)",
+      "ratio": 16.64,
+      "minimum": 4.5,
+      "limitation": "Four representative body/heading samples; not every node, image background or manual WCAG criterion"
+    },
+    {
+      "check": "Final contact link computed contrast",
+      "status": "PASS",
+      "selector": ".contact-method a",
+      "theme": "light",
+      "locale": "en",
+      "minimum": 4.5,
+      "samples": [
+        {
+          "foreground": "rgb(36, 81, 62)",
+          "background": "rgb(255, 255, 255)",
+          "ratio": 9.0457
+        },
+        {
+          "foreground": "rgb(36, 81, 62)",
+          "background": "rgb(255, 255, 255)",
+          "ratio": 9.0457
+        }
+      ],
+      "limitation": "Actual final light/dark contact-link regression witness; not complete manual accessibility conformance"
+    },
+    {
+      "check": "Final contact link computed contrast",
+      "status": "PASS",
+      "selector": ".contact-method a",
+      "theme": "dark",
+      "locale": "en",
+      "minimum": 4.5,
+      "samples": [
+        {
+          "foreground": "rgb(189, 224, 197)",
+          "background": "rgb(27, 36, 31)",
+          "ratio": 11.0957
+        },
+        {
+          "foreground": "rgb(189, 224, 197)",
+          "background": "rgb(27, 36, 31)",
+          "ratio": 11.0957
+        }
+      ],
+      "limitation": "Actual final light/dark contact-link regression witness; not complete manual accessibility conformance"
+    }
+  ],
+  "limitation": "Bounded body/heading and actual Contact link light/dark witnesses; not all421contrast node occurrences or a complete manual WCAG assessment."
+}

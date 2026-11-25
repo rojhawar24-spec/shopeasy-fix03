@@ -1,0 +1,27 @@
+[Unit]
+Description=ShopEasy Node.js storefront
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/shopeasy/current
+User=shopeasy
+Group=shopeasy
+EnvironmentFile=/opt/shopeasy/.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node scripts/start-production.mjs
+Restart=always
+RestartSec=5
+UMask=0077
+KillSignal=SIGTERM
+TimeoutStopSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/shopeasy/data /opt/shopeasy/backups /opt/shopeasy/public/uploads
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,26 @@
+<%
+  const backLocaleValue = typeof locale === 'string' ? locale.toLowerCase() : 'en';
+  const backLocale = ['nl','en','ckb','ar','fr'].includes(backLocaleValue) ? backLocaleValue : 'en';
+  const requested = String(typeof fallback === 'string' ? fallback : '/shop');
+  // Absolute same-site paths only; never navigate to a dynamic cross-origin referrer.
+  const parsedBack = typeof parseLocalRedirect === 'function' ? parseLocalRedirect(requested) : null;
+  const backDestination = parsedBack ? parsedBack.pathname + parsedBack.search + parsedBack.hash
+    : /^\/(?!\/)[a-zA-Z0-9/_-]*$/.test(requested) ? requested : '/shop';
+  const destinationPath = parsedBack ? parsedBack.pathname : backDestination;
+  const destinationType = destinationPath === '/cart' ? 'cart'
+    : destinationPath === '/shop' ? 'shop'
+    : destinationPath === '/account' ? 'account'
+    : destinationPath === '/admin' || destinationPath.startsWith('/admin/') ? 'manager'
+    : destinationPath === '/login' ? 'login' : 'overview';
+  const backCopy = {
+    en:{cart:'Back to bag',shop:'Back to shop',account:'My orders',manager:'Back to Manager',login:'Back to sign in',overview:'Back to overview'},
+    nl:{cart:'Terug naar winkelmandje',shop:'Terug naar winkel',account:'Mijn bestellingen',manager:'Terug naar beheer',login:'Terug naar inloggen',overview:'Terug naar overzicht'},
+    fr:{cart:'Retour au panier',shop:'Retour à la boutique',account:'Mes commandes',manager:'Retour à la gestion',login:'Retour à la connexion',overview:'Retour à l’accueil'},
+    ckb:{cart:'گەڕانەوە بۆ سەبەتە',shop:'گەڕانەوە بۆ فرۆشگا',account:'داواکارییەکانم',manager:'گەڕانەوە بۆ بەڕێوەبردن',login:'گەڕانەوە بۆ چوونەژوورەوە',overview:'گەڕانەوە بۆ سەرەکی'},
+    ar:{cart:'العودة إلى السلة',shop:'العودة إلى المتجر',account:'طلباتي',manager:'العودة للإدارة',login:'العودة لتسجيل الدخول',overview:'العودة إلى الرئيسية'}
+  };
+  const backLabel = (backCopy[backLocale]||backCopy.en)[destinationType];
+%>
+<nav class="page-back" aria-label="<%= backLabel %>">
+  <a class="back-button" href="<%= backDestination %>" aria-label="<%= backLabel %>"><span class="back-button-label"><%= backLabel %></span></a>
+</nav>

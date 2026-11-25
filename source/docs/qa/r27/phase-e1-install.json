@@ -1,0 +1,17 @@
+{
+  "utc_started": "2026-11-15T11:30:30.085950+00:00",
+  "utc_finished": "2026-11-15T11:30:31.948224+00:00",
+  "cwd": "/workspace/presale-r27/work",
+  "command": [
+    "npm",
+    "ci",
+    "--ignore-scripts",
+    "--no-audit",
+    "--no-fund",
+    "--fetch-retries=0",
+    "--fetch-timeout=30000"
+  ],
+  "exit_code": 0,
+  "output_file": "phase-e1-install.txt",
+  "inherited_application_credentials": "removed; credential values not printed"
+}

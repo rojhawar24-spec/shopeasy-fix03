@@ -1,0 +1,19 @@
+{
+  "utc_started": "2026-11-21T22:57:51.144366+00:00",
+  "utc_finished": "2026-11-21T22:57:56.558029+00:00",
+  "cwd": "/workspace/presale-r28/proposals/performance/work",
+  "command": [
+    "node",
+    "--test",
+    "--test-reporter=tap",
+    "test/static-asset-compression.test.js",
+    "test/design-css-build.test.js",
+    "test/design-css-generation.test.js",
+    "test/product-gallery-manager-polish.test.js",
+    "test/r17-ui-ux-regressions.test.js",
+    "test/design-v14-redesign.test.js"
+  ],
+  "exit_code": 0,
+  "output_file": "focused-final.txt",
+  "inherited_application_credentials": "removed; credential values not printed"
+}

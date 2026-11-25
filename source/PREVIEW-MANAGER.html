@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB" dir="ltr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#F7F6F2">
+  <title>ShopEasy — Research 2027 manager preview</title>
+
+  <link rel="stylesheet" href="./public/css/design-foundation.min.css?v=2027-r28">
+  
+  
+  
+  <link rel="stylesheet" href="./public/css/design-polish.min.css?v=2027-r28.fix03">
+  <script>if(new URLSearchParams(location.search).get("theme")==="dark"){document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}</script>
+</head>
+<body class="is-admin-app" data-design-version="app-e2">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="announcement"><div class="container announcement-inner"><div class="announcement-message"><span>ShopEasy workspace</span><span class="announcement-divider">·</span><span>Store operations</span></div><div class="language-switch"><label class="sr-only" for="preview-language">Language</label><select id="preview-language"><option>English</option><option>کوردی (سۆرانی)</option><option>العربية</option><option>Nederlands</option></select></div></div></div>
+  <header class="site-header"><div class="container nav-row"><a class="brand" href="#overview"><img class="brand-logo" src="./public/assets/logo.svg" alt=""><span class="brand-word">ShopEasy</span></a><div class="admin-header-actions" role="group" aria-label="Manager account actions"><button type="button" class="theme-toggle theme-toggle-admin" data-design-preview-theme aria-label="Switch to dark mode" aria-pressed="false">☾</button><form class="admin-header-language" action="#language" method="get"><label class="sr-only" for="preview-admin-language">Language</label><select id="preview-admin-language" aria-label="Language"><option>EN</option><option>CKB</option><option>AR</option><option>NL</option></select></form><a class="admin-header-account" href="#staff">Account</a><form class="admin-header-logout" action="#logout" method="get"><button type="button">Log out</button></form></div></div></header>
+  <main id="main-content" class="admin-main">
+    <nav class="admin-nav" aria-label="Store manager navigation. On smaller screens, scroll horizontally for more sections." tabindex="0">
+      <div class="admin-nav-group"><span class="admin-nav-label">WORKSPACE</span><a class="active" href="#overview" aria-current="page">Overview</a></div>
+      <div class="admin-nav-group"><span class="admin-nav-label">CATALOGUE</span><a href="#products">Products</a><a href="#categories">Categories</a></div>
+      <div class="admin-nav-group"><span class="admin-nav-label">SALES</span><a href="#orders">Orders</a><a href="#returns">Returns</a><a href="#customers">Customers</a></div>
+      <div class="admin-nav-group"><span class="admin-nav-label">PROMOTIONS</span><a href="#discounts">Discounts</a><a href="#stories">Stories</a></div>
+      <div class="admin-nav-group"><span class="admin-nav-label">STORE CONTENT</span><a href="#storefront">Storefront</a></div>
+      <div class="admin-nav-group admin-nav-manager-tools"><span class="admin-nav-label">MANAGER TOOLS</span><a href="#settings">Settings</a><a href="#staff">Staff &amp; account</a><a href="#audit">Audit trail</a></div>
+      <a class="admin-nav-preview" href="./PREVIEW.html">View shop ↗</a>
+    </nav>
+    <div class="admin-workspace-content" id="manager-page-content">
+    <p class="preview-disclaimer container">Static preview only (sample design). Sample dashboard figures only; no real orders or payments are processed. Before launch: configure your shop name, market, products and policies.</p>
+    <div class="container manager-dashboard-shell">
+      <div class="manager-dashboard-content">
+        <section class="container page-head admin-head"><div><span class="eyebrow">STORE OVERVIEW</span><h1>Good afternoon.</h1><p>Your shop at a glance. Review the numbers that matter and take action.</p></div><div class="quick-links"><a class="btn btn-mint" href="#products">+ Add product</a></div></section>
+        <section class="container admin-grid"><a class="stat-card" href="#products"><span>Products</span><strong>128</strong><small>121 live · 7 sold out</small></a><a class="stat-card" href="#orders"><span>Orders</span><strong>42</strong><small>6 awaiting acceptance</small></a><a class="stat-card" href="#customers"><span>Customers</span><strong>318</strong><small>Protected order history</small></a><a class="stat-card" href="#stock"><span>Low-stock alerts</span><strong>5</strong><small>Products to review</small></a><div class="stat-card"><span>Recorded revenue</span><strong>€8,420</strong><small>Collected / fulfilled orders</small></div><div class="stat-card"><span>Estimated gross profit</span><strong>€2,780</strong><small>Before operating costs and tax</small></div></section>
+        <section class="container section"><div class="manager-setup-panel is-ready"><div class="manager-setup-copy"><span class="eyebrow">STORE READINESS</span><h2>Your checkout setup is ready</h2><p>Your store is configured to accept orders. Keep product prices, delivery coverage and order handling up to date.</p><span class="status status-completed">Ready to accept orders</span></div><div class="manager-setup-actions"><a class="btn btn-dark" href="#settings">Review settings →</a><a class="btn btn-light" href="#products">Review products</a></div></div></section>
+        <section class="container section" id="orders"><div class="panel"><div class="panel-head"><div><span class="eyebrow">LATEST ACTIVITY</span><h2>Recent orders</h2><p class="muted">Track new orders and handle the next action.</p></div><a class="text-link" href="#orders">View all →</a></div><div class="table-wrap"><table class="admin-dashboard-table"><thead><tr><th>Order</th><th>Customer</th><th>Phone</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead><tbody><tr><td><a class="table-link" href="#order">#2048</a></td><td><strong class="admin-order-email">alex@<wbr>example.com</strong></td><td>+32 4xx xx xx xx</td><td><strong>€124.00</strong></td><td><span class="status status-pending">Pending</span></td><td>Today, 14:32</td><td><a class="btn btn-dark btn-small" href="#order">Manage order →</a></td></tr><tr><td><a class="table-link" href="#order">#2047</a></td><td><strong class="admin-order-email">samira@<wbr>example.com</strong></td><td>+32 4xx xx xx xx</td><td><strong>€58.90</strong></td><td><span class="status status-paid">Paid</span></td><td>Today, 13:18</td><td><a class="btn btn-light btn-small" href="#order">View order →</a></td></tr><tr><td><a class="table-link" href="#order">#2046</a></td><td><strong class="admin-order-email">noah@<wbr>example.com</strong></td><td>+32 4xx xx xx xx</td><td><strong>€32.00</strong></td><td><span class="status status-shipped">Shipped</span></td><td>Yesterday</td><td><a class="btn btn-light btn-small" href="#order">View order →</a></td></tr></tbody></table></div></div></section>
+      </div>
+    </div>
+    </div>
+  </main>
+  <script>document.documentElement.dataset.preview = 'true';</script>
+<script>document.querySelector("[data-design-preview-theme]")?.addEventListener("click",function(){const dark=document.documentElement.dataset.theme!=="dark";if(dark)document.documentElement.dataset.theme="dark";else delete document.documentElement.dataset.theme;this.textContent=dark?"☀":"☾";this.setAttribute("aria-pressed",String(dark));this.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");});</script>
+</body></html>

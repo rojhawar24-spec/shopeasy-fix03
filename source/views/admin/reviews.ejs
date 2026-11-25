@@ -1,0 +1,7 @@
+<%- include('../partials/header',{title:'Review moderation'}) %>
+<%- include('../partials/admin-nav') %>
+<section class="container page-head"><span class="eyebrow">CUSTOMER CONTENT</span><h1>Review moderation</h1><p>Only customers with a completed purchase can submit. Reviews remain hidden until you approve them.</p></section>
+<section class="container section"><% if(notice){ %><p class="success-alert" role="status">Review decision saved.</p><% } %>
+<% if(reviews.length===0){ %><div class="panel"><p>No reviews waiting for approval.</p></div><% } %>
+<div class="review-grid"><% reviews.forEach(review=>{ %><article class="panel review-card"><span><%= '★'.repeat(review.rating) %></span><h2 data-no-translate><%= review.title %></h2><p data-no-translate><%= review.body %></p><p><strong>Product:</strong> <span data-no-translate><%= review.product_name %></span></p><p><strong>Submitted by:</strong> <%= review.account_email %></p><div class="review-actions"><form method="post" action="/admin/reviews/moderate"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="reviewId" value="<%= review.id %>"><button type="submit" name="action" value="approved" class="btn btn-dark">Approve</button><button type="submit" name="action" value="rejected" class="btn btn-light">Reject</button></form></div></article><% }) %></div>
+</section><%- include('../partials/footer',{managerWorkspaceShell:user?.role==='manager'}) %>

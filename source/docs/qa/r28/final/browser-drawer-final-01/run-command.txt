@@ -1,0 +1,10 @@
+Working directory: /workspace/presale-r28/work
+
+/workspace/presale-r27/tools/qa-python313/bin/python /workspace/presale-r28/evidence/run-final-drawer-audit.py
+
+Exit code:0
+Started UTC:2026-11-22T23:05:57.248374+00:00
+Finished UTC:2026-11-22T23:06:13.763838+00:00
+Actual summary: {"passed_checks": 10, "failed_or_not_run": 0, "axe_scans": 0, "axe_assessment": "NOT TESTED in this focused keyboard run; full acceptance report contains strict axe scans"}
+
+Synthetic local fixture only; actual email delivery/live providers/Windows/screen readers/physical devices/full manual WCAG NOT TESTED.

@@ -1,0 +1,14 @@
+{
+  "label": "VERIFIED",
+  "cwd": "/workspace/presale-r28/work",
+  "command": [
+    "/workspace/presale-r27/tools/qa-python313/bin/python",
+    "/workspace/presale-r28/evidence/run-final-drawer-audit.py"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-11-22T23:05:57.248374+00:00",
+  "finished_utc": "2026-11-22T23:06:13.763838+00:00",
+  "output": "browser-results.json",
+  "scope": "Actual executed command; no private output or browser storage retained",
+  "external_helper_source_sha256_recorded_post_run": "c19eaae3043dc703ffef755a565808ec3d5b142f6ce590b18474e152f4d97f03"
+}

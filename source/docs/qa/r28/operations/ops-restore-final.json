@@ -1,0 +1,12 @@
+{
+  "utc_started": "2026-11-22T17:12:16.726125+00:00",
+  "utc_finished": "2026-11-22T17:12:17.000993+00:00",
+  "cwd": "/workspace/presale-r28/proposals/operations",
+  "command": [
+    "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+    "test/database-restore-safety.integration.test.js"
+  ],
+  "exit_code": 0,
+  "output_file": "ops-restore-final.txt",
+  "inherited_application_credentials": "removed; credential values not printed"
+}

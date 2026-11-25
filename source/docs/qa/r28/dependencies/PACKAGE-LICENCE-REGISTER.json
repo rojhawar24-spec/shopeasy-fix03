@@ -1,0 +1,3337 @@
+{
+  "label": "VERIFIED",
+  "generated_utc": "2026-11-21T22:56:32.041423+00:00",
+  "scope": "Exact107 lockfile component entries with declared licences and retained text hashes. Metadata/text collection is not a legal finding or binary SBOM.",
+  "package_entries": 107,
+  "first_party_entries": 1,
+  "native_review_gates": 9,
+  "packages": [
+    {
+      "lock_path": "node_modules/@libsql/client",
+      "name": "@libsql/client",
+      "installed_alias": "@libsql/client",
+      "version": "0.18.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_client-0.18.0/UPSTREAM-LICENSE.txt",
+          "sha256": "f7984723ac416cb45f9eb462c4da22ad4a7d7996bd3f9c7a92288e047cce003f",
+          "label": "UPSTREAM-LICENSE.txt",
+          "source": {
+            "kind": "pinned-upstream-license",
+            "url": "https://raw.githubusercontent.com/tursodatabase/libsql-client-ts/9496c782af413f6380235c7f5d0c97b5371f49b7/LICENSE",
+            "retrievedAt": "2026-11-13T14:35:03.145944+00:00",
+            "gitHead": "9496c782af413f6380235c7f5d0c97b5371f49b7",
+            "repository": {
+              "url": "git+https://github.com/tursodatabase/libsql-client-ts.git",
+              "type": "git",
+              "directory": "packages/libsql-client"
+            }
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2fclient/0.18.0",
+        "utc": "2026-11-13T14:31:51.503079+00:00",
+        "gitHead": "9496c782af413f6380235c7f5d0c97b5371f49b7",
+        "declared_license": "MIT",
+        "metadata_sha256": "f8fe463108072dcf187588f666d4eb13a1af47fd9da7bd15d4ee21e0336a0037",
+        "tarball_url": "https://registry.npmjs.org/@libsql/client/-/client-0.18.0.tgz",
+        "tarball_sha256": "908ffc033249e2b77b230f02d0b0884b5cfb9aa9e7a91b3937a4e04ede02087a",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_client-0.18.0-package.json",
+          "sha256": "6f28e8e2aed00e442f436657888623245b2edd90c8856f01559133041e93d679"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/core",
+      "name": "@libsql/core",
+      "installed_alias": "@libsql/core",
+      "version": "0.18.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_core-0.18.0/UPSTREAM-LICENSE.txt",
+          "sha256": "f7984723ac416cb45f9eb462c4da22ad4a7d7996bd3f9c7a92288e047cce003f",
+          "label": "UPSTREAM-LICENSE.txt",
+          "source": {
+            "kind": "pinned-upstream-license",
+            "url": "https://raw.githubusercontent.com/tursodatabase/libsql-client-ts/9496c782af413f6380235c7f5d0c97b5371f49b7/LICENSE",
+            "retrievedAt": "2026-11-13T14:35:03.145944+00:00",
+            "gitHead": "9496c782af413f6380235c7f5d0c97b5371f49b7",
+            "repository": {
+              "url": "git+https://github.com/tursodatabase/libsql-client-ts.git",
+              "type": "git",
+              "directory": "packages/libsql-core"
+            }
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2fcore/0.18.0",
+        "utc": "2026-11-13T14:31:51.505815+00:00",
+        "gitHead": "9496c782af413f6380235c7f5d0c97b5371f49b7",
+        "declared_license": "MIT",
+        "metadata_sha256": "04eff8a35c6bb67d1b58e2930424bb476f0ef523fc29415010c6890e8a5b0290",
+        "tarball_url": "https://registry.npmjs.org/@libsql/core/-/core-0.18.0.tgz",
+        "tarball_sha256": "a9834aafe19c5353edc3208011d65678ce7bbf9561fc561f5d0493719ab50153",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_core-0.18.0-package.json",
+          "sha256": "da65aa270b71f26982db2364939a9f019bf3d90a8466098106ac156cc1fb4b6b"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/darwin-arm64",
+      "name": "@libsql/darwin-arm64",
+      "installed_alias": "@libsql/darwin-arm64",
+      "version": "0.5.29",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_darwin-arm64-0.5.29/COMPANION-LIBSQL-LICENSE.txt",
+          "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4",
+          "label": "COMPANION-LIBSQL-LICENSE.txt",
+          "source": {
+            "kind": "version-matched-companion-license",
+            "package": "libsql",
+            "version": "0.5.29",
+            "path": "LICENSE",
+            "lockedPath": "node_modules/libsql",
+            "integrity": "sha512-8lMP8iMgiBzzoNbAPQ59qdVcj6UaE/Vnm+fiwX4doX4Narook0a4GPKWBEv+CR8a1OwbfkgL18uBfBjWdF0Fzg==",
+            "packageJsonSnapshot": {
+              "file": "third-party/evidence/libsql-0.5.29-package.json",
+              "sha256": "2c5b92e04a5c0f41139bfd678e67fc1569d7ba5fd9d35ac285901d122fa3522f"
+            },
+            "basis": "libsql package.json neon.targets and exact optionalDependencies map this native package to 0.5.29. Native package declares MIT but ships no full license file."
+          }
+        }
+      ],
+      "review_flags": [
+        "OPEN: companion MIT text and exact package mapping are captured; licenses/notices for components embedded in the native binary have not been fully audited. This is not legal clearance of the binary."
+      ],
+      "rights_status": "UNKNOWN",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2fdarwin-arm64/0.5.29",
+        "utc": "2026-11-13T14:31:51.506277+00:00",
+        "gitHead": null,
+        "declared_license": "MIT",
+        "metadata_sha256": "dd78c107a1f322f45235fc6daca930646322482ca57a154397c993e28b05580f",
+        "tarball_url": "https://registry.npmjs.org/@libsql/darwin-arm64/-/darwin-arm64-0.5.29.tgz",
+        "tarball_sha256": "c2f451572527ed9980485a427201a1d2bf95716d7c6d90a18a0dee00c72d925a",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_darwin-arm64-0.5.29-package.json",
+          "sha256": "6e7a953e9b488c562ec816c4fcbd998d39a6a88d1241d00f0ec26982415e9a51"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/darwin-x64",
+      "name": "@libsql/darwin-x64",
+      "installed_alias": "@libsql/darwin-x64",
+      "version": "0.5.29",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_darwin-x64-0.5.29/COMPANION-LIBSQL-LICENSE.txt",
+          "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4",
+          "label": "COMPANION-LIBSQL-LICENSE.txt",
+          "source": {
+            "kind": "version-matched-companion-license",
+            "package": "libsql",
+            "version": "0.5.29",
+            "path": "LICENSE",
+            "lockedPath": "node_modules/libsql",
+            "integrity": "sha512-8lMP8iMgiBzzoNbAPQ59qdVcj6UaE/Vnm+fiwX4doX4Narook0a4GPKWBEv+CR8a1OwbfkgL18uBfBjWdF0Fzg==",
+            "packageJsonSnapshot": {
+              "file": "third-party/evidence/libsql-0.5.29-package.json",
+              "sha256": "2c5b92e04a5c0f41139bfd678e67fc1569d7ba5fd9d35ac285901d122fa3522f"
+            },
+            "basis": "libsql package.json neon.targets and exact optionalDependencies map this native package to 0.5.29. Native package declares MIT but ships no full license file."
+          }
+        }
+      ],
+      "review_flags": [
+        "OPEN: companion MIT text and exact package mapping are captured; licenses/notices for components embedded in the native binary have not been fully audited. This is not legal clearance of the binary."
+      ],
+      "rights_status": "UNKNOWN",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2fdarwin-x64/0.5.29",
+        "utc": "2026-11-13T14:31:51.506942+00:00",
+        "gitHead": null,
+        "declared_license": "MIT",
+        "metadata_sha256": "d5ba2e7b490bbd67e2df403f3a5b09364999a27aa5a04983f778a696f451c229",
+        "tarball_url": "https://registry.npmjs.org/@libsql/darwin-x64/-/darwin-x64-0.5.29.tgz",
+        "tarball_sha256": "5ba404ea21e1540cce542cad99069971e6e7b78e91e09159a352c1721b88f63e",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_darwin-x64-0.5.29-package.json",
+          "sha256": "086b32a4f1ec0e5673483ce936475ca4dce9668f754024afdb1a7159e657aad3"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/hrana-client",
+      "name": "@libsql/hrana-client",
+      "installed_alias": "@libsql/hrana-client",
+      "version": "0.10.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_hrana-client-0.10.0/LICENSE",
+          "sha256": "cecf589818a56c2da8a0a6cc82c8a215c9770988c033b6016c2b74bf79f38152",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "cecf589818a56c2da8a0a6cc82c8a215c9770988c033b6016c2b74bf79f38152"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/@libsql/isomorphic-ws",
+      "name": "@libsql/isomorphic-ws",
+      "installed_alias": "@libsql/isomorphic-ws",
+      "version": "0.1.5",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_isomorphic-ws-0.1.5/UPSTREAM-LICENSE.txt",
+          "sha256": "cecf589818a56c2da8a0a6cc82c8a215c9770988c033b6016c2b74bf79f38152",
+          "label": "UPSTREAM-LICENSE.txt",
+          "source": {
+            "kind": "pinned-upstream-license",
+            "url": "https://raw.githubusercontent.com/libsql/isomorphic-ts/87331abc53d4e77deb2f3d6384438d4804a07e0a/LICENSE",
+            "retrievedAt": "2026-11-13T14:35:03.146415+00:00",
+            "gitHead": "87331abc53d4e77deb2f3d6384438d4804a07e0a",
+            "repository": {
+              "url": "git+https://github.com/libsql/isomorphic-ts.git",
+              "type": "git",
+              "directory": "isomorphic-ws"
+            }
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2fisomorphic-ws/0.1.5",
+        "utc": "2026-11-13T14:31:51.507505+00:00",
+        "gitHead": "87331abc53d4e77deb2f3d6384438d4804a07e0a",
+        "declared_license": "MIT",
+        "metadata_sha256": "d3fb21923dc24eadc399d13f7b25b6ef95ac6a55e1fbf57696e30b8ea90e6288",
+        "tarball_url": "https://registry.npmjs.org/@libsql/isomorphic-ws/-/isomorphic-ws-0.1.5.tgz",
+        "tarball_sha256": "906fac4375d2d252209b110f02b6060ec56cb433ac56cf5f24c22d2811799a4b",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_isomorphic-ws-0.1.5-package.json",
+          "sha256": "0fcfe73e854a10d24c665450986ec04edbc2b496271871eba07464528e7386d0"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/linux-arm-gnueabihf",
+      "name": "@libsql/linux-arm-gnueabihf",
+      "installed_alias": "@libsql/linux-arm-gnueabihf",
+      "version": "0.5.29",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_linux-arm-gnueabihf-0.5.29/COMPANION-LIBSQL-LICENSE.txt",
+          "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4",
+          "label": "COMPANION-LIBSQL-LICENSE.txt",
+          "source": {
+            "kind": "version-matched-companion-license",
+            "package": "libsql",
+            "version": "0.5.29",
+            "path": "LICENSE",
+            "lockedPath": "node_modules/libsql",
+            "integrity": "sha512-8lMP8iMgiBzzoNbAPQ59qdVcj6UaE/Vnm+fiwX4doX4Narook0a4GPKWBEv+CR8a1OwbfkgL18uBfBjWdF0Fzg==",
+            "packageJsonSnapshot": {
+              "file": "third-party/evidence/libsql-0.5.29-package.json",
+              "sha256": "2c5b92e04a5c0f41139bfd678e67fc1569d7ba5fd9d35ac285901d122fa3522f"
+            },
+            "basis": "libsql package.json neon.targets and exact optionalDependencies map this native package to 0.5.29. Native package declares MIT but ships no full license file."
+          }
+        }
+      ],
+      "review_flags": [
+        "OPEN: companion MIT text and exact package mapping are captured; licenses/notices for components embedded in the native binary have not been fully audited. This is not legal clearance of the binary."
+      ],
+      "rights_status": "UNKNOWN",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2flinux-arm-gnueabihf/0.5.29",
+        "utc": "2026-11-13T14:31:51.948537+00:00",
+        "gitHead": null,
+        "declared_license": "MIT",
+        "metadata_sha256": "1a32bdfee24826d3940f9be84008c65f41144156b14058d6702c7d253dd20e08",
+        "tarball_url": "https://registry.npmjs.org/@libsql/linux-arm-gnueabihf/-/linux-arm-gnueabihf-0.5.29.tgz",
+        "tarball_sha256": "f1fdeeee9a126629a65be815e6292fd4d92ccb2bee8006b13f73e5bca98e7d7c",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_linux-arm-gnueabihf-0.5.29-package.json",
+          "sha256": "97c3a97f97a5cf488a025dbde9558db85e29cec9ae4c53429dca109f04e1e757"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/linux-arm-musleabihf",
+      "name": "@libsql/linux-arm-musleabihf",
+      "installed_alias": "@libsql/linux-arm-musleabihf",
+      "version": "0.5.29",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_linux-arm-musleabihf-0.5.29/COMPANION-LIBSQL-LICENSE.txt",
+          "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4",
+          "label": "COMPANION-LIBSQL-LICENSE.txt",
+          "source": {
+            "kind": "version-matched-companion-license",
+            "package": "libsql",
+            "version": "0.5.29",
+            "path": "LICENSE",
+            "lockedPath": "node_modules/libsql",
+            "integrity": "sha512-8lMP8iMgiBzzoNbAPQ59qdVcj6UaE/Vnm+fiwX4doX4Narook0a4GPKWBEv+CR8a1OwbfkgL18uBfBjWdF0Fzg==",
+            "packageJsonSnapshot": {
+              "file": "third-party/evidence/libsql-0.5.29-package.json",
+              "sha256": "2c5b92e04a5c0f41139bfd678e67fc1569d7ba5fd9d35ac285901d122fa3522f"
+            },
+            "basis": "libsql package.json neon.targets and exact optionalDependencies map this native package to 0.5.29. Native package declares MIT but ships no full license file."
+          }
+        }
+      ],
+      "review_flags": [
+        "OPEN: companion MIT text and exact package mapping are captured; licenses/notices for components embedded in the native binary have not been fully audited. This is not legal clearance of the binary."
+      ],
+      "rights_status": "UNKNOWN",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2flinux-arm-musleabihf/0.5.29",
+        "utc": "2026-11-13T14:31:52.038989+00:00",
+        "gitHead": null,
+        "declared_license": "MIT",
+        "metadata_sha256": "61faa77b0aadc445ec3186e3a7e4247259feac318847bf48eb9c62d7bea45cc9",
+        "tarball_url": "https://registry.npmjs.org/@libsql/linux-arm-musleabihf/-/linux-arm-musleabihf-0.5.29.tgz",
+        "tarball_sha256": "4317ca17b18dcb0ecba3b4cd33e9a6844cee889e94796b3bc28e50bf18ef98ae",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_linux-arm-musleabihf-0.5.29-package.json",
+          "sha256": "933e0eb5ae32711b46b049d268c262667461d25f6c28ea85d0d0ffd77a493a63"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/linux-arm64-gnu",
+      "name": "@libsql/linux-arm64-gnu",
+      "installed_alias": "@libsql/linux-arm64-gnu",
+      "version": "0.5.29",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_linux-arm64-gnu-0.5.29/COMPANION-LIBSQL-LICENSE.txt",
+          "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4",
+          "label": "COMPANION-LIBSQL-LICENSE.txt",
+          "source": {
+            "kind": "version-matched-companion-license",
+            "package": "libsql",
+            "version": "0.5.29",
+            "path": "LICENSE",
+            "lockedPath": "node_modules/libsql",
+            "integrity": "sha512-8lMP8iMgiBzzoNbAPQ59qdVcj6UaE/Vnm+fiwX4doX4Narook0a4GPKWBEv+CR8a1OwbfkgL18uBfBjWdF0Fzg==",
+            "packageJsonSnapshot": {
+              "file": "third-party/evidence/libsql-0.5.29-package.json",
+              "sha256": "2c5b92e04a5c0f41139bfd678e67fc1569d7ba5fd9d35ac285901d122fa3522f"
+            },
+            "basis": "libsql package.json neon.targets and exact optionalDependencies map this native package to 0.5.29. Native package declares MIT but ships no full license file."
+          }
+        }
+      ],
+      "review_flags": [
+        "OPEN: companion MIT text and exact package mapping are captured; licenses/notices for components embedded in the native binary have not been fully audited. This is not legal clearance of the binary."
+      ],
+      "rights_status": "UNKNOWN",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2flinux-arm64-gnu/0.5.29",
+        "utc": "2026-11-13T14:31:52.046417+00:00",
+        "gitHead": null,
+        "declared_license": "MIT",
+        "metadata_sha256": "b4c214c9b4bfeff16d15952deaab4f59319779d1702b0b28382c8e128d466d2c",
+        "tarball_url": "https://registry.npmjs.org/@libsql/linux-arm64-gnu/-/linux-arm64-gnu-0.5.29.tgz",
+        "tarball_sha256": "0a0a68397f08d0382935b2965535e1f243d9403b26aee9e39ef2ee1f8328f210",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_linux-arm64-gnu-0.5.29-package.json",
+          "sha256": "686df8f3cdfad95b5b525432528b0de7cfc1e5c30d9107749a3b08d93cf4b103"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/linux-arm64-musl",
+      "name": "@libsql/linux-arm64-musl",
+      "installed_alias": "@libsql/linux-arm64-musl",
+      "version": "0.5.29",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_linux-arm64-musl-0.5.29/COMPANION-LIBSQL-LICENSE.txt",
+          "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4",
+          "label": "COMPANION-LIBSQL-LICENSE.txt",
+          "source": {
+            "kind": "version-matched-companion-license",
+            "package": "libsql",
+            "version": "0.5.29",
+            "path": "LICENSE",
+            "lockedPath": "node_modules/libsql",
+            "integrity": "sha512-8lMP8iMgiBzzoNbAPQ59qdVcj6UaE/Vnm+fiwX4doX4Narook0a4GPKWBEv+CR8a1OwbfkgL18uBfBjWdF0Fzg==",
+            "packageJsonSnapshot": {
+              "file": "third-party/evidence/libsql-0.5.29-package.json",
+              "sha256": "2c5b92e04a5c0f41139bfd678e67fc1569d7ba5fd9d35ac285901d122fa3522f"
+            },
+            "basis": "libsql package.json neon.targets and exact optionalDependencies map this native package to 0.5.29. Native package declares MIT but ships no full license file."
+          }
+        }
+      ],
+      "review_flags": [
+        "OPEN: companion MIT text and exact package mapping are captured; licenses/notices for components embedded in the native binary have not been fully audited. This is not legal clearance of the binary."
+      ],
+      "rights_status": "UNKNOWN",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2flinux-arm64-musl/0.5.29",
+        "utc": "2026-11-13T14:31:52.315641+00:00",
+        "gitHead": null,
+        "declared_license": "MIT",
+        "metadata_sha256": "185d70e1094ca2b4848cf10108724322e950abedbe1d3e7b2c385a3333746d4c",
+        "tarball_url": "https://registry.npmjs.org/@libsql/linux-arm64-musl/-/linux-arm64-musl-0.5.29.tgz",
+        "tarball_sha256": "9f631f12b4759b65a2695485390a9d497cdf8d6268aef9b3913d93f170b2e133",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_linux-arm64-musl-0.5.29-package.json",
+          "sha256": "8b78678c7fe472d832d5f0d2514721f0e9f4150c177591f9ae310bb19f72a4a8"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/linux-x64-gnu",
+      "name": "@libsql/linux-x64-gnu",
+      "installed_alias": "@libsql/linux-x64-gnu",
+      "version": "0.5.29",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_linux-x64-gnu-0.5.29/COMPANION-LIBSQL-LICENSE.txt",
+          "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4",
+          "label": "COMPANION-LIBSQL-LICENSE.txt",
+          "source": {
+            "kind": "version-matched-companion-license",
+            "package": "libsql",
+            "version": "0.5.29",
+            "path": "LICENSE",
+            "lockedPath": "node_modules/libsql",
+            "integrity": "sha512-8lMP8iMgiBzzoNbAPQ59qdVcj6UaE/Vnm+fiwX4doX4Narook0a4GPKWBEv+CR8a1OwbfkgL18uBfBjWdF0Fzg==",
+            "packageJsonSnapshot": {
+              "file": "third-party/evidence/libsql-0.5.29-package.json",
+              "sha256": "2c5b92e04a5c0f41139bfd678e67fc1569d7ba5fd9d35ac285901d122fa3522f"
+            },
+            "basis": "libsql package.json neon.targets and exact optionalDependencies map this native package to 0.5.29. Native package declares MIT but ships no full license file."
+          }
+        }
+      ],
+      "review_flags": [
+        "OPEN: companion MIT text and exact package mapping are captured; licenses/notices for components embedded in the native binary have not been fully audited. This is not legal clearance of the binary."
+      ],
+      "rights_status": "UNKNOWN",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2flinux-x64-gnu/0.5.29",
+        "utc": "2026-11-13T14:31:52.319955+00:00",
+        "gitHead": null,
+        "declared_license": "MIT",
+        "metadata_sha256": "e5fd650cef50937aa15e591e95d688338f96c5b935b3227b41c610c107f2d3ee",
+        "tarball_url": "https://registry.npmjs.org/@libsql/linux-x64-gnu/-/linux-x64-gnu-0.5.29.tgz",
+        "tarball_sha256": "f0a97f65746191bb7f9adefc9736edf340bf2b816d2809d5334f78d1c85a11f6",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_linux-x64-gnu-0.5.29-package.json",
+          "sha256": "2fb49a53a74133a9005e14a77cbe1dd8ae73a915d90a948f0beb734522334173"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/linux-x64-musl",
+      "name": "@libsql/linux-x64-musl",
+      "installed_alias": "@libsql/linux-x64-musl",
+      "version": "0.5.29",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_linux-x64-musl-0.5.29/COMPANION-LIBSQL-LICENSE.txt",
+          "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4",
+          "label": "COMPANION-LIBSQL-LICENSE.txt",
+          "source": {
+            "kind": "version-matched-companion-license",
+            "package": "libsql",
+            "version": "0.5.29",
+            "path": "LICENSE",
+            "lockedPath": "node_modules/libsql",
+            "integrity": "sha512-8lMP8iMgiBzzoNbAPQ59qdVcj6UaE/Vnm+fiwX4doX4Narook0a4GPKWBEv+CR8a1OwbfkgL18uBfBjWdF0Fzg==",
+            "packageJsonSnapshot": {
+              "file": "third-party/evidence/libsql-0.5.29-package.json",
+              "sha256": "2c5b92e04a5c0f41139bfd678e67fc1569d7ba5fd9d35ac285901d122fa3522f"
+            },
+            "basis": "libsql package.json neon.targets and exact optionalDependencies map this native package to 0.5.29. Native package declares MIT but ships no full license file."
+          }
+        }
+      ],
+      "review_flags": [
+        "OPEN: companion MIT text and exact package mapping are captured; licenses/notices for components embedded in the native binary have not been fully audited. This is not legal clearance of the binary."
+      ],
+      "rights_status": "UNKNOWN",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2flinux-x64-musl/0.5.29",
+        "utc": "2026-11-13T14:31:52.747948+00:00",
+        "gitHead": null,
+        "declared_license": "MIT",
+        "metadata_sha256": "d15d27dc957b5a501d1c916470a811f54890651af32d7b374beb2262f41f7568",
+        "tarball_url": "https://registry.npmjs.org/@libsql/linux-x64-musl/-/linux-x64-musl-0.5.29.tgz",
+        "tarball_sha256": "151ffce3b5cf0c68e338d081755ed7dbbfd6de691b04f9592fb1c70b6ae06fc3",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_linux-x64-musl-0.5.29-package.json",
+          "sha256": "9f4a03ffef441a741fed2d5eebc2aeb3448f340031fa5685870e3daeee8b88d1"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@libsql/win32-x64-msvc",
+      "name": "@libsql/win32-x64-msvc",
+      "installed_alias": "@libsql/win32-x64-msvc",
+      "version": "0.5.29",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_libsql_win32-x64-msvc-0.5.29/COMPANION-LIBSQL-LICENSE.txt",
+          "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4",
+          "label": "COMPANION-LIBSQL-LICENSE.txt",
+          "source": {
+            "kind": "version-matched-companion-license",
+            "package": "libsql",
+            "version": "0.5.29",
+            "path": "LICENSE",
+            "lockedPath": "node_modules/libsql",
+            "integrity": "sha512-8lMP8iMgiBzzoNbAPQ59qdVcj6UaE/Vnm+fiwX4doX4Narook0a4GPKWBEv+CR8a1OwbfkgL18uBfBjWdF0Fzg==",
+            "packageJsonSnapshot": {
+              "file": "third-party/evidence/libsql-0.5.29-package.json",
+              "sha256": "2c5b92e04a5c0f41139bfd678e67fc1569d7ba5fd9d35ac285901d122fa3522f"
+            },
+            "basis": "libsql package.json neon.targets and exact optionalDependencies map this native package to 0.5.29. Native package declares MIT but ships no full license file."
+          }
+        }
+      ],
+      "review_flags": [
+        "OPEN: companion MIT text and exact package mapping are captured; licenses/notices for components embedded in the native binary have not been fully audited. This is not legal clearance of the binary."
+      ],
+      "rights_status": "UNKNOWN",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/@libsql%2fwin32-x64-msvc/0.5.29",
+        "utc": "2026-11-13T14:31:52.819188+00:00",
+        "gitHead": null,
+        "declared_license": "MIT",
+        "metadata_sha256": "59b4639ead8d18d29547b439d1b63db4f8b03e5a17c69769f6d662b836c2938b",
+        "tarball_url": "https://registry.npmjs.org/@libsql/win32-x64-msvc/-/win32-x64-msvc-0.5.29.tgz",
+        "tarball_sha256": "7034df5dac3d21867e16d0d9db9e74dee61b4c4f74749cd878521714d774e780",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/_libsql_win32-x64-msvc-0.5.29-package.json",
+          "sha256": "570185f61023827f9d510ddfae688613f9ae1438cefcae9025d83590c561791c"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/@neon-rs/load",
+      "name": "@neon-rs/load",
+      "installed_alias": "@neon-rs/load",
+      "version": "0.0.4",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_neon-rs_load-0.0.4/LICENSE",
+          "sha256": "dc1649629e747f001580439e048f829be39d4cd3683ac2a85f25f7670d16c220",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "dc1649629e747f001580439e048f829be39d4cd3683ac2a85f25f7670d16c220"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/@types/node",
+      "name": "@types/node",
+      "installed_alias": "@types/node",
+      "version": "26.6.3",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_types_node-26.6.3/LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/@types/ws",
+      "name": "@types/ws",
+      "installed_alias": "@types/ws",
+      "version": "8.18.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/_types_ws-8.18.2/LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/accepts",
+      "name": "accepts",
+      "installed_alias": "accepts",
+      "version": "2.0.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/accepts-2.0.0/LICENSE",
+          "sha256": "71f83c4c0621102a56d9853812777b85751bce7e9726f686f5b056c1f8a4b0e6",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "71f83c4c0621102a56d9853812777b85751bce7e9726f686f5b056c1f8a4b0e6"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/append-field",
+      "name": "append-field",
+      "installed_alias": "append-field",
+      "version": "1.0.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/append-field-1.0.0/LICENSE",
+          "sha256": "fe9a7f8b8afc8cea446e8d65a3bbf9bbe278d96c35320b43e57c47f26e447619",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "fe9a7f8b8afc8cea446e8d65a3bbf9bbe278d96c35320b43e57c47f26e447619"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/body-parser",
+      "name": "body-parser",
+      "installed_alias": "body-parser",
+      "version": "2.4.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/body-parser-2.4.0/LICENSE",
+          "sha256": "23d466b1b134b415b66fa50c6526b4cf3e7b9258554da88d3abb371721e7ce68",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "23d466b1b134b415b66fa50c6526b4cf3e7b9258554da88d3abb371721e7ce68"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/busboy",
+      "name": "busboy",
+      "installed_alias": "busboy",
+      "version": "1.6.0",
+      "declared_licence": "NOASSERTION",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/busboy-1.6.0/LICENSE",
+          "sha256": "d06b5d27bbbbe22c36b1fd88406b1208876e2d37d795f5b8eaed951a459a3111",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "d06b5d27bbbbe22c36b1fd88406b1208876e2d37d795f5b8eaed951a459a3111"
+          }
+        }
+      ],
+      "review_flags": [
+        "No effective grant established by this declared licence value"
+      ],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/bytes",
+      "name": "bytes",
+      "installed_alias": "bytes",
+      "version": "3.1.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/bytes-3.1.2/LICENSE",
+          "sha256": "e3b44af066615de2ea48d18d852d0762f18c0b2efcea714fa48a6f729d405b85",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "e3b44af066615de2ea48d18d852d0762f18c0b2efcea714fa48a6f729d405b85"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/call-bind-apply-helpers",
+      "name": "call-bind-apply-helpers",
+      "installed_alias": "call-bind-apply-helpers",
+      "version": "1.0.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/call-bind-apply-helpers-1.0.2/LICENSE",
+          "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/call-bound",
+      "name": "call-bound",
+      "installed_alias": "call-bound",
+      "version": "1.0.4",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/call-bound-1.0.4/LICENSE",
+          "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/clean-css",
+      "name": "clean-css",
+      "installed_alias": "clean-css",
+      "version": "5.3.3",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/clean-css-5.3.3/LICENSE",
+          "sha256": "7b43b9a9057033055cf8a6b4e032f932727e0576db2426303c800d73c2ac733f",
+          "label": "LICENSE",
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "7b43b9a9057033055cf8a6b4e032f932727e0576db2426303c800d73c2ac733f"
+          },
+          "source": {
+            "kind": "exact-package-tarball",
+            "url": "https://registry.npmjs.org/clean-css/-/clean-css-5.3.3.tgz",
+            "path": "package/LICENSE",
+            "retrievedAt": "2026-11-20T22:53:03.930127+00:00",
+            "lockedIntegrity": "sha512-D5J+kHaVb/wKSFcyyV75uCn8fiY4sV38XJoe4CUyGQ+mOU/fMVYUdH1hJC+CJQ5uY3EnW27SbJYS4X8BiLrAFg=="
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/clean-css/5.3.3",
+        "utc": "2026-11-20T22:53:03.930127+00:00",
+        "gitHead": "1f0692ee48a68404e9c7f2764d95b863a891f17b",
+        "declared_license": "MIT",
+        "metadata_sha256": "bf04db6b7df6b9f3d7c6be7c8a2f579e77af8754a9d92f4b743ae983c7e71953",
+        "tarball_url": "https://registry.npmjs.org/clean-css/-/clean-css-5.3.3.tgz",
+        "tarball_sha256": "ff3ac576c8fc823fc250777ab31a06509a849e840b6341e1a972e1469bdc79a0",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/clean-css-5.3.3-package.json",
+          "sha256": "92530c40adb9a95b692f4b8c2910e20801131e0b444be7b3e68b020b8af6a91a"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/content-disposition",
+      "name": "content-disposition",
+      "installed_alias": "content-disposition",
+      "version": "2.0.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/content-disposition-2.0.1/LICENSE",
+          "sha256": "bd47ce7b88c7759630d1e2b9fcfa170a0f1fde522be09e13fb1581a79d090400",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "bd47ce7b88c7759630d1e2b9fcfa170a0f1fde522be09e13fb1581a79d090400"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/content-type",
+      "name": "content-type",
+      "installed_alias": "content-type",
+      "version": "2.1.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/content-type-2.1.0/LICENSE",
+          "sha256": "257aed98914108e91a337912727b6a802eef218248507f74b76faffaff517a38",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "257aed98914108e91a337912727b6a802eef218248507f74b76faffaff517a38"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/cookie",
+      "name": "cookie",
+      "installed_alias": "cookie",
+      "version": "0.7.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/cookie-0.7.2/LICENSE",
+          "sha256": "c02110eedc16c7114f1a9bdc026c65626ce1d9c7e27fd51a8e0feee8a48a6858",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "c02110eedc16c7114f1a9bdc026c65626ce1d9c7e27fd51a8e0feee8a48a6858"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/cookie-parser",
+      "name": "cookie-parser",
+      "installed_alias": "cookie-parser",
+      "version": "1.4.7",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/cookie-parser-1.4.7/LICENSE",
+          "sha256": "5ef9942b81ff899615cea44743ff3bb8d9048b4975ba6bbf3f8b719a901ba56a",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "5ef9942b81ff899615cea44743ff3bb8d9048b4975ba6bbf3f8b719a901ba56a"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/cookie-signature",
+      "name": "cookie-signature",
+      "installed_alias": "cookie-signature",
+      "version": "1.0.6",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/cookie-signature-1.0.6/README-LICENSE.txt",
+          "sha256": "c0a936e4727a7503020745eaf063acffbb81291fcfd21a0cd8db4b4fce95d902",
+          "label": "README-LICENSE.txt",
+          "source": {
+            "kind": "locked-tarball-readme-license-section",
+            "path": "Readme.md",
+            "extraction": "From ## License through end of README; verbatim bytes."
+          },
+          "installedSource": {
+            "path": "Readme.md",
+            "sha256": "1621ed10d0b2f865eb8608e0474a356cf7a9737a384b6593b61b30a9f6e50366"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/cookie-signature/1.0.6",
+        "utc": "2026-11-13T14:31:52.828750+00:00",
+        "gitHead": "391b56cf44d88c493491b7e3fc53208cfb976d2a",
+        "declared_license": "MIT",
+        "metadata_sha256": "ccccaf305fdc5982ae4fce87d534bf920202541103bb9df5523a3a2ff0795d10",
+        "tarball_url": "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz",
+        "tarball_sha256": "89f345e24abee506e690eb6ff5bd1973957f916cba72b2a224ab2355544d5313",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/cookie-signature-1.0.6-package.json",
+          "sha256": "ab66777a673ae096d6b5aa51b5edb46b84e6fcd85dc03358c35576e3df0464f5"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/debug",
+      "name": "debug",
+      "installed_alias": "debug",
+      "version": "4.4.3",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/debug-4.4.3/LICENSE",
+          "sha256": "3a61c6c96caf5c1d9b623fb9b04c822b783dfcb78aa7e49c76a3f643e6ed7f95",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "3a61c6c96caf5c1d9b623fb9b04c822b783dfcb78aa7e49c76a3f643e6ed7f95"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/depd",
+      "name": "depd",
+      "installed_alias": "depd",
+      "version": "2.0.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/depd-2.0.0/LICENSE",
+          "sha256": "bd134b41da59e452fb5a1d366b660886f741c87c2bf9428e93764c419fbc40f5",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "bd134b41da59e452fb5a1d366b660886f741c87c2bf9428e93764c419fbc40f5"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/detect-libc",
+      "name": "detect-libc",
+      "installed_alias": "detect-libc",
+      "version": "2.0.2",
+      "declared_licence": "Apache-2.0",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/detect-libc-2.0.2/LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/dotenv",
+      "name": "dotenv",
+      "installed_alias": "dotenv",
+      "version": "18.0.10",
+      "declared_licence": "BSD-2-Clause",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/dotenv-18.0.10/LICENSE",
+          "sha256": "74b629b24865e1e83c5277ee84590b7937644d6fd959d0c7bdce758676cd2ced",
+          "label": "LICENSE",
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "74b629b24865e1e83c5277ee84590b7937644d6fd959d0c7bdce758676cd2ced"
+          },
+          "source": {
+            "kind": "exact-package-tarball",
+            "url": "https://registry.npmjs.org/dotenv/-/dotenv-18.0.10.tgz",
+            "path": "package/LICENSE",
+            "retrievedAt": "2026-11-20T22:53:03.930788+00:00",
+            "lockedIntegrity": "sha512-89FAA1xchzK2mxVWdr5F/0rldwiueXs6zJM86rO66EzekR1iBdiXRthyG+m5GvkJaFH3C2LESzamTkgndmLT2A=="
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/dotenv/18.0.10",
+        "utc": "2026-11-20T22:53:03.930788+00:00",
+        "gitHead": "7ed8f363671d3d2027b52cdce4b72b0004d0411a",
+        "declared_license": "BSD-2-Clause",
+        "metadata_sha256": "5e2f921ed1aa43d5441e04bea773fc10739537fc65496d45c318265a87a4dc09",
+        "tarball_url": "https://registry.npmjs.org/dotenv/-/dotenv-18.0.10.tgz",
+        "tarball_sha256": "20a0bc8a1cf06b168161a943ddb0ec557482af479dfa3023db2118399ec0a3b7",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/dotenv-18.0.10-package.json",
+          "sha256": "99b0931dcb49682a781c9759dce5dd8f37f71a9c52fe8f74ed6f2d91814b7d18"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/dunder-proto",
+      "name": "dunder-proto",
+      "installed_alias": "dunder-proto",
+      "version": "1.0.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/dunder-proto-1.0.1/LICENSE",
+          "sha256": "2b770a704c15de238c3f622b01b0044ddd60b49ee30608ea6991ebf19db7a7a1",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "2b770a704c15de238c3f622b01b0044ddd60b49ee30608ea6991ebf19db7a7a1"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/ee-first",
+      "name": "ee-first",
+      "installed_alias": "ee-first",
+      "version": "1.1.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/ee-first-1.1.1/LICENSE",
+          "sha256": "965ef284f7f4c176842ec2e87fa13e79feed777d56d7a21a5a3b38f1bb6dc288",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "965ef284f7f4c176842ec2e87fa13e79feed777d56d7a21a5a3b38f1bb6dc288"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/ejs",
+      "name": "ejs",
+      "installed_alias": "ejs",
+      "version": "7.0.2",
+      "declared_licence": "Apache-2.0",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/ejs-7.0.2/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "label": "LICENSE",
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+          },
+          "source": {
+            "kind": "exact-package-tarball",
+            "url": "https://registry.npmjs.org/ejs/-/ejs-7.0.2.tgz",
+            "path": "package/LICENSE",
+            "retrievedAt": "2026-11-20T22:53:03.931988+00:00",
+            "lockedIntegrity": "sha512-LcDSEP6Oclb9sTiSyG0MpG0RuKvLDRxCOOt+2sIk+kdk1rMkFU8SRnT0qaNt5zvU0LOV1YXXOvIoZL/sKwabvw=="
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/ejs/7.0.2",
+        "utc": "2026-11-20T22:53:03.931988+00:00",
+        "gitHead": null,
+        "declared_license": "Apache-2.0",
+        "metadata_sha256": "3337cb15d508598e22dd1525e4eacab3fba2f527cf5b00f1f368f40409b79320",
+        "tarball_url": "https://registry.npmjs.org/ejs/-/ejs-7.0.2.tgz",
+        "tarball_sha256": "1e77def2bb9a66761aded08e3354b02d92f1b15e791596fd74992fd7bef34adf",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/ejs-7.0.2-package.json",
+          "sha256": "1829861404632c4e4d13e754b76f2703d837460569c46806ef6abcb97f00ff2c"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/encodeurl",
+      "name": "encodeurl",
+      "installed_alias": "encodeurl",
+      "version": "2.0.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/encodeurl-2.0.0/LICENSE",
+          "sha256": "7585ea7bba616ccbbe43cb54ecb67956688c3c5641bb84f3099a652a73193afe",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "7585ea7bba616ccbbe43cb54ecb67956688c3c5641bb84f3099a652a73193afe"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/es-define-property",
+      "name": "es-define-property",
+      "installed_alias": "es-define-property",
+      "version": "1.0.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/es-define-property-1.0.1/LICENSE",
+          "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/es-errors",
+      "name": "es-errors",
+      "installed_alias": "es-errors",
+      "version": "1.3.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/es-errors-1.3.0/LICENSE",
+          "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/es-object-atoms",
+      "name": "es-object-atoms",
+      "installed_alias": "es-object-atoms",
+      "version": "1.1.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/es-object-atoms-1.1.2/LICENSE",
+          "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/escape-html",
+      "name": "escape-html",
+      "installed_alias": "escape-html",
+      "version": "1.0.3",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/escape-html-1.0.3/LICENSE",
+          "sha256": "255aa557a1f55224ce522f311629c0bf20854740a67955cefd798fbd1d3d1ded",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "255aa557a1f55224ce522f311629c0bf20854740a67955cefd798fbd1d3d1ded"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/etag",
+      "name": "etag",
+      "installed_alias": "etag",
+      "version": "1.8.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/etag-1.8.1/LICENSE",
+          "sha256": "a7996721249a136fbcfc1c201bcb5f414f38a701d4a24f28abe65e16cfcce813",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "a7996721249a136fbcfc1c201bcb5f414f38a701d4a24f28abe65e16cfcce813"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/express",
+      "name": "express",
+      "installed_alias": "express",
+      "version": "5.3.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/express-5.3.0/LICENSE",
+          "sha256": "95a5762890e5c1c9808921cef095661fc482c5e1f0bba31446ac85595df6237c",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "95a5762890e5c1c9808921cef095661fc482c5e1f0bba31446ac85595df6237c"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/express-rate-limit",
+      "name": "express-rate-limit",
+      "installed_alias": "express-rate-limit",
+      "version": "8.7.5",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/express-rate-limit-8.7.5/license",
+          "sha256": "a752c164b45840ef677e68c738aefabfd665ee9f112ada4538761301a97118b0",
+          "label": "license",
+          "installedSource": {
+            "path": "license",
+            "sha256": "a752c164b45840ef677e68c738aefabfd665ee9f112ada4538761301a97118b0"
+          },
+          "source": {
+            "kind": "exact-package-tarball",
+            "url": "https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-8.7.5.tgz",
+            "path": "package/license",
+            "retrievedAt": "2026-11-20T22:53:04.514493+00:00",
+            "lockedIntegrity": "sha512-wi+v38cx2EqD0JnhE/e74o5tFqKWUOAPFJIgyEiqJ8v2MNpoOAA3kI2hXYOI+YM+HE5yqbdAlVxm2GqOIeYOgA=="
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/express-rate-limit/8.7.5",
+        "utc": "2026-11-20T22:53:04.514493+00:00",
+        "gitHead": "5e654520b14fbf42e0b56de8f81c83ce46a0b594",
+        "declared_license": "MIT",
+        "metadata_sha256": "0f95b4ba5758310164af24d2ae11bee99814c8b02486f63e43c4ce07b2fc3727",
+        "tarball_url": "https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-8.7.5.tgz",
+        "tarball_sha256": "f998c91ce2809930ac09f862af08853367ad4e9867c577866fb74ae02ad04042",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/express-rate-limit-8.7.5-package.json",
+          "sha256": "4192b1ea37e1d0de45d7be805c0550ba85563b02324858bd972939c8849d87f0"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/express/node_modules/cookie-signature",
+      "name": "cookie-signature",
+      "installed_alias": "cookie-signature",
+      "version": "1.2.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/express_node_modules_cookie-signature-1.2.2/LICENSE",
+          "sha256": "0dd4e47333485760cf8c265db5a5e24ae8d7401064c6f2e19793ee81a5bef42f",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "0dd4e47333485760cf8c265db5a5e24ae8d7401064c6f2e19793ee81a5bef42f"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/finalhandler",
+      "name": "finalhandler",
+      "installed_alias": "finalhandler",
+      "version": "2.1.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/finalhandler-2.1.1/LICENSE",
+          "sha256": "47dcccf62bf40469d23849b0b1dc8df9fc91bce219b880c638d4dc4596e6b5cf",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "47dcccf62bf40469d23849b0b1dc8df9fc91bce219b880c638d4dc4596e6b5cf"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/forwarded",
+      "name": "forwarded",
+      "installed_alias": "forwarded",
+      "version": "0.2.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/forwarded-0.2.0/LICENSE",
+          "sha256": "bd47ce7b88c7759630d1e2b9fcfa170a0f1fde522be09e13fb1581a79d090400",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "bd47ce7b88c7759630d1e2b9fcfa170a0f1fde522be09e13fb1581a79d090400"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/fresh",
+      "name": "fresh",
+      "installed_alias": "fresh",
+      "version": "2.0.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/fresh-2.0.0/LICENSE",
+          "sha256": "a0ec0dab16b3666f24950f86d257930ac2ad475557b4bfe245620e0817d8a45d",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "a0ec0dab16b3666f24950f86d257930ac2ad475557b4bfe245620e0817d8a45d"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/function-bind",
+      "name": "function-bind",
+      "installed_alias": "function-bind",
+      "version": "1.1.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/function-bind-1.1.2/LICENSE",
+          "sha256": "773e131a7684726005a7e4688a80b4620033bc08499bc1404dd1a1eb3bca725e",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "773e131a7684726005a7e4688a80b4620033bc08499bc1404dd1a1eb3bca725e"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/get-intrinsic",
+      "name": "get-intrinsic",
+      "installed_alias": "get-intrinsic",
+      "version": "1.3.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/get-intrinsic-1.3.0/LICENSE",
+          "sha256": "39c5ec504cf6bd5cd782a7c695828e09189df79f5d94840e4f08feb97b9fd416",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "39c5ec504cf6bd5cd782a7c695828e09189df79f5d94840e4f08feb97b9fd416"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/get-proto",
+      "name": "get-proto",
+      "installed_alias": "get-proto",
+      "version": "1.0.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/get-proto-1.0.1/LICENSE",
+          "sha256": "be46ce1e3b0479af9ce82d22b465a6d7d2ff084fca0aaf3d54172da2b5eb5781",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "be46ce1e3b0479af9ce82d22b465a6d7d2ff084fca0aaf3d54172da2b5eb5781"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/gopd",
+      "name": "gopd",
+      "installed_alias": "gopd",
+      "version": "1.2.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/gopd-1.2.0/LICENSE",
+          "sha256": "d90bf0a089da4cf43d644ed240a0b3825dcdb705e64e38371d56995a4cc9e4c5",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "d90bf0a089da4cf43d644ed240a0b3825dcdb705e64e38371d56995a4cc9e4c5"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/has-symbols",
+      "name": "has-symbols",
+      "installed_alias": "has-symbols",
+      "version": "1.1.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/has-symbols-1.1.0/LICENSE",
+          "sha256": "206c1adcf206dc0031b11232f5b054ec5f1662407ab1ca415247921cab2068ab",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "206c1adcf206dc0031b11232f5b054ec5f1662407ab1ca415247921cab2068ab"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/hasown",
+      "name": "hasown",
+      "installed_alias": "hasown",
+      "version": "2.0.4",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/hasown-2.0.4/LICENSE",
+          "sha256": "bf9b0d665be2a689851eea667ca9f42066ea1d903b38349c51e6a44b2577680a",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "bf9b0d665be2a689851eea667ca9f42066ea1d903b38349c51e6a44b2577680a"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/helmet",
+      "name": "helmet",
+      "installed_alias": "helmet",
+      "version": "8.3.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/helmet-8.3.0/LICENSE",
+          "sha256": "dd282ebd50392cbba041f6f5a4766a28f01a4ee89ea237cd7a7badc3d7871dc8",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "dd282ebd50392cbba041f6f5a4766a28f01a4ee89ea237cd7a7badc3d7871dc8"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/http-errors",
+      "name": "http-errors",
+      "installed_alias": "http-errors",
+      "version": "2.0.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/http-errors-2.0.1/LICENSE",
+          "sha256": "dcb94ff9b1e037a847bc20589dc81a1066d041fd4c16deb18b0fa968c66cf395",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "dcb94ff9b1e037a847bc20589dc81a1066d041fd4c16deb18b0fa968c66cf395"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/iconv-lite",
+      "name": "iconv-lite",
+      "installed_alias": "iconv-lite",
+      "version": "0.7.3",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/iconv-lite-0.7.3/LICENSE",
+          "sha256": "ac779f7314c74f232ef847ea86e714abe25cf6eeb5cc97b69451b74e2af6492d",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "ac779f7314c74f232ef847ea86e714abe25cf6eeb5cc97b69451b74e2af6492d"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/inherits",
+      "name": "inherits",
+      "installed_alias": "inherits",
+      "version": "2.0.4",
+      "declared_licence": "ISC",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/inherits-2.0.4/LICENSE",
+          "sha256": "5ffe28e7ade7d8f10d85d5337a73fd793dac5c462fb9a28fbf8c5046c7fbca3b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "5ffe28e7ade7d8f10d85d5337a73fd793dac5c462fb9a28fbf8c5046c7fbca3b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/ip-address",
+      "name": "ip-address",
+      "installed_alias": "ip-address",
+      "version": "10.7.4",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/ip-address-10.7.4/LICENSE",
+          "sha256": "f8d791359a50cbcac82c29cb7b0b1b889b28be76fdd35b8ee33f0f7c8704702a",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "f8d791359a50cbcac82c29cb7b0b1b889b28be76fdd35b8ee33f0f7c8704702a"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/ipaddr.js",
+      "name": "ipaddr.js",
+      "installed_alias": "ipaddr.js",
+      "version": "1.9.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/ipaddr.js-1.9.1/LICENSE",
+          "sha256": "62568a2d1337b77171ecca9db10579163446de1ba6151678e81f06cdc199971b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "62568a2d1337b77171ecca9db10579163446de1ba6151678e81f06cdc199971b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/is-promise",
+      "name": "is-promise",
+      "installed_alias": "is-promise",
+      "version": "4.0.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/is-promise-4.0.0/LICENSE",
+          "sha256": "44191656d296391e0ec97e32f5385f0d02b6f2992694082d22ea04ba0f66f9e4",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "44191656d296391e0ec97e32f5385f0d02b6f2992694082d22ea04ba0f66f9e4"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/js-base64",
+      "name": "js-base64",
+      "installed_alias": "js-base64",
+      "version": "3.9.4",
+      "declared_licence": "BSD-3-Clause",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/js-base64-3.9.4/LICENSE.md",
+          "sha256": "fcf06aacb36ee29237110d6b3a9fbd6296e85ad4324263abf5f8a5cfb5706c81",
+          "label": "LICENSE.md",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE.md",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE.md",
+            "sha256": "fcf06aacb36ee29237110d6b3a9fbd6296e85ad4324263abf5f8a5cfb5706c81"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/jsqr",
+      "name": "jsqr",
+      "installed_alias": "jsqr",
+      "version": "1.4.0",
+      "declared_licence": "Apache-2.0",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/jsqr-1.4.0/LICENSE",
+          "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/libsql",
+      "name": "libsql",
+      "installed_alias": "libsql",
+      "version": "0.5.29",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/libsql-0.5.29/LICENSE",
+          "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "81680d013513cf3003b03b7074948609dfb90dfeca0b8292b3c16e0172a189f4"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/math-intrinsics",
+      "name": "math-intrinsics",
+      "installed_alias": "math-intrinsics",
+      "version": "1.1.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/math-intrinsics-1.1.0/LICENSE",
+          "sha256": "2b770a704c15de238c3f622b01b0044ddd60b49ee30608ea6991ebf19db7a7a1",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "2b770a704c15de238c3f622b01b0044ddd60b49ee30608ea6991ebf19db7a7a1"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/media-typer",
+      "name": "media-typer",
+      "installed_alias": "media-typer",
+      "version": "1.1.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/media-typer-1.1.1/LICENSE",
+          "sha256": "bd47ce7b88c7759630d1e2b9fcfa170a0f1fde522be09e13fb1581a79d090400",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "bd47ce7b88c7759630d1e2b9fcfa170a0f1fde522be09e13fb1581a79d090400"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/merge-descriptors",
+      "name": "merge-descriptors",
+      "installed_alias": "merge-descriptors",
+      "version": "2.0.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/merge-descriptors-2.0.0/license",
+          "sha256": "70b126abc64d7ea06e1243349073935caa16fa47a41a571773ccf0b350b1d574",
+          "label": "license",
+          "source": {
+            "kind": "installed-package",
+            "path": "license",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "license",
+            "sha256": "70b126abc64d7ea06e1243349073935caa16fa47a41a571773ccf0b350b1d574"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/mime-db",
+      "name": "mime-db",
+      "installed_alias": "mime-db",
+      "version": "1.54.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/mime-db-1.54.0/LICENSE",
+          "sha256": "cc1dfd4dafa27271e8212cd3b274eeb3f262e40a6fdab36ddc3f9696f706f58b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "cc1dfd4dafa27271e8212cd3b274eeb3f262e40a6fdab36ddc3f9696f706f58b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/mime-types",
+      "name": "mime-types",
+      "installed_alias": "mime-types",
+      "version": "3.0.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/mime-types-3.0.2/LICENSE",
+          "sha256": "71f83c4c0621102a56d9853812777b85751bce7e9726f686f5b056c1f8a4b0e6",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "71f83c4c0621102a56d9853812777b85751bce7e9726f686f5b056c1f8a4b0e6"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/ms",
+      "name": "ms",
+      "installed_alias": "ms",
+      "version": "2.1.3",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/ms-2.1.3/license.md",
+          "sha256": "1662fae9b5314d11cf51284e2dcd1f006a354f7343f08712a730fcff9a359801",
+          "label": "license.md",
+          "source": {
+            "kind": "installed-package",
+            "path": "license.md",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "license.md",
+            "sha256": "1662fae9b5314d11cf51284e2dcd1f006a354f7343f08712a730fcff9a359801"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/multer",
+      "name": "multer",
+      "installed_alias": "multer",
+      "version": "2.5.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/multer-2.5.0/LICENSE",
+          "sha256": "cc8f87aafbf72a74bafed2a8f6925d8895e1c716b36bd3df7ee0c46be54e87bb",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "cc8f87aafbf72a74bafed2a8f6925d8895e1c716b36bd3df7ee0c46be54e87bb"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/multer/node_modules/media-typer",
+      "name": "media-typer",
+      "installed_alias": "media-typer",
+      "version": "0.3.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/multer_node_modules_media-typer-0.3.0/LICENSE",
+          "sha256": "74d8054d56d522bdaa340d3d71130cb204997d523a5292c85ac1264dd77c8d06",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "74d8054d56d522bdaa340d3d71130cb204997d523a5292c85ac1264dd77c8d06"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/multer/node_modules/mime-db",
+      "name": "mime-db",
+      "installed_alias": "mime-db",
+      "version": "1.52.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/multer_node_modules_mime-db-1.52.0/LICENSE",
+          "sha256": "cc1dfd4dafa27271e8212cd3b274eeb3f262e40a6fdab36ddc3f9696f706f58b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "cc1dfd4dafa27271e8212cd3b274eeb3f262e40a6fdab36ddc3f9696f706f58b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/multer/node_modules/mime-types",
+      "name": "mime-types",
+      "installed_alias": "mime-types",
+      "version": "2.1.35",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/multer_node_modules_mime-types-2.1.35/LICENSE",
+          "sha256": "71f83c4c0621102a56d9853812777b85751bce7e9726f686f5b056c1f8a4b0e6",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "71f83c4c0621102a56d9853812777b85751bce7e9726f686f5b056c1f8a4b0e6"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/multer/node_modules/type-is",
+      "name": "type-is",
+      "installed_alias": "type-is",
+      "version": "1.6.18",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/multer_node_modules_type-is-1.6.18/LICENSE",
+          "sha256": "23d466b1b134b415b66fa50c6526b4cf3e7b9258554da88d3abb371721e7ce68",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "23d466b1b134b415b66fa50c6526b4cf3e7b9258554da88d3abb371721e7ce68"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/negotiator",
+      "name": "negotiator",
+      "installed_alias": "negotiator",
+      "version": "1.1.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/negotiator-1.1.0/LICENSE",
+          "sha256": "553d4d20029a24e315b428a1a54a9e109eaa340f2e958a4f50a92362c2c4070b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "553d4d20029a24e315b428a1a54a9e109eaa340f2e958a4f50a92362c2c4070b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/object-inspect",
+      "name": "object-inspect",
+      "installed_alias": "object-inspect",
+      "version": "1.13.4",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/object-inspect-1.13.4/LICENSE",
+          "sha256": "bd40cc437e28a3ad7bef2ad34e6b72e757b182e67bda1acadbab4ef0476f8232",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "bd40cc437e28a3ad7bef2ad34e6b72e757b182e67bda1acadbab4ef0476f8232"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/on-finished",
+      "name": "on-finished",
+      "installed_alias": "on-finished",
+      "version": "2.4.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/on-finished-2.4.1/LICENSE",
+          "sha256": "8089bcc08845ec143e5761f4a101a65b8c792a0dedbfeeb90a15560c0b77f768",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "8089bcc08845ec143e5761f4a101a65b8c792a0dedbfeeb90a15560c0b77f768"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/once",
+      "name": "once",
+      "installed_alias": "once",
+      "version": "1.4.0",
+      "declared_licence": "ISC",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/once-1.4.0/LICENSE",
+          "sha256": "4ec3d4c66cd87f5c8d8ad911b10f99bf27cb00cdfcff82621956e379186b016b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "4ec3d4c66cd87f5c8d8ad911b10f99bf27cb00cdfcff82621956e379186b016b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/parseurl",
+      "name": "parseurl",
+      "installed_alias": "parseurl",
+      "version": "1.3.3",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/parseurl-1.3.3/LICENSE",
+          "sha256": "11d017c3b9f1ee3f44caf7203035f0461d5b57e0db8ce1bc03a9af34fa7d3f6b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "11d017c3b9f1ee3f44caf7203035f0461d5b57e0db8ce1bc03a9af34fa7d3f6b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/path-to-regexp",
+      "name": "path-to-regexp",
+      "installed_alias": "path-to-regexp",
+      "version": "8.4.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/path-to-regexp-8.4.2/LICENSE",
+          "sha256": "4eeb3271453a891df609e5a9f4ee79a68307f730c13417a3bfeffa604ac8cf25",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "4eeb3271453a891df609e5a9f4ee79a68307f730c13417a3bfeffa604ac8cf25"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/promise-limit",
+      "name": "@shopeasy/task-limit",
+      "installed_alias": "promise-limit",
+      "version": "1.0.0",
+      "declared_licence": "UNLICENSED",
+      "kind": "first-party-local",
+      "licence_texts": [],
+      "review_flags": [
+        "No effective grant established by this declared licence value"
+      ],
+      "rights_status": "UNKNOWN",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/proxy-addr",
+      "name": "proxy-addr",
+      "installed_alias": "proxy-addr",
+      "version": "2.0.8",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/proxy-addr-2.0.8/LICENSE",
+          "sha256": "a7996721249a136fbcfc1c201bcb5f414f38a701d4a24f28abe65e16cfcce813",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "a7996721249a136fbcfc1c201bcb5f414f38a701d4a24f28abe65e16cfcce813"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/qrcode-generator",
+      "name": "qrcode-generator",
+      "installed_alias": "qrcode-generator",
+      "version": "2.0.4",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/qrcode-generator-2.0.4/UPSTREAM-LICENSE.txt",
+          "sha256": "3a850fa5f08101db6f40676c2786e10bd2cd5fff7b12ffdf1e0c434d4e49d90c",
+          "label": "UPSTREAM-LICENSE.txt",
+          "source": {
+            "kind": "pinned-upstream-license",
+            "url": "https://raw.githubusercontent.com/kazuhikoarase/qrcode-generator/83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8/LICENSE",
+            "retrievedAt": "2026-11-13T14:35:03.147217+00:00",
+            "gitHead": "83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8",
+            "repository": {
+              "url": "git+https://github.com/kazuhikoarase/qrcode-generator.git",
+              "type": "git"
+            }
+          }
+        },
+        {
+          "file": "third-party/texts/qrcode-generator-2.0.4/qrcode.d.ts-HEADER.txt",
+          "sha256": "db9688e6f6cd81ebd845c97388c64b04b78093c7cfea79b09fb8e9a14a6f980f",
+          "label": "qrcode.d.ts-HEADER.txt",
+          "source": {
+            "kind": "locked-tarball-source-header",
+            "path": "dist/qrcode.d.ts",
+            "extraction": "Initial comment through closing separator; preserves copyright and QR Code trademark notice."
+          },
+          "installedSource": {
+            "path": "dist/qrcode.d.ts",
+            "sha256": "4022c64559ce8370fe753aabb64cfa5ebca968a59dd1e7a3d14b30eee5a4b386"
+          }
+        },
+        {
+          "file": "third-party/texts/qrcode-generator-2.0.4/qrcode.js-HEADER.txt",
+          "sha256": "7bab270ae530f8bd20fe784effd62cd5ad337476b037f8d3e62accc5fa4929e6",
+          "label": "qrcode.js-HEADER.txt",
+          "source": {
+            "kind": "locked-tarball-source-header",
+            "path": "dist/qrcode.js",
+            "extraction": "Initial comment through closing separator; preserves copyright and QR Code trademark notice."
+          },
+          "installedSource": {
+            "path": "dist/qrcode.js",
+            "sha256": "79ec86f82856005b1c887905cfccfcfbec3821ca61c7fd5a952faa5f778f791c"
+          }
+        },
+        {
+          "file": "third-party/texts/qrcode-generator-2.0.4/qrcode.mjs-HEADER.txt",
+          "sha256": "7bab270ae530f8bd20fe784effd62cd5ad337476b037f8d3e62accc5fa4929e6",
+          "label": "qrcode.mjs-HEADER.txt",
+          "source": {
+            "kind": "locked-tarball-source-header",
+            "path": "dist/qrcode.mjs",
+            "extraction": "Initial comment through closing separator; preserves copyright and QR Code trademark notice."
+          },
+          "installedSource": {
+            "path": "dist/qrcode.mjs",
+            "sha256": "ea91d7118a5395289170da848b7c6758b996163bfbccf312591ab65a4911b7c0"
+          }
+        },
+        {
+          "file": "third-party/texts/qrcode-generator-2.0.4/qrcode_SJIS.js-HEADER.txt",
+          "sha256": "50e853cfd3c1d132997a953673bb2237af1bf8689d5253ba9402f009229a8911",
+          "label": "qrcode_SJIS.js-HEADER.txt",
+          "source": {
+            "kind": "locked-tarball-source-header",
+            "path": "dist/qrcode_SJIS.js",
+            "extraction": "Initial comment through closing separator; preserves copyright and QR Code trademark notice."
+          },
+          "installedSource": {
+            "path": "dist/qrcode_SJIS.js",
+            "sha256": "7e911a12dbc45a800d5b991c9e448bce484f1399fc78066b759f8fe0714fb63d"
+          }
+        },
+        {
+          "file": "third-party/texts/qrcode-generator-2.0.4/qrcode_SJIS.mjs-HEADER.txt",
+          "sha256": "50e853cfd3c1d132997a953673bb2237af1bf8689d5253ba9402f009229a8911",
+          "label": "qrcode_SJIS.mjs-HEADER.txt",
+          "source": {
+            "kind": "locked-tarball-source-header",
+            "path": "dist/qrcode_SJIS.mjs",
+            "extraction": "Initial comment through closing separator; preserves copyright and QR Code trademark notice."
+          },
+          "installedSource": {
+            "path": "dist/qrcode_SJIS.mjs",
+            "sha256": "77e30eb5ccf1cfab3f0c1742fd60d3cc6723b238c5238f2cccc24a751fe9bd6b"
+          }
+        },
+        {
+          "file": "third-party/texts/qrcode-generator-2.0.4/qrcode_UTF8.js-HEADER.txt",
+          "sha256": "bd05ee8f6074b5af1af3e74e049c8722358b62ce6ac6743e0cad77511745512b",
+          "label": "qrcode_UTF8.js-HEADER.txt",
+          "source": {
+            "kind": "locked-tarball-source-header",
+            "path": "dist/qrcode_UTF8.js",
+            "extraction": "Initial comment through closing separator; preserves copyright and QR Code trademark notice."
+          },
+          "installedSource": {
+            "path": "dist/qrcode_UTF8.js",
+            "sha256": "e522d64003b332e29271fdce4993ed3ae2934c8947f41654bd324ddcfa2de301"
+          }
+        },
+        {
+          "file": "third-party/texts/qrcode-generator-2.0.4/qrcode_UTF8.mjs-HEADER.txt",
+          "sha256": "bd05ee8f6074b5af1af3e74e049c8722358b62ce6ac6743e0cad77511745512b",
+          "label": "qrcode_UTF8.mjs-HEADER.txt",
+          "source": {
+            "kind": "locked-tarball-source-header",
+            "path": "dist/qrcode_UTF8.mjs",
+            "extraction": "Initial comment through closing separator; preserves copyright and QR Code trademark notice."
+          },
+          "installedSource": {
+            "path": "dist/qrcode_UTF8.mjs",
+            "sha256": "b06a0931c600eb94557c7949af2b0addfbd7fb56928b27859edec50f26919560"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/qrcode-generator/2.0.4",
+        "utc": "2026-11-13T14:31:53.081329+00:00",
+        "gitHead": "83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8",
+        "declared_license": "MIT",
+        "metadata_sha256": "57bc334458e43210fde1afcb26dec1a4403c0374d1918a7751d83d58a5800792",
+        "tarball_url": "https://registry.npmjs.org/qrcode-generator/-/qrcode-generator-2.0.4.tgz",
+        "tarball_sha256": "02e2e18a99a90b02dad940851f59b7c3c5fd1ab79cbdece8595cb06328878159",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/qrcode-generator-2.0.4-package.json",
+          "sha256": "0c8db18ad7f1b9dece93dd87dc0624be938f9b9b21e93c0f78e6e2d194ac10e9"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/qs",
+      "name": "qs",
+      "installed_alias": "qs",
+      "version": "6.17.1",
+      "declared_licence": "BSD-3-Clause",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/qs-6.17.1/LICENSE.md",
+          "sha256": "e7dc37bf662d7f786efcb46c545615e70c1daf458a38385521c63cf6607cdfe1",
+          "label": "LICENSE.md",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE.md",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE.md",
+            "sha256": "e7dc37bf662d7f786efcb46c545615e70c1daf458a38385521c63cf6607cdfe1"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/range-parser",
+      "name": "range-parser",
+      "installed_alias": "range-parser",
+      "version": "1.3.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/range-parser-1.3.0/LICENSE",
+          "sha256": "f655e6291356ec0de7a8f0e69f294961a2cea86678ec94588be1e6a492e278ab",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "f655e6291356ec0de7a8f0e69f294961a2cea86678ec94588be1e6a492e278ab"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/raw-body",
+      "name": "raw-body",
+      "installed_alias": "raw-body",
+      "version": "3.0.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/raw-body-3.0.2/LICENSE",
+          "sha256": "37876d7de8bdf5e5b9b58a697ebc34044624e493e6f49eff5c938e5226dcac6b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "37876d7de8bdf5e5b9b58a697ebc34044624e493e6f49eff5c938e5226dcac6b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/router",
+      "name": "router",
+      "installed_alias": "router",
+      "version": "2.2.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/router-2.2.0/LICENSE",
+          "sha256": "d0bca4e517157b7a6120c085f5fe43a35b90c095e3bbeb9e67f220c608506a16",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "d0bca4e517157b7a6120c085f5fe43a35b90c095e3bbeb9e67f220c608506a16"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/safer-buffer",
+      "name": "safer-buffer",
+      "installed_alias": "safer-buffer",
+      "version": "2.1.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/safer-buffer-2.1.2/LICENSE",
+          "sha256": "4bc935e71be198c67ddf3c2b5fddb195f6edc182bfc155a96a6db61b44b494b9",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "4bc935e71be198c67ddf3c2b5fddb195f6edc182bfc155a96a6db61b44b494b9"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/send",
+      "name": "send",
+      "installed_alias": "send",
+      "version": "1.2.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/send-1.2.1/LICENSE",
+          "sha256": "25a328069fe771f8ed5b6f983ed4b0e6c84b3312ac0f69b28c3d52dc277962c9",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "25a328069fe771f8ed5b6f983ed4b0e6c84b3312ac0f69b28c3d52dc277962c9"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/serve-static",
+      "name": "serve-static",
+      "installed_alias": "serve-static",
+      "version": "2.2.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/serve-static-2.2.1/LICENSE",
+          "sha256": "63b9a188d7d43e64b0558b7115255045b9fe20a5fc3ff483421cb899e7f52bcb",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "63b9a188d7d43e64b0558b7115255045b9fe20a5fc3ff483421cb899e7f52bcb"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/setprototypeof",
+      "name": "setprototypeof",
+      "installed_alias": "setprototypeof",
+      "version": "1.2.0",
+      "declared_licence": "ISC",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/setprototypeof-1.2.0/LICENSE",
+          "sha256": "76d6d1ea0c268da37dd3c961b4fcfb23dee8417fff9e8786d4d44c585b781b69",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "76d6d1ea0c268da37dd3c961b4fcfb23dee8417fff9e8786d4d44c585b781b69"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/side-channel",
+      "name": "side-channel",
+      "installed_alias": "side-channel",
+      "version": "1.1.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/side-channel-1.1.1/LICENSE",
+          "sha256": "cfc3f455254c0af0655cc3ff46a41ed644b67599f6043346169d285bf2b3cf3b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "cfc3f455254c0af0655cc3ff46a41ed644b67599f6043346169d285bf2b3cf3b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/side-channel-list",
+      "name": "side-channel-list",
+      "installed_alias": "side-channel-list",
+      "version": "1.0.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/side-channel-list-1.0.1/LICENSE",
+          "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/side-channel-map",
+      "name": "side-channel-map",
+      "installed_alias": "side-channel-map",
+      "version": "1.0.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/side-channel-map-1.0.1/LICENSE",
+          "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "5e325595b4ea8cfec3802f545b1def5d7b73e4a5b8e9ba63e32a320f67732292"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/side-channel-weakmap",
+      "name": "side-channel-weakmap",
+      "installed_alias": "side-channel-weakmap",
+      "version": "1.0.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/side-channel-weakmap-1.0.2/LICENSE",
+          "sha256": "cfc3f455254c0af0655cc3ff46a41ed644b67599f6043346169d285bf2b3cf3b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "cfc3f455254c0af0655cc3ff46a41ed644b67599f6043346169d285bf2b3cf3b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/source-map",
+      "name": "source-map",
+      "installed_alias": "source-map",
+      "version": "0.6.1",
+      "declared_licence": "BSD-3-Clause",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/source-map-0.6.1/LICENSE",
+          "sha256": "6cb0631f71c7749763fd3dd1d5bee52dd1070ec17f2edc1710079ad070bd2fbd",
+          "label": "LICENSE",
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "6cb0631f71c7749763fd3dd1d5bee52dd1070ec17f2edc1710079ad070bd2fbd"
+          },
+          "source": {
+            "kind": "exact-package-tarball",
+            "url": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+            "path": "package/LICENSE",
+            "retrievedAt": "2026-11-20T22:53:04.433708+00:00",
+            "lockedIntegrity": "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g=="
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/source-map/0.6.1",
+        "utc": "2026-11-20T22:53:04.433708+00:00",
+        "gitHead": "ac518d2f21818146f3310557bd51c13d8cff2ba8",
+        "declared_license": "BSD-3-Clause",
+        "metadata_sha256": "98fb2205f94dd2568317bf7e680ecfddd679d601fc01c85efa343817ece59274",
+        "tarball_url": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+        "tarball_sha256": "bdbca10d17ff5a5802d5acfc7b2f22f9f9bf587632a95650d3c5f513c7092b86",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/source-map-0.6.1-package.json",
+          "sha256": "3fdebd9f5c0107bcf7b73e0d17e0147042bcfb74884106e4428afbf17171ef06"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/statuses",
+      "name": "statuses",
+      "installed_alias": "statuses",
+      "version": "2.0.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/statuses-2.0.2/LICENSE",
+          "sha256": "512cfa4d5e7a7569c7ae4dd95241cb6ae2aaf648ef9ebd080c01bd24868d26e9",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "512cfa4d5e7a7569c7ae4dd95241cb6ae2aaf648ef9ebd080c01bd24868d26e9"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/streamsearch",
+      "name": "streamsearch",
+      "installed_alias": "streamsearch",
+      "version": "1.1.0",
+      "declared_licence": "NOASSERTION",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/streamsearch-1.1.0/LICENSE",
+          "sha256": "7c28463b739e2e73a49bf127d0bda427f8c55f0b37365a044c3c3f254716118b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "7c28463b739e2e73a49bf127d0bda427f8c55f0b37365a044c3c3f254716118b"
+          }
+        }
+      ],
+      "review_flags": [
+        "No effective grant established by this declared licence value"
+      ],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/toidentifier",
+      "name": "toidentifier",
+      "installed_alias": "toidentifier",
+      "version": "1.0.1",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/toidentifier-1.0.1/LICENSE",
+          "sha256": "a832d679750e49ab433626ab196350b89964b60eb0d3edd3341887c7d5f4c128",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "a832d679750e49ab433626ab196350b89964b60eb0d3edd3341887c7d5f4c128"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/type-is",
+      "name": "type-is",
+      "installed_alias": "type-is",
+      "version": "2.1.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/type-is-2.1.0/LICENSE",
+          "sha256": "23d466b1b134b415b66fa50c6526b4cf3e7b9258554da88d3abb371721e7ce68",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "23d466b1b134b415b66fa50c6526b4cf3e7b9258554da88d3abb371721e7ce68"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/typescript",
+      "name": "typescript",
+      "installed_alias": "typescript",
+      "version": "6.0.3",
+      "declared_licence": "Apache-2.0",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/typescript-6.0.3/LICENSE.txt",
+          "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47",
+          "label": "LICENSE.txt",
+          "installedSource": {
+            "path": "LICENSE.txt",
+            "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47"
+          },
+          "source": {
+            "kind": "exact-package-tarball",
+            "url": "https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz",
+            "path": "package/LICENSE.txt",
+            "retrievedAt": "2026-11-20T22:53:04.906514+00:00",
+            "lockedIntegrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw=="
+          }
+        },
+        {
+          "file": "third-party/texts/typescript-6.0.3/ThirdPartyNoticeText.txt",
+          "sha256": "1af3c68039c57e539422da82a4faada506ce6d0ea6f90e0b699d02dbcdb7a90c",
+          "label": "ThirdPartyNoticeText.txt",
+          "installedSource": {
+            "path": "ThirdPartyNoticeText.txt",
+            "sha256": "1af3c68039c57e539422da82a4faada506ce6d0ea6f90e0b699d02dbcdb7a90c"
+          },
+          "source": {
+            "kind": "exact-package-tarball",
+            "url": "https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz",
+            "path": "package/ThirdPartyNoticeText.txt",
+            "retrievedAt": "2026-11-20T22:53:04.906514+00:00",
+            "lockedIntegrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw=="
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": {
+        "metadata_url": "https://registry.npmjs.org/typescript/6.0.3",
+        "utc": "2026-11-20T22:53:04.906514+00:00",
+        "gitHead": "050880ce59e30b356b686bd3144efe24f875ebc8",
+        "declared_license": "Apache-2.0",
+        "metadata_sha256": "c3b095f0ba61c854843c4965598d3d1de8eb8e3d41cfec93c5ffbfd8bde537cc",
+        "tarball_url": "https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz",
+        "tarball_sha256": "33cd0ee1beaa8c9e9d15a9da836c62ddea4c34a42d7c2d349dbc80d94165d22a",
+        "locked_integrity_verified": true,
+        "packageJsonSnapshot": {
+          "file": "third-party/evidence/typescript-6.0.3-package.json",
+          "sha256": "9332e97c30d3e53ed54910b89207ed657fb444066484df6e5b6965bf130865e9"
+        }
+      }
+    },
+    {
+      "lock_path": "node_modules/undici-types",
+      "name": "undici-types",
+      "installed_alias": "undici-types",
+      "version": "8.9.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/undici-types-8.9.0/LICENSE",
+          "sha256": "a6db8096b2707bc0102d256917d4d33f298ba36d8c3f25de067a2b5bb379db27",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "a6db8096b2707bc0102d256917d4d33f298ba36d8c3f25de067a2b5bb379db27"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/unpipe",
+      "name": "unpipe",
+      "installed_alias": "unpipe",
+      "version": "1.0.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/unpipe-1.0.0/LICENSE",
+          "sha256": "1a526fbe8d8577f5a4b1c2821842b55b7c0e18862531c62ae4ce69c9b19b74b6",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "1a526fbe8d8577f5a4b1c2821842b55b7c0e18862531c62ae4ce69c9b19b74b6"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/vary",
+      "name": "vary",
+      "installed_alias": "vary",
+      "version": "1.1.2",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/vary-1.1.2/LICENSE",
+          "sha256": "bd47ce7b88c7759630d1e2b9fcfa170a0f1fde522be09e13fb1581a79d090400",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "bd47ce7b88c7759630d1e2b9fcfa170a0f1fde522be09e13fb1581a79d090400"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/wrappy",
+      "name": "wrappy",
+      "installed_alias": "wrappy",
+      "version": "1.0.2",
+      "declared_licence": "ISC",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/wrappy-1.0.2/LICENSE",
+          "sha256": "4ec3d4c66cd87f5c8d8ad911b10f99bf27cb00cdfcff82621956e379186b016b",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "4ec3d4c66cd87f5c8d8ad911b10f99bf27cb00cdfcff82621956e379186b016b"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    },
+    {
+      "lock_path": "node_modules/ws",
+      "name": "ws",
+      "installed_alias": "ws",
+      "version": "8.22.0",
+      "declared_licence": "MIT",
+      "kind": "external-package",
+      "licence_texts": [
+        {
+          "file": "third-party/texts/ws-8.22.0/LICENSE",
+          "sha256": "2b29dcfe0d6471f7e8c92c5fb38c9f93edee10330937055440192f1832b1ecef",
+          "label": "LICENSE",
+          "source": {
+            "kind": "installed-package",
+            "path": "LICENSE",
+            "basis": "Captured from installed exact name/version; full installed tarball integrity is not recomputed by the generator."
+          },
+          "installedSource": {
+            "path": "LICENSE",
+            "sha256": "2b29dcfe0d6471f7e8c92c5fb38c9f93edee10330937055440192f1832b1ecef"
+          }
+        }
+      ],
+      "review_flags": [],
+      "rights_status": "SOURCE-CHECKED \u2014 retained licence text, not legal clearance",
+      "source": null
+    }
+  ]
+}

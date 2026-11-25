@@ -1,0 +1,80 @@
+{
+  "label": "VERIFIED",
+  "packages": [
+    {
+      "label": "VERIFIED",
+      "package": "clean-css",
+      "version": "5.3.3",
+      "url": "https://registry.npmjs.org/clean-css/-/clean-css-5.3.3.tgz",
+      "retrievedAt": "2026-11-20T22:53:03.930127+00:00",
+      "locked_sri_matches": true,
+      "tarball_sha256": "ff3ac576c8fc823fc250777ab31a06509a849e840b6341e1a972e1469bdc79a0",
+      "full_original_notice_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "label": "VERIFIED",
+      "package": "dotenv",
+      "version": "18.0.10",
+      "url": "https://registry.npmjs.org/dotenv/-/dotenv-18.0.10.tgz",
+      "retrievedAt": "2026-11-20T22:53:03.930788+00:00",
+      "locked_sri_matches": true,
+      "tarball_sha256": "20a0bc8a1cf06b168161a943ddb0ec557482af479dfa3023db2118399ec0a3b7",
+      "full_original_notice_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "label": "VERIFIED",
+      "package": "ejs",
+      "version": "7.0.2",
+      "url": "https://registry.npmjs.org/ejs/-/ejs-7.0.2.tgz",
+      "retrievedAt": "2026-11-20T22:53:03.931988+00:00",
+      "locked_sri_matches": true,
+      "tarball_sha256": "1e77def2bb9a66761aded08e3354b02d92f1b15e791596fd74992fd7bef34adf",
+      "full_original_notice_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "label": "VERIFIED",
+      "package": "express-rate-limit",
+      "version": "8.7.5",
+      "url": "https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-8.7.5.tgz",
+      "retrievedAt": "2026-11-20T22:53:04.514493+00:00",
+      "locked_sri_matches": true,
+      "tarball_sha256": "f998c91ce2809930ac09f862af08853367ad4e9867c577866fb74ae02ad04042",
+      "full_original_notice_files": [
+        "license"
+      ]
+    },
+    {
+      "label": "VERIFIED",
+      "package": "source-map",
+      "version": "0.6.1",
+      "url": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+      "retrievedAt": "2026-11-20T22:53:04.433708+00:00",
+      "locked_sri_matches": true,
+      "tarball_sha256": "bdbca10d17ff5a5802d5acfc7b2f22f9f9bf587632a95650d3c5f513c7092b86",
+      "full_original_notice_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "label": "VERIFIED",
+      "package": "typescript",
+      "version": "6.0.3",
+      "url": "https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz",
+      "retrievedAt": "2026-11-20T22:53:04.906514+00:00",
+      "locked_sri_matches": true,
+      "tarball_sha256": "33cd0ee1beaa8c9e9d15a9da836c62ddea4c34a42d7c2d349dbc80d94165d22a",
+      "full_original_notice_files": [
+        "LICENSE.txt",
+        "ThirdPartyNoticeText.txt"
+      ]
+    }
+  ],
+  "native_review_gates_remain": 9,
+  "scope": "Exact tarball notices and identities checked; this is not authority to sell or a complete native-binary composition audit."
+}

@@ -1,0 +1,20 @@
+{
+  "label": "VERIFIED",
+  "scope": "Original service on synthetic disposable files only",
+  "checks": [
+    {
+      "mode": "database",
+      "returnedSuccess": true,
+      "destinationNowRegularFile": true,
+      "destinationEncryptedMagic": true
+    },
+    {
+      "mode": "directory",
+      "returnedSuccess": true,
+      "destinationNowRegularFile": true,
+      "destinationEncryptedMagic": true,
+      "originalSentinelPathMissing": true
+    }
+  ],
+  "temporaryTreeRemoved": true
+}

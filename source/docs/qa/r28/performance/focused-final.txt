@@ -1,0 +1,256 @@
+TAP version 13
+# Subtest: runtime compiles five readable design sources to two assets around the dynamic shop theme
+ok 1 - runtime compiles five readable design sources to two assets around the dynamic shop theme
+  ---
+  duration_ms: 3.124793
+  type: 'test'
+  ...
+# Subtest: historical CSS fixtures are test-only and are not copied into public assets
+ok 2 - historical CSS fixtures are test-only and are not copied into public assets
+  ---
+  duration_ms: 0.641394
+  type: 'test'
+  ...
+# Subtest: design CSS build command verifies every current versioned layer and its preview equivalent
+ok 3 - design CSS build command verifies every current versioned layer and its preview equivalent
+  ---
+  duration_ms: 0.319767
+  type: 'test'
+  ...
+# Subtest: CSS build is deterministic, preserves all source fingerprints and refuses stale output
+ok 4 - CSS build is deterministic, preserves all source fingerprints and refuses stale output
+  ---
+  duration_ms: 2876.393844
+  type: 'test'
+  ...
+# Subtest: CSS build refuses a runtime cascade that would move the configured theme
+ok 5 - CSS build refuses a runtime cascade that would move the configured theme
+  ---
+  duration_ms: 398.49009
+  type: 'test'
+  ...
+# Subtest: CSS build refuses source symlinks without publishing generated files
+ok 6 - CSS build refuses source symlinks without publishing generated files
+  ---
+  duration_ms: 88.648251
+  type: 'test'
+  ...
+# Subtest: 2027 layered CSS, matching preview versions and accessibility remain intact
+ok 7 - 2027 layered CSS, matching preview versions and accessibility remain intact
+  ---
+  duration_ms: 7.537265
+  type: 'test'
+  ...
+# Subtest: V14 defines a consistent accessible palette and responsive behavior across main surfaces
+ok 8 - V14 defines a consistent accessible palette and responsive behavior across main surfaces
+  ---
+  duration_ms: 0.828613
+  type: 'test'
+  ...
+# Subtest: homepage hero art is separately configurable through Manager branding and safely uploaded
+ok 9 - homepage hero art is separately configurable through Manager branding and safely uploaded
+  ---
+  duration_ms: 1.977686
+  type: 'test'
+  ...
+# Subtest: MFA QR download errors are accessible inline messages, not blocking browser alerts
+ok 10 - MFA QR download errors are accessible inline messages, not blocking browser alerts
+  ---
+  duration_ms: 16.87562
+  type: 'test'
+  ...
+# Subtest: product gallery is unique, keeps the primary first and allows at most six images
+ok 11 - product gallery is unique, keeps the primary first and allows at most six images
+  ---
+  duration_ms: 1.812423
+  type: 'test'
+  ...
+# Subtest: product gallery rejects a seventh distinct image instead of silently truncating it
+ok 12 - product gallery rejects a seventh distinct image instead of silently truncating it
+  ---
+  duration_ms: 0.802499
+  type: 'test'
+  ...
+# Subtest: product images use square cover-cropped styling for cards, detail, thumbnails, cart and manager previews
+ok 13 - product images use square cover-cropped styling for cards, detail, thumbnails, cart and manager previews
+  ---
+  duration_ms: 0.826106
+  type: 'test'
+  ...
+# Subtest: product detail gallery keeps a main image and clickable thumbnail controls
+ok 14 - product detail gallery keeps a main image and clickable thumbnail controls
+  ---
+  duration_ms: 0.922925
+  type: 'test'
+  ...
+# Subtest: Multer and the product route cap file uploads at one cover plus five gallery files
+ok 15 - Multer and the product route cap file uploads at one cover plus five gallery files
+  ---
+  duration_ms: 2.220685
+  type: 'test'
+  ...
+# Subtest: product image primary uniqueness migration is safe to rerun
+ok 16 - product image primary uniqueness migration is safe to rerun
+  ---
+  duration_ms: 0.85569
+  type: 'test'
+  ...
+# Subtest: image deletion checks ownership and last-image protection in one write transaction
+ok 17 - image deletion checks ownership and last-image protection in one write transaction
+  ---
+  duration_ms: 1.971493
+  type: 'test'
+  ...
+# Subtest: image deletion route is Manager-only, CSRF-protected and cleans unreferenced uploaded files
+ok 18 - image deletion route is Manager-only, CSRF-protected and cleans unreferenced uploaded files
+  ---
+  duration_ms: 4.944853
+  type: 'test'
+  ...
+# Subtest: manager product editor has per-image confirmation forms outside the save form
+ok 19 - manager product editor has per-image confirmation forms outside the save form
+  ---
+  duration_ms: 3.471751
+  type: 'test'
+  ...
+# Subtest: image deletion confirmation is not repeated during CSRF token refresh
+ok 20 - image deletion confirmation is not repeated during CSRF token refresh
+  ---
+  duration_ms: 4.770889
+  type: 'test'
+  ...
+# Subtest: active app.css includes gallery and responsive manager dashboard styles
+ok 21 - active app.css includes gallery and responsive manager dashboard styles
+  ---
+  duration_ms: 7.051783
+  type: 'test'
+  ...
+# Subtest: R17 product editor keeps independent stock and SKU fields per option
+ok 22 - R17 product editor keeps independent stock and SKU fields per option
+  ---
+  duration_ms: 1.157391
+  type: 'test'
+  ...
+# Subtest: R17 image gallery retains genuine upload and existing-image deletion actions
+ok 23 - R17 image gallery retains genuine upload and existing-image deletion actions
+  ---
+  duration_ms: 0.306792
+  type: 'test'
+  ...
+# Subtest: R17 catalogue filters submit once and preserve live category and sort inputs
+ok 24 - R17 catalogue filters submit once and preserve live category and sort inputs
+  ---
+  duration_ms: 0.389685
+  type: 'test'
+  ...
+# Subtest: R17 cart retains price, quantity, coupon, removal and checkout actions
+ok 25 - R17 cart retains price, quantity, coupon, removal and checkout actions
+  ---
+  duration_ms: 0.228483
+  type: 'test'
+  ...
+# Subtest: R17 consent remains off by default and can be reset from preferences
+ok 26 - R17 consent remains off by default and can be reset from preferences
+  ---
+  duration_ms: 0.309486
+  type: 'test'
+  ...
+# Subtest: R17 Manager does not display customer storefront footer or cookie controls
+ok 27 - R17 Manager does not display customer storefront footer or cookie controls
+  ---
+  duration_ms: 0.199943
+  type: 'test'
+  ...
+# Subtest: R17 design has responsive and RTL-safe mobile layouts without !important
+ok 28 - R17 design has responsive and RTL-safe mobile layouts without !important
+  ---
+  duration_ms: 1.96731
+  type: 'test'
+  ...
+# Subtest: all 21 shipped CSS/JS files preserve exact bytes over actual plain and gzip HTTP responses
+ok 29 - all 21 shipped CSS/JS files preserve exact bytes over actual plain and gzip HTTP responses
+  ---
+  duration_ms: 378.246726
+  type: 'test'
+  ...
+# Subtest: negotiation respects explicit exclusions, quality, wildcard, identity and malformed values
+ok 30 - negotiation respects explicit exclusions, quality, wildcard, identity and malformed values
+  ---
+  duration_ms: 83.698602
+  type: 'test'
+  ...
+# Subtest: conditional requests use selected-representation validators and preserve date precedence
+ok 31 - conditional requests use selected-representation validators and preserve date precedence
+  ---
+  duration_ms: 141.229534
+  type: 'test'
+  ...
+# Subtest: HEAD exposes the same representation and conditional status without a body
+ok 32 - HEAD exposes the same representation and conditional status without a body
+  ---
+  duration_ms: 35.639787
+  type: 'test'
+  ...
+# Subtest: If-Match and If-Unmodified-Since preconditions are honored without caching errors
+ok 33 - If-Match and If-Unmodified-Since preconditions are honored without caching errors
+  ---
+  duration_ms: 36.348754
+  type: 'test'
+  ...
+# Subtest: Range and If-Range use existing identity static behavior, with Vary and exclusions
+ok 34 - Range and If-Range use existing identity static behavior, with Vary and exclusions
+  ---
+  duration_ms: 32.300982
+  type: 'test'
+  ...
+# Subtest: development responses remain immediately revalidatable
+ok 35 - development responses remain immediately revalidatable
+  ---
+  duration_ms: 42.463934
+  type: 'test'
+  ...
+# Subtest: literal allowlist excludes HTML, personal, error, CSRF and other file types
+ok 36 - literal allowlist excludes HTML, personal, error, CSRF and other file types
+  ---
+  duration_ms: 37.548066
+  type: 'test'
+  ...
+# Subtest: invalid, encoded, nested and nonexistent paths preserve safe static/404 fallback
+ok 37 - invalid, encoded, nested and nonexistent paths preserve safe static/404 fallback
+  ---
+  duration_ms: 34.438474
+  type: 'test'
+  ...
+# Subtest: file and directory symlinks are refused even after warming the public cache
+ok 38 - file and directory symlinks are refused even after warming the public cache
+  ---
+  duration_ms: 31.400484
+  type: 'test'
+  ...
+# Subtest: cache invalidates changes, same-size replacement, deletion and recreation
+ok 39 - cache invalidates changes, same-size replacement, deletion and recreation
+  ---
+  duration_ms: 42.679989
+  type: 'test'
+  ...
+# Subtest: oversized files bypass compression and reject identity exclusion without caching
+ok 40 - oversized files bypass compression and reject identity exclusion without caching
+  ---
+  duration_ms: 37.421483
+  type: 'test'
+  ...
+# Subtest: bounded-cache pressure and concurrent cold loads retain exact bytes and no encoding lies
+ok 41 - bounded-cache pressure and concurrent cold loads retain exact bytes and no encoding lies
+  ---
+  duration_ms: 498.76462
+  type: 'test'
+  ...
+1..41
+# tests 41
+# suites 0
+# pass 41
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5354.049818

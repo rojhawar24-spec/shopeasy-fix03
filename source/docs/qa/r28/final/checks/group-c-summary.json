@@ -1,0 +1,117 @@
+{
+  "utc": "2026-11-22T23:06:37.293870+00:00",
+  "label": "VERIFIED",
+  "phase": "group-c",
+  "node_runtime": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+  "results": [
+    {
+      "check": "build",
+      "command": [
+        "npm",
+        "run",
+        "build:cloudflare"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-build.json"
+    },
+    {
+      "check": "syntax",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-syntax.json"
+    },
+    {
+      "check": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-lint.json"
+    },
+    {
+      "check": "types",
+      "command": [
+        "npm",
+        "run",
+        "typecheck:core"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-types.json"
+    },
+    {
+      "check": "static",
+      "command": [
+        "npm",
+        "run",
+        "audit:static"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-static.json"
+    },
+    {
+      "check": "preflight",
+      "command": [
+        "npm",
+        "run",
+        "preflight:release"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-preflight.json"
+    },
+    {
+      "check": "templates",
+      "command": [
+        "node",
+        "scripts/template-audit.mjs"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-templates.json"
+    },
+    {
+      "check": "tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-tests.json"
+    },
+    {
+      "check": "notices",
+      "command": [
+        "npm",
+        "run",
+        "licenses:generate"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-notices.json"
+    },
+    {
+      "check": "production-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--omit=dev",
+        "--json"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-production-advisories.json"
+    },
+    {
+      "check": "all-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--json"
+      ],
+      "exit_code": 0,
+      "evidence": "group-c-all-advisories.json"
+    }
+  ]
+}

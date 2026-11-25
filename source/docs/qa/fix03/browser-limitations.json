@@ -1,0 +1,37 @@
+{
+  "classification": "BLOCKED",
+  "raw_harness_status": "FAIL at browser startup; not an application assertion failure",
+  "ui_checks_executed": 0,
+  "axe_scans_executed": 0,
+  "screenshots_created": 0,
+  "pinned_browser": {
+    "evidence": "browser-final/browser-results.json",
+    "cause": "Pinned executable missing; browser-launch-diagnostic.txt"
+  },
+  "existing_system_browser": {
+    "evidence": "browser-final-explicit/browser-results.json",
+    "cause": "TargetClosedError; socket() failed: Operation not permitted (1); browser-explicit-launch-diagnostic.txt"
+  },
+  "requested_matrix": {
+    "locales": [
+      "en",
+      "nl",
+      "fr",
+      "ar",
+      "ckb"
+    ],
+    "widths": [
+      320,
+      360,
+      390,
+      768,
+      1024,
+      1280,
+      1440,
+      1920
+    ],
+    "cart_drawer": true,
+    "email": "simulated"
+  },
+  "interpretation": "Zero recorded axe violations means no scans ran; it is not an accessibility pass."
+}

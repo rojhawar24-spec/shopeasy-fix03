@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en-GB" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="ShopEasy E2 design preview. Sample products and prices only; no orders are processed.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>ShopEasy — Research 2027 storefront preview</title>
+
+  <link rel="stylesheet" href="./public/css/design-foundation.min.css?v=2027-r28">
+  
+  
+  
+  <link rel="stylesheet" href="./public/css/design-polish.min.css?v=2027-r28.fix03">
+  <script>if(new URLSearchParams(location.search).get("theme")==="dark"){document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}</script>
+</head>
+<body class="is-storefront-app" data-design-version="app-e2">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="announcement"><div class="container announcement-inner"><div class="announcement-message"><span>Cash on delivery and card</span><span class="announcement-divider" aria-hidden="true">·</span><span>Clear pricing</span></div><div class="announcement-tools"><div class="language-switch"><label class="sr-only" for="preview-language">Language</label><select id="preview-language" aria-label="Language"><option>English</option><option>کوردی (سۆرانی)</option><option>العربية</option><option>Nederlands</option></select></div><button type="button" class="theme-toggle theme-toggle-inline" data-design-preview-theme aria-label="Switch to dark mode" aria-pressed="false">☾</button></div></div></div>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="#top" aria-label="ShopEasy home"><img class="brand-logo" src="./public/assets/logo.svg" alt="" width="38" height="38"><span class="brand-word">ShopEasy</span></a>
+      <div class="search-box storefront-search" data-search-box><form id="preview-search-form" class="search preview-search-form" action="#products" method="get" role="search"><span class="search-icon" aria-hidden="true">⌕</span><input data-search-input name="search" autocomplete="off" aria-label="Search sample products" placeholder="Search products, categories and more…"><button type="submit" aria-label="Search">→</button><button id="preview-clear-search" type="button" aria-label="Clear search" hidden>×</button></form></div>
+      <nav class="nav-links" data-nav aria-label="Primary navigation" id="site-navigation"><a href="#products">Shop</a><a href="#categories">Categories</a><a href="#stories">Stories</a><a href="#account">Account</a><a class="cart-nav" href="#cart">Bag <b>2</b></a></nav>
+      <button type="button" class="storefront-search-toggle" data-search-toggle aria-expanded="false" aria-controls="mobile-storefront-search" aria-label="Open search"><span aria-hidden="true">⌕</span></button>
+      <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation">☰</button>
+    </div>
+    <div class="container mobile-search storefront-mobile-search" id="mobile-storefront-search" data-search-box hidden><form class="search" action="#products" method="get" role="search"><label class="sr-only" for="mobile-storefront-search-input">Search products</label><span class="search-icon" aria-hidden="true">⌕</span><input id="mobile-storefront-search-input" data-search-input name="search" autocomplete="off" placeholder="Search products…"><button type="submit" aria-label="Search">→</button><button type="button" data-search-close aria-label="Close search">×</button></form></div>
+  </header>
+  <main id="main-content" class="storefront-main">
+    <p class="preview-disclaimer container">Static preview only (sample design). These are sample products and EUR prices; no real orders or payments are processed. Before launch: configure your shop name, market, products and policies.</p>
+    <p id="preview-search-status" class="sr-only" role="status" aria-live="polite"></p>
+    <section class="v17-home-hero container" aria-labelledby="homepage-title">
+      <div class="v17-home-copy">
+        <span class="v17-kicker"><span class="v17-kicker-mark" aria-hidden="true"></span> A BETTER WAY TO SHOP</span>
+        <h1 id="homepage-title">Good finds.<br><em>Clear choices.</em></h1>
+        <p class="v17-home-description">Explore a thoughtful collection of everyday essentials. Clear prices, useful details and a straightforward way to order.</p>
+        <div class="v17-home-actions"><a class="v17-button v17-button-primary" href="#products">Shop the collection <span aria-hidden="true">↗</span></a><a class="v17-text-action" href="#categories">Explore categories <span aria-hidden="true">↓</span></a></div>
+        <div class="v17-assurances" aria-label="Store benefits"><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10 4 4 8-8"/></svg> Clear prices</span><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 6h14v10H3zM6 6V4h8v2M6 10h8"/></svg> Payment at delivery</span><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10a7 7 0 1 0 2-5M3 3v4h4M10 6v4l3 2"/></svg> Easy ordering</span></div>
+      </div>
+      <div class="v17-home-visual" aria-label="Featured collection"><a class="v17-spotlight-card" href="#products"><div class="v17-spotlight-image-wrap"><img class="v17-spotlight-image" src="./public/assets/hero-editorial.webp" alt="Editorial arrangement of home and everyday essentials" width="1024" height="1536"><span class="v17-spotlight-label"><span class="v17-image-caption-dot"></span> A selection from the store</span></div><div class="v17-spotlight-details"><div class="v17-spotlight-copy"><span class="v17-mini-label">EDITOR'S PICK</span><h2>The everyday edit</h2><p>Considered pieces for a calmer space.</p></div><div class="v17-spotlight-purchase"><strong>Discover</strong><span class="v17-round-arrow" aria-hidden="true">↗</span></div></div></a><div class="v17-visual-index" aria-hidden="true"><span>01</span><span></span><span>SHOP EASY</span></div></div>
+    </section>
+    <section class="container section-tight" id="categories"><div class="section-head"><div><span class="eyebrow">FIND YOUR NEXT FAVOURITE</span><h2>Shop by category</h2><p>Start with what you need.</p></div><a class="text-link" href="#products">View all <span aria-hidden="true">→</span></a></div><div class="category-grid">
+      <a class="category-card" href="#products"><div class="category-card-media"><img src="./public/assets/preview-backpack.svg" alt="" aria-hidden="true"></div><div class="category-card-overlay"><span class="category-index">01</span><strong>Everyday carry</strong><span>Explore collection →</span></div></a>
+      <a class="category-card" href="#products"><div class="category-card-media"><img src="./public/assets/preview-lamp.svg" alt="" aria-hidden="true"></div><div class="category-card-overlay"><span class="category-index">02</span><strong>Home & living</strong><span>Explore collection →</span></div></a>
+      <a class="category-card" href="#products"><div class="category-card-media"><img src="./public/assets/preview-bottle.svg" alt="" aria-hidden="true"></div><div class="category-card-overlay"><span class="category-index">03</span><strong>Daily essentials</strong><span>Explore collection →</span></div></a>
+    </div></section>
+    <section class="container section" id="products"><div class="section-head"><div><span class="eyebrow">SELECTED FOR EVERY DAY</span><h2>Featured products</h2><p>Useful things, selected with care.</p></div><a class="text-link" href="#products">All products <span aria-hidden="true">→</span></a></div><div class="product-grid product-grid-signature">
+      <article class="product-card product-card-signature"><div class="product-media"><a href="#products" class="product-image" aria-label="View Everyday Backpack"><img src="./public/assets/preview-backpack.svg" alt="Illustrative backpack"><span class="product-image-shade" aria-hidden="true"></span><span class="product-badges"><span class="product-badge featured">Popular</span></span></a><button type="button" class="product-favorite" aria-label="Save Everyday Backpack">♡</button></div><div class="product-card-body"><div class="product-card-topline"><span class="product-category">Accessories</span></div><div class="product-card-main"><div class="product-title-block"><h3><a href="#products">Everyday Backpack</a></h3><p class="product-blurb">A reliable everyday companion.</p></div><div class="price price-premium"><strong>€89.00</strong></div></div><div class="product-card-meta-row"><span class="in-stock">✓ In stock</span></div><div class="product-card-footer"><a class="btn btn-dark btn-small product-main-cta" href="#products">View product <span aria-hidden="true">→</span></a></div></div></article>
+      <article class="product-card product-card-signature"><div class="product-media"><a href="#products" class="product-image" aria-label="View Studio Light"><img src="./public/assets/preview-lamp.svg" alt="Illustrative desk lamp"><span class="product-badges"><span class="product-badge sale">New</span></span></a></div><div class="product-card-body"><div class="product-card-topline"><span class="product-category">Home</span></div><div class="product-card-main"><div class="product-title-block"><h3><a href="#products">Studio Light</a></h3><p class="product-blurb">A little more focus, every day.</p></div><div class="price price-premium"><strong>€59.00</strong></div></div><div class="product-card-meta-row"><span class="in-stock">✓ In stock</span></div><div class="product-card-footer"><a class="btn btn-dark btn-small product-main-cta" href="#products">View product <span aria-hidden="true">→</span></a></div></div></article>
+      <article class="product-card product-card-signature"><div class="product-media"><a href="#products" class="product-image"><img src="./public/assets/preview-bottle.svg" alt="Illustrative reusable bottle"></a></div><div class="product-card-body"><div class="product-card-topline"><span class="product-category">Everyday items · Daily essentials</span></div><div class="product-card-main"><div class="product-title-block"><h3><a href="#products">Reusable Bottle</a></h3><p class="product-blurb">Ready for work, travel and weekends.</p></div><div class="price price-premium"><strong>€32.00</strong></div></div><div class="product-card-meta-row"><span class="in-stock">✓ In stock</span></div><div class="product-card-footer"><a class="btn btn-dark btn-small product-main-cta" href="#products">View product <span aria-hidden="true">→</span></a></div></div></article>
+      <article class="product-card product-card-signature"><div class="product-media"><a href="#products" class="product-image"><img src="./public/assets/preview-cable.svg" alt="Illustrative cable kit"><span class="product-badges"><span class="product-badge">Essentials</span></span></a></div><div class="product-card-body"><div class="product-card-topline"><span class="product-category">Technology</span></div><div class="product-card-main"><div class="product-title-block"><h3><a href="#products">Cable Kit</a></h3><p class="product-blurb">Keep your everyday kit organised.</p></div><div class="price price-premium"><strong>€24.90</strong></div></div><div class="product-card-meta-row"><span class="in-stock">✓ In stock</span></div><div class="product-card-footer"><a class="btn btn-dark btn-small product-main-cta" href="#products">View product <span aria-hidden="true">→</span></a></div></div></article>
+    </div></section>
+    <section class="container trust-row trust-row-four"><div><span class="trust-icon">⌕</span><strong>Easy discovery</strong><span>Search by name or browse categories.</span></div><div><span class="trust-icon">✓</span><strong>Clear pricing</strong><span>Review the price before ordering.</span></div><div><span class="trust-icon">▣</span><strong>Payment at delivery</strong><span>Pay when your order arrives.</span></div><a class="trust-item" href="#information"><span class="trust-icon">↺</span><strong>Clear policies</strong><span>Read shipping and return details before ordering.</span></a></section>
+  </main>
+  <footer class="site-footer" id="information"><div class="container footer-grid"><div class="footer-brand"><strong>ShopEasy</strong><p>A clear and considered way to shop the things you need.</p></div><div class="footer-link-column"><span class="footer-title">Shop</span><a href="#products">All products</a><a href="#categories">Categories</a><a href="#stories">Stories</a><a href="#cart">Cart</a></div><div class="footer-link-column"><span class="footer-title">Information</span><a href="#information">Privacy</a><a href="#information">Shipping &amp; returns</a><a href="#information">Contact</a></div></div><div class="container footer-bottom"><span>© 2026 ShopEasy Store</span><span>Clear prices. Easy ordering.</span></div></footer>
+  <nav class="mobile-bottom-nav" aria-label="Mobile navigation"><a class="active" href="#top"><span class="mobile-nav-icon"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7M5.5 9v12h13V9M9.5 21v-6h5v6"/></svg></span><span class="mobile-nav-label">Home</span></a><a href="#products"><span class="mobile-nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M9 4v5m6-5v5"/></svg></span><span class="mobile-nav-label">Shop</span></a><a href="#categories"><span class="mobile-nav-icon"><svg viewBox="0 0 24 24"><path d="M20.8 8.7c0 5.4-8.8 11-8.8 11s-8.8-5.6-8.8-11A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8.8 2.7Z"/></svg></span><span class="mobile-nav-label">Saved</span></a><a href="#cart"><span class="mobile-nav-icon"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span><span class="mobile-nav-label">Cart</span></a><a href="#account"><span class="mobile-nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg></span><span class="mobile-nav-label">Account</span></a></nav>
+  <script src="./public/js/image-fallback.js?v=2.8.95-r28" defer></script>
+  <script>
+    const nav = document.querySelector('[data-nav]');
+    const menu = document.querySelector('[data-menu-toggle]');
+    menu?.addEventListener('click', (event) => {
+      const open = !nav?.classList.contains('is-open');
+      nav?.classList.toggle('is-open', open);
+      event.currentTarget.setAttribute('aria-expanded', String(open));
+    });
+    const searchToggle = document.querySelector('[data-search-toggle]');
+    const mobileSearch = document.querySelector('#mobile-storefront-search');
+    searchToggle?.addEventListener('click', () => { const open = mobileSearch?.hasAttribute('hidden'); mobileSearch?.toggleAttribute('hidden', !open); searchToggle.setAttribute('aria-expanded', String(open)); });
+    const searchStatus = document.querySelector('#preview-search-status');
+    const form = document.querySelector('#preview-search-form');
+    const clearSearchButton = document.querySelector('#preview-clear-search');
+    const desktopSearchInput = form?.querySelector('[name="search"]');
+    const syncClearSearchButton = () => { if (clearSearchButton) clearSearchButton.hidden = !desktopSearchInput?.value; };
+    desktopSearchInput?.addEventListener('input', syncClearSearchButton);
+    syncClearSearchButton();
+    const runPreviewSearch = (event) => {
+      event.preventDefault();
+      const input = event.currentTarget.querySelector('[name="search"]');
+      const query = String(input?.value || '').trim().toLocaleLowerCase();
+      const cards = [...document.querySelectorAll('#products .product-card')];
+      let visible = 0;
+      for (const card of cards) {
+        const matches = !query || card.textContent.toLocaleLowerCase().includes(query);
+        card.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      if (searchStatus) searchStatus.textContent = query ? `${visible} sample product${visible === 1 ? '' : 's'} found.` : 'Showing all sample products.';
+      document.querySelector('#products')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    form?.addEventListener('submit', runPreviewSearch);
+    document.querySelector('#mobile-storefront-search form')?.addEventListener('submit', runPreviewSearch);
+    document.querySelector('#preview-clear-search')?.addEventListener('click', () => {
+      const input = form?.querySelector('[name="search"]');
+      if (input) { input.value = ''; input.focus(); }
+      syncClearSearchButton();
+      document.querySelectorAll('#products .product-card').forEach(card => { card.hidden = false; });
+      if (searchStatus) searchStatus.textContent = 'Search cleared. Showing all sample products.';
+    });
+    document.querySelector('[data-search-close]')?.addEventListener('click', () => {
+      const input = document.querySelector('#mobile-storefront-search [name="search"]');
+      if (input) input.value = '';
+      mobileSearch?.setAttribute('hidden', '');
+      searchToggle?.setAttribute('aria-expanded', 'false');
+      if (searchStatus) searchStatus.textContent = 'Search closed.';
+    });
+  </script>
+  <script>
+    // Static preview theme control only; the live site uses retail-2027.js.
+    document.querySelector('[data-design-preview-theme]')?.addEventListener('click',function(){
+      const dark=document.documentElement.dataset.theme!=='dark';
+      if(dark)document.documentElement.dataset.theme='dark';else delete document.documentElement.dataset.theme;
+      this.textContent=dark?'☀':'☾';
+      this.setAttribute('aria-pressed',String(dark));
+      this.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
+    });
+  </script>
+</body>
+</html>

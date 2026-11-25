@@ -1,0 +1,14 @@
+✔ backup writer refuses an existing database, unrelated file and directory without moving or replacing them (20.031623ms)
+✔ backup can replace a recognised encrypted pair and preserves that pair after a stream/export failure (63.975044ms)
+✔ actual exclusive destination lock refuses a concurrent writer and is removed after success (23.980037ms)
+✔ asynchronous output stream errors reject through the pipeline and clean the owned lock and temporary files (18.948962ms)
+✔ source database, WAL, SHM and rollback journal names are refused for every configured local source alias (9.148691ms)
+✔ backup CLI refuses source and SQLite sidecar outputs before a backup transaction or publication (530.360274ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 676.580874

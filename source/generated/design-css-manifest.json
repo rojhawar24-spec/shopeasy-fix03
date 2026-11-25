@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "minifier": {
+    "name": "clean-css",
+    "version": "5.3.3",
+    "level": 0,
+    "rebase": false,
+    "inline": "none",
+    "selectorPurging": false
+  },
+  "bundles": [
+    {
+      "output": "public/css/design-foundation.min.css",
+      "sha256": "08dc4207dc536af2a750e23ed82dbcd008db7e21270c7666a1537479c6a0b73c",
+      "inputBytes": 229901,
+      "bytes": 213946,
+      "sources": [
+        {
+          "path": "public/css/app.css",
+          "bytes": 132643,
+          "sha256": "45602396ac5a1dc1d2941ec306a0db2bc29abccd5e7420145e05204342ba9319"
+        },
+        {
+          "path": "public/css/design-tokens.css",
+          "bytes": 3612,
+          "sha256": "2bb30c8bebcc65c39bb02ff13dfdd84048fe90beb77e808347ffdb6a4c171c92"
+        },
+        {
+          "path": "public/css/retail-2027.css",
+          "bytes": 41133,
+          "sha256": "725c18a6b40552db1a27d11009b54ce53f5d576d250764f0ca2358714bd3d835"
+        },
+        {
+          "path": "public/css/editorial-2027.css",
+          "bytes": 52513,
+          "sha256": "e0967e119256af22dd7dd668e7cb57a03964e0655bbf9786c1f883ba962d0872"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "output": "public/css/design-polish.min.css",
+      "sha256": "116bbcf346e3ea49f0a0559eae05601c3452521278312a53038cf4ecc99b409a",
+      "inputBytes": 91410,
+      "bytes": 86094,
+      "sources": [
+        {
+          "path": "public/css/research-polish-2027.css",
+          "bytes": 91410,
+          "sha256": "e2a2db0e484029258177a134370592fe9547630c10444d8fc33f3088db3598b5"
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}

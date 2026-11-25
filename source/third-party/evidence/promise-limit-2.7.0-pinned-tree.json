@@ -1,0 +1,117 @@
+{
+  "sha": "5b911ce33253ec0a7ea9cf079d8c0434efbe3244",
+  "url": "https://api.github.com/repos/featurist/promise-limit/git/trees/5b911ce33253ec0a7ea9cf079d8c0434efbe3244",
+  "tree": [
+    {
+      "path": ".eslintrc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f988ddfa98d700f8e4832598eb3f46cc8913078",
+      "size": 110,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/8f988ddfa98d700f8e4832598eb3f46cc8913078"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86e069bb7a6163f9904f7151b05dbb6b87541ed9",
+      "size": 29,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/86e069bb7a6163f9904f7151b05dbb6b87541ed9"
+    },
+    {
+      "path": ".travis.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "833d09d1499660ba5dad50aec593004ec7b5311f",
+      "size": 38,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/833d09d1499660ba5dad50aec593004ec7b5311f"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32c3ecaf2be5424dbdea9f707982ba977e909f32",
+      "size": 3154,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/32c3ecaf2be5424dbdea9f707982ba977e909f32"
+    },
+    {
+      "path": "example",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c6c5a4b78acef59f78aa03425a58da9a397a0a94",
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/trees/c6c5a4b78acef59f78aa03425a58da9a397a0a94"
+    },
+    {
+      "path": "example/example.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54de5b66078911371a8d050192362d2c17af09e6",
+      "size": 490,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/54de5b66078911371a8d050192362d2c17af09e6"
+    },
+    {
+      "path": "index.d.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df9a8e439ed1f1a9d3e803919e99d89bb2696b99",
+      "size": 1800,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/df9a8e439ed1f1a9d3e803919e99d89bb2696b99"
+    },
+    {
+      "path": "index.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b13beff3219226f09b1b9de91ef5de70f73b470f",
+      "size": 1550,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/b13beff3219226f09b1b9de91ef5de70f73b470f"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "487f9e7fa1dd6fcd6ae046efc7badcd8194be1bf",
+      "size": 66448,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/487f9e7fa1dd6fcd6ae046efc7badcd8194be1bf"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f1aaf68b8559f97f9376952a2d7513e7c9f000b3",
+      "size": 999,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/f1aaf68b8559f97f9376952a2d7513e7c9f000b3"
+    },
+    {
+      "path": "test",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "125f44f3e142865044db474a95198ddc8565b251",
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/trees/125f44f3e142865044db474a95198ddc8565b251"
+    },
+    {
+      "path": "test/max.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4b7beed7e3784f76a493206f2e0d91b22bb34b0",
+      "size": 79,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/c4b7beed7e3784f76a493206f2e0d91b22bb34b0"
+    },
+    {
+      "path": "test/memoryUsageSpec.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "191adeff3394a11311b352e608790f0cdb5daa4f",
+      "size": 1066,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/191adeff3394a11311b352e608790f0cdb5daa4f"
+    },
+    {
+      "path": "test/spec.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7143fcc9ca9f62f43bbead41647ec208b8db0ceb",
+      "size": 7187,
+      "url": "https://api.github.com/repos/featurist/promise-limit/git/blobs/7143fcc9ca9f62f43bbead41647ec208b8db0ceb"
+    }
+  ],
+  "truncated": false
+}

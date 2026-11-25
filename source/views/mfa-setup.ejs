@@ -1,0 +1,52 @@
+<%- include('partials/header',{title:title||'Set up two-factor authentication'}) %>
+<section class="auth-wrap">
+  <div class="auth-card mfa-auth-card">
+    <span class="eyebrow"><%= customerText("MANAGER SECURITY") %></span>
+    <h1><%= customerText("Set up your authenticator") %></h1>
+    <p class="muted"><%= customerText("This is the first sign-in for this Manager account. Two-factor authentication is required before store management can open. Scan this QR code with Google Authenticator, Microsoft Authenticator, 1Password or another TOTP app, or enter the setup key manually below.") %></p>
+    <% if(error){ %><div class="alert" role="alert"><%= customerText(error) %></div><% } %>
+    <p><strong><%= customerText("Account:") %></strong> <%= email %></p>
+    <% if(qrDataUrl){ %>
+      <div class="mfa-qr-frame">
+        <img id="mfa-qr-image" src="<%= qrDataUrl %>" alt="QR code for the ShopEasy authenticator setup" width="280" height="280" class="mfa-qr-image" decoding="sync">
+      </div>
+      <div class="mfa-qr-actions">
+        <button type="button" id="mfa-download-qr" class="btn btn-outline"><%= customerText("Download QR code (PNG)") %></button>
+      </div>
+      <p id="mfa-download-status" class="mfa-download-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <section class="mfa-manual-panel" aria-labelledby="mfa-manual-title">
+        <h2 id="mfa-manual-title"><%= customerText("Or enter manually:") %></h2>
+        <p><%= customerText("In your authenticator app, choose the option to enter a setup key manually, then enter this key. Keep it private and do not send it to anyone.") %></p>
+        <p class="mfa-secret-wrap"><code id="manual-secret" class="mfa-manual-secret"><%= secret %></code></p>
+        <button type="button" id="mfa-copy-key" class="btn btn-outline" data-copy-target="manual-secret"><%= customerText("Copy key") %></button>
+        <p id="mfa-copy-status" class="field-note" role="status" aria-live="polite"></p>
+      </section>
+      <p class="field-note"><%= customerText("Scan the QR code OR enter the key manually. Both methods connect your authenticator to the same setup.") %></p>
+      <hr>
+      <form class="form-stack" method="post" action="/mfa/verify">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <label for="code"><%= customerText("6-digit authenticator code") %></label>
+        <input id="code" name="code" type="text" inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6" autocomplete="one-time-code" required autofocus>
+        <p class="field-note"><%= customerText("Enter the current code shown by your authenticator app to activate MFA.") %></p>
+        <button type="submit" class="btn btn-dark btn-wide"><%= customerText("Verify and activate MFA") %></button>
+      </form>
+      <details class="mfa-regenerate-details">
+        <summary><%= customerText("Need to generate a new setup key?") %></summary>
+        <p><%= customerText("Only do this if you want to replace the current, not-yet-activated setup key.") %></p>
+        <form method="post" action="/mfa/setup" class="form-stack">
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <button type="submit" class="btn btn-outline"><%= customerText("Generate a new setup QR") %></button>
+        </form>
+      </details>
+    <% } else { %>
+      <p class="alert" role="alert"><%= customerText("The QR code could not be prepared. Check the server configuration and sign in again.") %></p>
+    <% } %>
+    <form method="post" action="/mfa/cancel" class="form-stack mfa-cancel-form">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <button type="submit" class="btn btn-outline btn-wide"><%= customerText("Cancel sign-in and return to login") %></button>
+    </form>
+    <p class="field-note"><%= customerText("The browser Back button does not cancel a security challenge. Use this button to safely end this sign-in attempt.") %></p>
+  </div>
+</section>
+<% if(qrDataUrl){ %><script src="/js/mfa-setup.js?v=2.8.93-r12.11-e2-repair13-hardcheck7-2026-11-04" defer></script><% } %>
+<%- include('partials/footer') %>

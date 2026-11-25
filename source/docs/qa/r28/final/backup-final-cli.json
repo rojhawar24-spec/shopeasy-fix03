@@ -1,0 +1,13 @@
+{
+  "utc_started": "2026-11-22T23:17:24.089862+00:00",
+  "utc_finished": "2026-11-22T23:17:27.550666+00:00",
+  "cwd": "/workspace/presale-r28/work",
+  "command": [
+    "node",
+    "/workspace/presale-r28/evidence/run-final-cli-drill.mjs"
+  ],
+  "exit_code": 0,
+  "output_file": "backup-final-cli.txt",
+  "inherited_application_credentials": "removed; credential values not printed",
+  "original_output_file": "backup-final-cli.log"
+}

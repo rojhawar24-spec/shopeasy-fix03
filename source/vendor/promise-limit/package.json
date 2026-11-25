@@ -1,0 +1,10 @@
+{
+  "name": "@shopeasy/task-limit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "New first-party FIFO task limiter used in place of the external promise-limit package",
+  "type": "commonjs",
+  "main": "index.cjs",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=24.22.2 <25" }
+}

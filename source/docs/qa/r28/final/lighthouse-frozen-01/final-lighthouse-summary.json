@@ -1,0 +1,1832 @@
+{
+  "status": "PASS",
+  "applicationVersion": "2.8.95",
+  "tools": {
+    "node": "v24.22.2",
+    "python": "3.13.5",
+    "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+    "lighthouse": "13.6.0"
+  },
+  "runtimeFingerprint": {
+    "sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+    "files": 152,
+    "scope": "Copied src, views, public excluding uploads, generated and package.json"
+  },
+  "allSixRuntimeManifestsEqualFinalSource": true,
+  "finishedUtc": "2026-11-22T23:22:52.643008+00:00",
+  "successfulRunCount": 6,
+  "allSuccessfulExitCodes": 0,
+  "rawTelemetryAndPrivateFixturesRemoved": true,
+  "aggregate": {
+    "home-mobile": {
+      "categoryScores": {
+        "performance": {
+          "n": 3,
+          "median": 99,
+          "min": 99,
+          "max": 99
+        },
+        "accessibility": {
+          "n": 3,
+          "median": 100,
+          "min": 100,
+          "max": 100
+        },
+        "best-practices": {
+          "n": 3,
+          "median": 100,
+          "min": 100,
+          "max": 100
+        },
+        "seo": {
+          "n": 3,
+          "median": 100,
+          "min": 100,
+          "max": 100
+        }
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericUnit": "millisecond",
+          "n": 3,
+          "median": 1561.7567,
+          "min": 1531.3255,
+          "max": 1573.4183
+        },
+        "largest-contentful-paint": {
+          "numericUnit": "millisecond",
+          "n": 3,
+          "median": 1573.4183,
+          "min": 1561.7567,
+          "max": 1831.3255
+        },
+        "speed-index": {
+          "numericUnit": "millisecond",
+          "n": 3,
+          "median": 1561.7567,
+          "min": 1531.3255,
+          "max": 1573.4183
+        },
+        "total-blocking-time": {
+          "numericUnit": "millisecond",
+          "n": 3,
+          "median": 3,
+          "min": 0,
+          "max": 12
+        },
+        "cumulative-layout-shift": {
+          "numericUnit": "unitless",
+          "n": 3,
+          "median": 0,
+          "min": 0,
+          "max": 4.826926760448991e-05
+        },
+        "server-response-time": {
+          "numericUnit": "millisecond",
+          "n": 3,
+          "median": 91,
+          "min": 83,
+          "max": 112
+        },
+        "total-byte-weight": {
+          "numericUnit": "byte",
+          "n": 3,
+          "median": 141068,
+          "min": 141068,
+          "max": 141068
+        }
+      },
+      "cssJsTransferBytes": {
+        "n": 3,
+        "median": 88943,
+        "min": 88943,
+        "max": 88943
+      },
+      "nonFixtureNetworkRequestCount": {
+        "n": 3,
+        "median": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "shop-desktop": {
+      "categoryScores": {
+        "performance": {
+          "n": 3,
+          "median": 100,
+          "min": 100,
+          "max": 100
+        },
+        "accessibility": {
+          "n": 3,
+          "median": 100,
+          "min": 100,
+          "max": 100
+        },
+        "best-practices": {
+          "n": 3,
+          "median": 100,
+          "min": 100,
+          "max": 100
+        },
+        "seo": {
+          "n": 3,
+          "median": 100,
+          "min": 100,
+          "max": 100
+        }
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericUnit": "millisecond",
+          "n": 3,
+          "median": 477.3882,
+          "min": 452.0385,
+          "max": 518.3086000000001
+        },
+        "largest-contentful-paint": {
+          "numericUnit": "millisecond",
+          "n": 3,
+          "median": 574.42935,
+          "min": 525.0481249999999,
+          "max": 624.4629000000001
+        },
+        "speed-index": {
+          "numericUnit": "millisecond",
+          "n": 3,
+          "median": 549.0147573787299,
+          "min": 545.4547617384217,
+          "max": 558.8007338689881
+        },
+        "total-blocking-time": {
+          "numericUnit": "millisecond",
+          "n": 3,
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cumulative-layout-shift": {
+          "numericUnit": "unitless",
+          "n": 3,
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "server-response-time": {
+          "numericUnit": "millisecond",
+          "n": 3,
+          "median": 95,
+          "min": 94,
+          "max": 103
+        },
+        "total-byte-weight": {
+          "numericUnit": "byte",
+          "n": 3,
+          "median": 144876,
+          "min": 144876,
+          "max": 144876
+        }
+      },
+      "cssJsTransferBytes": {
+        "n": 3,
+        "median": 88943,
+        "min": 88943,
+        "max": 88943
+      },
+      "nonFixtureNetworkRequestCount": {
+        "n": 3,
+        "median": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "runs": [
+    {
+      "scenario": "home-mobile",
+      "route": "/",
+      "startedUtc": "2026-11-22T23:20:32.073563+00:00",
+      "status": "PASS",
+      "runtimeFingerprint": {
+        "sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+        "files": 152,
+        "scope": "Copied src, views, public excluding uploads, generated and package.json"
+      },
+      "command": [
+        "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+        "/workspace/presale-r26-audit/tools/lighthouse/node_modules/lighthouse/cli/index.js",
+        "http://127.0.0.1:<ephemeral>/",
+        "--chrome-flags=--headless --no-sandbox --disable-dev-shm-usage --disable-background-networking --disable-component-update --no-first-run --no-default-browser-check",
+        "--only-categories=performance,accessibility,best-practices,seo",
+        "--blocked-url-patterns=https://*",
+        "--output=json",
+        "--output-path=<private-fixture>/lighthouse-private/raw.json",
+        "--quiet"
+      ],
+      "commandRedactions": "Only the ephemeral fixture port and deleted private report path are placeholders; all flags and executable paths are exact.",
+      "configuration": {
+        "preset": "default mobile",
+        "browserCache": "fresh profile; Lighthouse storage reset enabled",
+        "applicationCache": "fresh synthetic fixture per scenario",
+        "externalHttps": "blocked",
+        "environment": "Shipped QA allowlist, no inherited application secrets"
+      },
+      "exitCode": 0,
+      "rawReportSha256": "6c95ca45547e81bb5129f8ade13c302136ab49d2885c3709941c34a18638a0e7",
+      "fetchTime": "2026-11-22T23:20:37.958Z",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "categoryScores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 1573.4183,
+          "numericUnit": "millisecond",
+          "score": 0.94
+        },
+        "largest-contentful-paint": {
+          "numericValue": 1573.4183,
+          "numericUnit": "millisecond",
+          "score": 0.99
+        },
+        "speed-index": {
+          "numericValue": 1573.4183,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-blocking-time": {
+          "numericValue": 12,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "numericUnit": "unitless",
+          "score": 1
+        },
+        "server-response-time": {
+          "numericValue": 112,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-byte-weight": {
+          "numericValue": 141068,
+          "numericUnit": "byte",
+          "score": 1
+        }
+      },
+      "observedFirstPaintMs": 563,
+      "observedFirstContentfulPaintMs": 563,
+      "failedOrPartialScoredAuditIds": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "largest-contentful-paint",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "accessibilityFailedOrPartialAuditIds": [],
+      "accessibilityManualAuditIds": [
+        "custom-controls-labels",
+        "custom-controls-roles",
+        "focus-traps",
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "managed-focus",
+        "offscreen-content-hidden",
+        "use-landmarks",
+        "visual-order-follows-dom"
+      ],
+      "auditErrorIds": [],
+      "runWarningCount": 0,
+      "resourceSummary": [
+        {
+          "resourceType": "total",
+          "requestCount": 14,
+          "transferSize": 141068
+        },
+        {
+          "resourceType": "stylesheet",
+          "requestCount": 3,
+          "transferSize": 58666
+        },
+        {
+          "resourceType": "document",
+          "requestCount": 1,
+          "transferSize": 40505
+        },
+        {
+          "resourceType": "script",
+          "requestCount": 5,
+          "transferSize": 31502
+        },
+        {
+          "resourceType": "image",
+          "requestCount": 4,
+          "transferSize": 9526
+        },
+        {
+          "resourceType": "other",
+          "requestCount": 1,
+          "transferSize": 869
+        },
+        {
+          "resourceType": "media",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "font",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "third-party",
+          "requestCount": 0,
+          "transferSize": 0
+        }
+      ],
+      "networkStatusCounts": {
+        "200": 14
+      },
+      "staticAssetTransfers": [
+        {
+          "path": "/js/theme-early-2027.js",
+          "statusCode": 200,
+          "transferSize": 1162,
+          "resourceSize": 230,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "230",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-foundation.min.css",
+          "statusCode": 200,
+          "transferSize": 40930,
+          "resourceSize": 213946,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "213946",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-polish.min.css",
+          "statusCode": 200,
+          "transferSize": 16511,
+          "resourceSize": 85886,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "85886",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/image-fallback.js",
+          "statusCode": 200,
+          "transferSize": 2456,
+          "resourceSize": 3908,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "3908",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/product-image-preview.js",
+          "statusCode": 200,
+          "transferSize": 4013,
+          "resourceSize": 10026,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "10026",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/app.js",
+          "statusCode": 200,
+          "transferSize": 17836,
+          "resourceSize": 67315,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "67315",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/retail-2027.js",
+          "statusCode": 200,
+          "transferSize": 6035,
+          "resourceSize": 15144,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "15144",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        }
+      ],
+      "nonFixtureNetworkRequestCount": 0,
+      "publicAssetHeaderProbe": "CSS/JS headers fetched only after Lighthouse finished, from the same synthetic local fixture; no browser cache-hit inference.",
+      "privateFixtureAndRawTelemetryRemoved": true,
+      "finishedUtc": "2026-11-22T23:20:47.713140+00:00",
+      "repeat": 1,
+      "manifestFile": "repeat-1/home-mobile-runtime-manifest.json"
+    },
+    {
+      "scenario": "shop-desktop",
+      "route": "/shop",
+      "startedUtc": "2026-11-22T23:20:47.713650+00:00",
+      "status": "PASS",
+      "runtimeFingerprint": {
+        "sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+        "files": 152,
+        "scope": "Copied src, views, public excluding uploads, generated and package.json"
+      },
+      "command": [
+        "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+        "/workspace/presale-r26-audit/tools/lighthouse/node_modules/lighthouse/cli/index.js",
+        "http://127.0.0.1:<ephemeral>/shop",
+        "--chrome-flags=--headless --no-sandbox --disable-dev-shm-usage --disable-background-networking --disable-component-update --no-first-run --no-default-browser-check",
+        "--only-categories=performance,accessibility,best-practices,seo",
+        "--blocked-url-patterns=https://*",
+        "--output=json",
+        "--output-path=<private-fixture>/lighthouse-private/raw.json",
+        "--quiet",
+        "--preset=desktop"
+      ],
+      "commandRedactions": "Only the ephemeral fixture port and deleted private report path are placeholders; all flags and executable paths are exact.",
+      "configuration": {
+        "preset": "desktop",
+        "browserCache": "fresh profile; Lighthouse storage reset enabled",
+        "applicationCache": "fresh synthetic fixture per scenario",
+        "externalHttps": "blocked",
+        "environment": "Shipped QA allowlist, no inherited application secrets"
+      },
+      "exitCode": 0,
+      "rawReportSha256": "4de4b2b0043b9a094b970b3d42660c608fe87743ce754047e3a88b39ee6d47cc",
+      "fetchTime": "2026-11-22T23:20:52.197Z",
+      "formFactor": "desktop",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "categoryScores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 452.0385,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "largest-contentful-paint": {
+          "numericValue": 525.0481249999999,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "speed-index": {
+          "numericValue": 558.8007338689881,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-blocking-time": {
+          "numericValue": 0,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "numericUnit": "unitless",
+          "score": 1
+        },
+        "server-response-time": {
+          "numericValue": 103,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-byte-weight": {
+          "numericValue": 144876,
+          "numericUnit": "byte",
+          "score": 1
+        }
+      },
+      "observedFirstPaintMs": 565,
+      "observedFirstContentfulPaintMs": 565,
+      "failedOrPartialScoredAuditIds": [
+        "bf-cache",
+        "document-latency-insight",
+        "lcp-discovery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "accessibilityFailedOrPartialAuditIds": [],
+      "accessibilityManualAuditIds": [
+        "custom-controls-labels",
+        "custom-controls-roles",
+        "focus-traps",
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "managed-focus",
+        "offscreen-content-hidden",
+        "use-landmarks",
+        "visual-order-follows-dom"
+      ],
+      "auditErrorIds": [],
+      "runWarningCount": 0,
+      "resourceSummary": [
+        {
+          "resourceType": "total",
+          "requestCount": 13,
+          "transferSize": 144876
+        },
+        {
+          "resourceType": "stylesheet",
+          "requestCount": 3,
+          "transferSize": 58666
+        },
+        {
+          "resourceType": "document",
+          "requestCount": 1,
+          "transferSize": 46646
+        },
+        {
+          "resourceType": "script",
+          "requestCount": 5,
+          "transferSize": 31502
+        },
+        {
+          "resourceType": "image",
+          "requestCount": 3,
+          "transferSize": 7193
+        },
+        {
+          "resourceType": "other",
+          "requestCount": 1,
+          "transferSize": 869
+        },
+        {
+          "resourceType": "media",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "font",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "third-party",
+          "requestCount": 0,
+          "transferSize": 0
+        }
+      ],
+      "networkStatusCounts": {
+        "200": 13
+      },
+      "staticAssetTransfers": [
+        {
+          "path": "/js/theme-early-2027.js",
+          "statusCode": 200,
+          "transferSize": 1162,
+          "resourceSize": 230,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "230",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-foundation.min.css",
+          "statusCode": 200,
+          "transferSize": 40930,
+          "resourceSize": 213946,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "213946",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-polish.min.css",
+          "statusCode": 200,
+          "transferSize": 16511,
+          "resourceSize": 85886,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "85886",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/image-fallback.js",
+          "statusCode": 200,
+          "transferSize": 2456,
+          "resourceSize": 3908,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "3908",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/product-image-preview.js",
+          "statusCode": 200,
+          "transferSize": 4013,
+          "resourceSize": 10026,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "10026",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/app.js",
+          "statusCode": 200,
+          "transferSize": 17836,
+          "resourceSize": 67315,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "67315",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/retail-2027.js",
+          "statusCode": 200,
+          "transferSize": 6035,
+          "resourceSize": 15144,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "15144",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        }
+      ],
+      "nonFixtureNetworkRequestCount": 0,
+      "publicAssetHeaderProbe": "CSS/JS headers fetched only after Lighthouse finished, from the same synthetic local fixture; no browser cache-hit inference.",
+      "privateFixtureAndRawTelemetryRemoved": true,
+      "finishedUtc": "2026-11-22T23:21:01.750373+00:00",
+      "repeat": 1,
+      "manifestFile": "repeat-1/shop-desktop-runtime-manifest.json"
+    },
+    {
+      "scenario": "home-mobile",
+      "route": "/",
+      "startedUtc": "2026-11-22T23:21:01.945837+00:00",
+      "status": "PASS",
+      "runtimeFingerprint": {
+        "sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+        "files": 152,
+        "scope": "Copied src, views, public excluding uploads, generated and package.json"
+      },
+      "command": [
+        "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+        "/workspace/presale-r26-audit/tools/lighthouse/node_modules/lighthouse/cli/index.js",
+        "http://127.0.0.1:<ephemeral>/",
+        "--chrome-flags=--headless --no-sandbox --disable-dev-shm-usage --disable-background-networking --disable-component-update --no-first-run --no-default-browser-check",
+        "--only-categories=performance,accessibility,best-practices,seo",
+        "--blocked-url-patterns=https://*",
+        "--output=json",
+        "--output-path=<private-fixture>/lighthouse-private/raw.json",
+        "--quiet"
+      ],
+      "commandRedactions": "Only the ephemeral fixture port and deleted private report path are placeholders; all flags and executable paths are exact.",
+      "configuration": {
+        "preset": "default mobile",
+        "browserCache": "fresh profile; Lighthouse storage reset enabled",
+        "applicationCache": "fresh synthetic fixture per scenario",
+        "externalHttps": "blocked",
+        "environment": "Shipped QA allowlist, no inherited application secrets"
+      },
+      "exitCode": 0,
+      "rawReportSha256": "0e703bd38514e2b89c3f6ae181387e4e3c3d6773982ffe8d0cd213ff0dfb054e",
+      "fetchTime": "2026-11-22T23:21:06.096Z",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "categoryScores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 1531.3255,
+          "numericUnit": "millisecond",
+          "score": 0.95
+        },
+        "largest-contentful-paint": {
+          "numericValue": 1831.3255,
+          "numericUnit": "millisecond",
+          "score": 0.98
+        },
+        "speed-index": {
+          "numericValue": 1531.3255,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-blocking-time": {
+          "numericValue": 0,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 4.826926760448991e-05,
+          "numericUnit": "unitless",
+          "score": 1
+        },
+        "server-response-time": {
+          "numericValue": 83,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-byte-weight": {
+          "numericValue": 141068,
+          "numericUnit": "byte",
+          "score": 1
+        }
+      },
+      "observedFirstPaintMs": 297,
+      "observedFirstContentfulPaintMs": 297,
+      "failedOrPartialScoredAuditIds": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "largest-contentful-paint",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "accessibilityFailedOrPartialAuditIds": [],
+      "accessibilityManualAuditIds": [
+        "custom-controls-labels",
+        "custom-controls-roles",
+        "focus-traps",
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "managed-focus",
+        "offscreen-content-hidden",
+        "use-landmarks",
+        "visual-order-follows-dom"
+      ],
+      "auditErrorIds": [],
+      "runWarningCount": 0,
+      "resourceSummary": [
+        {
+          "resourceType": "total",
+          "requestCount": 14,
+          "transferSize": 141068
+        },
+        {
+          "resourceType": "stylesheet",
+          "requestCount": 3,
+          "transferSize": 58666
+        },
+        {
+          "resourceType": "document",
+          "requestCount": 1,
+          "transferSize": 40505
+        },
+        {
+          "resourceType": "script",
+          "requestCount": 5,
+          "transferSize": 31502
+        },
+        {
+          "resourceType": "image",
+          "requestCount": 4,
+          "transferSize": 9526
+        },
+        {
+          "resourceType": "other",
+          "requestCount": 1,
+          "transferSize": 869
+        },
+        {
+          "resourceType": "media",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "font",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "third-party",
+          "requestCount": 0,
+          "transferSize": 0
+        }
+      ],
+      "networkStatusCounts": {
+        "200": 14
+      },
+      "staticAssetTransfers": [
+        {
+          "path": "/js/theme-early-2027.js",
+          "statusCode": 200,
+          "transferSize": 1162,
+          "resourceSize": 230,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "230",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-foundation.min.css",
+          "statusCode": 200,
+          "transferSize": 40930,
+          "resourceSize": 213946,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "213946",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-polish.min.css",
+          "statusCode": 200,
+          "transferSize": 16511,
+          "resourceSize": 85886,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "85886",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/image-fallback.js",
+          "statusCode": 200,
+          "transferSize": 2456,
+          "resourceSize": 3908,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "3908",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/product-image-preview.js",
+          "statusCode": 200,
+          "transferSize": 4013,
+          "resourceSize": 10026,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "10026",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/app.js",
+          "statusCode": 200,
+          "transferSize": 17836,
+          "resourceSize": 67315,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "67315",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/retail-2027.js",
+          "statusCode": 200,
+          "transferSize": 6035,
+          "resourceSize": 15144,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "15144",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        }
+      ],
+      "nonFixtureNetworkRequestCount": 0,
+      "publicAssetHeaderProbe": "CSS/JS headers fetched only after Lighthouse finished, from the same synthetic local fixture; no browser cache-hit inference.",
+      "privateFixtureAndRawTelemetryRemoved": true,
+      "finishedUtc": "2026-11-22T23:21:15.657678+00:00",
+      "repeat": 2,
+      "manifestFile": "repeat-2/home-mobile-runtime-manifest.json"
+    },
+    {
+      "scenario": "shop-desktop",
+      "route": "/shop",
+      "startedUtc": "2026-11-22T23:21:15.658417+00:00",
+      "status": "PASS",
+      "runtimeFingerprint": {
+        "sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+        "files": 152,
+        "scope": "Copied src, views, public excluding uploads, generated and package.json"
+      },
+      "command": [
+        "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+        "/workspace/presale-r26-audit/tools/lighthouse/node_modules/lighthouse/cli/index.js",
+        "http://127.0.0.1:<ephemeral>/shop",
+        "--chrome-flags=--headless --no-sandbox --disable-dev-shm-usage --disable-background-networking --disable-component-update --no-first-run --no-default-browser-check",
+        "--only-categories=performance,accessibility,best-practices,seo",
+        "--blocked-url-patterns=https://*",
+        "--output=json",
+        "--output-path=<private-fixture>/lighthouse-private/raw.json",
+        "--quiet",
+        "--preset=desktop"
+      ],
+      "commandRedactions": "Only the ephemeral fixture port and deleted private report path are placeholders; all flags and executable paths are exact.",
+      "configuration": {
+        "preset": "desktop",
+        "browserCache": "fresh profile; Lighthouse storage reset enabled",
+        "applicationCache": "fresh synthetic fixture per scenario",
+        "externalHttps": "blocked",
+        "environment": "Shipped QA allowlist, no inherited application secrets"
+      },
+      "exitCode": 0,
+      "rawReportSha256": "5e2f48cea565d8f4d61fb735a390dda1d776dc7625f1bd39a863f670670d8336",
+      "fetchTime": "2026-11-22T23:21:19.953Z",
+      "formFactor": "desktop",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "categoryScores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 518.3086000000001,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "largest-contentful-paint": {
+          "numericValue": 624.4629000000001,
+          "numericUnit": "millisecond",
+          "score": 0.99
+        },
+        "speed-index": {
+          "numericValue": 549.0147573787299,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-blocking-time": {
+          "numericValue": 0,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "numericUnit": "unitless",
+          "score": 1
+        },
+        "server-response-time": {
+          "numericValue": 94,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-byte-weight": {
+          "numericValue": 144876,
+          "numericUnit": "byte",
+          "score": 1
+        }
+      },
+      "observedFirstPaintMs": 480,
+      "observedFirstContentfulPaintMs": 480,
+      "failedOrPartialScoredAuditIds": [
+        "bf-cache",
+        "document-latency-insight",
+        "forced-reflow-insight",
+        "largest-contentful-paint",
+        "lcp-discovery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "accessibilityFailedOrPartialAuditIds": [],
+      "accessibilityManualAuditIds": [
+        "custom-controls-labels",
+        "custom-controls-roles",
+        "focus-traps",
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "managed-focus",
+        "offscreen-content-hidden",
+        "use-landmarks",
+        "visual-order-follows-dom"
+      ],
+      "auditErrorIds": [],
+      "runWarningCount": 0,
+      "resourceSummary": [
+        {
+          "resourceType": "total",
+          "requestCount": 13,
+          "transferSize": 144876
+        },
+        {
+          "resourceType": "stylesheet",
+          "requestCount": 3,
+          "transferSize": 58666
+        },
+        {
+          "resourceType": "document",
+          "requestCount": 1,
+          "transferSize": 46646
+        },
+        {
+          "resourceType": "script",
+          "requestCount": 5,
+          "transferSize": 31502
+        },
+        {
+          "resourceType": "image",
+          "requestCount": 3,
+          "transferSize": 7193
+        },
+        {
+          "resourceType": "other",
+          "requestCount": 1,
+          "transferSize": 869
+        },
+        {
+          "resourceType": "media",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "font",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "third-party",
+          "requestCount": 0,
+          "transferSize": 0
+        }
+      ],
+      "networkStatusCounts": {
+        "200": 13
+      },
+      "staticAssetTransfers": [
+        {
+          "path": "/js/theme-early-2027.js",
+          "statusCode": 200,
+          "transferSize": 1162,
+          "resourceSize": 230,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "230",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-foundation.min.css",
+          "statusCode": 200,
+          "transferSize": 40930,
+          "resourceSize": 213946,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "213946",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-polish.min.css",
+          "statusCode": 200,
+          "transferSize": 16511,
+          "resourceSize": 85886,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "85886",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/image-fallback.js",
+          "statusCode": 200,
+          "transferSize": 2456,
+          "resourceSize": 3908,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "3908",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/product-image-preview.js",
+          "statusCode": 200,
+          "transferSize": 4013,
+          "resourceSize": 10026,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "10026",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/app.js",
+          "statusCode": 200,
+          "transferSize": 17836,
+          "resourceSize": 67315,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "67315",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/retail-2027.js",
+          "statusCode": 200,
+          "transferSize": 6035,
+          "resourceSize": 15144,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "15144",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        }
+      ],
+      "nonFixtureNetworkRequestCount": 0,
+      "publicAssetHeaderProbe": "CSS/JS headers fetched only after Lighthouse finished, from the same synthetic local fixture; no browser cache-hit inference.",
+      "privateFixtureAndRawTelemetryRemoved": true,
+      "finishedUtc": "2026-11-22T23:21:29.470068+00:00",
+      "repeat": 2,
+      "manifestFile": "repeat-2/shop-desktop-runtime-manifest.json"
+    },
+    {
+      "scenario": "home-mobile",
+      "route": "/",
+      "startedUtc": "2026-11-22T23:21:29.679583+00:00",
+      "status": "PASS",
+      "runtimeFingerprint": {
+        "sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+        "files": 152,
+        "scope": "Copied src, views, public excluding uploads, generated and package.json"
+      },
+      "command": [
+        "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+        "/workspace/presale-r26-audit/tools/lighthouse/node_modules/lighthouse/cli/index.js",
+        "http://127.0.0.1:<ephemeral>/",
+        "--chrome-flags=--headless --no-sandbox --disable-dev-shm-usage --disable-background-networking --disable-component-update --no-first-run --no-default-browser-check",
+        "--only-categories=performance,accessibility,best-practices,seo",
+        "--blocked-url-patterns=https://*",
+        "--output=json",
+        "--output-path=<private-fixture>/lighthouse-private/raw.json",
+        "--quiet"
+      ],
+      "commandRedactions": "Only the ephemeral fixture port and deleted private report path are placeholders; all flags and executable paths are exact.",
+      "configuration": {
+        "preset": "default mobile",
+        "browserCache": "fresh profile; Lighthouse storage reset enabled",
+        "applicationCache": "fresh synthetic fixture per scenario",
+        "externalHttps": "blocked",
+        "environment": "Shipped QA allowlist, no inherited application secrets"
+      },
+      "exitCode": 0,
+      "rawReportSha256": "f5529fdeb31199a260f3644f32a2f184946171f79a2722551a931087c72de3ac",
+      "fetchTime": "2026-11-22T23:21:33.961Z",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "categoryScores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 1561.7567,
+          "numericUnit": "millisecond",
+          "score": 0.95
+        },
+        "largest-contentful-paint": {
+          "numericValue": 1561.7567,
+          "numericUnit": "millisecond",
+          "score": 0.99
+        },
+        "speed-index": {
+          "numericValue": 1561.7567,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-blocking-time": {
+          "numericValue": 3,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "numericUnit": "unitless",
+          "score": 1
+        },
+        "server-response-time": {
+          "numericValue": 91,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-byte-weight": {
+          "numericValue": 141068,
+          "numericUnit": "byte",
+          "score": 1
+        }
+      },
+      "observedFirstPaintMs": 508,
+      "observedFirstContentfulPaintMs": 508,
+      "failedOrPartialScoredAuditIds": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "largest-contentful-paint",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "accessibilityFailedOrPartialAuditIds": [],
+      "accessibilityManualAuditIds": [
+        "custom-controls-labels",
+        "custom-controls-roles",
+        "focus-traps",
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "managed-focus",
+        "offscreen-content-hidden",
+        "use-landmarks",
+        "visual-order-follows-dom"
+      ],
+      "auditErrorIds": [],
+      "runWarningCount": 0,
+      "resourceSummary": [
+        {
+          "resourceType": "total",
+          "requestCount": 14,
+          "transferSize": 141068
+        },
+        {
+          "resourceType": "stylesheet",
+          "requestCount": 3,
+          "transferSize": 58666
+        },
+        {
+          "resourceType": "document",
+          "requestCount": 1,
+          "transferSize": 40505
+        },
+        {
+          "resourceType": "script",
+          "requestCount": 5,
+          "transferSize": 31502
+        },
+        {
+          "resourceType": "image",
+          "requestCount": 4,
+          "transferSize": 9526
+        },
+        {
+          "resourceType": "other",
+          "requestCount": 1,
+          "transferSize": 869
+        },
+        {
+          "resourceType": "media",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "font",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "third-party",
+          "requestCount": 0,
+          "transferSize": 0
+        }
+      ],
+      "networkStatusCounts": {
+        "200": 14
+      },
+      "staticAssetTransfers": [
+        {
+          "path": "/js/theme-early-2027.js",
+          "statusCode": 200,
+          "transferSize": 1162,
+          "resourceSize": 230,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "230",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-foundation.min.css",
+          "statusCode": 200,
+          "transferSize": 40930,
+          "resourceSize": 213946,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "213946",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-polish.min.css",
+          "statusCode": 200,
+          "transferSize": 16511,
+          "resourceSize": 85886,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "85886",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/image-fallback.js",
+          "statusCode": 200,
+          "transferSize": 2456,
+          "resourceSize": 3908,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "3908",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/product-image-preview.js",
+          "statusCode": 200,
+          "transferSize": 4013,
+          "resourceSize": 10026,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "10026",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/app.js",
+          "statusCode": 200,
+          "transferSize": 17836,
+          "resourceSize": 67315,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "67315",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/retail-2027.js",
+          "statusCode": 200,
+          "transferSize": 6035,
+          "resourceSize": 15144,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "15144",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        }
+      ],
+      "nonFixtureNetworkRequestCount": 0,
+      "publicAssetHeaderProbe": "CSS/JS headers fetched only after Lighthouse finished, from the same synthetic local fixture; no browser cache-hit inference.",
+      "privateFixtureAndRawTelemetryRemoved": true,
+      "finishedUtc": "2026-11-22T23:21:43.993071+00:00",
+      "repeat": 3,
+      "manifestFile": "repeat-3/home-mobile-runtime-manifest.json"
+    },
+    {
+      "scenario": "shop-desktop",
+      "route": "/shop",
+      "startedUtc": "2026-11-22T23:21:43.994973+00:00",
+      "status": "PASS",
+      "runtimeFingerprint": {
+        "sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+        "files": 152,
+        "scope": "Copied src, views, public excluding uploads, generated and package.json"
+      },
+      "command": [
+        "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+        "/workspace/presale-r26-audit/tools/lighthouse/node_modules/lighthouse/cli/index.js",
+        "http://127.0.0.1:<ephemeral>/shop",
+        "--chrome-flags=--headless --no-sandbox --disable-dev-shm-usage --disable-background-networking --disable-component-update --no-first-run --no-default-browser-check",
+        "--only-categories=performance,accessibility,best-practices,seo",
+        "--blocked-url-patterns=https://*",
+        "--output=json",
+        "--output-path=<private-fixture>/lighthouse-private/raw.json",
+        "--quiet",
+        "--preset=desktop"
+      ],
+      "commandRedactions": "Only the ephemeral fixture port and deleted private report path are placeholders; all flags and executable paths are exact.",
+      "configuration": {
+        "preset": "desktop",
+        "browserCache": "fresh profile; Lighthouse storage reset enabled",
+        "applicationCache": "fresh synthetic fixture per scenario",
+        "externalHttps": "blocked",
+        "environment": "Shipped QA allowlist, no inherited application secrets"
+      },
+      "exitCode": 0,
+      "rawReportSha256": "6df6f43cead17a5a9752f493f50efe777199bd06eabca93f67ddd33554eead0b",
+      "fetchTime": "2026-11-22T23:21:48.543Z",
+      "formFactor": "desktop",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "categoryScores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 477.3882,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "largest-contentful-paint": {
+          "numericValue": 574.42935,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "speed-index": {
+          "numericValue": 545.4547617384217,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-blocking-time": {
+          "numericValue": 0,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "numericUnit": "unitless",
+          "score": 1
+        },
+        "server-response-time": {
+          "numericValue": 95,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-byte-weight": {
+          "numericValue": 144876,
+          "numericUnit": "byte",
+          "score": 1
+        }
+      },
+      "observedFirstPaintMs": 503,
+      "observedFirstContentfulPaintMs": 503,
+      "failedOrPartialScoredAuditIds": [
+        "bf-cache",
+        "document-latency-insight",
+        "lcp-discovery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "accessibilityFailedOrPartialAuditIds": [],
+      "accessibilityManualAuditIds": [
+        "custom-controls-labels",
+        "custom-controls-roles",
+        "focus-traps",
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "managed-focus",
+        "offscreen-content-hidden",
+        "use-landmarks",
+        "visual-order-follows-dom"
+      ],
+      "auditErrorIds": [],
+      "runWarningCount": 0,
+      "resourceSummary": [
+        {
+          "resourceType": "total",
+          "requestCount": 13,
+          "transferSize": 144876
+        },
+        {
+          "resourceType": "stylesheet",
+          "requestCount": 3,
+          "transferSize": 58666
+        },
+        {
+          "resourceType": "document",
+          "requestCount": 1,
+          "transferSize": 46646
+        },
+        {
+          "resourceType": "script",
+          "requestCount": 5,
+          "transferSize": 31502
+        },
+        {
+          "resourceType": "image",
+          "requestCount": 3,
+          "transferSize": 7193
+        },
+        {
+          "resourceType": "other",
+          "requestCount": 1,
+          "transferSize": 869
+        },
+        {
+          "resourceType": "media",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "font",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "third-party",
+          "requestCount": 0,
+          "transferSize": 0
+        }
+      ],
+      "networkStatusCounts": {
+        "200": 13
+      },
+      "staticAssetTransfers": [
+        {
+          "path": "/js/theme-early-2027.js",
+          "statusCode": 200,
+          "transferSize": 1162,
+          "resourceSize": 230,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "230",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-foundation.min.css",
+          "statusCode": 200,
+          "transferSize": 40930,
+          "resourceSize": 213946,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "213946",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/css/design-polish.min.css",
+          "statusCode": 200,
+          "transferSize": 16511,
+          "resourceSize": 85886,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "85886",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/image-fallback.js",
+          "statusCode": 200,
+          "transferSize": 2456,
+          "resourceSize": 3908,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "3908",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/product-image-preview.js",
+          "statusCode": 200,
+          "transferSize": 4013,
+          "resourceSize": 10026,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "10026",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/app.js",
+          "statusCode": 200,
+          "transferSize": 17836,
+          "resourceSize": 67315,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "67315",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        },
+        {
+          "path": "/js/retail-2027.js",
+          "statusCode": 200,
+          "transferSize": 6035,
+          "resourceSize": 15144,
+          "cache": "none",
+          "publicAssetResponseHeaders": {
+            "Cache-Control": "public, max-age=0",
+            "Content-Length": "15144",
+            "Content-Encoding": null,
+            "Vary": "Accept-Encoding"
+          }
+        }
+      ],
+      "nonFixtureNetworkRequestCount": 0,
+      "publicAssetHeaderProbe": "CSS/JS headers fetched only after Lighthouse finished, from the same synthetic local fixture; no browser cache-hit inference.",
+      "privateFixtureAndRawTelemetryRemoved": true,
+      "finishedUtc": "2026-11-22T23:21:58.179539+00:00",
+      "repeat": 3,
+      "manifestFile": "repeat-3/shop-desktop-runtime-manifest.json"
+    }
+  ],
+  "limitations": [
+    "Three repeats per scenario are descriptive measurements on one local machine. No confidence interval or guarantee is established; this sample does not establish field Core Web Vitals.",
+    "Synthetic catalogue, disposable local SQLite, loopback network, direct Node NODE_ENV=test, and Lighthouse simulated throttling. Production hosting, CDN, remote database, real customer devices, and real catalogue were not measured.",
+    "Each run used a new synthetic fixture, new browser profile, and default Lighthouse storage reset. Retained cache response headers were probed for public CSS/JS only after the measured run; no warm-cache hit claim is made.",
+    "Public cache-header probes used urllib default identity encoding after measurement. Their Content-Length is unencoded response length; Lighthouse transferSize is the measured wire-transfer value. All retained CSS/JS cache observations were none and Cache-Control was public, max-age=0.",
+    "HTTPS requests were blocked by Lighthouse. Observed HTTP(S) requests were compared with the exact fixture host/port, and all six observed nonfixture request counts were zero. This is an observation of these runs, not a universal egress proof.",
+    "Accessibility and best-practices category scores, including any 100, are automated checks and do not certify WCAG conformance, security, or the application overall.",
+    "No raw Lighthouse report, screenshot, browser profile, private database, keys, or logs are retained. Only allowlisted measurements, audit identifiers, commands with ephemeral paths redacted, and public CSS/JS transfers/headers are retained.",
+    "One earlier sandbox-blocked fixture startup is retained separately under startup-blocked. It failed before a browser or Lighthouse measurement, and is excluded from the six successful runs."
+  ]
+}

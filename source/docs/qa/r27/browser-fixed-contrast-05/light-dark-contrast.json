@@ -1,0 +1,1336 @@
+{
+  "purpose": "Verify sampled placeholder and order-total text colors after CSS correction, in light/dark modes selected through real UI controls",
+  "samples": [
+    {
+      "selector": "textarea",
+      "found": true,
+      "theme": "light",
+      "tag": "TEXTAREA",
+      "color": "rgb(23, 34, 29)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "backgroundImage": "none",
+      "fontSize": "14px",
+      "fontWeight": "620",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(88, 99, 92)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "LABEL",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "FORM",
+          "class": "panel form-stack checkout-form-v5",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container checkout-layout checkout-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(247, 246, 242)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe filled checkout",
+      "calculated_placeholder_contrast": 6.261
+    },
+    {
+      "selector": "textarea",
+      "found": true,
+      "theme": "dark",
+      "tag": "TEXTAREA",
+      "color": "rgb(246, 245, 237)",
+      "backgroundColor": "rgb(27, 36, 31)",
+      "backgroundImage": "none",
+      "fontSize": "14px",
+      "fontWeight": "620",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(186, 200, 190)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "LABEL",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "FORM",
+          "class": "panel form-stack checkout-form-v5",
+          "backgroundColor": "rgb(27, 36, 31)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container checkout-layout checkout-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(16, 23, 19)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe filled checkout",
+      "calculated_placeholder_contrast": 9.17
+    },
+    {
+      "selector": "textarea",
+      "found": true,
+      "theme": "light",
+      "tag": "TEXTAREA",
+      "color": "rgb(23, 34, 29)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "backgroundImage": "none",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(88, 99, 92)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "LABEL",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "FORM",
+          "class": "form-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "auth-card success-card success-card-v5",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "auth-wrap",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(247, 246, 242)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe COD success",
+      "calculated_placeholder_contrast": 6.261
+    },
+    {
+      "selector": "textarea",
+      "found": true,
+      "theme": "dark",
+      "tag": "TEXTAREA",
+      "color": "rgb(246, 245, 237)",
+      "backgroundColor": "rgb(27, 36, 31)",
+      "backgroundImage": "none",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(186, 200, 190)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "LABEL",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "FORM",
+          "class": "form-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "auth-card success-card success-card-v5",
+          "backgroundColor": "rgb(27, 36, 31)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "auth-wrap",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(16, 23, 19)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe COD success",
+      "calculated_placeholder_contrast": 9.17
+    },
+    {
+      "selector": ".order-total-box",
+      "found": true,
+      "theme": "light",
+      "tag": "DIV",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(247, 246, 242)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": ".order-total-box > div:nth-child(1) > span",
+      "found": true,
+      "theme": "light",
+      "tag": "SPAN",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-total-box",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(247, 246, 242)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": ".order-total-box > div:nth-child(1) > strong",
+      "found": true,
+      "theme": "light",
+      "tag": "STRONG",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-total-box",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(247, 246, 242)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": ".order-total-box .field-note",
+      "found": true,
+      "theme": "light",
+      "tag": "P",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "order-total-box",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(247, 246, 242)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": ".order-total-box .grand-total span",
+      "found": true,
+      "theme": "light",
+      "tag": "SPAN",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "grand-total",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-total-box",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(247, 246, 242)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": ".order-total-box .grand-total strong",
+      "found": true,
+      "theme": "light",
+      "tag": "STRONG",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "grand-total",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-total-box",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(247, 246, 242)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": "textarea",
+      "found": true,
+      "theme": "light",
+      "tag": "TEXTAREA",
+      "color": "rgb(23, 34, 29)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "backgroundImage": "none",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(88, 99, 92)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "LABEL",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "FORM",
+          "class": "form-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-action-card",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-side-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(247, 246, 242)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_placeholder_contrast": 6.261
+    },
+    {
+      "selector": ".order-total-box",
+      "found": true,
+      "theme": "dark",
+      "tag": "DIV",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(27, 36, 31)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(16, 23, 19)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": ".order-total-box > div:nth-child(1) > span",
+      "found": true,
+      "theme": "dark",
+      "tag": "SPAN",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-total-box",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(27, 36, 31)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(16, 23, 19)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": ".order-total-box > div:nth-child(1) > strong",
+      "found": true,
+      "theme": "dark",
+      "tag": "STRONG",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-total-box",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(27, 36, 31)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(16, 23, 19)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": ".order-total-box .field-note",
+      "found": true,
+      "theme": "dark",
+      "tag": "P",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "order-total-box",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(27, 36, 31)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(16, 23, 19)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": ".order-total-box .grand-total span",
+      "found": true,
+      "theme": "dark",
+      "tag": "SPAN",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "grand-total",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-total-box",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(27, 36, 31)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(16, 23, 19)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": ".order-total-box .grand-total strong",
+      "found": true,
+      "theme": "dark",
+      "tag": "STRONG",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "DIV",
+          "class": "grand-total",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-total-box",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "linear-gradient(135deg, rgb(36, 76, 64), rgb(22, 56, 45))",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-items-card",
+          "backgroundColor": "rgb(27, 36, 31)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-main-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(16, 23, 19)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_gradient_endpoint_contrasts": [
+        9.621,
+        12.823
+      ]
+    },
+    {
+      "selector": "textarea",
+      "found": true,
+      "theme": "dark",
+      "tag": "TEXTAREA",
+      "color": "rgb(246, 245, 237)",
+      "backgroundColor": "rgb(27, 36, 31)",
+      "backgroundImage": "none",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "opacity": "1",
+      "placeholder": {
+        "color": "rgb(186, 200, 190)",
+        "opacity": "1"
+      },
+      "ancestorBackgrounds": [
+        {
+          "tag": "LABEL",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "FORM",
+          "class": "form-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "panel order-action-card",
+          "backgroundColor": "rgb(27, 36, 31)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class": "order-side-stack",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class": "container order-layout order-layout-v5",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class": "storefront-main",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class": "is-storefront-app",
+          "backgroundColor": "rgb(16, 23, 19)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class": "",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backgroundImage": "none",
+          "opacity": "1"
+        }
+      ],
+      "check": "axe customer owned order",
+      "calculated_placeholder_contrast": 9.17
+    }
+  ],
+  "limitations": [
+    "Computed CSS contrast samples only; full WCAG conformance NOT TESTED",
+    "Screen readers and physical devices NOT TESTED",
+    "Email SIMULATED; live providers NOT TESTED"
+  ],
+  "source_fingerprint": {
+    "sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+    "files": 147,
+    "scope": "Copied src, views, public excluding uploads, generated and package.json"
+  },
+  "temporary_fixture_removed": true
+}

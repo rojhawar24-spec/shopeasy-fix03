@@ -1,0 +1,14 @@
+{
+  "utc_started": "2026-11-15T11:31:51.836547+00:00",
+  "utc_finished": "2026-11-15T11:31:52.533907+00:00",
+  "cwd": "/workspace/presale-r27/work",
+  "command": [
+    "npm",
+    "audit",
+    "--omit=dev",
+    "--json"
+  ],
+  "exit_code": 0,
+  "output_file": "phase-e1-production-advisories.txt",
+  "inherited_application_credentials": "removed; credential values not printed"
+}

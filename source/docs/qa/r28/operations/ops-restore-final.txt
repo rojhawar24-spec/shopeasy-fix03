@@ -1,0 +1,21 @@
+▶ real libSQL restore preserves financial rows/BLOB/media and rolls back handled pre-commit failures
+  ✔ successful restore compares every table and schema object (15.005469ms)
+  ✔ ddl refusal rolls back DB and owned media (4.904281ms)
+  ✔ fk refusal rolls back DB and owned media (6.035308ms)
+  ✔ integrity refusal rolls back DB and owned media (4.817983ms)
+  ✔ empty-integrity refusal rolls back DB and owned media (5.375461ms)
+  ✔ bad-integrity refusal rolls back DB and owned media (5.953874ms)
+  ✔ commit refusal rolls back DB and owned media (7.848919ms)
+  ✔ occupied media refuses before transaction and preserves existing sentinel (1.426038ms)
+  ✔ wrong encryption key leaves no committed schema or media (2.715337ms)
+  ✔ nonempty database refuses without changing existing rows (3.923641ms)
+✔ real libSQL restore preserves financial rows/BLOB/media and rolls back handled pre-commit failures (110.771208ms)
+✔ backup metadata failures refuse publication and composite WITHOUT ROWID keys round-trip (49.22186ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 164.483359

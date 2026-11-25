@@ -1,0 +1,31 @@
+{
+  "release": "ShopEasy 2.8.93 R22 FIX11 Belgian checkout and French server copy",
+  "review_date": "2026-11-08",
+  "packaged_file_count": 481,
+  "group_counts": {
+    "application-source": 45,
+    "configuration": 28,
+    "documentation": 66,
+    "generated": 1,
+    "public-assets": 35,
+    "scripts": 37,
+    "tests": 208,
+    "views": 59
+  },
+  "verification_scope": {
+    "dependency_free_tests_passed": 892,
+    "dependency_free_tests_failed": 0,
+    "full_node24_suite_completed": false,
+    "source_js_files_syntax_checked": 277,
+    "ejs_templates_source_audited": 59,
+    "core_js_modules_typechecked": 4,
+    "http_route_declarations_inspected": 137,
+    "sqlite_schema_tables": 33,
+    "generated_cloudflare_views": true
+  },
+  "live_browser_checkout_login_db_qa": false,
+  "live_payment_verification": false,
+  "commercial_resale_rights": "NOT CLEARED FOR COMMERCIAL RESALE",
+  "production_certification": false,
+  "audit_report": "docs/qa/FIX11-CHECKOUT-AND-FRENCH-SERVER-REMEDIATION-2026-11-08.md"
+}

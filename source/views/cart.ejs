@@ -1,0 +1,133 @@
+<%- include('partials/header',{title:'Cart'}) %>
+<%- include('partials/purchase-journey',{journeyStage:'cart'}) %>
+<section class="container page-head cart-page-head">
+  <%- include('partials/back-button', { fallback: '/shop' }) %>
+  <span class="eyebrow"><%= customerText(locale==='nl'?'JE WINKELMANDJE':locale==='fr'?'VOTRE PANIER':locale==='ckb'?'سەبەتەکەت':locale==='ar'?'سلة التسوق':'YOUR BAG') %></span>
+  <h1><%= customerText(locale==='nl'?'Winkelmandje':locale==='fr'?'Votre panier':locale==='ckb'?'سەبەتە':locale==='ar'?'السلة':'Your bag') %></h1>
+  <p><%= customerText(locale==='nl'?'Controleer je artikelen en aantallen voordat je afrekent.':locale==='fr'?'Vérifiez vos articles et quantités avant de passer commande.':locale==='ckb'?'پێش داواکردن کاڵاکان و ژمارەیان بپشکنە.':locale==='ar'?'راجع المنتجات والكميات قبل إتمام الطلب.':'Check items, quantities and totals before checkout.') %></p>
+</section>
+
+<% if(appearance.freeShipping&&appearance.freeShippingMinimum>0 && items?.length){ const remaining=Math.max(0,appearance.freeShippingMinimum-Number(subtotal||0)); %><section class="container"><div class="shipping-progress"><strong id="shipping-progress-label"><%= customerText(remaining===0?'Your cart reached the store’s configured free-shipping threshold.':'Progress toward the store’s free-shipping threshold') %></strong><meter aria-labelledby="shipping-progress-label" aria-describedby="shipping-progress-detail" min="0" max="<%= appearance.freeShippingMinimum %>" value="<%= Math.min(appearance.freeShippingMinimum,Number(subtotal||0)) %>"></meter><p class="field-note" id="shipping-progress-detail"><%= customerText("Threshold: ") %><%= formatPrice(appearance.freeShippingMinimum,currency) %>. <%= remaining>0?`Remaining: ${formatPrice(remaining,currency)}.`:'' %><%= customerText(" Final delivery fees depend on the actual shipping rules and delivery address at checkout.") %></p></div></section><% } %>
+<section class="container cart-layout cart-layout-v5" aria-label="<%= customerText("Cart items and order summary") %>">
+  <% if(typeof securityNotice!=='undefined' && securityNotice){ %><div class="alert" role="status"><%= customerText(locale==='nl'?'Je beveiligingscontrole is verlopen voordat deze actie werd aanvaard. Er is niets opnieuw verzonden. Controleer je winkelmandje en ga verder met het nieuwe beveiligde formulier.':'Your security check expired before this action was accepted. Nothing was submitted again. Review the bag, then continue with a fresh secure form.') %></div><% } %>
+  <% const nlCartCopy={option:'Deze productoptie is niet meer beschikbaar. Verwijder ze en kies een andere optie.',quantity:'Je kunt maximaal 99 stuks van dezelfde productoptie toevoegen. Controleer het aantal en probeer opnieuw.',stock:'De voorraad is gewijzigd voordat we je winkelmandje konden bijwerken. Controleer het beschikbare aantal bij het betreffende artikel.',unavailable:'Dit product is niet meer beschikbaar. Controleer je winkelmandje of bekijk de momenteel beschikbare producten.',stockIssues:'Sommige artikelen in je winkelmandje zijn niet meer beschikbaar in het gevraagde aantal. Controleer de voorraadmelding bij elk artikel voordat je verdergaat.',stockChanged:'De voorraad is gewijzigd sinds je deze artikelen hebt toegevoegd. Je gevraagde aantallen zijn behouden; pas de betrokken artikelen aan of verwijder ze voordat je afrekent.',discountApplied:'Kortingscode toegepast.',discountInvalid:'Die code is ongeldig, inactief of verlopen.',discountMinimum:'Je bestelling voldoet niet aan het minimale bestelbedrag voor deze code.',pricesUnchanged:'De prijzen in je winkelmandje zijn door deze poging niet gewijzigd.',discountEmpty:'Voer een kortingscode in voordat je op Code toepassen klikt. Gebruik Code verwijderen om een actieve code te wissen.',discountRemoved:'De kortingscode is verwijderd. Het totaal van de bestelling is bijgewerkt.',couponIneligible:'Je vorige kortingscode voldoet niet meer aan het minimale bestelbedrag en wordt daarom niet langer toegepast.'}; %>
+  <% if(cartError){ %>
+    <div class="alert cart-action-error" role="alert" aria-live="assertive">
+      <% if(cartError==='option'){ %><%= locale==='nl'?nlCartCopy.option:'The requested option is no longer available. Please remove it and choose another option.' %>
+      <% } else if(cartError==='quantity'){ %><%= locale==='nl'?nlCartCopy.quantity:'You can add up to 99 of the same product option. Check the quantity and try again.' %>
+      <% } else if(cartError==='stock'){ %><%= locale==='nl'?nlCartCopy.stock:'Stock changed before we could update your bag. Review the available quantity under the affected item.' %>
+      <% } else { %><%= locale==='nl'?nlCartCopy.unavailable:'This product is no longer available. Review your bag or continue shopping for current products.' %><% } %>
+    </div>
+  <% } %>
+  <% if(stockIssues?.length){ %>
+    <div class="alert" role="alert"><%= locale==='nl'?nlCartCopy.stockIssues:'Some items in your cart are no longer available in the requested quantity. Review the stock message under each item before continuing.' %></div>
+  <% } %>
+  <% if(stockMessage==='changed'){ %>
+    <div class="alert" role="status"><%= locale==='nl'?nlCartCopy.stockChanged:'Stock changed since you added these items. Your requested quantities were kept; update or remove the affected items before checkout.' %></div>
+  <% } %>
+  <% if(couponMessage){ %>
+    <div class="<%= couponMessage==='applied'||couponMessage==='cleared'?'success-alert':'alert' %> cart-message" role="status" aria-live="polite">
+      <% if(couponMessage==='applied'&&coupon){ %>
+        <strong><%= locale==='nl'?nlCartCopy.discountApplied:'Discount code applied.' %></strong> <strong><%= coupon.code %></strong><%= customerText(" saves you ") %><strong><%= formatPrice(discount,currency) %></strong><%= customerText(" on this order.\n      ") %><% } else if(couponMessage==='invalid'){ %>
+        <strong><%= customerText(locale==='nl'?'Kortingscode niet toegepast.':'Discount code not applied.') %></strong> <%= locale==='nl'?nlCartCopy.discountInvalid:'That code is invalid, inactive or expired.' %>
+        <% if(coupon){ %> <%= customerText(locale==='nl'?'Je huidige code ':'Your existing code ') %><strong><%= coupon.code %></strong> <%= customerText(locale==='nl'?'is nog actief en bespaart ':'is still active and saves ') %><strong><%= formatPrice(discount,currency) %></strong>.<% } else { %> <%= locale==='nl'?nlCartCopy.pricesUnchanged:'Your cart prices have not been changed by this attempt.' %><% } %>
+      <% } else if(couponMessage==='minimum'){ %>
+        <strong><%= customerText(locale==='nl'?'Kortingscode niet toegepast.':'Discount code not applied.') %></strong> <%= locale==='nl'?nlCartCopy.discountMinimum:'The order does not meet that code’s minimum spend.' %>
+        <% if(coupon){ %> <%= customerText(locale==='nl'?'Je huidige code ':'Your existing code ') %><strong><%= coupon.code %></strong> <%= customerText(locale==='nl'?'blijft actief en bespaart ':'remains active and saves ') %><strong><%= formatPrice(discount,currency) %></strong>.<% } else { %> <%= locale==='nl'?nlCartCopy.pricesUnchanged:'Your cart prices have not been changed by this attempt.' %><% } %>
+      <% } else if(couponMessage==='empty'){ %>
+        <%= locale==='nl'?nlCartCopy.discountEmpty:'Enter a discount code before selecting Apply code. Use Remove code to clear a code that is already active.' %>
+      <% } else { %>
+        <%= locale==='nl'?nlCartCopy.discountRemoved:'The discount code was removed. The order total has been updated.' %>
+      <% } %>
+    </div>
+  <% } %>
+
+  <div class="panel cart-list cart-list-v5">
+    <% if(!items.length){ %>
+      <div class="empty compact">
+        <span class="empty-icon" aria-hidden="true"><%= customerText("Bag") %></span>
+        <h2><%= customerText("Your bag is empty.") %></h2>
+        <p><%= customerText("Nothing is waiting here yet. Browse the shop and add an item whenever you are ready.") %></p>
+        <a href="/shop" class="btn btn-dark"><%= customerText("Continue shopping") %></a>
+      </div>
+    <% } else { %>
+      <h2 class="sr-only"><%= customerText("Items") %></h2>
+    <% items.forEach(i=>{ %>
+      <div class="cart-item">
+        <a class="cart-product-image" href="/product/<%= i.product.slug %>"><img src="<%= safeImageUrl(i.product.image_url) %>" data-fallback-src="/assets/product-placeholder.svg" alt="<%= i.product.name %>" width="120" height="150" loading="lazy" decoding="async"></a>
+        <div class="cart-info">
+          <span class="muted cart-sku"><%= i.product.sku %></span>
+          <h3 data-no-translate><a href="/product/<%= i.product.slug %>"><%= i.product.name %></a></h3>
+          <p class="cart-unit-pricing">
+            <% if(i.automaticDiscount>0){ %>
+              <span class="cart-before-price"><%= formatPrice(i.basePrice,currency) %><%= customerText(" each before automatic discount") %></span>
+              <strong><%= formatPrice(i.price,currency) %> <%= customerText(locale==='nl'?'per stuk na ':'each after ') %><%= i.automaticDiscountPercent %>% <%= customerText(locale==='nl'?'korting':'off') %></strong>
+            <% } else { %><strong><%= formatPrice(i.price,currency) %><%= customerText(" each") %></strong><% } %>
+          </p>
+          <% if(i.variant){ %><p class="cart-variant"><%= i.variant.option_name %>: <strong><%= i.variant.option_value %></strong><% if(i.variant.option_value_2){ %> · <%= i.variant.option_name_2 %>: <strong><%= i.variant.option_value_2 %></strong><% } %></p><% } %>
+          <% if(i.stockIssue==='product_unavailable'){ %><p class="alert" role="status"><%= customerText("This product is no longer available. Remove it from your cart.") %></p>
+          <% } else if(i.stockIssue==='variant_unavailable'){ %><p class="alert" role="status"><%= customerText("This option is no longer available. Remove it and choose an available option again.") %></p>
+          <% } else if(i.stockIssue==='out_of_stock'){ %><p class="alert" role="status"><%= customerText("This option is out of stock. Remove it from your cart.") %></p>
+          <% } else if(i.stockIssue==='quantity_exceeds_stock'){ %><p class="alert" role="status"><%= customerText(locale==='nl'?'Nog maar ':'Only ') %><%= i.availableStock %> <%= customerText(locale==='nl'?'beschikbaar. Verlaag het aantal tot dit aantal of minder en werk je winkelmandje bij.':'available. Change the quantity to this number or less, then update.') %></p>
+          <% } else if(i.stockIssue==='quantity_exceeds_limit'){ %><p class="alert" role="status"><%= customerText("The maximum is 99 of the same product option. Reduce the quantity to 99 or less and update.") %></p><% } %>
+          <% if(!i.stockIssue||['quantity_exceeds_stock','quantity_exceeds_limit'].includes(i.stockIssue)){ %>
+            <form method="post" action="/cart/update" class="qty-form">
+              <input type="hidden" name="_csrf" value="<%= csrf %>">
+              <input type="hidden" name="productId" value="<%= i.product.id %>">
+              <input type="hidden" name="variantId" value="<%= i.variantId||0 %>">
+              <label class="sr-only" for="qty-<%= i.product.id %>-<%= i.variantId||0 %>"><%= customerText("Quantity for ") %><%= i.product.name %><%= i.variant?' '+i.variant.option_value:'' %></label>
+              <div class="cart-qty-stepper" role="group" aria-label="Quantity for <%= i.product.name %>">
+                <button type="button" class="cart-qty-step" data-cart-qty-step="-1" aria-label="Decrease quantity of <%= i.product.name %>"><%- include('partials/ui-icon',{iconName:'minus'}) %></button>
+                <input id="qty-<%= i.product.id %>-<%= i.variantId||0 %>" type="number" name="quantity" min="1" max="<%= Math.min(99,i.availableStock) %>" value="<%= i.quantity %>">
+                <button type="button" class="cart-qty-step" data-cart-qty-step="1" aria-label="Increase quantity of <%= i.product.name %>"><%- include('partials/ui-icon',{iconName:'plus'}) %></button>
+              </div>
+              <button type="submit" class="icon-btn cart-qty-update"><%= customerText(locale==='nl'?'Bijwerken':locale==='fr'?'Actualiser':locale==='ckb'?'نوێکردنەوە':locale==='ar'?'تحديث':'Update') %></button>
+            </form>
+          <% } %>
+        </div>
+        <strong class="cart-line-total"><%= formatPrice(i.total,currency) %></strong>
+        <form method="post" action="/cart/remove" data-confirm="<%= customerText("Remove this item from your cart?") %>">
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <input type="hidden" name="productId" value="<%= i.product.id %>">
+          <input type="hidden" name="variantId" value="<%= i.variantId||0 %>">
+          <button type="submit" class="icon-btn" aria-label="Remove <%= i.product.name %><%= i.variant?' '+i.variant.option_value:'' %>"><span aria-hidden="true">×</span><span class="cart-remove-label"><%= customerText("Remove") %></span></button>
+        </form>
+      </div>
+    <% }) } %>
+  </div>
+
+  <% if(items.length){ %>
+    <section class="summary cart-summary-v5" aria-labelledby="cart-summary-heading">
+      <h2 id="cart-summary-heading" class="summary-head"><%= customerText("Order summary") %></h2>
+      <div class="summary-row"><span><%= customerText("Subtotal before discounts") %></span><strong><%= formatPrice(subtotalBeforeAutomaticDiscount,currency) %></strong></div>
+      <% if(automaticDiscount>0){ %><div class="summary-row summary-discount"><span><%= customerText("Automatic product discounts") %></span><strong>−<%= formatPrice(automaticDiscount,currency) %></strong></div><% } %>
+      <% if(discount>0){ %><div class="summary-row summary-discount"><span><%= customerText("Discount code") %><% if(coupon){ %> · <%= coupon.code %><% } %></span><strong>−<%= formatPrice(discount,currency) %></strong></div><% } %>
+      <div class="summary-row"><span><%= customerText("Delivery") %></span><strong><%= shipping===0?'Free':formatPrice(shipping,currency) %></strong></div>
+      <div class="rule"></div>
+      <% if(bundleDiscount>0){ %><div class="summary-row"><span><%= customerText("Bundle saving") %></span><strong>− <%= formatPrice(bundleDiscount,currency) %></strong></div><% } %><div class="summary-row total"><span><%= customerText("Order total") %></span><strong><%= formatPrice(total,currency) %></strong></div>
+
+      <% if(couponIneligible){ %><div class="alert coupon-ineligible" role="status"><%= locale==='nl'?nlCartCopy.couponIneligible:'Your previous discount code no longer meets its minimum order value, so it is no longer applied.' %></div><% } %>
+      <form method="post" action="/cart/coupon" class="coupon-form" aria-label="<%= customerText("Discount code") %>">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <label for="coupon-code"><%= customerText("Discount code") %></label>
+        <div class="coupon-input-row">
+          <input id="coupon-code" name="code" maxlength="40" autocomplete="off" autocapitalize="characters" placeholder="<%= customerText("Enter discount code") %>" value="<%= coupon?.code||'' %>">
+          <button type="submit" class="btn btn-light" name="action" value="apply"><%= customerText("Apply code") %></button>
+        </div>
+        <% if(coupon){ %>
+          <div class="coupon-active" role="status"><span><%= customerText("Active code") %></span><strong><%= coupon.code %></strong><span><%= customerText("You save ") %><%= formatPrice(discount,currency) %><%= customerText(" on this order.") %></span></div>
+          <button type="submit" class="btn btn-light coupon-remove-button" name="action" value="remove" formnovalidate><%= customerText("Remove code") %></button>
+        <% } else { %><small><%= customerText("Enter the code provided by the shop. An invalid replacement will not remove a valid code that is already active.") %></small><% } %>
+      </form>
+
+      <% if(items.length&&!hasStockIssues){ %>
+        <a class="btn btn-dark btn-wide checkout-btn" href="/checkout"><%= customerText("Continue to checkout") %></a>
+      <% } else { %>
+        <button class="btn btn-dark btn-wide checkout-btn" type="button" disabled><%= customerText("Fix stock issues to continue") %></button>
+      <% } %>
+      <a class="btn btn-light btn-wide continue-shopping-btn" href="/shop"><%= customerText("Continue shopping") %></a>
+      <small><%= customerText(automaticDiscount>0 ? 'Automatic product discounts are already included in the item prices above. ' : '') %><%= customerText("Delivery fee and any valid discount are shown above. Stock and the final total are checked again before the order is accepted.") %></small>
+    </section>
+  <% } %>
+</section>
+<%- include('partials/footer') %>

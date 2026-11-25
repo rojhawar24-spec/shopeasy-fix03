@@ -1,0 +1,135 @@
+[
+  {
+    "location": "test/cart-failure-ux.test.js:9:1",
+    "name": "\u2716 recoverable cart add errors return to a relevant page instead of rendering a generic error page (8.108695ms)",
+    "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /\\?cartError=stock/. Input:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/cart-failure-ux.test.js:16:9)",
+    "expected": "expected: /\\?cartError=stock/,"
+  },
+  {
+    "location": "test/deep-hardening.test.js:56:1",
+    "name": "\u2716 release versions and password-reset documentation are internally consistent (1.971972ms)",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/deep-hardening.test.js:62:10)",
+    "expected": "expected: '^6.0.1',"
+  },
+  {
+    "location": "test/deep-hardening.test.js:67:1",
+    "name": "\u2716 known current dependency security baselines are not rolled back (0.638264ms)",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/deep-hardening.test.js:83:10)",
+    "expected": "expected: '8.7.3',"
+  },
+  {
+    "location": "test/editorial-2027-regression.test.js:7:1",
+    "name": "\u2716 editorial design is installed on real routes and both preview shells (3.412199ms)",
+    "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /editorial-2027\\.css\\?v=2027-atelier-1/. Input:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/editorial-2027-regression.test.js:10:12)",
+    "expected": "expected: /editorial-2027\\.css\\?v=2027-atelier-1/,"
+  },
+  {
+    "location": "test/fix10-recovery-regressions.test.js:68:1",
+    "name": "\u2716 FIX10 rate limiter package and lockfile pin patched version with verified integrity (1.527567ms)",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/fix10-recovery-regressions.test.js:71:10)",
+    "expected": "expected: '8.7.3',"
+  },
+  {
+    "location": "test/manager-stock-alerts.test.js:34:1",
+    "name": "\u2716 Manager dashboard explains the reserved-stock calculation and labels the available quantity (1.401546ms)",
+    "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /<th>Available<\\/th>/. Input:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/manager-stock-alerts.test.js:37:10)",
+    "expected": "expected: /<th>Available<\\/th>/,"
+  },
+  {
+    "location": "test/market-neutral-defaults.test.js:34:1",
+    "name": "\u2716 selected UI language does not force a country-specific region (3.713999ms)",
+    "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /href=\"\\/css\\/app\\.css\\?v=[A-Za-z0-9._-]+\"/. Input:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/market-neutral-defaults.test.js:45:10)",
+    "expected": "expected: /href=\"\\/css\\/app\\.css\\?v=[A-Za-z0-9._-]+\"/,"
+  },
+  {
+    "location": "test/mfa.test.js:135:1",
+    "name": "\u2716 Manager MFA routes, CSRF guards, session revocation and idempotent SQLite migration are wired (3.674338ms)",
+    "error": "AssertionError [ERR_ASSERTION]: activation and disable should each contain exactly one pending-challenge session deletion",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/mfa.test.js:159:10)",
+    "expected": "expected: 2,"
+  },
+  {
+    "location": "test/r11-zero-audit-regressions.test.js:49:1",
+    "name": "\u2716 R11: all active runtime design layers are validated by the source build check (2.071034ms)",
+    "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /runtime and preview/. Input:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/r11-zero-audit-regressions.test.js:52:9)",
+    "expected": "expected: /runtime and preview/,"
+  },
+  {
+    "location": "test/r13-pasted-log-regressions.test.js:21:1",
+    "name": "\u2716 Manager settings and customer order templates have syntactically balanced EJS and JS (124.832308ms)",
+    "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /59 EJS templates inspected/. Input:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/r13-pasted-log-regressions.test.js:24:10)",
+    "expected": "expected: /59 EJS templates inspected/,"
+  },
+  {
+    "location": "test/r13-pasted-log-regressions.test.js:43:1",
+    "name": "\u2716 all referenced local CSS files in the page head exist (6.034685ms)",
+    "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/r13-pasted-log-regressions.test.js:46:10)",
+    "expected": "expected: true,"
+  },
+  {
+    "location": "test/r18-research-ux-regression.test.js:51:1",
+    "name": "\u2716 R18 styling is from a versioned local stylesheet and all existing design files exist (1.123418ms)",
+    "error": "AssertionError [ERR_ASSERTION]: versioned stylesheet is loaded locally",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/r18-research-ux-regression.test.js:54:9)",
+    "expected": "expected: true,"
+  },
+  {
+    "location": "test/r20-clean-audit-input-validation.test.js:56:1",
+    "name": "\u2716 R20: storefront mutations validate form IDs before calling the database and preserve redirects (2.92137ms)",
+    "error": "AssertionError [ERR_ASSERTION]: remove",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/r20-clean-audit-input-validation.test.js:70:12)",
+    "expected": "expected: true,"
+  },
+  {
+    "location": "test/research-2027-ux6.test.js:36:1",
+    "name": "\u2716 both previews load new CSS and lack mystery OK submit button (1.597443ms)",
+    "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /research-polish-2027\\.css/. Input:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/research-2027-ux6.test.js:38:10)",
+    "expected": "expected: /research-polish-2027\\.css/,"
+  },
+  {
+    "location": "test/research-2027-ux6.test.js:43:1",
+    "name": "\u2716 live header has no visible OK, preserves CSRF, language and Manager route links (1.093264ms)",
+    "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /\\/css\\/research-polish-2027\\.css/. Input:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/research-2027-ux6.test.js:49:9)",
+    "expected": "expected: /\\/css\\/research-polish-2027\\.css/,"
+  },
+  {
+    "location": "test/rights-clearance-inventory.test.js:16:1",
+    "name": "\u2716 third-party inventory covers every locked package and marks metadata gaps (2.00005ms)",
+    "error": "AssertionError [ERR_ASSERTION]: THIRD-PARTY-NOTICES.md count (105) must match package-lock.json (107 node_modules entries)",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/rights-clearance-inventory.test.js:21:10)",
+    "expected": "expected: 107,"
+  },
+  {
+    "location": "test/sale-readiness.test.js:61:1",
+    "name": "\u2716 preview page uses a self-contained relative stylesheet path (1.288258ms)",
+    "error": "AssertionError [ERR_ASSERTION]: preview must use the storefront app.css with a relative cache-versioned path",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/sale-readiness.test.js:65:10)",
+    "expected": "expected: true,"
+  },
+  {
+    "location": "test/sale-readiness.test.js:171:1",
+    "name": "\u2716 frontend asset versions are consistent across the main shell and preview (0.931115ms)",
+    "error": "AssertionError [ERR_ASSERTION]: current stylesheet, script and preview assets must all be cache-versioned",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/sale-readiness.test.js:179:10)",
+    "expected": "expected: true,"
+  },
+  {
+    "location": "test/ux-audit-regressions.test.js:9:1",
+    "name": "\u2716 adding the same product repeatedly cannot create a cart line above the 99-unit checkout limit (4.546445ms)",
+    "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /if\\(nextQty>99\\) return res\\.redirect\\(303,`\\/product\\/\\$\\{encodeURIComponent\\(p\\.slug\\)\\}\\?cartError=quantity`\\)/. Input:",
+    "assertion_location": "at TestContext.<anonymous> (file:///workspace/presale-r28/work/test/ux-audit-regressions.test.js:12:10)",
+    "expected": "expected: /if\\(nextQty>99\\) return res\\.redirect\\(303,`\\/product\\/\\$\\{encodeURIComponent\\(p\\.slug\\)\\}\\?cartError=quantity`\\)/,"
+  }
+]

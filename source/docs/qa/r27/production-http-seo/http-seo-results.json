@@ -1,0 +1,248 @@
+{
+  "started_utc": "2026-11-14T20:36:51.780795+00:00",
+  "production_runtime_status": "NOT TESTED",
+  "transport": "Loopback HTTP only; no TLS termination tested",
+  "production_guard": {
+    "node_env": "production",
+    "exit_code": 1,
+    "protocol": [
+      {
+        "event": "startup-failed",
+        "stage": "guards",
+        "kind": "Error"
+      }
+    ],
+    "refused_before_database_import": true,
+    "private_runtime_created_by_probe": true,
+    "temporary_directory_removed": true
+  },
+  "test_fixture_http_checks": [
+    {
+      "check": "Root security headers",
+      "mode": "test",
+      "status": 200,
+      "headers": {
+        "Content-Security-Policy": "default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'none';img-src 'self' data: https:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self';connect-src 'self'",
+        "Cache-Control": "private, no-store",
+        "Pragma": "no-cache",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "no-referrer",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Robots-Tag": null
+      },
+      "x_powered_by_present": false
+    },
+    {
+      "check": "Missing-CSRF dynamic registration error",
+      "mode": "test",
+      "status": 403,
+      "cache_control": "private, no-store, max-age=0",
+      "pragma": "no-cache",
+      "no_store_observed": true,
+      "cookie_flags_only": [
+        {
+          "name": "sid",
+          "http_only": true,
+          "secure": false,
+          "same_site": "Lax",
+          "path": "/",
+          "domain_present": false,
+          "max_age_seconds": 7200
+        }
+      ],
+      "csrf_value_logged": false
+    },
+    {
+      "check": "Login page cookie flags",
+      "mode": "test",
+      "configured_base_uses_https": true,
+      "actual_request_uses_tls": false,
+      "status": 200,
+      "cookie_flags_only": [
+        {
+          "name": "sid",
+          "http_only": true,
+          "secure": false,
+          "same_site": "Lax",
+          "path": "/",
+          "domain_present": false,
+          "max_age_seconds": 7200
+        }
+      ]
+    },
+    {
+      "check": "Synthetic Manager password login cookie rotation",
+      "mode": "test",
+      "status": 303,
+      "redirect_path": "/mfa/setup",
+      "cookie_flags_only": [
+        {
+          "name": "sid",
+          "http_only": true,
+          "secure": false,
+          "same_site": "Lax",
+          "path": "/",
+          "domain_present": false,
+          "max_age_seconds": 300
+        }
+      ],
+      "production_flags_status": "NOT TESTED"
+    },
+    {
+      "check": "Seeded public page SEO",
+      "mode": "test",
+      "route": "/",
+      "status": 200,
+      "title": "Home · Disposable QA Store",
+      "h1_count": 1,
+      "h1_text": [
+        "Find something you will love."
+      ],
+      "description_present": true,
+      "robots_meta": "index, follow",
+      "canonical": [
+        "https://fixture.example.test/"
+      ],
+      "alternate_locale_count": 6,
+      "json_ld_count": 1,
+      "json_ld_valid": true,
+      "json_ld_types": [
+        "Organization"
+      ]
+    },
+    {
+      "check": "Seeded public page SEO",
+      "mode": "test",
+      "route": "/shop",
+      "status": 200,
+      "title": "Shop · Disposable QA Store",
+      "h1_count": 1,
+      "h1_text": [
+        "Shop everything."
+      ],
+      "description_present": true,
+      "robots_meta": "index, follow",
+      "canonical": [
+        "https://fixture.example.test/shop"
+      ],
+      "alternate_locale_count": 6,
+      "json_ld_count": 0,
+      "json_ld_valid": true,
+      "json_ld_types": []
+    },
+    {
+      "check": "Seeded public page SEO",
+      "mode": "test",
+      "route": "/product/qa-product-1",
+      "status": 200,
+      "title": "QA product 1 · Disposable QA Store",
+      "h1_count": 1,
+      "h1_text": [
+        "QA product 1"
+      ],
+      "description_present": true,
+      "robots_meta": "index, follow",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-1"
+      ],
+      "alternate_locale_count": 6,
+      "json_ld_count": 2,
+      "json_ld_valid": true,
+      "json_ld_types": [
+        "BreadcrumbList",
+        "Product"
+      ]
+    },
+    {
+      "check": "Crawler endpoint",
+      "mode": "test",
+      "route": "/robots.txt",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "sets_cookie": false,
+      "public_directives": [
+        "User-agent: *",
+        "Allow: /",
+        "Disallow: /admin",
+        "Disallow: /account",
+        "Disallow: /checkout",
+        "Sitemap: https://fixture.example.test/sitemap.xml"
+      ]
+    },
+    {
+      "check": "Crawler endpoint",
+      "mode": "test",
+      "route": "/sitemap.xml",
+      "status": 200,
+      "content_type": "application/xml; charset=utf-8",
+      "sets_cookie": false,
+      "valid_xml": true,
+      "root_element": "sitemapindex",
+      "location_count": 2
+    },
+    {
+      "check": "Crawler endpoint",
+      "mode": "test",
+      "route": "/sitemap-static.xml",
+      "status": 200,
+      "content_type": "application/xml; charset=utf-8",
+      "sets_cookie": false,
+      "valid_xml": true,
+      "root_element": "urlset",
+      "location_count": 60
+    },
+    {
+      "check": "Crawler endpoint",
+      "mode": "test",
+      "route": "/sitemap-products-1.xml",
+      "status": 200,
+      "content_type": "application/xml; charset=utf-8",
+      "sets_cookie": false,
+      "valid_xml": true,
+      "root_element": "urlset",
+      "location_count": 55
+    }
+  ],
+  "limitations": [
+    "Shipped fixture production refusal is retained; no guard modified or bypassed",
+    "Production Secure-cookie transmission, TLS, reverse proxy behavior and actual HSTS enforcement NOT TESTED",
+    "No browser, screen reader, physical device or live provider tested",
+    "Test fixture observations must not be represented as production runtime evidence",
+    "No cookie values, CSRF values, credentials, raw response bodies or private environment/database contents retained"
+  ],
+  "source_file_hashes": {
+    "qa/fixture-server.mjs": "35d900feca5b54326ba54211169fbb6ad7edbbdf88ea5b69f85af03d3d8cc2db",
+    "qa/run-browser-qa.py": "c981e929d07276a8b4d67c3e5ca4d0e36a271eb0f88f0cac3256da73044f7a07",
+    "src/auth.js": "b5f76328de929f79516e2882d03a110d7226b0ef601f1b7d60ea7035dce08e35",
+    "src/server.js": "dd2252865e421706e897893fd6abed36c3f14cdd4ace1a7ae4cb2cd4c3a7334b",
+    "views/partials/header.ejs": "44e9759081425cd2d96d60ec838818b62eef8b3e1bc609d71aa7730b7746e819"
+  },
+  "production_runtime_reason": "Shipped fixture explicitly requires NODE_ENV=test; production was refused in guards before database import. Guard was not bypassed.",
+  "application_runtime": {
+    "sha256": "293fee2e8ab1c51fa3d2e693dbf7ffd46bf7d8ec18066783a46cdd45b7c19ac4",
+    "files": 147,
+    "scope": "Copied src, views, public excluding uploads, generated and package.json"
+  },
+  "test_fixture_mode": {
+    "NODE_ENV": "test",
+    "configured_public_base_url": "https://fixture.example.test",
+    "actual_transport": "http://127.0.0.1 on random port",
+    "database": "Exclusive disposable synthetic SQLite; no existing database opened",
+    "email": "DISABLED"
+  },
+  "public_seo_session": "Fresh guest cookie jar; pending-MFA cookie from login probe is not reused",
+  "test_fixture_removed": true,
+  "production_cookie_source_review": {
+    "status": "STATIC SOURCE REVIEW ONLY; production response NOT TESTED",
+    "source": "src/auth.js",
+    "production_cookie_name": "__Host-sid",
+    "http_only": true,
+    "secure_when_NODE_ENV_production": true,
+    "same_site": "lax",
+    "path": "/",
+    "max_age_seconds": 7200,
+    "domain_option_present": false
+  },
+  "finished_utc": "2026-11-14T20:36:53.116907+00:00"
+}

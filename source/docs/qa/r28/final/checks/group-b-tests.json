@@ -1,0 +1,13 @@
+{
+  "utc_started": "2026-11-22T23:01:07.226314+00:00",
+  "utc_finished": "2026-11-22T23:02:35.172146+00:00",
+  "cwd": "/workspace/presale-r28/work",
+  "command": [
+    "npm",
+    "test"
+  ],
+  "exit_code": 1,
+  "output_file": "group-b-tests.txt",
+  "inherited_application_credentials": "removed; credential values not printed",
+  "original_output_file": "group-b-tests.log"
+}

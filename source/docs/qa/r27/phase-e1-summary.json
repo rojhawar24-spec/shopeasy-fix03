@@ -1,0 +1,131 @@
+{
+  "utc": "2026-11-15T11:31:53.225976+00:00",
+  "label": "VERIFIED",
+  "phase": "phase-e1",
+  "node_runtime": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+  "results": [
+    {
+      "check": "install",
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--fetch-retries=0",
+        "--fetch-timeout=30000"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-install.json"
+    },
+    {
+      "check": "build",
+      "command": [
+        "npm",
+        "run",
+        "build:cloudflare"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-build.json"
+    },
+    {
+      "check": "syntax",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-syntax.json"
+    },
+    {
+      "check": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-lint.json"
+    },
+    {
+      "check": "types",
+      "command": [
+        "npm",
+        "run",
+        "typecheck:core"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-types.json"
+    },
+    {
+      "check": "static",
+      "command": [
+        "npm",
+        "run",
+        "audit:static"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-static.json"
+    },
+    {
+      "check": "preflight",
+      "command": [
+        "npm",
+        "run",
+        "preflight:release"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-preflight.json"
+    },
+    {
+      "check": "templates",
+      "command": [
+        "node",
+        "scripts/template-audit.mjs"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-templates.json"
+    },
+    {
+      "check": "tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-tests.json"
+    },
+    {
+      "check": "notices",
+      "command": [
+        "npm",
+        "run",
+        "licenses:generate"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-notices.json"
+    },
+    {
+      "check": "production-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--omit=dev",
+        "--json"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-production-advisories.json"
+    },
+    {
+      "check": "all-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--json"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-e1-all-advisories.json"
+    }
+  ]
+}

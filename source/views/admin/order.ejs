@@ -1,0 +1,204 @@
+<%- include('../partials/header', { title: `Order #${order.id}` }) %>
+
+<%- include('../partials/admin-nav') %>
+
+<section class="container page-head admin-head">
+  <%- include('../partials/back-button', { fallback: '/admin/orders' }) %>
+  <div>
+    <span class="eyebrow">ORDER # <%= order.id %></span>
+    <h1>Customer order.</h1>
+    <p>
+      <%= order.email %> ·
+      <time datetime="<%= order.created_at %>" title="<%= formatDateTimeDisplay(order.created_at, storeTimeZone) %>">
+        <%= formatDateTimeDisplay(order.created_at, storeTimeZone) %> · <%= formatRelativeTime(order.created_at) %>
+      </time>
+    </p>
+  </div>
+  <span class="status status-<%= order.status %>"><%= order.status %></span>
+</section>
+
+<% if (statusError) { %>
+  <section class="container"><div class="alert" role="alert"><%= statusError %></div></section>
+<% } %>
+
+<section class="container order-layout">
+  <div class="panel">
+    <div class="panel-head"><div><span class="eyebrow">PURCHASE</span><h2>Items</h2></div></div>
+    <% order.items.forEach(item => { %>
+      <div class="order-item">
+        <span data-no-translate>
+          <%= item.product_name %>
+          <% if (item.variant_value) { %>
+            <small class="order-variant">
+              <%= item.variant_name %>: <%= item.variant_value %>
+              <% if (item.variant_value_2) { %> · <%= item.variant_name_2 %>: <%= item.variant_value_2 %><% } %>
+            </small>
+          <% } %>
+          × <%= item.quantity %>
+        </span>
+        <strong><%= formatPrice(item.total_cents, order.currency) %></strong>
+      </div>
+    <% }) %>
+    <div class="rule"></div>
+    <div class="summary-row"><span>Items subtotal</span><strong><%= formatPrice(order.subtotal_cents, order.currency) %></strong></div>
+    <% if (order.automatic_discount_cents > 0) { %>
+      <div class="summary-row"><span>Automatic product discounts</span><strong>-<%= formatPrice(order.automatic_discount_cents, order.currency) %></strong></div>
+    <% } %>
+    <% if (order.discount_cents > 0) { %>
+      <div class="summary-row"><span>Coupon discount</span><strong>-<%= formatPrice(order.discount_cents, order.currency) %></strong></div>
+    <% } %>
+    <div class="summary-row"><span>Shipping</span><strong><%= order.shipping_cents === 0 ? 'Free' : formatPrice(order.shipping_cents, order.currency) %></strong></div>
+    <% if (order.tax_rate_bps !== null && order.tax_rate_bps !== undefined) { %>
+      <div class="summary-row">
+        <span><%= order.tax_included ? 'Tax included in prices' : 'Tax added' %> (<%= (Number(order.tax_rate_bps) / 100).toFixed(2) %>%)</span>
+        <strong><%= formatPrice(order.tax_cents || 0, order.currency) %></strong>
+      </div>
+    <% } else { %>
+      <p class="field-note">No regional tax rule was recorded for this order. This record does not certify tax compliance.</p>
+    <% } %>
+    <div class="summary-row total"><span>Total</span><strong><%= formatPrice(order.total_cents, order.currency) %></strong></div>
+    <div class="tip-box">This is the final total saved for this order.</div>
+  </div>
+
+  <section class="panel" aria-labelledby="delivery-details-heading">
+    <div class="panel-head"><div><span class="eyebrow">CUSTOMER</span><h2 id="delivery-details-heading">Contact</h2></div></div>
+    <div class="customer-detail">
+      <div><span>Email</span><strong data-no-translate><%= order.email %></strong></div>
+      <div><span>Phone</span><strong><%= order.customer_phone || 'Not provided' %></strong></div>
+      <div><span>Full name</span><strong data-no-translate><%= order.shipping_name %></strong></div>
+    </div>
+    <div class="rule"></div>
+    <h2>Delivery location</h2>
+    <p data-no-translate>
+      <strong data-no-translate><%= order.shipping_name %></strong><br>
+      <%= order.shipping_address %><br>
+      <%= order.shipping_postal_code %> <%= order.shipping_city %><br>
+      <%= order.shipping_country %>
+    </p>
+    <% if (order.customer_note) { %>
+      <div class="tip-box"><strong>Customer note</strong><br><span class="policy-copy" data-no-translate><%= order.customer_note %></span></div>
+    <% } %>
+
+    <div class="rule"></div>
+    <h2>Fulfilment</h2>
+    <% if (financialsRefreshed) { %>
+      <div class="alert" role="status"><strong>Mollie financial status refreshed.</strong><p>The server fetched the current payment directly from Mollie and verified it against this order. Order fulfilment status was not changed.</p></div>
+    <% } %>
+    <% if (order.payment_provider === 'mollie' && order.payment_reference) { %>
+      <form method="post" action="/admin/orders/refresh-mollie-financials" class="form-stack">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <input type="hidden" name="id" value="<%= order.id %>">
+        <p class="field-note">Refresh the refund/chargeback amounts from Mollie before making financial or fulfilment decisions. This does not issue a refund or change the order status.</p>
+        <button type="submit" class="btn btn-dark">Refresh Mollie financial status</button>
+      </form>
+    <% } %>
+    <% if (order.payment_provider === 'mollie' && (Number(order.provider_amount_refunded_cents || 0) > 0 || Number(order.provider_amount_charged_back_cents || 0) > 0)) { %>
+      <div class="alert" role="alert">
+        <strong>Payment financial exception — review before fulfilment or further refund</strong>
+        <% if (Number(order.provider_amount_refunded_cents || 0) > 0) { %><p>Provider-reported refund total: <strong><%= formatPrice(order.provider_amount_refunded_cents, order.currency) %></strong>.</p><% } %>
+        <% if (Number(order.provider_amount_charged_back_cents || 0) > 0) { %><p>Provider-reported chargeback total: <strong><%= formatPrice(order.provider_amount_charged_back_cents, order.currency) %></strong>.</p><% } %>
+        <p>This snapshot is read from Mollie and is not the ShopEasy return ledger. It does not automatically change the order status. Compare it with the return/refund records and Mollie Dashboard before shipping, issuing another refund, or closing a dispute.</p>
+        <% if (order.provider_financials_checked_at) { %><p class="muted">Last verified: <time datetime="<%= order.provider_financials_checked_at %>"><%= formatDateTimeDisplay(order.provider_financials_checked_at, storeTimeZone) %></time>.</p><% } %>
+      </div>
+    <% } else if (order.payment_provider === 'mollie' && order.status !== 'pending' && !order.provider_financials_checked_at) { %>
+      <div class="alert" role="status">
+        <strong>Provider financial status not yet checked</strong>
+        <p>Order status alone does not prove that no refund or chargeback exists. Reconcile this payment with Mollie before making financial decisions.</p>
+      </div>
+    <% } %>
+    <% if (reconciled) { %>
+      <div class="alert" role="status">
+        <strong>Provider response verified</strong>
+        <p><%= locale==='nl'?'Mollie meldt momenteel ':'Mollie currently reports ' %><%= reconciled %>. <%= locale==='nl'?'ShopEasy heeft de bestelling pas bijgewerkt nadat het antwoord van de betaalprovider was gecontroleerd en het bestelnummer, bedrag en de valuta overeenkwamen.':'ShopEasy updated the order only after verifying the provider response and matching the order ID, amount and currency.' %></p>
+      </div>
+    <% } %>
+
+    <% if (order.status === 'pending' && order.payment_provider === 'bank_transfer') { %>
+      <div class="alert" role="status">
+        <strong>Bank transfer awaiting manual verification</strong>
+        <p>The order is still unpaid. Compare the real incoming bank statement with this order. Confirm only after the exact amount has settled and the transaction reference is visible in your bank account. A customer screenshot or their statement is not proof of receipt.</p>
+      </div>
+      <% if (bankTransferInfo) { %>
+        <div class="tip-box"><strong>Customer instructions snapshot</strong><p><%= bankTransferInfo.bankName %> · <%= bankTransferInfo.accountHolder %></p><p>Account: <code><%= bankTransferInfo.account %></code></p><% if(bankTransferInfo.bic){ %><p>BIC/SWIFT: <code><%= bankTransferInfo.bic %></code></p><% } %><p>Customer reference: <code><%= bankTransferInfo.reference %></code></p><p>Expected amount: <strong><%= formatPrice(order.total_cents,order.currency) %></strong></p></div>
+      <% } else { %><div class="alert" role="alert">The saved bank-instruction snapshot is missing or invalid. Do not mark this order paid. Contact the customer and investigate the order data first.</div><% } %>
+      <% if(order.cancellation_requested_at && order.cancellation_request_decision==='pending'){ %>
+        <div class="alert" role="status"><strong>Customer requested cancellation.</strong><p><%= order.cancellation_request_reason %></p><p>Check the bank statement before deciding. Do not approve cancellation if a transfer has arrived but is not yet matched.</p></div>
+        <div class="form-actions"><form method="post" action="/admin/orders/status" data-confirm="Approve cancellation and release reserved stock? First check that no bank transfer has arrived."><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="id" value="<%= order.id %>"><input type="hidden" name="status" value="cancelled"><button type="submit" class="btn btn-danger">Approve cancellation & release stock</button></form><form method="post" action="/admin/orders/status"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="id" value="<%= order.id %>"><input type="hidden" name="status" value="reject_cancel_request"><button type="submit" class="btn btn-light">Reject request & keep order open</button></form></div>
+      <% } else { %><% if(order.cancellation_requested_at&&order.cancellation_request_decision==='rejected'){ %><p class="field-note">The previous cancellation request was rejected. The order remains open.</p><% } %>
+        <form method="post" action="/admin/orders/confirm-bank-transfer" class="form-stack" data-confirm="Confirm bank transfer only after checking the actual bank statement and exact received amount.">
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <input type="hidden" name="id" value="<%= order.id %>">
+          <label>Amount actually received (<%= order.currency %>)<input name="receivedAmount" inputmode="decimal" value="<%= formatMoneyInput(order.total_cents,order.currency) %>" required></label>
+          <label>Bank transaction reference<input name="bankReference" maxlength="100" required autocomplete="off" placeholder="Exact reference from your bank statement"></label>
+          <label class="checkbox-inline"><input type="checkbox" name="confirmReceived" required> I checked the actual bank account and received the full exact amount for this order.</label>
+          <p class="field-note">ShopEasy checks the saved order amount, currency, reservation integrity and duplicate transaction references. This does not connect to your bank or verify the statement automatically.</p>
+          <button type="submit" class="btn btn-dark" <%= bankTransferInfo?'':'disabled' %>>Confirm bank transfer received</button>
+        </form>
+      <% } %>
+      <form method="post" action="/admin/orders/status" class="form-stack" data-confirm="Decline this bank-transfer order and release reserved stock? Only do this after checking that no incoming transfer needs to be reconciled."><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="id" value="<%= order.id %>"><input type="hidden" name="status" value="cancelled"><button type="submit" class="btn btn-light">Decline / cancel bank-transfer order</button></form>
+    <% } else if (order.status === 'pending' && order.payment_provider === 'mollie') { %>
+      <div class="alert" role="alert">
+        <strong>Card payment needs provider verification</strong>
+        <p>Do not cancel this order or release its reserved stock just because the browser timed out. Open Mollie Dashboard, find the payment created for this exact ShopEasy order, and enter its <code>tr_…</code> reference below. ShopEasy will fetch the payment from Mollie and verify the payment mode, order metadata, amount and currency before changing the order. If you cannot find a matching payment, leave the order pending and investigate first.</p>
+      </div>
+      <% if (order.payment_reference && order.payment_url) { %>
+        <p>Stored Mollie reference: <code><%= order.payment_reference %></code></p>
+        <p><a class="text-link" href="<%= order.payment_url %>" rel="noopener noreferrer">Open the stored Mollie checkout</a></p>
+      <% } %>
+      <form method="post" action="/admin/orders/reconcile-mollie-payment" class="form-stack">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <input type="hidden" name="id" value="<%= order.id %>">
+        <label for="mollie-payment-id">Mollie payment ID</label>
+        <input id="mollie-payment-id" name="paymentId" value="<%= order.payment_reference || '' %>" required pattern="tr_[A-Za-z0-9]+" maxlength="80" autocomplete="off" spellcheck="false" placeholder="tr_…">
+        <p class="field-note">Enter the exact ID from the Mollie Dashboard. Never guess the ID. If the payment was never created, do not enter an unrelated payment.</p>
+        <button type="submit" class="btn btn-dark">Verify payment with Mollie</button>
+      </form>
+    <% } else if (order.status === 'pending') { %>
+      <div class="alert" role="status">
+        <strong>Pending order — previous checkout</strong>
+        <p>This older pending order uses payment method “<%= order.payment_provider || 'unknown' %>”. Verify its original payment and reserved stock before accepting or canceling it.</p>
+      </div>
+      <div class="form-actions">
+        <form method="post" action="/admin/orders/confirm-legacy-cod" data-confirm="Confirm this older order as cash on delivery only after verifying the original record and reserved stock.">
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <input type="hidden" name="id" value="<%= order.id %>">
+          <button type="submit" class="btn btn-dark">Accept as cash on delivery</button>
+        </form>
+        <form method="post" action="/admin/orders/status" data-confirm="Cancel this pending legacy order and release its reserved stock?">
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <input type="hidden" name="id" value="<%= order.id %>">
+          <input type="hidden" name="status" value="cancelled">
+          <button type="submit" class="btn btn-danger">Cancel legacy order</button>
+        </form>
+      </div>
+    <% } else if (order.status === 'processing' && order.cancellation_requested_at && order.cancellation_request_decision === 'pending') { %>
+      <div class="alert" role="status"><strong>Customer requested cancellation.</strong><p><%= order.cancellation_request_reason %></p></div>
+      <% if (order.payment_provider === 'cash_on_delivery') { %>
+        <div class="form-actions"><form method="post" action="/admin/orders/status" data-confirm="Approve cancellation and release reserved stock?"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="id" value="<%= order.id %>"><input type="hidden" name="status" value="cancelled"><button type="submit" class="btn btn-danger">Approve cancellation &amp; release stock</button></form><form method="post" action="/admin/orders/status"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="id" value="<%= order.id %>"><input type="hidden" name="status" value="reject_cancel_request"><button type="submit" class="btn btn-light">Reject request &amp; keep order open</button></form></div>
+      <% } else { %>
+        <div class="alert" role="alert"><p>This order has already been paid. ShopEasy does not issue an automatic pre-shipment refund. Do not cancel or release stock until the payment has been refunded and reconciled outside this workflow.</p></div>
+        <form method="post" action="/admin/orders/status"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="id" value="<%= order.id %>"><input type="hidden" name="status" value="reject_cancel_request"><button type="submit" class="btn btn-light">Reject request &amp; keep order open</button></form>
+      <% } %>
+      <p class="field-note">Shipment remains paused while this request is awaiting a decision.</p>
+    <% } else if (order.status === 'completed' || order.status === 'cancelled') { %>
+      <p><span class="status status-<%= order.status %>"><%= order.status %></span></p>
+    <% } else { %>
+      <form method="post" action="/admin/orders/status" class="form-stack">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <input type="hidden" name="id" value="<%= order.id %>">
+        <% const nextStatus = order.status === 'paid' ? 'processing' : order.status === 'processing' ? 'shipped' : 'completed'; %>
+        <label class="sr-only" for="order-next-status"><%= customerText('Order status') %></label><select id="order-next-status" name="status"><option value="<%= nextStatus %>">Move to <%= nextStatus %></option></select>
+        <button type="submit" class="btn btn-dark">Update order status</button>
+      </form>
+    <% } %>
+
+    <p class="muted">Terms accepted: <%= order.terms_accepted_at ? formatDateTimeDisplay(order.terms_accepted_at, storeTimeZone) : 'Not recorded' %></p>
+    <p class="muted">
+      Payment method: <%= order.payment_provider==='bank_transfer'?'bank transfer':order.payment_provider || 'unknown' %>. Provider references and final status are verified server-side.
+      <% if (order.payment_reference) { %><br>Reference: <%= order.payment_reference %><% } %>
+    </p>
+  </section>
+</section>
+
+<%- include('../partials/order-email-deliveries',{order,emailDeliveries:typeof emailDeliveries!=='undefined'?emailDeliveries:[],emailResult:typeof emailResult!=='undefined'?emailResult:''}) %>
+<%- include('../partials/footer',{managerWorkspaceShell:user?.role==='manager'}) %>

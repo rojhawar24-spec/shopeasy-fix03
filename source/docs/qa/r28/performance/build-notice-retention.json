@@ -1,0 +1,14 @@
+{
+  "utc_started": "2026-11-21T22:56:11.202420+00:00",
+  "utc_finished": "2026-11-21T22:56:22.470036+00:00",
+  "cwd": "/workspace/presale-r28/proposals/performance/work",
+  "command": [
+    "node",
+    "--test",
+    "--test-reporter=tap",
+    "test/design-css-generation.test.js"
+  ],
+  "exit_code": 0,
+  "output_file": "build-notice-retention.txt",
+  "inherited_application_credentials": "removed; credential values not printed"
+}

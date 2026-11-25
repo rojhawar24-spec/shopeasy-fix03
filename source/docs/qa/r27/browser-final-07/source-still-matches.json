@@ -1,0 +1,14 @@
+{
+  "checked_utc": "2026-11-14T20:53:47.490070+00:00",
+  "reference": "application-runtime-manifest.json",
+  "fixture_runtime_sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+  "current_runtime_file_count": 147,
+  "current_runtime_matches_executed_snapshot": true,
+  "changed_paths": [],
+  "qa_runner_fixture_oracle_match_executed_snapshot": {
+    "qa_runner_sha256": true,
+    "fixture_server_sha256": true,
+    "login_oracle_sha256": true
+  },
+  "scope": "Copied src, views, public excluding uploads, generated and package.json"
+}

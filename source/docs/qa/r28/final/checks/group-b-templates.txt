@@ -1,0 +1,1 @@
+Template audit passed: 60 EJS templates inspected.

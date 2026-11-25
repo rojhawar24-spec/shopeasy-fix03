@@ -1,0 +1,92 @@
+{
+  "outcome": "PASS",
+  "checks": [
+    {
+      "name": "copied runtime contains no dotenv file",
+      "passed": true
+    },
+    {
+      "name": "encrypted artifact and checksum",
+      "passed": true
+    },
+    {
+      "name": "positive restore CLI succeeds",
+      "passed": true
+    },
+    {
+      "name": "exact schema equality",
+      "passed": true
+    },
+    {
+      "name": "exact all-table row equality including sqlite_sequence",
+      "passed": true
+    },
+    {
+      "name": "independent target foreign_key_check",
+      "passed": true
+    },
+    {
+      "name": "independent target integrity_check",
+      "passed": true
+    },
+    {
+      "name": "filesystem upload hashes equal",
+      "passed": true
+    },
+    {
+      "name": "wrong key refusal",
+      "passed": true
+    },
+    {
+      "name": "wrong key leaves no committed schema",
+      "passed": true
+    },
+    {
+      "name": "checksum mismatch refusal",
+      "passed": true
+    },
+    {
+      "name": "source target refusal DATABASE_URL",
+      "passed": true
+    },
+    {
+      "name": "source target refusal SHOP_DATABASE_URL",
+      "passed": true
+    },
+    {
+      "name": "source target refusal TURSO_DATABASE_URL",
+      "passed": true
+    },
+    {
+      "name": "nonempty database refusal",
+      "passed": true
+    },
+    {
+      "name": "nonempty database sentinel preserved",
+      "passed": true
+    },
+    {
+      "name": "nonempty uploads refusal",
+      "passed": true
+    },
+    {
+      "name": "occupied media refusal leaves no committed schema",
+      "passed": true
+    },
+    {
+      "name": "nonempty uploads sentinel preserved",
+      "passed": true
+    },
+    {
+      "name": "source database unchanged by restore attempts",
+      "passed": true
+    }
+  ],
+  "cleanup": {
+    "temporaryTreeRemoved": true,
+    "keyPersisted": false,
+    "syntheticDatabasesDisposed": true,
+    "syntheticUploadsDisposed": true,
+    "encryptedArtifactDisposed": true
+  }
+}

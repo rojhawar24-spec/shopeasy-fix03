@@ -1,0 +1,14 @@
+{
+  "utc_started": "2026-11-22T17:19:50.324074+00:00",
+  "utc_finished": "2026-11-22T17:19:50.563568+00:00",
+  "cwd": "/workspace/presale-r28/work",
+  "command": [
+    "npm",
+    "run",
+    "licenses:generate"
+  ],
+  "exit_code": 0,
+  "output_file": "group-a-notices.txt",
+  "inherited_application_credentials": "removed; credential values not printed",
+  "original_output_file": "group-a-notices.log"
+}

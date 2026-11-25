@@ -1,0 +1,6 @@
+
+> shopeasy-store-starter@2.8.94 build:cloudflare
+> node scripts/build-cloudflare.mjs
+
+Design CSS build passed: five versioned static layers compiled to two deterministic assets, with dynamic /theme/shop.css between them; no CSS purging or selector/declaration reordering.
+Cloudflare build source generated: 60 EJS templates bundled; Turso web client selected; SQLite-backed Durable Object rate limiter exported; database BLOB images enabled; no billable object-storage binding required.

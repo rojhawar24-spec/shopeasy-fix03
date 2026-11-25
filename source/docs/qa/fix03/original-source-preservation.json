@@ -1,0 +1,7 @@
+{
+  "scope": "All original inventoried source files; installed dependencies/build/cache directories are outside original source inventory",
+  "inventoried_files": 1162,
+  "missing": [],
+  "changed": [],
+  "status": "PASS"
+}

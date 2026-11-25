@@ -1,0 +1,19 @@
+{
+  "label": "VERIFIED",
+  "scope": "Disposable synthetic SQLite; original R28 input/R27 encoder; no real state or network",
+  "checks": [
+    {
+      "name": "Occupied uploads refusal",
+      "error": "RESTORE_UPLOADS_DIR_NOT_EMPTY",
+      "schemaTablesLeft": 2,
+      "sentinelPreserved": true
+    },
+    {
+      "name": "PRAGMA failure injection",
+      "restoreReturnedSuccess": true,
+      "restoredRows": 2
+    }
+  ],
+  "serviceSha256": "896c143998fc56c7674d29eac4fa4147b59b81e63024f37cb264751e5be77f41",
+  "privateFixturesRemoved": true
+}

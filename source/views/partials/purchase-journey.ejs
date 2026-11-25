@@ -1,0 +1,23 @@
+<%
+  const pStage = (typeof journeyStage==='string' && ['cart','checkout','confirmation'].includes(journeyStage)) ? journeyStage : 'cart';
+  const pLabels = {
+    en:['Your bag','Details & payment','Order confirmation'],
+    nl:['Winkelmandje','Gegevens & betaling','Bestelbevestiging'],
+    fr:['Votre panier','Livraison & paiement','Confirmation'],
+    ckb:['سەبەتەکەت','زانیاری و پارەدان','پشتڕاستکردنەوەی داواکاری'],
+    ar:['سلة التسوق','البيانات والدفع','تأكيد الطلب']
+  };
+  const pSteps=['cart','checkout','confirmation'];
+  const pCurrent=pSteps.indexOf(pStage);
+  const pText=pLabels[locale]||pLabels.en;
+%>
+<nav class="purchase-journey container" aria-label="<%= locale==='nl'?'Voortgang van je bestelling':locale==='fr'?'Étapes de commande':locale==='ckb'?'قۆناغەکانی داواکاری':locale==='ar'?'خطوات الطلب':'Order progress' %>">
+  <ol class="purchase-journey-list">
+    <% pSteps.forEach((step,index)=>{const isCurrent=index===pCurrent;const isPast=index<pCurrent; %>
+      <li class="purchase-journey-item <%= isCurrent?'is-current':isPast?'is-complete':'' %>" <%- isCurrent?'aria-current="step"':'' %>>
+        <span class="purchase-journey-number" aria-hidden="true"><%= isPast?'✓':index+1 %></span>
+        <% if(isPast && step==='cart'){ %><a href="/cart"><%= pText[index] %></a><% } else { %><span><%= pText[index] %></span><% } %>
+      </li>
+    <% }) %>
+  </ol>
+</nav>

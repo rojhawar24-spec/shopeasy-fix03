@@ -1,0 +1,132 @@
+[
+  {
+    "route": "/cart",
+    "locale": "en",
+    "javascript": true,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/checkout",
+    "locale": "en",
+    "javascript": true,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/cart",
+    "locale": "en",
+    "javascript": false,
+    "passed": true
+  },
+  {
+    "route": "/checkout",
+    "locale": "en",
+    "javascript": false,
+    "passed": true
+  },
+  {
+    "route": "/cart",
+    "locale": "ckb",
+    "javascript": true,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/checkout",
+    "locale": "ckb",
+    "javascript": true,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/cart",
+    "locale": "ckb",
+    "javascript": false,
+    "passed": true
+  },
+  {
+    "route": "/checkout",
+    "locale": "ckb",
+    "javascript": false,
+    "passed": true
+  },
+  {
+    "route": "/cart",
+    "locale": "ar",
+    "javascript": true,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/checkout",
+    "locale": "ar",
+    "javascript": true,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/cart",
+    "locale": "ar",
+    "javascript": false,
+    "passed": true
+  },
+  {
+    "route": "/checkout",
+    "locale": "ar",
+    "javascript": false,
+    "passed": true
+  },
+  {
+    "route": "/cart",
+    "locale": "nl",
+    "javascript": true,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/checkout",
+    "locale": "nl",
+    "javascript": true,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/cart",
+    "locale": "nl",
+    "javascript": false,
+    "passed": true
+  },
+  {
+    "route": "/checkout",
+    "locale": "nl",
+    "javascript": false,
+    "passed": true
+  },
+  {
+    "route": "/cart",
+    "locale": "fr",
+    "javascript": true,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/checkout",
+    "locale": "fr",
+    "javascript": true,
+    "passed": true,
+    "axe_violations": []
+  },
+  {
+    "route": "/cart",
+    "locale": "fr",
+    "javascript": false,
+    "passed": true
+  },
+  {
+    "route": "/checkout",
+    "locale": "fr",
+    "javascript": false,
+    "passed": true
+  }
+]

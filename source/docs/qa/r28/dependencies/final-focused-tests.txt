@@ -1,0 +1,32 @@
+✔ P1-4 pins Express 5.3.0 and Helmet 8.3.0 with an integrity-verified npm lockfile (4.0262ms)
+✔ Express 5.3 required transitive contracts remain supported after direct dependency updates (0.98228ms)
+✔ Express 5 migration contract stays explicit for redirects, response APIs, body parsing, uploads and Helmet CSP (11.591616ms)
+✔ dotenv bootstrap loads a disposable file before consumers without informational or debug output (62.731376ms)
+✔ quiet dotenv bootstrap preserves configured file, encoding and explicit override options (43.013461ms)
+✔ updated EJS preserves escaped multilingual seller content and trusted relative includes (2.983152ms)
+✔ updated rate limiter enforces the configured HTTP boundary and emits modern limit headers (71.444028ms)
+✔ integration dependencies are declared, lockfile-pinned, and never silently skipped (47.399171ms)
+✔ Node entrypoint loads .env before importing the application and database module graph (5.297393ms)
+✔ expired Manager MFA submission returns to login with a clear restart message (3.852799ms)
+✔ local checkout diagnostic also checks the Manager MFA schema without reading secret values (0.427843ms)
+✔ all EJS templates compile before any manager/customer request can render them (51.59731ms)
+✔ notice output preserves full text and is deterministic (100.852629ms)
+✔ missing or tampered installed notice fails closed (85.616471ms)
+✔ missing or tampered supplementary text fails closed (91.238069ms)
+✔ installed names and versions must match lock, including nested packages (142.433515ms)
+✔ changed locks and missing required packages fail closed (94.817185ms)
+✔ absent optional package is included from a version-checked exact-package snapshot (45.123416ms)
+✔ all reviewed Apache notice files are required, including ThirdPartyNoticeText (99.488459ms)
+✔ malformed provenance overwrites stale output with unresolved status (91.144421ms)
+✔ local alias verifies actual identity and all files while keeping first-party rights UNKNOWN (56.773594ms)
+✔ local replacement tampering or missing provenance fails closed (88.075534ms)
+✔ local identity, private status and rights status are checked (113.082685ms)
+✔ local alias symlink must resolve to the locked local source directory (59.186882ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1956.73827

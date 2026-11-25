@@ -1,0 +1,5 @@
+
+> shopeasy-store-starter@2.8.95 preflight:release
+> node scripts/preflight-release.mjs
+
+Release preflight passed: 2.8.95; 125 production files scanned.

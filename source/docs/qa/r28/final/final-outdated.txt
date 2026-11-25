@@ -1,0 +1,9 @@
+{
+  "typescript": {
+    "current": "6.0.3",
+    "wanted": "6.0.3",
+    "latest": "7.0.2",
+    "dependent": "work",
+    "location": "/workspace/presale-r28/work/node_modules/typescript"
+  }
+}

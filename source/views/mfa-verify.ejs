@@ -1,0 +1,22 @@
+<%- include('partials/header',{title:title||'Two-factor verification'}) %>
+<section class="auth-wrap">
+  <div class="auth-card">
+    <span class="eyebrow"><%= customerText("MANAGER SECURITY") %></span>
+    <h1><%= customerText("Verify it is you") %></h1>
+    <p class="muted"><%= customerText("Enter the current 6-digit code from your authenticator app. A saved one-time recovery code also works if your authenticator is unavailable.") %></p>
+    <% if(email){ %><p><strong><%= customerText("Account:") %></strong> <%= email %></p><% } %>
+    <% if(error){ %><div class="alert" role="alert"><%= customerText(error) %></div><% } %>
+    <form class="form-stack" method="post" action="/mfa/verify">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <label for="code"><%= customerText("Authenticator or recovery code") %></label>
+      <input id="code" name="code" type="text" inputmode="text" maxlength="64" autocomplete="one-time-code" autocapitalize="characters" spellcheck="false" required autofocus>
+      <button type="submit" class="btn btn-dark btn-wide"><%= customerText("Verify and sign in") %></button>
+    </form>
+    <p class="field-note"><%= customerText("A challenge expires after 5 minutes. Codes are limited to 5 attempts per 15-minute window.") %></p>
+    <form method="post" action="/mfa/cancel" class="form-stack">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <button type="submit" class="btn btn-outline"><%= customerText("Cancel sign-in") %></button>
+    </form>
+  </div>
+</section>
+<%- include('partials/footer') %>

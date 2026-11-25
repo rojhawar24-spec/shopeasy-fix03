@@ -1,0 +1,47 @@
+R28 buyer rerun instructions — actual Windows execution NOT TESTED
+
+Use a fresh extracted project root without an existing .env, populated data/public/uploads or application .venv. The browser runner refuses private state and never deletes buyer data. Use disposable synthetic QA only. Node.js 24.22.2, Python 3.13 and the exact requirements-qa.txt pins are required. These PowerShell 5.1 commands follow qa/README.md; activation and execution-policy changes are unnecessary. Stop on each nonzero exit and retain its output.
+
+node --version
+py -3.13 --version
+npm ci
+npm run build:cloudflare
+npm run check
+npm run lint
+npm run typecheck:core
+npm run audit:static
+npm run preflight:release
+node scripts/template-audit.mjs
+npm test
+npm run licenses:generate
+npm audit --omit=dev --json
+npm audit --json
+
+The observed R28 Linux suite reported 1,205 tests/pass 1,205/fail 0/skipped 0. A future source revision may add tests; inspect the complete current footer rather than assuming a fixed count. The four-module core typecheck is intentionally scoped. Advisory data changes with time.
+
+py -3.13 -m venv .qa-venv
+& .\.qa-venv\Scripts\python.exe -m pip install -r requirements-qa.txt
+& .\.qa-venv\Scripts\python.exe -m playwright install chromium
+npm install --prefix .qa-tools --no-save --ignore-scripts axe-core@4.11.0
+& .\.qa-venv\Scripts\python.exe .\qa\run-browser-qa.py --node node --axe-path .\.qa-tools\node_modules\axe-core\axe.min.js --output .\qa-output
+
+Use new output directories for repeat runs. For the complete five-locale/four-width matrix used by the audit, add explicit locale/width options:
+
+& .\.qa-venv\Scripts\python.exe .\qa\run-browser-qa.py --node node --suite all --locales en,ckb,ar,nl,fr --widths 320,390,768,1440 --axe-path .\.qa-tools\node_modules\axe-core\axe.min.js --output .\qa-output-full
+& .\.qa-venv\Scripts\python.exe .\qa\run-browser-qa.py --node node --suite public --cart-drawer --locales en,ckb,ar,nl,fr --widths 320,1440 --axe-path .\.qa-tools\node_modules\axe-core\axe.min.js --output .\qa-output-drawer
+
+The second command enables a synthetic drawer appearance setting. The standard public matrix still runs; its check count need not equal the audit's focused 10-check helper. --simulated-email only proves an intercepted local email flow; it cannot establish inbox delivery. Do not publish debug traces, storage, cookies, CSRF/action tokens, TOTP secrets or recovery codes.
+
+Manual browser checklist — still NOT TESTED until someone records actual observations
+
+[ ] At 320/390/768/1440px, review Home, Shop, search, product variant, empty/full cart, checkout, COD success and owned order in English, Sorani, Arabic, Dutch and French. Record locale, theme, width and source version.
+[ ] Test mobile menu/search and cart drawer with Tab/Shift+Tab/Escape and a keyboard alone; confirm focus stays in open modal UI, returns to a visible trigger and supports save/reopen. Review desktop and narrow mobile control visibility.
+[ ] Open the cookie dialog with keyboard, test both Tab boundaries, Escape, save, footer reopen and visible focus after save. Review consent choices and dismissal text in each locale.
+[ ] Check each final axe incomplete selector in actual rendered states, including contrast over imagery, light/dark themes and hidden/revealed content. Retain outcomes with rationale; zero automated violations does not resolve incomplete items.
+[ ] Check visible labels against screen-reader accessible names, table headers/captions, required/error messages, password controls, RTL reading/focus order, 400% zoom/reflow and reduced motion.
+[ ] Run actual screen-reader and voice-control workflows on supported OS/browser/device combinations. Record tools/versions and observed speech/commands; do not infer results from HTML alone.
+[ ] On a buyer-controlled staging host, verify public TLS/proxy configuration, secure cookie storage/transmission, CSP, cache privacy and shared rate limiting. Local private-CA Python evidence is not this deployment test.
+[ ] With buyer-approved accounts and disposable test transactions, verify live email inbox delivery, payment callbacks/settlement/refunds and Peppol delivery. Record provider sandbox versus live mode honestly.
+[ ] Perform an encrypted offsite backup/restore drill on a separate empty buyer target, with separately controlled keys, exact schema/rows/BLOB/file comparisons and wrong-key/checksum/source/nonempty-target refusal checks. Quiesce filesystem media changes. Do not point the live store at a failed restore target.
+[ ] Complete actual Windows installation/full suite and any supported macOS/physical low-end-device checks; retain logs. These instructions alone do not earn those points.
+[ ] Resolve effective ownership, buyer grant, source/asset/native notices, trademarks, translated terms and controller/retention decisions with the responsible qualified people. Technical tests do not establish these facts.

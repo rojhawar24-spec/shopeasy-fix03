@@ -1,0 +1,171 @@
+<% const footerFrench = {
+  'Recently viewed products': 'Produits consultés récemment',
+  'Close cart preview': 'Fermer l’aperçu du panier',
+  'Dismiss language suggestion': 'Ignorer la suggestion de langue',
+  'Close product preview': 'Fermer l’aperçu du produit',
+  'Products selected for comparison': 'Produits sélectionnés pour la comparaison',
+  'Close comparison': 'Fermer la comparaison',
+  'EXPLORE AGAIN': 'À DÉCOUVRIR À NOUVEAU',
+  'STAY CONNECTED': 'RESTONS EN CONTACT',
+  'Receive updates only after confirming your email. No third-party tracker is required.': 'Recevez des nouvelles uniquement après confirmation de votre adresse e-mail. Aucun traceur tiers n’est nécessaire.',
+  'Email address': 'Adresse e-mail',
+  'Subscribe': 'S’abonner',
+  'Shop': 'Boutique',
+  'All products': 'Tous les produits',
+  'Stories': 'Actualités',
+  'Wishlist': 'Favoris',
+  'Cart': 'Panier',
+  'Information': 'Informations',
+  'Privacy': 'Confidentialité',
+  'Cookies': 'Cookies',
+  'Terms': 'Conditions générales',
+  'Shipping & returns': 'Livraison et retours',
+  'FAQ': 'Questions fréquentes',
+  'Contact': 'Contact',
+  'Track an order': 'Suivre une commande',
+  'Account': 'Compte',
+  'Contact & business details': 'Coordonnées de l’entreprise',
+  'Phone': 'Téléphone',
+  'Business name': 'Raison sociale',
+  'Registration / licence': 'Numéro d’entreprise',
+  'Business address': 'Adresse de l’entreprise',
+  'YOUR BAG': 'VOTRE PANIER',
+  'Cart preview': 'Aperçu du panier',
+  'Loading cart…': 'Chargement du panier…',
+  'View bag': 'Voir le panier',
+  'Checkout': 'Passer commande',
+  'Language and region suggestion': 'Langue et région suggérées',
+  'Based only on your browser settings. Choose a language if you want. Confirm your real delivery country and prices at checkout.': 'Suggestion basée uniquement sur les paramètres de votre navigateur. Confirmez le pays de livraison et les prix lors de la commande.',
+  'Language': 'Langue',
+  'Apply': 'Appliquer',
+  'Not now': 'Pas maintenant',
+  'Product preview': 'Aperçu du produit',
+  'Review sizes, variants, availability and shipping on the full product page.': 'Consultez les tailles, variantes, disponibilités et conditions de livraison sur la fiche du produit.',
+  'View full product →': 'Voir la fiche du produit →',
+  'Compare products · ': 'Comparer les produits · ',
+  'Compare selection': 'Comparer la sélection',
+  'Compare your selection': 'Comparer votre sélection',
+  'Compare displayed prices and open each product for current stock, delivery and complete specifications.': 'Comparez les prix affichés et consultez chaque produit pour vérifier le stock, la livraison et les caractéristiques.',
+  'Necessary': 'Nécessaires',
+  'Required for sessions, security and order handling.': 'Indispensables aux sessions, à la sécurité et au traitement des commandes.',
+  'Always on': 'Toujours actifs',
+  'Analytics': 'Statistiques',
+  'Usage measurement to improve the service.': 'Mesure d’utilisation pour améliorer le service.',
+  'Marketing': 'Marketing',
+  'Advertising cookies and campaign measurement.': 'Cookies publicitaires et mesure des campagnes.',
+  'Necessary storage is always on. Your choice is saved on this device for 180 days. No analytics or advertising scripts are loaded in this release.': 'Les cookies nécessaires sont toujours actifs. Votre choix est conservé pendant 180 jours sur cet appareil. Aucun script statistique ou publicitaire n’est chargé dans cette version.',
+  'Payment options shown at checkout.': 'Moyens de paiement indiqués à la commande.'
+}; const footerText = value => locale === 'fr' ? (footerFrench[value] || value) : value; %>
+<% if(typeof managerWorkspaceShell!=='undefined' && managerWorkspaceShell){ %></div><!-- /.admin-workspace-content --><% } %>
+<% if(!isAdminRoute && appearance.recentlyViewed){ %>
+<section class="container recently-viewed" data-recently-viewed hidden aria-label="<%= footerText('Recently viewed products') %>">
+ <div class="section-heading"><div><span class="eyebrow"><%= footerText('EXPLORE AGAIN') %></span><h2><%= locale==='fr'?'Consultés récemment':locale==='nl'?'Recent bekeken':locale==='ckb'?'دوایین بەرهەمە بینراوەکان':locale==='ar'?'شوهدت مؤخرًا':'Recently viewed' %></h2></div></div>
+ <div class="recent-items" data-recent-items></div>
+</section>
+<% } %>
+</main>
+<% if(!isAdminRoute && appearance.newsletter){ %>
+<section class="container newsletter-section" aria-labelledby="newsletter-title"><div><span class="eyebrow"><%= footerText('STAY CONNECTED') %></span><h2 id="newsletter-title"><%= locale==='fr'?'Actualités de la boutique':locale==='nl'?'Nieuws uit de winkel':locale==='ckb'?'هەواڵی فرۆشگا':locale==='ar'?'أخبار المتجر':'Store updates, by choice' %></h2><p><%= footerText('Receive updates only after confirming your email. No third-party tracker is required.') %></p></div><form action="/newsletter/subscribe" method="post" class="engagement-inline-form"><input type="hidden" name="_csrf" value="<%= csrf %>"><label for="newsletter-email"><%= footerText('Email address') %></label><input type="email" name="email" id="newsletter-email" maxlength="254" autocomplete="email" required><button class="btn btn-dark" type="submit"><%= footerText('Subscribe') %></button></form></section>
+<% } %>
+<% if(isAdminRoute){ %><div class="manager-quiet-footer" role="contentinfo"><span>ShopEasy Manager</span><span>Use <a href="/admin/products">Products</a> to manage the catalogue or <a href="/">View shop</a> to check the public design.</span></div><% } else { %><footer class="site-footer"><div class="container footer-grid">
+  <div class="footer-brand"><strong translate="no" data-no-translate><%= storeName %></strong><p><%= checkoutCardEnabled
+  ? (locale==='nl'?'Duidelijke prijzen en betaalopties bij het afrekenen.':locale==='fr'?'Prix clairs et moyens de paiement indiqués à la commande.':'Clear prices and payment options at checkout.')
+  : (locale==='nl'?'Duidelijke prijzen en beschikbare betaalmethoden bij het afrekenen.':locale==='fr'?'Prix clairs et paiement selon les moyens proposés.':'Clear prices and available payment methods at checkout.') %></p></div>
+  <div class="footer-link-column"><span class="footer-title"><%= footerText('Shop') %></span><a href="/shop"><%= footerText('All products') %></a><% if(featureStoriesEnabled){ %><a href="/stories"><%= footerText('Stories') %></a><% } %><% if(featureWishlistEnabled){ %><a href="/wishlist"><%= footerText('Wishlist') %></a><% } %><a href="/cart"><%= footerText('Cart') %></a></div>
+  <div class="footer-link-column"><span class="footer-title"><%= footerText('Information') %></span><a href="/privacy"><%= footerText('Privacy') %></a><a href="/cookies"><%= footerText('Cookies') %></a><a href="/terms"><%= footerText('Terms') %></a><a href="/shipping-returns"><%= footerText('Shipping & returns') %></a><a href="/withdrawal-form"><%= locale==='fr'?'Formulaire de rétractation':locale==='nl'?'Modelformulier herroeping':locale==='ckb'?'فۆرمی پاشگەزبوونەوە':locale==='ar'?'نموذج الانسحاب':'Withdrawal form' %></a><a href="/imprint"><%= locale==='fr'?'Informations légales':locale==='nl'?'Bedrijfsgegevens':locale==='ckb'?'زانیاریی کۆمپانیا':locale==='ar'?'معلومات الشركة':'Business information' %></a><a href="/faq"><%= footerText('FAQ') %></a><a href="/contact"><%= footerText('Contact') %></a><a href="/order-lookup"><%= footerText('Track an order') %></a><a href="/account"><%= footerText('Account') %></a></div>
+  <% if(supportEmail||businessPhone||legalName||enterpriseNumber||businessAddress||vatNumber){ %><div class="footer-business-column"><span class="footer-title"><%= footerText('Contact & business details') %></span>
+    <% if(supportEmail){ %><div class="footer-detail"><span>Email</span><a href="mailto:<%= supportEmail %>"><%= supportEmail %></a></div><% } %>
+    <% if(businessPhone){ %><div class="footer-detail"><span><%= footerText('Phone') %></span><a href="tel:<%= encodeURIComponent(businessPhone) %>"><%= businessPhone %></a></div><% } %>
+    <% if(legalName){ %><div class="footer-detail"><span><%= footerText('Business name') %></span><strong translate="no" data-no-translate><%= legalName %></strong></div><% } %>
+    <% if(enterpriseNumber){ %><div class="footer-detail"><span><%= footerText('Registration / licence') %></span><strong><%= enterpriseNumber %></strong></div><% } %>
+    <% if(businessAddress){ %><div class="footer-detail"><span><%= footerText('Business address') %></span><strong translate="no" data-no-translate><%= businessAddress %></strong></div><% } %>
+    <% if(vatNumber){ %><div class="footer-detail"><span><%= locale==='fr'?'Numéro de TVA':locale==='nl'?'Btw-nummer':locale==='ckb'?'ژمارەی باج':locale==='ar'?'الرقم الضريبي':'Tax / VAT number' %></span><strong><%= vatNumber %></strong></div><% } %>
+  </div><% } %>
+</div><div class="container footer-bottom"><span>© <%= new Date().getFullYear() %> <span translate="no" data-no-translate><%= legalName || storeName %></span>. <%= locale==='fr'?'Tous droits réservés.':locale==='nl'?'Alle rechten voorbehouden.':locale==='ckb'?'هەموو مافەکان پارێزراون.':locale==='ar'?'جميع الحقوق محفوظة.':'All rights reserved.' %></span><% if(licenseInfo?.licensedTo){ %><span>Licensed to: <span translate="no" data-no-translate><%= licenseInfo.licensedTo %></span></span><% } %><button type="button" class="footer-cookie-open" data-cookie-open><%= locale==='fr'?'Paramètres des cookies':locale==='nl'?'Cookie-instellingen':locale==='ckb'?'ڕێکخستنی کوکی':locale==='ar'?'إعدادات ملفات تعريف الارتباط':'Cookie settings' %></button><span><%= footerText('Payment options shown at checkout.') %></span><span class="language-pill footer-language"><%= locale==='ckb'?'کوردی':locale==='ar'?'العربية':locale==='en'?'EN':locale.toUpperCase() %></span></div></footer><% } %>
+
+<% if(!isAdminRoute && appearance.cartDrawer){ %>
+<dialog class="shop-dialog cart-preview-dialog" data-cart-drawer aria-labelledby="cart-preview-title">
+ <div class="cart-preview-header"><div><span class="eyebrow"><%= footerText('YOUR BAG') %></span><h2 id="cart-preview-title"><%= footerText('Cart preview') %></h2></div><button type="button" class="shop-dialog-close" data-cart-drawer-close aria-label="<%= footerText('Close cart preview') %>">×</button></div>
+ <p data-cart-drawer-message role="status" aria-live="polite"><%= footerText('Loading cart…') %></p>
+ <ul class="cart-preview-list" data-cart-drawer-items></ul>
+ <strong class="cart-preview-total" data-cart-drawer-total></strong>
+ <div class="cart-preview-actions"><a href="/cart" class="btn btn-light"><%= footerText('View bag') %></a><a href="/checkout" class="btn btn-dark" data-cart-drawer-checkout hidden><%= footerText('Checkout') %></a></div>
+</dialog>
+<% } %>
+<% if(!isAdminRoute && appearance.countrySuggestion && availableUiLocales.length>1){ %>
+<section class="language-suggestion" data-language-suggestion hidden aria-labelledby="language-suggestion-title">
+ <div><strong id="language-suggestion-title"><%= footerText('Language and region suggestion') %></strong><p data-language-suggestion-description><%= footerText('Based only on your browser settings. Choose a language if you want. Confirm your real delivery country and prices at checkout.') %></p><p data-country-suggestion hidden></p></div>
+ <form action="/language" method="post"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="returnTo" value="<%= returnTo %>"><label for="language-suggestion-select" class="sr-only"><%= footerText('Language') %></label><select id="language-suggestion-select" name="language"><% uiLocaleOptions.filter(item=>availableUiLocales.includes(item.code)).forEach(option=>{ %><option value="<%= option.code %>" <%= locale===option.code?'selected':'' %>><%= option.nativeLabel %></option><% }) %></select><button type="submit" class="btn btn-dark"><%= footerText('Apply') %></button></form>
+ <button type="button" data-language-suggestion-dismiss class="btn btn-light" aria-label="<%= footerText('Dismiss language suggestion') %>"><%= footerText('Not now') %></button>
+</section><% } %>
+<% if(!isAdminRoute && appearance.quickView){ %>
+<dialog class="shop-dialog quick-view-dialog" data-quick-dialog aria-labelledby="quick-view-title">
+ <button class="shop-dialog-close" type="button" data-quick-close aria-label="<%= footerText('Close product preview') %>">×</button>
+ <div class="quick-view-content"><img data-quick-photo data-fallback-src="/assets/product-placeholder.svg" src="/assets/product-placeholder.svg" alt="" width="500" height="600" decoding="async"><div class="quick-view-info">
+ <span class="eyebrow" data-quick-category data-no-translate></span><h2 id="quick-view-title" data-quick-title data-no-translate><%= footerText('Product preview') %></h2><strong class="quick-view-price" data-quick-price data-no-translate></strong><p data-quick-stock role="status"></p>
+ <p class="field-note"><%= footerText('Review sizes, variants, availability and shipping on the full product page.') %></p><a class="btn btn-dark" data-quick-link href="/shop"><%= footerText('View full product →') %></a>
+ </div></div>
+</dialog>
+<% } %>
+<% if(!isAdminRoute && appearance.compare){ %>
+<section class="compare-tray" data-compare-tray hidden aria-label="<%= footerText('Products selected for comparison') %>">
+ <div><strong><%= footerText('Compare products · ') %><span data-compare-count>0</span>/3</strong><div class="compare-list" data-compare-list></div><p data-compare-note aria-live="polite"></p></div>
+ <button type="button" class="btn btn-dark" data-compare-open><%= footerText('Compare selection') %></button>
+</section>
+<dialog class="shop-dialog compare-dialog" data-compare-dialog aria-labelledby="compare-dialog-title">
+ <div class="compare-dialog-head"><h2 id="compare-dialog-title"><%= footerText('Compare your selection') %></h2><button type="button" class="shop-dialog-close" data-compare-close aria-label="<%= footerText('Close comparison') %>">×</button></div>
+ <p><%= footerText('Compare displayed prices and open each product for current stock, delivery and complete specifications.') %></p>
+ <div class="compare-columns" data-compare-columns></div>
+</dialog>
+<% } %>
+
+<% if(!isAdminRoute){ %>
+<section class="cookie-consent-banner" data-cookie-banner hidden aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-description" role="region" data-storage-unavailable="<%= locale==='ckb'?'بیرگەی وێبگەڕ ڕێگەی پاشەکەوتکردن نادات. هەڵبژاردەکان لە نوێکردنەوەی پەڕەدا لەبیر دەچن.':locale==='ar'?'لا يسمح تخزين المتصفح بحفظ اختيارك. سيظهر الطلب مجددًا بعد تحديث الصفحة.':locale==='nl'?'De browseropslag is niet beschikbaar. Je keuze kan niet worden bewaard en dit bericht verschijnt opnieuw nadat je de pagina vernieuwt.':locale==='fr'?'Le stockage du navigateur est indisponible. Votre choix ne peut pas être mémorisé et cet avis réapparaîtra après actualisation.':'Browser storage is unavailable, so this choice cannot be saved and this notice will return after refresh.' %>">
+  <div class="cookie-consent-content">
+    <div class="cookie-consent-copy">
+      <span class="eyebrow"><%= locale==='ckb'?'تایبەتمەندی':locale==='ar'?'الخصوصية':locale==='nl'?'PRIVACYKEUZES':locale==='fr'?'VIE PRIVÉE':'PRIVACY CHOICES' %></span>
+      <h2 id="cookie-consent-title"><%= locale==='ckb'?'ڕێکخستنی کوکی':locale==='ar'?'خيارات ملفات تعريف الارتباط':locale==='nl'?'Cookiekeuzes':locale==='fr'?'Choix des cookies':'Cookie choices' %></h2>
+      <p id="cookie-consent-description"><% if(locale==='ckb'){ %>بیرگەی پێویست بۆ هەژمار، سەبەتە و ئاسایشە. ئامار و ڕیکلام بە بنەڕەت ناچالاکن.<% } else if(locale==='en'){ %>Necessary storage supports your account, basket and security. Analytics and marketing stay off by default.<% } else if(locale==='ar'){ %>التخزين الضروري يدعم الحساب والسلة والأمان. التحليلات والتسويق متوقفان افتراضيًا.<% } else if(locale==='nl'){ %>Noodzakelijke opslag ondersteunt je account, winkelmandje en beveiliging. Analyses en marketing zijn standaard uitgeschakeld.<% } else if(locale==='fr'){ %>Les données nécessaires assurent le fonctionnement du compte, du panier et de la sécurité. Les mesures d’audience et la publicité sont désactivées par défaut.<% } %></p>
+      <div class="cookie-consent-links">
+        <a href="/cookies"><%= locale==='ckb'?'سیاسەتی کوکی بخوێنەوە':locale==='ar'?'اقرأ سياسة ملفات تعريف الارتباط':locale==='nl'?'Lees het cookiebeleid':locale==='fr'?'Consulter la politique des cookies':'Read the cookie policy' %></a>
+        <button type="button" class="cookie-consent-customize-link" data-cookie-customize><%= locale==='ckb'?'ڕێکخستن':locale==='ar'?'تخصيص':locale==='nl'?'Instellingen':locale==='fr'?'Paramètres':'Customize' %></button>
+      </div>
+      <p class="cookie-banner-status" data-cookie-banner-status role="status" aria-live="polite" hidden></p>
+    </div>
+    <div class="cookie-consent-actions" role="group" aria-label="Cookie choice actions">
+      <button type="button" class="btn btn-light" data-cookie-reject><%= locale==='ckb'?'ڕەتکردنەوەی هەڵبژاردەکان':locale==='ar'?'رفض الاختيارية':locale==='nl'?'Alles weigeren':locale==='fr'?'Tout refuser':'Reject optional' %></button>
+      <button type="button" class="btn btn-light" data-cookie-accept><%= locale==='ckb'?'قبوڵکردنی هەموو':locale==='ar'?'قبول الكل':locale==='nl'?'Alles accepteren':locale==='fr'?'Tout accepter':'Accept all' %></button>
+    </div>
+  </div>
+</section>
+<div class="cookie-preferences-overlay" data-cookie-preferences hidden>
+  <section class="cookie-preferences-dialog" role="dialog" aria-modal="true" aria-labelledby="cookie-preferences-title" tabindex="-1">
+    <div class="cookie-preferences-heading"><div><span class="eyebrow"><%= locale==='ckb'?'ڕێکخستنەکانی تایبەتمەندی':locale==='ar'?'إعدادات الخصوصية':locale==='nl'?'PRIVACYINSTELLINGEN':locale==='fr'?'CONFIDENTIALITÉ':'PRIVACY SETTINGS' %></span><h2 id="cookie-preferences-title"><%= locale==='ckb'?'هەڵبژاردەکانی کوکی':locale==='ar'?'تفضيلات ملفات تعريف الارتباط':locale==='nl'?'Cookie-instellingen':locale==='fr'?'Paramètres des cookies':'Cookie preferences' %></h2></div><button type="button" class="cookie-close" data-cookie-close aria-label="<%= locale==='nl'?'Voorkeuren sluiten':locale==='fr'?'Fermer les préférences':locale==='ar'?'إغلاق':locale==='ckb'?'داخستن':'Close preferences' %>">×</button></div>
+    <p><%= locale==='nl'?'Noodzakelijke opslag is altijd ingeschakeld. Je keuze wordt 180 dagen op dit apparaat bewaard. In deze versie worden geen analyse- of advertentiescripts geladen.':locale==='fr'?'Les cookies nécessaires sont toujours actifs. Votre choix est conservé pendant 180 jours sur cet appareil. Aucun script statistique ou publicitaire n’est chargé dans cette version.':locale==='ckb'?'کوکیی پێویست هەمیشە چالاکە. هەڵبژاردەکانت لەسەر ئەم ئامێرە هەڵدەگیرێن بۆ ١٨٠ ڕۆژ. لەم وەشانەدا هیچ کۆدی ئامار یان ڕیکلام بار ناکرێت.':locale==='ar'?'الملفات الضرورية مفعّلة دائمًا. تُحفظ اختياراتك على هذا الجهاز لمدة 180 يومًا. لا يتم تحميل أدوات التحليلات أو الإعلانات في هذا الإصدار.':'Necessary storage is always on. Your choice is saved on this device for 180 days. No analytics or advertising scripts are loaded in this release.' %></p>
+    <div class="cookie-preference-list">
+      <div class="cookie-preference-row"><div><strong><%= locale==='nl'?'Noodzakelijk':locale==='fr'?'Nécessaires':locale==='ckb'?'کوکیی پێویست':locale==='ar'?'الضرورية':'Necessary' %></strong><p><%= locale==='nl'?'Vereist voor sessies, beveiliging en het verwerken van bestellingen.':locale==='fr'?'Indispensables aux sessions, à la sécurité et au traitement des commandes.':locale==='ckb'?'بۆ سەشن، ئاسایش و بەڕێوەبردنی داواکاری پێویستن.':locale==='ar'?'مطلوبة للجلسة والأمان وإدارة الطلب.':'Required for sessions, security and order handling.' %></p></div><span class="cookie-always-on"><%= locale==='nl'?'Altijd ingeschakeld':locale==='fr'?'Toujours actifs':locale==='ckb'?'هەمیشە چالاک':locale==='ar'?'دائمًا مفعّلة':'Always on' %></span></div>
+      <label class="cookie-preference-row" for="cookie-analytics"><span><strong><%= locale==='nl'?'Statistieken':locale==='fr'?'Statistiques':locale==='ckb'?'ئامار و شیکردنەوە':locale==='ar'?'التحليلات':'Analytics' %></strong><small><%= locale==='nl'?'Gebruiksmeting om de dienstverlening te verbeteren.':locale==='fr'?'Mesure d’utilisation pour améliorer le service.':locale==='ckb'?'داتای بەکارهێنان بۆ باشترکردنی خزمەتگوزاری.':locale==='ar'?'قياس الاستخدام لتحسين الخدمة.':'Usage measurement to improve the service.' %></small></span><input type="checkbox" id="cookie-analytics" data-cookie-analytics></label>
+      <label class="cookie-preference-row" for="cookie-marketing"><span><strong><%= locale==='nl'?'Marketing':locale==='fr'?'Marketing':locale==='ckb'?'ڕیکلام و شوێنکەوتن':locale==='ar'?'التسويق والتتبع':'Marketing' %></strong><small><%= locale==='nl'?'Advertentiecookies en het meten van campagnes.':locale==='fr'?'Cookies publicitaires et mesure des campagnes.':locale==='ckb'?'کوکیی ڕیکلام و پێوانەکردنی کاریگەری.':locale==='ar'?'ملفات تعريف الارتباط الإعلانية وقياس الحملات.':'Advertising cookies and campaign measurement.' %></small></span><input type="checkbox" id="cookie-marketing" data-cookie-marketing></label>
+    </div>
+    <p class="cookie-preferences-status" data-cookie-preferences-status role="status" aria-live="polite"></p>
+    <button type="button" class="cookie-reset-choice" data-cookie-reset><%= locale==='nl'?'Opnieuw om toestemming vragen':locale==='fr'?'Revoir mon choix de consentement':locale==='ckb'?'دووبارە داوای ڕەزامەندی بکە':locale==='ar'?'اطلب موافقتي من جديد':'Ask for my choice again' %></button>
+    <div class="cookie-preferences-actions"><button type="button" class="btn btn-light" data-cookie-close><%= locale==='ckb'?'پاشگەزبوونەوە':locale==='ar'?'إلغاء':locale==='nl'?'Annuleren':locale==='fr'?'Annuler':'Cancel' %></button><button type="button" class="btn btn-light" data-cookie-reject><%= locale==='ckb'?'ڕەتکردنەوەی هەڵبژاردەکان':locale==='ar'?'رفض الاختيارية':locale==='nl'?'Alles weigeren':locale==='fr'?'Tout refuser':'Reject optional' %></button><button type="button" class="btn btn-dark" data-cookie-save><%= locale==='ckb'?'پاشەکەوتکردنی هەڵبژاردەکان':locale==='ar'?'حفظ التفضيلات':locale==='nl'?'Keuzes opslaan':locale==='fr'?'Enregistrer mes choix':'Save choices' %></button></div>
+  </section>
+</div>
+<% } %>
+
+<% if(!isAdminRoute && !isCheckoutRoute){ %><nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+  <a href="/" class="<%= path==='/'?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m3 10 9-7 9 7M5.5 9v12h13V9M9.5 21v-6h5v6"/></svg></span><span class="mobile-nav-label">Home</span></a>
+  <a href="/shop" class="<%= path.startsWith('/shop')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M9 4v5m6-5v5"/></svg></span><span class="mobile-nav-label"><%= footerText('Shop') %></span></a>
+  <% if(featureWishlistEnabled && isLoggedIn){ %><a href="/wishlist" class="<%= path.startsWith('/wishlist')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20.8 8.7c0 5.4-8.8 11-8.8 11s-8.8-5.6-8.8-11A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8.8 2.7Z"/></svg><b data-wishlist-count><%= wishlistCount %></b></span><span class="mobile-nav-label">Saved</span></a><% } else if(featureWishlistEnabled){ %><a href="/login?next=%2Fwishlist"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20.8 8.7c0 5.4-8.8 11-8.8 11s-8.8-5.6-8.8-11A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8.8 2.7Z"/></svg></span><span class="mobile-nav-label">Saved</span></a><% } else { %><a href="/order-lookup" class="<%= path.startsWith('/order-lookup')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M7 10h10M7 14h7"/></svg></span><span class="mobile-nav-label"><%= locale==='fr'?'Suivre':locale==='nl'?'Volgen':locale==='ckb'?'شوێنکەوتن':locale==='ar'?'التتبع':'Track' %></span></a><% } %>
+  <a href="/cart" class="<%= path.startsWith('/cart')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><b><%= cartCount %></b></span><span class="mobile-nav-label"><%= footerText('Cart') %></span></a>
+  <a href="<%= isLoggedIn?'/account':'/login' %>" class="<%= path.startsWith('/account')||path.startsWith('/login')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg></span><span class="mobile-nav-label"><%= footerText('Account') %></span></a>
+</nav><% } %>
+<% if(locale==='fr'){ %><script src="/js/i18n-fr.js?v=2027-fr.fix03" defer></script><% } else if(locale==='ar'){ %><script src="/js/i18n-ar.js?v=2.8.95-r28.fix03" defer></script><% } else if(locale==='ckb'){ %><script src="/js/i18n-ckb.js?v=2.8.95-r28.fix03" defer></script><% } else if(locale==='nl'){ %><script src="/js/i18n-nl.js?v=2.8.95-r28.fix03" defer></script><% } %>
+<script src="/js/image-fallback.js?v=2.8.95-r28" defer></script>
+<script src="/js/product-image-preview.js?v=2027-r28" defer></script>
+<% if(String(path||'').startsWith('/product/')){ %><script src="/js/product-photo-zoom.js?v=2027-r28.fix03" defer></script><% } %>
+<script src="/js/app.js?v=2027-r28.fix03" defer></script>
+<script src="/js/retail-2027.js?v=2027-p2.fix03" defer></script>
+<% if(path==='/login' || path==='/register'){ %><script src="/js/home-login.js?v=2027-r28" defer></script><% } %>
+</body></html>

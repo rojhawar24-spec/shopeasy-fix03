@@ -1,0 +1,30 @@
+<%
+const verificationCopy={
+ en:{title:'Verify your email address',eyebrow:'ACCOUNT SECURITY',intro:'Enter the password you chose when registering to confirm this email address. Opening this page does not activate an account.',unsolicited:'If you did not register, ignore this message and do not continue. Contact the store if you need help.',password:'Password chosen when registering',submit:'Verify email address',back:'Back to sign in',error:'This verification could not be completed. Check the link and the password you chose when registering, or request a new link.',unavailable:'Verification is temporarily unavailable. Please try again later.'},
+ nl:{title:'Verifieer je e-mailadres',eyebrow:'ACCOUNTBEVEILIGING',intro:'Voer het wachtwoord in dat je bij de registratie hebt gekozen om dit e-mailadres te bevestigen. Alleen deze pagina openen activeert geen account.',unsolicited:'Heb je je niet geregistreerd? Negeer dit bericht en ga niet verder. Neem contact op met de winkel als je hulp nodig hebt.',password:'Wachtwoord dat je bij de registratie hebt gekozen',submit:'E-mailadres verifiëren',back:'Terug naar aanmelden',error:'De verificatie kon niet worden voltooid. Controleer de link en het wachtwoord dat je bij de registratie hebt gekozen, of vraag een nieuwe link aan.',unavailable:'Verificatie is tijdelijk niet beschikbaar. Probeer het later opnieuw.'},
+ fr:{title:'Vérifiez votre adresse e-mail',eyebrow:'SÉCURITÉ DU COMPTE',intro:'Saisissez le mot de passe choisi lors de votre inscription pour confirmer cette adresse e-mail. Ouvrir cette page n’active pas de compte.',unsolicited:'Si vous ne vous êtes pas inscrit, ignorez ce message et ne continuez pas. Contactez la boutique si vous avez besoin d’aide.',password:'Mot de passe choisi lors de l’inscription',submit:'Vérifier l’adresse e-mail',back:'Retour à la connexion',error:'La vérification n’a pas abouti. Vérifiez le lien et le mot de passe choisi lors de l’inscription, ou demandez un nouveau lien.',unavailable:'La vérification est temporairement indisponible. Réessayez plus tard.'},
+ ar:{title:'تحقق من عنوان بريدك الإلكتروني',eyebrow:'أمان الحساب',intro:'أدخل كلمة المرور التي اخترتها عند التسجيل لتأكيد عنوان البريد الإلكتروني هذا. فتح هذه الصفحة وحده لا يفعّل أي حساب.',unsolicited:'إذا لم تسجل، فتجاهل هذه الرسالة ولا تتابع. تواصل مع المتجر إذا احتجت إلى مساعدة.',password:'كلمة المرور التي اخترتها عند التسجيل',submit:'التحقق من عنوان البريد الإلكتروني',back:'العودة إلى تسجيل الدخول',error:'تعذر إكمال التحقق. تحقق من الرابط وكلمة المرور التي اخترتها عند التسجيل، أو اطلب رابطًا جديدًا.',unavailable:'التحقق غير متاح مؤقتًا. حاول مرة أخرى لاحقًا.'},
+ ckb:{title:'ناونیشانی ئیمەیڵەکەت پشتڕاست بکەرەوە',eyebrow:'ئاسایشی هەژمار',intro:'بۆ پشتڕاستکردنەوەی ئەم ناونیشانی ئیمەیڵە، ئەو وشەی نهێنییە بنووسە کە لە کاتی تۆمارکردن هەڵتبژاردووە. تەنها کردنەوەی ئەم پەڕەیە هیچ هەژمارێک چالاک ناکات.',unsolicited:'ئەگەر تۆ خۆت تۆمار نەکردووە، ئەم نامەیە پشتگوێ بخە و بەردەوام مەبە. ئەگەر پێویستت بە یارمەتییە پەیوەندی بە فرۆشگاکەوە بکە.',password:'وشەی نهێنیی هەڵبژێردراو لە کاتی تۆمارکردن',submit:'پشتڕاستکردنەوەی ناونیشانی ئیمەیڵ',back:'گەڕانەوە بۆ چوونەژوورەوە',error:'پشتڕاستکردنەوەکە تەواو نەبوو. بەستەرەکە و ئەو وشەی نهێنییە بپشکنە کە لە کاتی تۆمارکردن هەڵتبژاردووە، یان داوای بەستەرێکی نوێ بکە.',unavailable:'پشتڕاستکردنەوە بۆ ماوەیەکی کاتی بەردەست نییە. تکایە دواتر هەوڵ بدەرەوە.'}
+};
+const verifyUi=verificationCopy[locale]||verificationCopy.en;
+const verifyError=typeof error!=='undefined'&&error?(error==='Verification is temporarily unavailable. Please try again later.'?verifyUi.unavailable:verifyUi.error):'';
+%>
+<%- include('partials/header',{title:verifyUi.title}) %>
+<section class="auth-wrap" translate="no" data-no-translate>
+  <div class="auth-card">
+    <span class="eyebrow"><%= verifyUi.eyebrow %></span>
+    <h1><%= verifyUi.title %></h1>
+    <p class="muted" id="verify-email-help"><%= verifyUi.intro %></p>
+    <p class="field-note" id="verify-email-unsolicited"><%= verifyUi.unsolicited %></p>
+    <% if(verifyError){ %><div class="alert" role="alert"><%= verifyError %></div><% } %>
+    <form class="form-stack" method="post" action="/verify-email" data-submit-once>
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <input type="hidden" name="token" value="<%= typeof token==='string'?token:'' %>">
+      <label for="verify-email-password"><%= verifyUi.password %></label>
+      <input id="verify-email-password" type="password" name="password" autocomplete="current-password" maxlength="200" aria-describedby="verify-email-help verify-email-unsolicited" required>
+      <button class="btn btn-dark btn-wide" type="submit"><%= verifyUi.submit %></button>
+    </form>
+    <p class="switch-auth"><a href="/login"><%= verifyUi.back %></a></p>
+  </div>
+</section>
+<%- include('partials/footer') %>

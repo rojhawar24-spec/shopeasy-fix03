@@ -1,0 +1,263 @@
+{
+  "started_utc": "2026-11-21T22:57:16.391481+00:00",
+  "status": "PASS",
+  "runtime": {
+    "python": "3.13.5",
+    "platform": "linux",
+    "application_runtime": {
+      "sha256": "4ec98fcda0a313303eba29cdc4be5d9da80ecf7869676e5cc3b8a79d61136880",
+      "files": 147,
+      "scope": "Copied src, views, public excluding uploads, generated and package.json"
+    },
+    "qa_runner_sha256": "9c78de98cc96e6860084e522866224217a41bcd776227448a0d915cf7e193cfd",
+    "fixture_server_sha256": "c33910f299be6e75f17f1900eda06eb838d7b6af13b478b070a453132c9f830c",
+    "browser": "156.0.8078.79"
+  },
+  "configuration": {
+    "suite": "focused-cookie-and-drawer",
+    "locales": [
+      "en",
+      "ckb",
+      "ar",
+      "nl",
+      "fr"
+    ],
+    "widths": [
+      390,
+      1440
+    ],
+    "screenshots": false,
+    "email": "DISABLED; delivery NOT TESTED",
+    "cart_drawer": true
+  },
+  "checks": [
+    {
+      "check": "Cookie dialog keyboard regression",
+      "status": "PASS",
+      "route": "/login",
+      "locale": "en",
+      "width": 390,
+      "initial_container_forward_reverse_tab": true,
+      "boundary_tab_wrap": true,
+      "escape_and_focus_return": true,
+      "keyboard_save_and_footer_reopen": true,
+      "actual_screen_reader": "NOT TESTED"
+    },
+    {
+      "check": "Cart drawer keyboard regression",
+      "status": "PASS",
+      "route": "/shop",
+      "locale": "en",
+      "width": 390,
+      "mobile_menu": true,
+      "focus_contained": true,
+      "escape_returns_visible_control": true
+    },
+    {
+      "check": "Cookie dialog keyboard regression",
+      "status": "PASS",
+      "route": "/login",
+      "locale": "en",
+      "width": 1440,
+      "initial_container_forward_reverse_tab": true,
+      "boundary_tab_wrap": true,
+      "escape_and_focus_return": true,
+      "keyboard_save_and_footer_reopen": true,
+      "actual_screen_reader": "NOT TESTED"
+    },
+    {
+      "check": "Cart drawer keyboard regression",
+      "status": "PASS",
+      "route": "/shop",
+      "locale": "en",
+      "width": 1440,
+      "mobile_menu": false,
+      "focus_contained": true,
+      "escape_returns_visible_control": true
+    },
+    {
+      "check": "Cookie dialog keyboard regression",
+      "status": "PASS",
+      "route": "/login",
+      "locale": "ckb",
+      "width": 390,
+      "initial_container_forward_reverse_tab": true,
+      "boundary_tab_wrap": true,
+      "escape_and_focus_return": true,
+      "keyboard_save_and_footer_reopen": true,
+      "actual_screen_reader": "NOT TESTED"
+    },
+    {
+      "check": "Cart drawer keyboard regression",
+      "status": "PASS",
+      "route": "/shop",
+      "locale": "ckb",
+      "width": 390,
+      "mobile_menu": true,
+      "focus_contained": true,
+      "escape_returns_visible_control": true
+    },
+    {
+      "check": "Cookie dialog keyboard regression",
+      "status": "PASS",
+      "route": "/login",
+      "locale": "ckb",
+      "width": 1440,
+      "initial_container_forward_reverse_tab": true,
+      "boundary_tab_wrap": true,
+      "escape_and_focus_return": true,
+      "keyboard_save_and_footer_reopen": true,
+      "actual_screen_reader": "NOT TESTED"
+    },
+    {
+      "check": "Cart drawer keyboard regression",
+      "status": "PASS",
+      "route": "/shop",
+      "locale": "ckb",
+      "width": 1440,
+      "mobile_menu": false,
+      "focus_contained": true,
+      "escape_returns_visible_control": true
+    },
+    {
+      "check": "Cookie dialog keyboard regression",
+      "status": "PASS",
+      "route": "/login",
+      "locale": "ar",
+      "width": 390,
+      "initial_container_forward_reverse_tab": true,
+      "boundary_tab_wrap": true,
+      "escape_and_focus_return": true,
+      "keyboard_save_and_footer_reopen": true,
+      "actual_screen_reader": "NOT TESTED"
+    },
+    {
+      "check": "Cart drawer keyboard regression",
+      "status": "PASS",
+      "route": "/shop",
+      "locale": "ar",
+      "width": 390,
+      "mobile_menu": true,
+      "focus_contained": true,
+      "escape_returns_visible_control": true
+    },
+    {
+      "check": "Cookie dialog keyboard regression",
+      "status": "PASS",
+      "route": "/login",
+      "locale": "ar",
+      "width": 1440,
+      "initial_container_forward_reverse_tab": true,
+      "boundary_tab_wrap": true,
+      "escape_and_focus_return": true,
+      "keyboard_save_and_footer_reopen": true,
+      "actual_screen_reader": "NOT TESTED"
+    },
+    {
+      "check": "Cart drawer keyboard regression",
+      "status": "PASS",
+      "route": "/shop",
+      "locale": "ar",
+      "width": 1440,
+      "mobile_menu": false,
+      "focus_contained": true,
+      "escape_returns_visible_control": true
+    },
+    {
+      "check": "Cookie dialog keyboard regression",
+      "status": "PASS",
+      "route": "/login",
+      "locale": "nl",
+      "width": 390,
+      "initial_container_forward_reverse_tab": true,
+      "boundary_tab_wrap": true,
+      "escape_and_focus_return": true,
+      "keyboard_save_and_footer_reopen": true,
+      "actual_screen_reader": "NOT TESTED"
+    },
+    {
+      "check": "Cart drawer keyboard regression",
+      "status": "PASS",
+      "route": "/shop",
+      "locale": "nl",
+      "width": 390,
+      "mobile_menu": true,
+      "focus_contained": true,
+      "escape_returns_visible_control": true
+    },
+    {
+      "check": "Cookie dialog keyboard regression",
+      "status": "PASS",
+      "route": "/login",
+      "locale": "nl",
+      "width": 1440,
+      "initial_container_forward_reverse_tab": true,
+      "boundary_tab_wrap": true,
+      "escape_and_focus_return": true,
+      "keyboard_save_and_footer_reopen": true,
+      "actual_screen_reader": "NOT TESTED"
+    },
+    {
+      "check": "Cart drawer keyboard regression",
+      "status": "PASS",
+      "route": "/shop",
+      "locale": "nl",
+      "width": 1440,
+      "mobile_menu": false,
+      "focus_contained": true,
+      "escape_returns_visible_control": true
+    },
+    {
+      "check": "Cookie dialog keyboard regression",
+      "status": "PASS",
+      "route": "/login",
+      "locale": "fr",
+      "width": 390,
+      "initial_container_forward_reverse_tab": true,
+      "boundary_tab_wrap": true,
+      "escape_and_focus_return": true,
+      "keyboard_save_and_footer_reopen": true,
+      "actual_screen_reader": "NOT TESTED"
+    },
+    {
+      "check": "Cart drawer keyboard regression",
+      "status": "PASS",
+      "route": "/shop",
+      "locale": "fr",
+      "width": 390,
+      "mobile_menu": true,
+      "focus_contained": true,
+      "escape_returns_visible_control": true
+    },
+    {
+      "check": "Cookie dialog keyboard regression",
+      "status": "PASS",
+      "route": "/login",
+      "locale": "fr",
+      "width": 1440,
+      "initial_container_forward_reverse_tab": true,
+      "boundary_tab_wrap": true,
+      "escape_and_focus_return": true,
+      "keyboard_save_and_footer_reopen": true,
+      "actual_screen_reader": "NOT TESTED"
+    },
+    {
+      "check": "Cart drawer keyboard regression",
+      "status": "PASS",
+      "route": "/shop",
+      "locale": "fr",
+      "width": 1440,
+      "mobile_menu": false,
+      "focus_contained": true,
+      "escape_returns_visible_control": true
+    }
+  ],
+  "limitations": [
+    "Actual Windows PowerShell 5.1 execution NOT TESTED in Linux audit",
+    "Source ownership UNKNOWN",
+    "No live inbox delivery, provider payment/settlement/refunds, Peppol delivery, full manual WCAG review or screen-reader/device matrix tested",
+    "Axe incomplete items require manual disposition; automated checks are not WCAG certification"
+  ],
+  "temporary_fixture_removed": true,
+  "finished_utc": "2026-11-21T22:57:34.637957+00:00"
+}

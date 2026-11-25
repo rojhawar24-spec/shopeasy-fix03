@@ -1,0 +1,2571 @@
+{
+  "label": "VERIFIED",
+  "started_utc": "2026-11-20T22:48:07.619572+00:00",
+  "scope": "Actual Chromium keyboard/reflow probes in disposable synthetic loopback fixture; no real credentials/browser state; no screen-reader or actual desktop zoom claim.",
+  "checks": [
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-quick-dialog]",
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-compare-dialog]",
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cart drawer configuration coverage",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390,
+      "configuration": "No enabled drawer trigger; original/cart navigation retained. Drawer-specific keyboard NOT TESTED in this fixture."
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-story-viewer]",
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Dialog/form group exception",
+      "observed_success": false,
+      "locale": "en",
+      "width": 390,
+      "error_type": "Error"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440,
+      "focus_after_save": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-quick-dialog]",
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-compare-dialog]",
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cart drawer configuration coverage",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440,
+      "configuration": "No enabled drawer trigger; original/cart navigation retained. Drawer-specific keyboard NOT TESTED in this fixture."
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-story-viewer]",
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Dialog/form group exception",
+      "observed_success": false,
+      "locale": "en",
+      "width": 1440,
+      "error_type": "Error"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/shop",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/product/qa-product-1",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/cart",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/login",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/register",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/forgot-password",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/contact",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/faq",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/stories",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/privacy",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/terms",
+      "locale": "en",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-quick-dialog]",
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-compare-dialog]",
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cart drawer configuration coverage",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390,
+      "configuration": "No enabled drawer trigger; original/cart navigation retained. Drawer-specific keyboard NOT TESTED in this fixture."
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-story-viewer]",
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Dialog/form group exception",
+      "observed_success": false,
+      "locale": "ckb",
+      "width": 390,
+      "error_type": "Error"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440,
+      "focus_after_save": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-quick-dialog]",
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-compare-dialog]",
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cart drawer configuration coverage",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440,
+      "configuration": "No enabled drawer trigger; original/cart navigation retained. Drawer-specific keyboard NOT TESTED in this fixture."
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-story-viewer]",
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Dialog/form group exception",
+      "observed_success": false,
+      "locale": "ckb",
+      "width": 1440,
+      "error_type": "Error"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          }
+        ]
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/shop",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          }
+        ]
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/product/qa-product-1",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          }
+        ]
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/cart",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/login",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/register",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/forgot-password",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/contact",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/faq",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/stories",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/privacy",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/terms",
+      "locale": "ckb",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-quick-dialog]",
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-compare-dialog]",
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cart drawer configuration coverage",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390,
+      "configuration": "No enabled drawer trigger; original/cart navigation retained. Drawer-specific keyboard NOT TESTED in this fixture."
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-story-viewer]",
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Dialog/form group exception",
+      "observed_success": false,
+      "locale": "ar",
+      "width": 390,
+      "error_type": "Error"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440,
+      "focus_after_save": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-quick-dialog]",
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-compare-dialog]",
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cart drawer configuration coverage",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440,
+      "configuration": "No enabled drawer trigger; original/cart navigation retained. Drawer-specific keyboard NOT TESTED in this fixture."
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-story-viewer]",
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Dialog/form group exception",
+      "observed_success": false,
+      "locale": "ar",
+      "width": 1440,
+      "error_type": "Error"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          }
+        ]
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/shop",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          }
+        ]
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/product/qa-product-1",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "class": ""
+          }
+        ]
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/cart",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/login",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/register",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/forgot-password",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/contact",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/faq",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/stories",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/privacy",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/terms",
+      "locale": "ar",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-quick-dialog]",
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-compare-dialog]",
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cart drawer configuration coverage",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390,
+      "configuration": "No enabled drawer trigger; original/cart navigation retained. Drawer-specific keyboard NOT TESTED in this fixture."
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-story-viewer]",
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Dialog/form group exception",
+      "observed_success": false,
+      "locale": "nl",
+      "width": 390,
+      "error_type": "Error"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440,
+      "focus_after_save": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-quick-dialog]",
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-compare-dialog]",
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cart drawer configuration coverage",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440,
+      "configuration": "No enabled drawer trigger; original/cart navigation retained. Drawer-specific keyboard NOT TESTED in this fixture."
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-story-viewer]",
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Dialog/form group exception",
+      "observed_success": false,
+      "locale": "nl",
+      "width": 1440,
+      "error_type": "Error"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/shop",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/product/qa-product-1",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/cart",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/login",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/register",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/forgot-password",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/contact",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/faq",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/stories",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/privacy",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/terms",
+      "locale": "nl",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390,
+      "focus_after_save": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-quick-dialog]",
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-compare-dialog]",
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cart drawer configuration coverage",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390,
+      "configuration": "No enabled drawer trigger; original/cart navigation retained. Drawer-specific keyboard NOT TESTED in this fixture."
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-story-viewer]",
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Dialog/form group exception",
+      "observed_success": false,
+      "locale": "fr",
+      "width": 390,
+      "error_type": "Error"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440,
+      "focus_after_save": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-quick-dialog]",
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-quick-dialog]",
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-compare-dialog]",
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-compare-dialog]",
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cart drawer configuration coverage",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440,
+      "configuration": "No enabled drawer trigger; original/cart navigation retained. Drawer-specific keyboard NOT TESTED in this fixture."
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native dialog opens and focus contained",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal focus wraps",
+      "observed_success": false,
+      "selector": "[data-story-viewer]",
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Native modal Escape returns opener",
+      "observed_success": true,
+      "selector": "[data-story-viewer]",
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Dialog/form group exception",
+      "observed_success": false,
+      "locale": "fr",
+      "width": 1440,
+      "error_type": "Error"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/shop",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/product/qa-product-1",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/cart",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/login",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/register",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/forgot-password",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/contact",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/faq",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/stories",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/privacy",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    },
+    {
+      "label": "VERIFIED",
+      "check": "320 CSS-pixel reflow equivalent to1280 at400percent",
+      "observed_success": true,
+      "route": "/terms",
+      "locale": "fr",
+      "geometry": {
+        "viewport": 320,
+        "page": 320,
+        "body": 320,
+        "overflowing": []
+      },
+      "actual_desktop_zoom": "NOT TESTED;320CSSpx layout is equivalent viewport check, not a zoom action"
+    }
+  ],
+  "runtime_fingerprint": {
+    "sha256": "06845d134351de1e4b23192b0df6f5b8ab249e6a546699f15bf4cbddf69cfa5d",
+    "files": 147,
+    "scope": "Copied src, views, public excluding uploads, generated and package.json"
+  },
+  "python": "3.13.5",
+  "chromium": "156.0.8078.79",
+  "temporary_fixture_removed": true,
+  "summary": {
+    "successful_assertions": 200,
+    "unsuccessful_assertions": 40
+  },
+  "finished_utc": "2026-11-20T22:49:20.492397+00:00"
+}

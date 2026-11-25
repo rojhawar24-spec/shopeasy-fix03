@@ -1,0 +1,49 @@
+<%
+  const adminNavPath = typeof path === 'string' ? path.split('?')[0].replace(/\/$/, '') || '/admin' : '/admin';
+  const navActive = (target) => target === '/admin' ? adminNavPath === '/admin' : (adminNavPath === target || adminNavPath.startsWith(`${target}/`));
+%>
+<% if(user?.role==='manager'){ %>
+<nav class="admin-nav container" aria-label="Store manager navigation" aria-describedby="manager-nav-help" tabindex="0">
+  <span class="sr-only" id="manager-nav-help">On smaller screens, scroll horizontally for more sections.</span>
+  <div class="admin-nav-group">
+    <span class="admin-nav-label">WORKSPACE</span>
+    <a href="/admin" class="<%= navActive('/admin')?'active':'' %>"<% if(navActive('/admin')){ %> aria-current="page"<% } %>>Overview</a>
+  </div>
+  <div class="admin-nav-group">
+    <span class="admin-nav-label">CATALOGUE</span>
+    <a href="/admin/products" class="<%= navActive('/admin/products')?'active':'' %>"<% if(navActive('/admin/products')){ %> aria-current="page"<% } %>>Products</a>
+    <a href="/admin/categories" class="<%= navActive('/admin/categories')?'active':'' %>"<% if(navActive('/admin/categories')){ %> aria-current="page"<% } %>>Categories</a>
+  </div>
+  <div class="admin-nav-group">
+    <span class="admin-nav-label">SALES</span>
+    <a href="/admin/orders" class="<%= navActive('/admin/orders')?'active':'' %>"<% if(navActive('/admin/orders')){ %> aria-current="page"<% } %>>Orders</a>
+    <a href="/admin/returns" class="<%= navActive('/admin/returns')?'active':'' %>"<% if(navActive('/admin/returns')){ %> aria-current="page"<% } %>>Returns</a>
+    <a href="/admin/customers" class="<%= navActive('/admin/customers')?'active':'' %>"<% if(navActive('/admin/customers')){ %> aria-current="page"<% } %>>Customers</a>
+  </div>
+  <div class="admin-nav-group">
+    <span class="admin-nav-label">PROMOTIONS</span>
+    <a href="/admin/coupons" class="<%= navActive('/admin/coupons')?'active':'' %>"<% if(navActive('/admin/coupons')){ %> aria-current="page"<% } %>>Discounts</a>
+    <a href="/admin/bundles" class="<%= navActive('/admin/bundles')?'active':'' %>"<% if(navActive('/admin/bundles')){ %> aria-current="page"<% } %>>Bundles</a>
+    <a href="/admin/gift-cards" class="<%= navActive('/admin/gift-cards')?'active':'' %>"<% if(navActive('/admin/gift-cards')){ %> aria-current="page"<% } %>>Gift cards</a>
+    <a href="/admin/newsletter" class="<%= navActive('/admin/newsletter')?'active':'' %>"<% if(navActive('/admin/newsletter')){ %> aria-current="page"<% } %>>Newsletter</a>
+    <a href="/admin/reviews" class="<%= navActive('/admin/reviews')?'active':'' %>"<% if(navActive('/admin/reviews')){ %> aria-current="page"<% } %>>Reviews</a>
+    <a href="/admin/stories" class="<%= navActive('/admin/stories')?'active':'' %>"<% if(navActive('/admin/stories')){ %> aria-current="page"<% } %>>Stories</a>
+  </div>
+  <div class="admin-nav-group">
+    <span class="admin-nav-label">STORE CONTENT</span>
+    <a href="/admin/appearance" class="<%= navActive('/admin/appearance')?'active':'' %>">Design studio</a>
+    <a href="/admin/branding" class="<%= navActive('/admin/branding')?'active':'' %>"<% if(navActive('/admin/branding')){ %> aria-current="page"<% } %>>Storefront</a>
+  </div>
+  <div class="admin-nav-group admin-nav-manager-tools">
+      <span class="admin-nav-label">MANAGER TOOLS</span>
+      <a href="/admin/settings" class="<%= navActive('/admin/settings')?'active':'' %>"<% if(navActive('/admin/settings')){ %> aria-current="page"<% } %>>Settings</a>
+      <a href="/admin/e-invoicing" class="<%= navActive('/admin/e-invoicing')?'active':'' %>"<% if(navActive('/admin/e-invoicing')){ %> aria-current="page"<% } %>>E-invoicing</a>
+      <a href="/admin/staff" class="<%= navActive('/admin/staff')?'active':'' %>"<% if(navActive('/admin/staff')){ %> aria-current="page"<% } %>>Staff &amp; account</a>
+      <a href="/admin/audit" class="<%= navActive('/admin/audit')?'active':'' %>"<% if(navActive('/admin/audit')){ %> aria-current="page"<% } %>>Audit trail</a>
+      <a href="/admin/gdpr" class="<%= navActive('/admin/gdpr')?'active':'' %>"<% if(navActive('/admin/gdpr')){ %> aria-current="page"<% } %>>Privacy tools</a>
+      <a href="/admin/license" class="<%= navActive('/admin/license')?'active':'' %>"<% if(navActive('/admin/license')){ %> aria-current="page"<% } %>>License</a>
+    </div>
+  <a class="admin-nav-preview" href="/shop">View shop ↗</a>
+</nav>
+<div class="admin-workspace-content" id="manager-page-content">
+<% } %>

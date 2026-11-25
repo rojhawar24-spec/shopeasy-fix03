@@ -1,0 +1,836 @@
+[
+  {
+    "scenario": "home-empty-consent-visible",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "span[data-theme-icon=\"\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > .search-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > button[type=\"submit\"][aria-label=\"Rechercher\"]"
+          ],
+          [
+            "a[href$=\"#featured\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(1) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(2) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(3) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".trust-item > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "#cookie-consent-description"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "home-empty-light-1440",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "span[data-theme-icon=\"\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > .search-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > button[type=\"submit\"][aria-label=\"Rechercher\"]"
+          ],
+          [
+            "a[href$=\"#featured\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(1) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(2) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(3) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".trust-item > .trust-icon[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "home-empty-light-390",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "span[data-theme-icon=\"\"]"
+          ],
+          [
+            ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".menu-toggle"
+          ],
+          [
+            "a[href$=\"#featured\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(1) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(2) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(3) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".trust-item > .trust-icon[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "home-empty-dark-390",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".menu-toggle"
+          ],
+          [
+            "a[href$=\"#featured\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(1) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(2) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(3) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".trust-item > .trust-icon[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "home-populated-consent-visible",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "span[data-theme-icon=\"\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > .search-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > button[type=\"submit\"][aria-label=\"Rechercher\"]"
+          ],
+          [
+            ".nav-category-trigger > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".v17-text-action > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".v17-spotlight-label"
+          ],
+          [
+            ".category-index"
+          ],
+          [
+            ".category-card-overlay > strong"
+          ],
+          [
+            ".category-card-overlay > span:nth-child(3)"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 0\"][href$=\"qa-product-0\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 1\"][href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 2\"][href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 3\"][href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(5) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 4\"][href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(6) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 5\"][href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(7) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 6\"][href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(8) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 7\"][href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(1) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(2) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(3) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".trust-item > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(1) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 8\"][href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 9\"][href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 10\"][href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir Featured\"][href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#cookie-consent-description"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "home-populated-light-1440",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "span[data-theme-icon=\"\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > .search-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > button[type=\"submit\"][aria-label=\"Rechercher\"]"
+          ],
+          [
+            ".nav-category-trigger > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".v17-text-action > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".v17-spotlight-label"
+          ],
+          [
+            ".category-index"
+          ],
+          [
+            ".category-card-overlay > strong"
+          ],
+          [
+            ".category-card-overlay > span:nth-child(3)"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 0\"][href$=\"qa-product-0\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 1\"][href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 2\"][href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 3\"][href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(5) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 4\"][href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(6) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 5\"][href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(7) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 6\"][href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(8) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 7\"][href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(1) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(2) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(3) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".trust-item > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(1) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 8\"][href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 9\"][href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 10\"][href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir Featured\"][href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "home-populated-light-390",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "span[data-theme-icon=\"\"]"
+          ],
+          [
+            ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".menu-toggle"
+          ],
+          [
+            ".v17-text-action > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".v17-spotlight-label"
+          ],
+          [
+            ".category-index"
+          ],
+          [
+            ".category-card-overlay > strong"
+          ],
+          [
+            ".category-card-overlay > span:nth-child(3)"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 0\"][href$=\"qa-product-0\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 1\"][href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 2\"][href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 3\"][href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(5) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 4\"][href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(6) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 5\"][href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(7) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 6\"][href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(8) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 7\"][href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(1) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(2) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(3) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".trust-item > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(1) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 8\"][href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 9\"][href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 10\"][href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir Featured\"][href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "home-populated-dark-390",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".menu-toggle"
+          ],
+          [
+            ".v17-text-action > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".v17-spotlight-label"
+          ],
+          [
+            ".category-index"
+          ],
+          [
+            ".category-card-overlay > strong"
+          ],
+          [
+            ".category-card-overlay > span:nth-child(3)"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 0\"][href$=\"qa-product-0\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 1\"][href$=\"qa-product-1\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 2\"][href$=\"qa-product-2\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#featured > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 3\"][href$=\"qa-product-3\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(5) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(5) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 4\"][href$=\"qa-product-4\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(6) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(6) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 5\"][href$=\"qa-product-5\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(7) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(7) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 6\"][href$=\"qa-product-6\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(8) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(8) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 7\"][href$=\"qa-product-7\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(1) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(2) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "div:nth-child(3) > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".trust-item > .trust-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(1) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "article:nth-child(1) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 8\"][href$=\"qa-product-8\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(2) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 9\"][href$=\"qa-product-9\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(3) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir QA product 10\"][href$=\"qa-product-10\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-topline > .product-stock-pill > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#new-arrivals > .product-grid.product-grid-signature > article:nth-child(4) > .product-card-body > .product-card-meta-row > .in-stock > .meta-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".btn-small[aria-label=\"Voir Featured\"][href$=\"qa-product-11\"] > span[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "login-consent-visible",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "span[data-theme-icon=\"\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > .search-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > button[aria-label=\"Rechercher\"][type=\"submit\"]"
+          ],
+          [
+            ".auth-browse > a[href$=\"shop\"] > span[aria-hidden=\"true\"]"
+          ],
+          [
+            "#cookie-consent-description"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "login-light-1440",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "span[data-theme-icon=\"\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > .search-icon[aria-hidden=\"true\"]"
+          ],
+          [
+            ".search-box > .search[action=\"/shop\"][method=\"get\"] > button[aria-label=\"Rechercher\"][type=\"submit\"]"
+          ],
+          [
+            ".auth-browse > a[href$=\"shop\"] > span[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "login-light-390",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "span[data-theme-icon=\"\"]"
+          ],
+          [
+            ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".menu-toggle"
+          ],
+          [
+            ".auth-browse > a[href$=\"shop\"] > span[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "scenario": "login-dark-390",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            ".storefront-search-toggle > span[aria-hidden=\"true\"]"
+          ],
+          [
+            ".menu-toggle"
+          ],
+          [
+            ".auth-browse > a[href$=\"shop\"] > span[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ]
+  }
+]

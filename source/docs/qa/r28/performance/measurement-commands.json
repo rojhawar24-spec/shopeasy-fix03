@@ -1,0 +1,116 @@
+[
+  {
+    "label": "VERIFIED",
+    "repeat": 1,
+    "group": "baseline",
+    "command": [
+      "/workspace/presale-r27/tools/qa-python313/bin/python",
+      "/workspace/presale-r28/proposals/performance/evidence/run-lighthouse.py",
+      "--app-root",
+      "/workspace/presale-r27/work",
+      "--output",
+      "/workspace/presale-r28/proposals/performance/evidence/measurements/baseline-1",
+      "--expected-runtime-sha256",
+      "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d"
+    ],
+    "started_utc": "2026-11-21T22:58:20.282141+00:00",
+    "finished_utc": "2026-11-21T22:58:48.774081+00:00",
+    "exit_code": 0,
+    "sanitized_console": "{\"scenario\": \"home-mobile\", \"scores\": {\"performance\": 95, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d\", \"rawRemoved\": true}\n{\"scenario\": \"shop-desktop\", \"scores\": {\"performance\": 100, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d\", \"rawRemoved\": true}\n"
+  },
+  {
+    "label": "VERIFIED",
+    "repeat": 1,
+    "group": "proposal",
+    "command": [
+      "/workspace/presale-r27/tools/qa-python313/bin/python",
+      "/workspace/presale-r28/proposals/performance/evidence/run-lighthouse.py",
+      "--app-root",
+      "/workspace/presale-r28/proposals/performance/work",
+      "--output",
+      "/workspace/presale-r28/proposals/performance/evidence/measurements/proposal-1",
+      "--expected-runtime-sha256",
+      "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572"
+    ],
+    "started_utc": "2026-11-21T22:58:48.774740+00:00",
+    "finished_utc": "2026-11-21T22:59:16.139838+00:00",
+    "exit_code": 0,
+    "sanitized_console": "{\"scenario\": \"home-mobile\", \"scores\": {\"performance\": 99, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572\", \"rawRemoved\": true}\n{\"scenario\": \"shop-desktop\", \"scores\": {\"performance\": 100, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572\", \"rawRemoved\": true}\n"
+  },
+  {
+    "label": "VERIFIED",
+    "repeat": 2,
+    "group": "baseline",
+    "command": [
+      "/workspace/presale-r27/tools/qa-python313/bin/python",
+      "/workspace/presale-r28/proposals/performance/evidence/run-lighthouse.py",
+      "--app-root",
+      "/workspace/presale-r27/work",
+      "--output",
+      "/workspace/presale-r28/proposals/performance/evidence/measurements/baseline-2",
+      "--expected-runtime-sha256",
+      "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d"
+    ],
+    "started_utc": "2026-11-21T22:59:16.140143+00:00",
+    "finished_utc": "2026-11-21T22:59:50.269579+00:00",
+    "exit_code": 0,
+    "sanitized_console": "{\"scenario\": \"home-mobile\", \"scores\": {\"performance\": 94, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d\", \"rawRemoved\": true}\n{\"scenario\": \"shop-desktop\", \"scores\": {\"performance\": 99, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d\", \"rawRemoved\": true}\n"
+  },
+  {
+    "label": "VERIFIED",
+    "repeat": 2,
+    "group": "proposal",
+    "command": [
+      "/workspace/presale-r27/tools/qa-python313/bin/python",
+      "/workspace/presale-r28/proposals/performance/evidence/run-lighthouse.py",
+      "--app-root",
+      "/workspace/presale-r28/proposals/performance/work",
+      "--output",
+      "/workspace/presale-r28/proposals/performance/evidence/measurements/proposal-2",
+      "--expected-runtime-sha256",
+      "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572"
+    ],
+    "started_utc": "2026-11-21T22:59:50.276442+00:00",
+    "finished_utc": "2026-11-21T23:00:23.166251+00:00",
+    "exit_code": 0,
+    "sanitized_console": "{\"scenario\": \"home-mobile\", \"scores\": {\"performance\": 99, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572\", \"rawRemoved\": true}\n{\"scenario\": \"shop-desktop\", \"scores\": {\"performance\": 100, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572\", \"rawRemoved\": true}\n"
+  },
+  {
+    "label": "VERIFIED",
+    "repeat": 3,
+    "group": "baseline",
+    "command": [
+      "/workspace/presale-r27/tools/qa-python313/bin/python",
+      "/workspace/presale-r28/proposals/performance/evidence/run-lighthouse.py",
+      "--app-root",
+      "/workspace/presale-r27/work",
+      "--output",
+      "/workspace/presale-r28/proposals/performance/evidence/measurements/baseline-3",
+      "--expected-runtime-sha256",
+      "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d"
+    ],
+    "started_utc": "2026-11-21T23:00:23.169661+00:00",
+    "finished_utc": "2026-11-21T23:00:57.810518+00:00",
+    "exit_code": 0,
+    "sanitized_console": "{\"scenario\": \"home-mobile\", \"scores\": {\"performance\": 94, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d\", \"rawRemoved\": true}\n{\"scenario\": \"shop-desktop\", \"scores\": {\"performance\": 99, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d\", \"rawRemoved\": true}\n"
+  },
+  {
+    "label": "VERIFIED",
+    "repeat": 3,
+    "group": "proposal",
+    "command": [
+      "/workspace/presale-r27/tools/qa-python313/bin/python",
+      "/workspace/presale-r28/proposals/performance/evidence/run-lighthouse.py",
+      "--app-root",
+      "/workspace/presale-r28/proposals/performance/work",
+      "--output",
+      "/workspace/presale-r28/proposals/performance/evidence/measurements/proposal-3",
+      "--expected-runtime-sha256",
+      "c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572"
+    ],
+    "started_utc": "2026-11-21T23:00:57.811788+00:00",
+    "finished_utc": "2026-11-21T23:01:27.179098+00:00",
+    "exit_code": 0,
+    "sanitized_console": "{\"scenario\": \"home-mobile\", \"scores\": {\"performance\": 99, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572\", \"rawRemoved\": true}\n{\"scenario\": \"shop-desktop\", \"scores\": {\"performance\": 100, \"accessibility\": 100, \"best-practices\": 100, \"seo\": 100}, \"runtimeSha256\": \"c90fa4166fc8cdff6e4fcde0cac97bbd70251498382644bf6593ea7093842572\", \"rawRemoved\": true}\n"
+  }
+]

@@ -1,0 +1,140 @@
+{
+  "label": "VERIFIED",
+  "started_utc": "2026-11-22T23:13:51.524562+00:00",
+  "tag": "shopeasy-r28:2.8.95-audit",
+  "dockerfile_sha256": "83f0ee3a5739f3891d42a20e86f049bfc79600f36eee174f1a581ead01c7abb7",
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "--host=unix:///var/run/docker.sock",
+        "info",
+        "--format",
+        "{{.ServerVersion}}"
+      ],
+      "exit_code": 0,
+      "output_file": "engine.txt"
+    },
+    {
+      "command": [
+        "docker",
+        "--host=unix:///var/run/docker.sock",
+        "image",
+        "inspect",
+        "--format",
+        "{{.Id}}",
+        "shopeasy-r28:2.8.95-audit"
+      ],
+      "exit_code": 0,
+      "output_file": "image-id.txt"
+    },
+    {
+      "command": [
+        "docker",
+        "--host=unix:///var/run/docker.sock",
+        "run",
+        "--rm",
+        "-d",
+        "--env-file",
+        "/tmp/shopeasy-container-smoke-fg58b85b/synthetic.env",
+        "-p",
+        "127.0.0.1::3000",
+        "shopeasy-r28:2.8.95-audit"
+      ],
+      "exit_code": 0,
+      "output_file": "start.txt"
+    },
+    {
+      "command": [
+        "docker",
+        "--host=unix:///var/run/docker.sock",
+        "port",
+        "9eedcd4a2b1d355d2de854929009dc4814e0624efe994a6f4c9d77c68e45a86e",
+        "3000/tcp"
+      ],
+      "exit_code": 0,
+      "output_file": "port.txt"
+    },
+    {
+      "command": [
+        "docker",
+        "--host=unix:///var/run/docker.sock",
+        "exec",
+        "9eedcd4a2b1d355d2de854929009dc4814e0624efe994a6f4c9d77c68e45a86e",
+        "node",
+        "-p",
+        "process.getuid()"
+      ],
+      "exit_code": 0,
+      "output_file": "runtime-uid.txt"
+    },
+    {
+      "command": [
+        "docker",
+        "--host=unix:///var/run/docker.sock",
+        "exec",
+        "9eedcd4a2b1d355d2de854929009dc4814e0624efe994a6f4c9d77c68e45a86e",
+        "node",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output_file": "runtime-node.txt"
+    },
+    {
+      "command": [
+        "docker",
+        "--host=unix:///var/run/docker.sock",
+        "stop",
+        "9eedcd4a2b1d355d2de854929009dc4814e0624efe994a6f4c9d77c68e45a86e"
+      ],
+      "exit_code": 0,
+      "output_file": "stop.txt"
+    }
+  ],
+  "scope": "Local Linux build and synthetic production container; no real provider/domain or customer state.",
+  "engine_version": "29.9.2",
+  "build_command": [
+    "docker",
+    "--host=unix:///var/run/docker.sock",
+    "build",
+    "--progress=plain",
+    "--secret",
+    "id=npm_ca,src=/etc/ssl/certs/ca-certificates.crt",
+    "-t",
+    "shopeasy-r28:2.8.95-audit",
+    "/workspace/presale-r28/work"
+  ],
+  "build_exit_code": 0,
+  "full_suite_footer": {
+    "tests": true,
+    "pass": true,
+    "fail": true,
+    "skipped": true
+  },
+  "image_id": "sha256:510e7e9858969616cf1154efaf9523ce70471f0cffcbe4fcdf94dee58e0f1ce7",
+  "login": {
+    "status": 200,
+    "private_no_store": true,
+    "noindex": true,
+    "host_cookie": true,
+    "http_only": true,
+    "secure": true,
+    "same_site_lax": true,
+    "hsts_present": true,
+    "strict_csp": true
+  },
+  "runtime": {
+    "node": "v24.22.2",
+    "uid": 1000,
+    "actual_database_ready": true,
+    "readiness_http_status": 200
+  },
+  "private_env_and_credentials_removed": true,
+  "finished_utc": "2026-11-22T23:15:11.032072+00:00",
+  "limitations": [
+    "Actual Windows/macOS/Docker Desktop NOT TESTED.",
+    "Synthetic local container smoke uses HTTP and a forwarded HTTPS indication; real TLS is separately tested by the local-TLS helper, not by this probe.",
+    "No real public deployment, live provider or customer data involved.",
+    "BuildKit mounts the existing session CA bundle; TLS verification stays enabled and the bundle is not copied into image layers."
+  ]
+}

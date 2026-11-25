@@ -1,0 +1,144 @@
+[
+  {
+    "locale": "en",
+    "page": "home",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "passed": true
+  },
+  {
+    "locale": "en",
+    "page": "login",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "passed": true
+  },
+  {
+    "locale": "fr",
+    "page": "home",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "passed": true
+  },
+  {
+    "locale": "fr",
+    "page": "login",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "passed": true
+  },
+  {
+    "locale": "nl",
+    "page": "home",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "passed": true
+  },
+  {
+    "locale": "nl",
+    "page": "login",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "passed": true
+  },
+  {
+    "locale": "ar",
+    "page": "home",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "passed": true
+  },
+  {
+    "locale": "ar",
+    "page": "login",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "passed": true
+  },
+  {
+    "locale": "ckb",
+    "page": "home",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "passed": true
+  },
+  {
+    "locale": "ckb",
+    "page": "login",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "passed": true
+  },
+  {
+    "locale": "fr",
+    "javascript": false,
+    "heading": "Bon retour !",
+    "passed": true
+  },
+  {
+    "locale": "nl",
+    "javascript": false,
+    "heading": "Welkom terug",
+    "passed": true
+  },
+  {
+    "locale": "ar",
+    "javascript": false,
+    "heading": "مرحبًا بعودتك",
+    "passed": true
+  },
+  {
+    "locale": "ckb",
+    "javascript": false,
+    "heading": "بەخێربێیتەوە",
+    "passed": true
+  },
+  {
+    "invalid_credentials": "generic error, focused, password cleared, checkout preserved",
+    "passed": true
+  },
+  {
+    "csrf": "missing token rejected",
+    "passed": true
+  }
+]

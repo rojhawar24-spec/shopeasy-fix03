@@ -1,0 +1,117 @@
+{
+  "utc": "2026-11-14T20:53:09.490260+00:00",
+  "label": "VERIFIED",
+  "phase": "phase-d2",
+  "node_runtime": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+  "results": [
+    {
+      "check": "build",
+      "command": [
+        "npm",
+        "run",
+        "build:cloudflare"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-build.json"
+    },
+    {
+      "check": "syntax",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-syntax.json"
+    },
+    {
+      "check": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-lint.json"
+    },
+    {
+      "check": "types",
+      "command": [
+        "npm",
+        "run",
+        "typecheck:core"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-types.json"
+    },
+    {
+      "check": "static",
+      "command": [
+        "npm",
+        "run",
+        "audit:static"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-static.json"
+    },
+    {
+      "check": "preflight",
+      "command": [
+        "npm",
+        "run",
+        "preflight:release"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-preflight.json"
+    },
+    {
+      "check": "templates",
+      "command": [
+        "node",
+        "scripts/template-audit.mjs"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-templates.json"
+    },
+    {
+      "check": "tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-tests.json"
+    },
+    {
+      "check": "notices",
+      "command": [
+        "npm",
+        "run",
+        "licenses:generate"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-notices.json"
+    },
+    {
+      "check": "production-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--omit=dev",
+        "--json"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-production-advisories.json"
+    },
+    {
+      "check": "all-advisories",
+      "command": [
+        "npm",
+        "audit",
+        "--json"
+      ],
+      "exit_code": 0,
+      "evidence": "phase-d2-all-advisories.json"
+    }
+  ]
+}

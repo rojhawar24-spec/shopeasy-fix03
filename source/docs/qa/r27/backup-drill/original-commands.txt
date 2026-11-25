@@ -1,0 +1,58 @@
+[seed actual application functions]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node seed-drill.mjs
+exit=0
+{"seeded":true,"users":2,"products":2,"orders":2,"returnRecords":1,"ledgerEvents":4,"auditRows":125,"blobBytes":68,"blobDriverType":"ArrayBuffer","filesystemImages":1,"appFunctions":["createUser","createCategory","adminCreateOrUpdateProduct","issueGiftCard","createOrderAtomic","setOrderStatus","createOrderReturnRequest","processOrderReturn","createAudit"]}
+
+[backup real CLI]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/backup-database.mjs --output <DISPOSABLE>/encrypted/shop.jsonl.gz.enc
+exit=0
+ShopEasy logical backup finished.
+File: <DISPOSABLE>/encrypted/shop.jsonl.gz.enc
+Compressed bytes: 8942
+SHA-256: 4e5f96ec3b50bd2d4287b1e72a50b0c3edce0b7b7ea514164dea705ff124190d
+Encryption: AES-256-GCM; database BLOB images and safe-named public/uploads files are included. Keep the backup, checksum and BACKUP_ENCRYPTION_KEY encrypted/off-host and separate from each other; test restoration into a separate empty database.
+
+[restore real CLI into separate target]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=1
+Restore failed: SQLite3 can only bind numbers, strings, bigints, buffers, and null
+A failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.
+
+[wrong key refusal]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=1
+Restore failed: BACKUP_INVALID_OR_TRUNCATED:incorrect header check
+A failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.
+
+[checksum mismatch refusal]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/damaged.jsonl.gz.enc --confirm-restore
+exit=2
+Restore refused: SHA-256 checksum verification failed.
+
+[source target refusal DATABASE_URL]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=2
+Restore refused: target URL resolves to a configured source database. Use a different empty staging database.
+
+[source target refusal SHOP_DATABASE_URL]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=2
+Restore refused: target URL resolves to a configured source database. Use a different empty staging database.
+
+[source target refusal TURSO_DATABASE_URL]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=2
+Restore refused: target URL resolves to a configured source database. Use a different empty staging database.
+
+[nonempty database refusal]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=1
+Restore failed: RESTORE_TARGET_NOT_EMPTY: create a new empty database; restore never overwrites existing customer data
+A failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.
+
+[nonempty uploads refusal]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=1
+Restore failed: SQLite3 can only bind numbers, strings, bigints, buffers, and null
+A failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.
+

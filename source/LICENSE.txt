@@ -1,0 +1,178 @@
+SHOPEASY
+PROPRIETARY COMMERCIAL SOFTWARE LICENSE
+Draft 1.0 — status reviewed for R27 / package 2.8.94 on 13 November 2026
+
+STATUS: DRAFT ONLY — NOT AN EFFECTIVE LICENSE
+
+IMPORTANT — READ BEFORE USE
+This document is a proposed license template. It is not an active grant of rights, does not establish who owns ShopEasy, and does not by itself authorize use, modification, redistribution, rebranding, deployment, or commercial resale of this package.
+
+Do not present this document to a customer as a completed license until all of the following are true:
+1. The legal identity of the licensor has been entered below.
+2. The licensor has verified that it owns, or has written permission to license, every relevant part of the ShopEasy code and other included material.
+3. The applicable licenses and notice obligations for third-party code, libraries, fonts, images, icons, and other assets have been reviewed.
+4. Every bracketed field has been completed or intentionally removed, and the final terms have been reviewed for the transaction and applicable law.
+5. The licensor and licensee have validly accepted the completed agreement, and any required order, fee, and deployment limits have been recorded.
+
+Until those steps are complete, the licensing status of this package remains UNCONFIRMED and no rights are granted by this draft. This is a business drafting template, not legal advice. Obtain qualified legal review before using it commercially.
+
+======================================================================
+PART A — PROPOSED AGREEMENT
+Complete all bracketed fields before offering this agreement for acceptance.
+======================================================================
+
+1. PARTIES AND EFFECTIVE DATE
+
+Licensor: [LICENSOR LEGAL NAME]
+Legal form / registration number (if applicable): [DETAILS]
+Address: [LICENSOR BUSINESS ADDRESS]
+Contact for legal notices: [LICENSOR CONTACT EMAIL / POSTAL ADDRESS]
+
+Licensee: [LICENSEE LEGAL NAME]
+Legal form / registration number (if applicable): [DETAILS]
+Address: [LICENSEE BUSINESS ADDRESS]
+Contact for legal notices: [LICENSEE CONTACT EMAIL / POSTAL ADDRESS]
+
+Effective date: [DATE]
+Order, invoice, or signed statement of work: [REFERENCE]
+Licensed store/business name: [STORE NAME]
+Permitted production deployment count: [NUMBER — PROPOSED DEFAULT: ONE]
+License term: [PERPETUAL OR SPECIFIED TERM]
+License fee and payment terms: [AMOUNT / CURRENCY / DUE DATE / OR “NO FEE”]
+Governing law and agreed courts: [JURISDICTION — SUBJECT TO LEGAL REVIEW]
+
+2. DEFINITIONS
+
+“Software” means only the ShopEasy materials specifically identified in the completed order or statement of work and that the Licensor is legally entitled to license. It may include source code, templates, stylesheets, scripts, configuration examples, and documentation.
+
+“Third-Party Materials” means software, dependencies, fonts, images, icons, services, or other materials owned or licensed by a person other than the Licensor.
+
+“Licensed Store” means the single commercial storefront identified in Section 1. A separate store, customer, legal entity, environment, or deployment is not included unless expressly listed in the completed order.
+
+3. CONDITIONAL LICENSE GRANT
+
+Only after the Licensor’s authority to grant the relevant rights has been verified and this agreement has become effective, the Licensor grants the Licensee a non-exclusive license, limited to the scope and term recorded in Section 1, to:
+
+a. install, run, configure, and operate the Software for the Licensed Store;
+b. make reasonable changes to configuration, text, translations, styling, and source code that are necessary to operate or maintain the Licensed Store;
+c. deploy the Licensed Store on infrastructure operated by the Licensee or by a service provider acting for the Licensee; and
+d. make a reasonable number of secure backup copies for recovery and business continuity.
+
+The Licensee may permit its employees and contractors to access the Software only to support the Licensed Store, only on a need-to-know basis, and subject to confidentiality and security obligations at least as protective as this agreement.
+
+This proposed grant does not take effect merely because a person receives this file or the ZIP package. The final agreement, the identified rights holder’s authority, and the applicable order must be in place first.
+
+4. RESTRICTIONS
+
+Except where applicable law does not permit a restriction, or where the Licensor gives prior written permission, the Licensee must not:
+
+a. sell, publish, rent, lease, sublicense, distribute, or otherwise provide the Software or its source code to another person as a reusable software product;
+b. operate the Software as a multi-customer website-building or hosting service for unrelated third parties, or grant another business a separate ShopEasy deployment;
+c. remove or obscure copyright, license, attribution, or proprietary notices that must be retained;
+d. use the Licensor’s or a third party’s name, logo, or trademark in a way that suggests endorsement or ownership without permission;
+e. use the Software to violate law, infringe third-party rights, or knowingly compromise another person’s systems or data; or
+f. bypass access controls or technical restrictions except as expressly authorized by the Licensor or permitted by applicable law.
+
+A reseller, agency, implementation partner, or person deploying ShopEasy for multiple client stores requires a separate written reseller or multi-deployment agreement. The rights in this draft are limited to the Licensed Store described in Section 1.
+
+5. OWNERSHIP AND CUSTOMER MATERIALS
+
+No ownership of the Software or the Licensor’s pre-existing intellectual property is transferred by this proposed agreement. Rights not expressly granted remain with their respective rights holders.
+
+The Licensee retains its rights in its own business name, logo, product information, photographs, customer records, and other materials it supplies, subject to any separate rights held by third parties. The Licensee is responsible for having permission to use those materials.
+
+Ownership and permitted reuse of bespoke development, paid customizations, and changes created during a project must be specified in a signed order or statement of work. This draft does not silently transfer ownership of those materials to either party.
+
+6. THIRD-PARTY MATERIALS
+
+Third-Party Materials are not relicensed by this document unless the relevant rights holder expressly permits it. Each component remains subject to its own license, attribution, notice, and use restrictions. Where a third-party license conflicts with this agreement, the applicable third-party license controls for that component.
+
+Before commercial distribution or deployment, the parties must identify applicable third-party obligations and provide required notices. This document does not certify that such a review has been completed or that every bundled asset is cleared for commercial use.
+
+7. FEES, DEPLOYMENTS, AND CHANGES OF SCOPE
+
+The applicable fee, payment schedule, permitted deployment count, and license term must be recorded in Section 1 or an attached signed order. No additional store, customer deployment, source-code redistribution right, or reseller right is included by implication.
+
+Any change to scope, including extra production deployments, resale, white-label distribution, or use as a software-as-a-service platform for third parties, must be agreed in writing by the authorized rights holder.
+
+8. SUPPORT, UPDATES, AND THIRD-PARTY SERVICES
+
+Support, maintenance, security updates, hosting, backups, email delivery, database operation, payment services, courier services, and service-level commitments are not included unless separately agreed in writing.
+
+The Software may require third-party accounts, services, configuration, or fees. The Licensee is responsible for its own hosting and service accounts unless its order states otherwise.
+
+9. SECURITY, PRIVACY, AND LEGAL COMPLIANCE
+
+The Software is a technology tool and does not by itself guarantee that a store is secure, accessible, compliant, or suitable for a particular business or country. Unless a separate signed agreement expressly allocates a responsibility, the Licensee is responsible for its products, sales practices, customer notices, privacy obligations, tax calculations, invoices, delivery terms, refunds, consumer rights, and other rules applicable to its business.
+
+Before accepting real customer orders, the Licensee should complete appropriate deployment, access-control, backup/restore, data-protection, payment, delivery, and security testing for its own environment. Nothing in this section excludes a duty that applicable law does not allow the parties to exclude.
+
+10. CONFIDENTIALITY AND ACCESS
+
+Where source code or non-public documentation is supplied as confidential, the receiving party must protect it using reasonable care and must not disclose it except to personnel or contractors who need it for the permitted purpose and are bound by confidentiality obligations. This section does not restrict information that the receiving party can demonstrate is public through no breach, independently developed, or lawfully received without a duty of confidentiality.
+
+11. TERM AND TERMINATION
+
+The term begins only on the effective date established under Section 1 and continues for the selected term, unless terminated under this section. Either party may terminate for a material breach if the other party does not remedy that breach within [30] days after receiving written notice, where the breach is capable of remedy. Immediate termination may apply to an unlawful use or an infringement that cannot reasonably be remedied, subject to applicable law.
+
+On termination, the Licensee must stop using the Software and delete or return copies it is not legally required to retain. This does not require deletion of customer data in violation of law or applicable record-retention duties. Any continuing rights or duties must be stated in the completed agreement or required by law.
+
+12. WARRANTY DISCLAIMER
+
+To the maximum extent permitted by applicable law, the Software is provided “AS IS” and “AS AVAILABLE,” without a promise that it will be error-free, uninterrupted, secure, compatible with every environment, or compliant with every jurisdiction. No warranty is excluded where the law prohibits that exclusion. Any specific warranty, acceptance criteria, or service commitment must be written in the signed order.
+
+13. LIMITATION OF LIABILITY
+
+To the maximum extent permitted by applicable law, neither party is liable to the other for indirect or consequential loss, loss of anticipated profit, or loss of business opportunity arising from this agreement. The agreed liability cap, if permitted and applicable, must be specified here: [LIABILITY CAP / METHOD OF CALCULATION].
+
+Nothing in this agreement limits liability to the extent such limitation is prohibited by law, including any liability that cannot legally be excluded or limited. The parties should obtain legal advice and complete this section before acceptance.
+
+14. GENERAL TERMS
+
+This agreement and its completed order form constitute the agreement between the parties concerning the licensed use of the Software and replace earlier discussions on that subject. Changes must be in writing and accepted by both parties. If a provision is unenforceable, the remaining provisions remain in effect to the extent permitted by law. Neither party may transfer this agreement except as expressly permitted in writing or by applicable law.
+
+The governing law and dispute forum must be completed in Section 1 after jurisdiction-specific review. Nothing in this draft chooses a jurisdiction by default.
+
+15. ACCEPTANCE
+
+This template is not effective while any required identity, scope, or legal field remains incomplete, or while the person named as Licensor has not confirmed legal authority over the relevant materials. When completed, reviewed, and validly accepted, the parties should retain a copy of the final agreement and the related order or invoice.
+
+For the Licensor:
+Name and title: [AUTHORIZED SIGNATORY]
+Signature / valid electronic acceptance: [SIGNATURE]
+Date: [DATE]
+
+For the Licensee:
+Name and title: [AUTHORIZED SIGNATORY]
+Signature / valid electronic acceptance: [SIGNATURE]
+Date: [DATE]
+
+======================================================================
+ILLUSTRATIVE EXAMPLES (EXPLANATORY ONLY; NOT ADDITIONAL TERMS)
+======================================================================
+
+These examples explain the proposed clauses; they do not prove ownership or replace the completed agreement.
+
+1. Ownership: if the verified Licensor owns the original code, that ownership is not transferred merely because the Buyer receives a ZIP. Any third-party material remains owned by its respective rights holder.
+2. Grant: after an effective signed agreement, the Buyer may operate one named storefront and add products/prices for that store.
+3. Restrictions: the Buyer may not upload the source ZIP to a public repository or sell copies as a reusable website template without written permission.
+4. Intellectual property: the Buyer must not remove a required third-party license notice from a dependency or imply that a third-party logo belongs to the Licensor.
+5. Support: if the order expressly includes 30-day email support beginning on a stated date, reproducible defects in the agreed scope may be reported by email; phone and 24/7 support are not implied.
+6. Warranty: a configuration that works on one tested Node/Cloudflare environment is not a promise it will work in every host or every future version.
+7. Liability: a proposed cap must be completed and checked by counsel; it cannot override a liability that applicable law does not allow the parties to limit.
+8. Indemnification: any indemnity must be limited to defined claims and fair procedures; it does not automatically shift every claim to the Buyer or remove mandatory rights.
+9. Third-party rights: an npm dependency may carry its own license and notice requirements; the Buyer must not assume this proprietary draft overrides that license.
+10. Termination: if a material breach is capable of remedy, the final agreement may give written notice and a cure period before termination, subject to applicable law.
+11. Governing law: the parties must complete the law and forum after reviewing seller/buyer location and any mandatory consumer rules; a list of example countries is not a complete clause.
+12. Amendments: adding a second production storefront or payment integration should be documented in a signed written change order before that work/use begins.
+
+======================================================================
+PART B — CURRENT PACKAGE STATUS
+======================================================================
+
+For the ShopEasy R27 / 2.8.94 proposal on 13 November 2026, the identity and legal authority of the ShopEasy rights holder have not been verified. A dependency inventory (`THIRD-PARTY-NOTICES.md`) and asset provenance register (`ASSET-PROVENANCE-REGISTER.md`) are included, but they do not prove first-party ownership or clear all third-party notice obligations. No completed order or executed license is included. The Software's commercial resale, redistribution, rebranding, and sublicensing status therefore remains UNCONFIRMED. See `RIGHTS-CLEARANCE-REGISTER.md` for open evidence gates.
+
+Do not remove this status section or describe the proposed terms as an effective license until the rights review is complete and the final agreement is approved by the actual rights holder. This file must not be treated as proof of copyright ownership or proof that third-party materials are cleared.
+
+BUYER INTENT RECORD — NOT A GRANT OR AMENDMENT
+The requested outcome is buyer-editable source and rebranding of the buyer’s storefront, subject to required third-party notices. See SELLER-PROTECTION-PACK/BUYER-USE-INTENT.md. No documentary source/asset ownership evidence has been supplied and existing grants remain UNKNOWN. This statement does not execute this draft, establish authority, or expand an existing grant. The authorized parties must settle that requested scope in the final completed agreement after rights review.

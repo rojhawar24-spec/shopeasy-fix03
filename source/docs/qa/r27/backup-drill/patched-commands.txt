@@ -1,0 +1,76 @@
+[actual driver regression]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node test/database-backup-libsql.test.js
+exit=0
+✔ encrypted backups round-trip ArrayBuffer BLOBs from the installed libSQL SQLite driver (66.834688ms)
+✔ backup codecs preserve byte offsets and lengths of binary views (0.427308ms)
+✔ backup codecs reject unsupported object values before serialization can discard them (0.494602ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 72.976822
+
+[seed actual application functions]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node seed-drill.mjs
+exit=0
+{"seeded":true,"users":2,"products":2,"orders":2,"returnRecords":1,"ledgerEvents":4,"auditRows":125,"blobBytes":68,"blobDriverType":"ArrayBuffer","filesystemImages":1,"appFunctions":["createUser","createCategory","adminCreateOrUpdateProduct","issueGiftCard","createOrderAtomic","setOrderStatus","createOrderReturnRequest","processOrderReturn","createAudit"]}
+
+[backup real CLI]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/backup-database.mjs --output <DISPOSABLE>/encrypted/shop.jsonl.gz.enc
+exit=0
+ShopEasy logical backup finished.
+File: <DISPOSABLE>/encrypted/shop.jsonl.gz.enc
+Compressed bytes: 9061
+SHA-256: 6f62921660aa111e739b4006820207ae575dc5e618308e580bb50b19dbab9424
+Encryption: AES-256-GCM; database BLOB images and safe-named public/uploads files are included. Keep the backup, checksum and BACKUP_ENCRYPTION_KEY encrypted/off-host and separate from each other; test restoration into a separate empty database.
+
+[restore real CLI into separate target]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=0
+ShopEasy restore finished into the separate target database.
+Backup created: 2026-11-14T11:02:04.242Z (ShopEasy 2.8.93)
+Rows restored: 172
+Tables: 32; indexes/triggers/views: 42; filesystem image files: 1
+Run ShopEasy against the restored target in private staging and verify login, orders, return records and image URLs before any cutover.
+
+[wrong key refusal]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=1
+Restore failed: BACKUP_INVALID_OR_TRUNCATED:incorrect header check
+A failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.
+
+[checksum mismatch refusal]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/damaged.jsonl.gz.enc --confirm-restore
+exit=2
+Restore refused: SHA-256 checksum verification failed.
+
+[source target refusal DATABASE_URL]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=2
+Restore refused: target URL resolves to a configured source database. Use a different empty staging database.
+
+[source target refusal SHOP_DATABASE_URL]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=2
+Restore refused: target URL resolves to a configured source database. Use a different empty staging database.
+
+[source target refusal TURSO_DATABASE_URL]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=2
+Restore refused: target URL resolves to a configured source database. Use a different empty staging database.
+
+[nonempty database refusal]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=1
+Restore failed: RESTORE_TARGET_NOT_EMPTY: create a new empty database; restore never overwrites existing customer data
+A failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.
+
+[nonempty uploads refusal]
+$ /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore
+exit=1
+Restore failed: RESTORE_UPLOADS_DIR_NOT_EMPTY
+A failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.
+

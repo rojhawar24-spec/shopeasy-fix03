@@ -1,0 +1,295 @@
+<%- include('../partials/header',{title:'Products'}) %>
+
+<%- include('../partials/admin-nav') %>
+
+<section class="container page-head admin-head">
+  <%- include('../partials/back-button', { fallback: '/admin' }) %>
+  <div>
+    <span class="eyebrow">CATALOG</span>
+    <h1>Products</h1>
+    <p>Manage product details, prices, stock and visibility. Remove a product from the shop by archiving it, or permanently delete it when it has no order history or reserved stock. Archived products can be restored.</p>
+  </div>
+
+  <a class="btn btn-mint" href="/admin/products/new">
+    + Add product
+  </a>
+</section>
+
+<section class="container section">
+  <form class="admin-filters panel" method="get" action="/admin/products">
+    <div>
+      <label for="product-search">Search products</label>
+      <input
+        id="product-search"
+        name="search"
+        value="<%= search %>"
+        maxlength="80"
+        placeholder="Name, SKU or keyword"
+      >
+    </div>
+
+    <div>
+      <label for="product-status">Product status</label>
+      <select id="product-status" name="status">
+        <option value="all" <%= status==='all'?'selected':'' %>>All products</option>
+        <option value="active" <%= status==='active'?'selected':'' %>>Live products</option>
+        <option value="archived" <%= status==='archived'?'selected':'' %>>Archived products</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="product-category">Category</label>
+      <select id="product-category" name="category">
+        <option value="">All categories</option>
+
+        <% categories.forEach(c => { %>
+          <option translate="no" data-no-translate
+            value="<%= c.slug %>"
+            <%= category === c.slug ? 'selected' : '' %>
+          >
+            <%= c.name %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <button class="btn btn-dark" type="submit">Filter</button>
+
+    <a class="btn btn-light" href="/admin/products">
+      Reset
+    </a>
+  </form>
+</section>
+
+<section class="container section section-topless">
+
+  <% if(notice){ %><div class="alert <%= notice.type==='success'?'alert-success':'' %>" role="<%= notice.type==='warning'?'alert':'status' %>" aria-live="polite"><%= notice.message %></div><% } %>
+  <% if(status==='archived'){ %><p class="field-note">Archived products are hidden from customers. Restore a product to publish it again. Permanent deletion is allowed only when the product has no order history.</p><% } %>
+
+  <div class="table-meta">
+    <span>
+      <strong><%= total %></strong> products
+    </span>
+
+    <span>
+      Page <%= page %>
+    </span>
+  </div>
+
+  <div class="panel table-wrap admin-products-table-wrap" role="region" tabindex="0" aria-label="<%= locale === 'nl' ? 'Productlijst — horizontaal scrollbaar' : locale === 'ckb' ? 'لیستی بەرهەمەکان — بە ئاسۆیی دەگوازرێتەوە' : locale === 'ar' ? 'قائمة المنتجات — قابلة للتمرير أفقيًا' : 'Products table — horizontally scrollable' %>">
+    <table class="admin-products-table">
+      <colgroup><col class="products-col-product"><col class="products-col-price"><col class="products-col-stock"><col class="products-col-status"><col class="products-col-actions"></colgroup>
+      <thead>
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Price</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Visibility</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% products.forEach(p => { const productHasHistory=Number(p.order_item_count||0)>0; const productHasReservations=Number(p.reserved_inventory_total ?? p.reserved_stock ?? 0)>0; const canDeleteProduct=Number(p.order_item_count||0)===0&&!productHasReservations; %>
+
+          <tr>
+
+            <td>
+              <span class="table-mobile-label">Product</span>
+              <div class="table-product">
+
+                <img
+                  src="<%= safeImageUrl(p.image_url) %>"
+                  data-fallback-src="/assets/product-placeholder.svg"
+                  alt="<%= p.name %>"
+                  width="42"
+                  height="50"
+                  loading="lazy"
+                >
+
+                <div>
+                  <strong data-no-translate><%= p.name %></strong>
+
+                  <span translate="no" data-no-translate>
+                    <%= p.sku %>
+                    ·
+                    <%= p.category_name || 'Uncategorised' %>
+                  </span>
+                </div>
+
+              </div>
+            </td>
+
+            <td>
+              <span class="table-mobile-label">Price</span>
+              <strong>
+                <%= formatPrice(app.locals.effectivePrice(p), currency) %>
+              </strong>
+
+              <% if (Number(p.automatic_discount_percent) > 0) { %>
+                <br>
+
+                <span class="status">
+                  -<%= p.automatic_discount_percent %>% <span>item</span>
+                </span>
+              <% } %>
+
+              <% if (app.locals.effectivePrice(p) < p.price_cents) { %>
+                <br>
+
+                <del class="muted">
+                  <%= formatPrice(p.price_cents, currency) %>
+                </del>
+              <% } %>
+              <div class="manager-price-details">
+                <% if(p.cost_price_cents===null || p.cost_price_cents===undefined){ %><span class="muted">Purchase cost not set</span><% } else { %>
+                  <span class="muted">Cost <strong><%= formatPrice(p.cost_price_cents,currency) %></strong></span>
+                  <span class="muted">Unit margin <strong><%= formatPrice(Number(app.locals.effectivePrice(p))-Number(p.cost_price_cents),currency) %></strong></span>
+                <% } %>
+                <% if(Number(p.sold_quantity||0)>0){ %><span class="muted"><%= Number(p.sold_quantity||0) %> sold · <% if(Number(p.sold_units_missing_cost||0)===0){ %>gross <%= formatPrice(Number(p.product_gross_profit_cents||0),currency) %><% } else { %>profit incomplete<% } %></span><% } %>
+              </div>
+
+            </td>
+
+            <td>
+              <span class="table-mobile-label">Stock</span>
+              <div class="manager-stock-count"><strong><%= Math.max(0, p.available_stock) %></strong><span>available</span></div>
+              <div class="manager-stock-details">
+                <% if (Number(p.reserved_inventory_total||0)>0) { %><span class="muted"><%= Number(p.reserved_inventory_total) %> reserved</span><% } %>
+                <% if(Number(p.reorder_level||0)>0 && Number(p.available_stock)<=Number(p.reorder_level)){ %><span class="status off">Low stock · suggest ordering <%= Math.max(0,Number(p.reorder_level)*2-Number(p.available_stock)) %></span><% } else if(Number(p.reorder_level||0)>0){ %><span class="muted">Alert at <%= p.reorder_level %></span><% } %>
+              </div>
+
+            </td>
+
+            <td>
+              <span class="table-mobile-label">Visibility</span>
+              <span class="status <%= p.active ? '' : 'off' %>">
+                <%= p.active ? 'Live' : 'Archived' %>
+              </span>
+
+            </td>
+
+            <td class="table-actions"><span class="table-mobile-label">Actions</span><div class="table-action-group">
+
+              <a
+                class="btn btn-light btn-small"
+                href="/admin/products/<%= p.id %>/edit"
+              >
+                Edit
+              </a>
+
+              <% if(Number(p.variant_count||0)===0 && p.active){ %>
+              <form method="post" action="/admin/products/restock" class="inline-restock">
+                <input type="hidden" name="_csrf" value="<%= csrf %>">
+                <input type="hidden" name="id" value="<%= p.id %>">
+                <input id="list-restock-<%= p.id %>" aria-label="Units to add to <%= p.name %>" type="number" name="quantity" min="1" max="100000000" value="1" inputmode="numeric">
+                <button class="btn btn-light btn-small" type="submit">+ Stock</button>
+              </form>
+              <% } %>
+
+              <% if(p.active){ %>
+                <form method="post" action="/admin/products/archive" data-confirm="Archive this product? It will be hidden from the shop but kept for historic orders.">
+                  <input type="hidden" name="_csrf" value="<%= csrf %>">
+                  <input type="hidden" name="id" value="<%= p.id %>">
+                  <button class="btn btn-light btn-small" type="submit" <% if(productHasReservations){ %>disabled title="Finish or cancel the reserved checkout before archiving this product."<% } %>>Archive</button>
+                </form>
+                <% if(productHasReservations){ %><span class="delete-block-reason">An active order holds stock; finish or cancel it before archiving.</span><% } %>
+                <form method="post" action="/admin/products/delete" data-confirm="Permanently delete this product? This cannot be undone. Products with order history must be retained.">
+                  <input type="hidden" name="_csrf" value="<%= csrf %>">
+                  <input type="hidden" name="id" value="<%= p.id %>">
+                  <input type="hidden" name="returnStatus" value="<%= status %>">
+                  <button class="btn btn-danger btn-small" type="submit" <% if(!canDeleteProduct){ %>disabled aria-disabled="true" title="<%= productHasHistory?'This product has order history. Archive it to hide it; historical records must be kept.':'Stock is reserved by an active order. Finish or cancel that order first.' %>"<% } %>>Delete permanently</button>
+                </form>
+                <% if(!canDeleteProduct){ %><span class="delete-block-reason"><%= productHasHistory?'Order history must be kept.':'Reserved stock must be released first.' %></span><% } %>
+              <% } else { %>
+                <form method="post" action="/admin/products/restore" data-confirm="Restore this product? It will become visible in the shop again.">
+                  <input type="hidden" name="_csrf" value="<%= csrf %>">
+                  <input type="hidden" name="id" value="<%= p.id %>">
+                  <button class="btn btn-mint btn-small" type="submit">Restore</button>
+                </form>
+                <form method="post" action="/admin/products/delete" data-confirm="Permanently delete this archived product? This cannot be undone. Products with order history must be retained.">
+                  <input type="hidden" name="_csrf" value="<%= csrf %>">
+                  <input type="hidden" name="id" value="<%= p.id %>">
+                  <input type="hidden" name="returnStatus" value="<%= status %>">
+                  <button class="btn btn-danger btn-small" type="submit" <% if(!canDeleteProduct){ %>disabled aria-disabled="true" title="<%= productHasHistory?'This product has order history. Historical records must be kept.':'Stock is reserved by an active order. Finish or cancel that order first.' %>"<% } %>>Delete permanently</button>
+                </form>
+                <% if(!canDeleteProduct){ %><span class="delete-block-reason"><%= productHasHistory?'Order history must be kept.':'Reserved stock must be released first.' %></span><% } %>
+              <% } %>
+
+              </div>
+            </td>
+
+          </tr>
+
+        <% }) %>
+
+        <% if (!products.length) { %>
+
+          <tr>
+            <td colspan="5">
+
+              <div class="empty compact">
+
+                <h3>No products found.</h3>
+
+                <a
+                  href="/admin/products/new"
+                  class="text-link"
+                >
+                  Add the first product →
+                </a>
+
+              </div>
+
+            </td>
+          </tr>
+
+        <% } %>
+
+      </tbody>
+    </table>
+  </div>
+  <p class="table-scroll-hint" role="note"><%= locale === 'nl' ? 'Veeg horizontaal om alle productgegevens te bekijken.' : locale === 'ckb' ? 'بۆ بینینی هەموو وردەکارییەکانی بەرهەم، بە ئاسۆیی بگەڕێ.' : locale === 'ar' ? 'مرّر أفقيًا لعرض جميع تفاصيل المنتج.' : 'Scroll horizontally to view all product details.' %></p>
+
+  <div class="pagination">
+
+    <% if (hasPrev) { %>
+
+      <a
+        class="btn btn-light btn-small"
+        href="/admin/products?page=<%= page - 1 %>&search=<%= encodeURIComponent(search) %>&category=<%= encodeURIComponent(category) %>&status=<%= encodeURIComponent(status) %>"
+      >
+        ← Previous
+      </a>
+
+    <% } else { %>
+
+      <span></span>
+
+    <% } %>
+
+    <span>
+      Page <strong><%= page %></strong>
+    </span>
+
+    <% if (hasNext) { %>
+
+      <a
+        class="btn btn-dark btn-small"
+        href="/admin/products?page=<%= page + 1 %>&search=<%= encodeURIComponent(search) %>&category=<%= encodeURIComponent(category) %>&status=<%= encodeURIComponent(status) %>"
+      >
+        Next →
+      </a>
+
+    <% } else { %>
+
+      <span></span>
+
+    <% } %>
+
+  </div>
+
+</section>
+
+<%- include('../partials/footer',{managerWorkspaceShell:user?.role==='manager'}) %>

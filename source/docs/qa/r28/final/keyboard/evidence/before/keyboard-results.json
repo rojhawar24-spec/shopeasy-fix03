@@ -1,0 +1,640 @@
+{
+  "label": "VERIFIED",
+  "started_utc": "2026-11-20T22:47:18.107823+00:00",
+  "scope": "Actual Chromium keyboard/reflow probes in disposable synthetic loopback fixture; no real credentials/browser state; no screen-reader or actual desktop zoom claim.",
+  "checks": [
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": false,
+      "locale": "en",
+      "width": 390,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": false,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "en",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": false,
+      "locale": "en",
+      "width": 1440,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": false,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "en",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": false,
+      "locale": "ckb",
+      "width": 390,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": false,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": false,
+      "locale": "ckb",
+      "width": 1440,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": false,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "ckb",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": false,
+      "locale": "ar",
+      "width": 390,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": false,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": false,
+      "locale": "ar",
+      "width": 1440,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": false,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "ar",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": false,
+      "locale": "nl",
+      "width": 390,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": false,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": false,
+      "locale": "nl",
+      "width": 1440,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": false,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440,
+      "focus_after_save": {
+        "tag": "BODY",
+        "id": "",
+        "in_cookie": false,
+        "body": true
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "nl",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": false,
+      "locale": "fr",
+      "width": 390,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": false,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390,
+      "focus_after_save": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 390
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie initial dialog focus",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Shift+Tab from initial dialog stays inside",
+      "observed_success": false,
+      "locale": "fr",
+      "width": 1440,
+      "active": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": false,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie forward/reverse boundary wrap",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440,
+      "focusable_count": 7
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Tab from initial dialog reaches first control",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie Escape and return",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Cookie save closes/removes notice",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440,
+      "focus_after_save": {
+        "tag": "BUTTON",
+        "id": "",
+        "in_cookie": true,
+        "body": false
+      }
+    },
+    {
+      "label": "VERIFIED",
+      "check": "Saved choice reopens from footer",
+      "observed_success": true,
+      "locale": "fr",
+      "width": 1440
+    }
+  ],
+  "runtime_fingerprint": {
+    "sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+    "files": 147,
+    "scope": "Copied src, views, public excluding uploads, generated and package.json"
+  },
+  "python": "3.13.5",
+  "chromium": "156.0.8078.79",
+  "temporary_fixture_removed": true,
+  "summary": {
+    "successful_assertions": 60,
+    "unsuccessful_assertions": 10
+  },
+  "finished_utc": "2026-11-20T22:47:42.707076+00:00"
+}

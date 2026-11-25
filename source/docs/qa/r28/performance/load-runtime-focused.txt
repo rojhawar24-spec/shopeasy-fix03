@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: load test refuses to measure when health and readiness are not both HTTP 200
+ok 1 - load test refuses to measure when health and readiness are not both HTTP 200
+  ---
+  duration_ms: 1.281044
+  type: 'test'
+  ...
+# Subtest: load test output separates deliberate 429 throttling from server and network errors
+ok 2 - load test output separates deliberate 429 throttling from server and network errors
+  ---
+  duration_ms: 0.375573
+  type: 'test'
+  ...
+# Subtest: load configuration rejects zero/NaN/fractional counts and credential-bearing targets before making requests
+ok 3 - load configuration rejects zero/NaN/fractional counts and credential-bearing targets before making requests
+  ---
+  duration_ms: 36.564889
+  type: 'test'
+  ...
+# Subtest: actual load measurement waits for response bodies rather than headers
+ok 4 - actual load measurement waits for response bodies rather than headers
+  ---
+  duration_ms: 245.784063
+  type: 'test'
+  ...
+# Subtest: readiness failure blocks all actual measured requests
+ok 5 - readiness failure blocks all actual measured requests
+  ---
+  duration_ms: 11.688075
+  type: 'test'
+  ...
+# Subtest: HTTP throttling, server failures and aborted bodies remain errors instead of successful latency samples
+ok 6 - HTTP throttling, server failures and aborted bodies remain errors instead of successful latency samples
+  ---
+  duration_ms: 112.925606
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 585.081847

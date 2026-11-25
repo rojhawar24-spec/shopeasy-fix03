@@ -1,0 +1,28 @@
+# Offline dependency notice evidence
+
+`provenance.json` binds every locked dependency path to its expected package name, version, tarball URL, lock integrity, reviewed notice-file list and SHA-256 text hashes. `texts/` contains full captured notices. `evidence/` contains exact-package metadata snapshots for the packages whose npm archives omit a standalone license, plus the pinned promise-limit upstream tree. These are source observations, not a legal opinion or proof of first-party ownership.
+
+After `npm ci`, run `npm run licenses:generate`. The generator uses local files only, verifies installed identities, checks lock fields and notice hashes, and writes `THIRD-PARTY-NOTICES.generated.txt`. It checks nested package names correctly and preserves additional notices such as TypeScript’s `ThirdPartyNoticeText.txt`. Required missing packages, changed versions, missing/modified notice files, or a changed package set cause a non-zero exit and a visible unresolved report. Output is deterministic for the same lock, sources and installed platform.
+
+All optional platform entries are included even when absent on the current OS. Their exact npm tarballs were fetched over verified TLS and their complete archive bytes matched the locked SRI during capture on 13 November 2026. The tarballs are not shipped here. Their package metadata, source URLs, SHA-256 archive digests and SRI-verification observations are retained. This generator does not repeat full tarball verification or execute the binaries.
+
+The supplementary source chains are:
+
+- `@libsql/client@0.18.0` and `@libsql/core@0.18.0`: MIT text at the common npm-recorded upstream commit `9496c782af413f6380235c7f5d0c97b5371f49b7` in `tursodatabase/libsql-client-ts`.
+- `@libsql/isomorphic-ws@0.1.5`: MIT text at npm-recorded upstream commit `87331abc53d4e77deb2f3d6384438d4804a07e0a` in `libsql/isomorphic-ts`.
+- `cookie-signature@1.0.6`: full MIT section copied verbatim from `Readme.md` in the exact SRI-verified tarball. The full installed README hash is checked as well.
+- `qrcode-generator@2.0.4`: MIT text at npm-recorded upstream commit `83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8`; copyright/trademark headers from all seven `dist/` files are also preserved, including the 2011 and 2016 notices. Full installed source-file hashes bind those excerpts.
+- Nine `@libsql/*@0.5.29` native packages: each exact archive declares MIT but omits a full license file. The complete MIT notice from the locked `libsql@0.5.29` companion is preserved. Its exact-version `optionalDependencies` and `neon.targets` mapping is validated against the native package identities. **This is not a complete audit of components embedded in the native binaries. All nine native review gates remain OPEN.**
+- `promise-limit@2.7.0`: exact metadata declares ISC and names an author, but the exact tarball, full README and untruncated upstream tree at `5b911ce33253ec0a7ea9cf079d8c0434efbe3244` contain no license/copyright text. The pinned `LICENSE` URL returned 404. A generic ISC template with an inferred copyright holder/year would not be authoritative evidence. **The registry package has now been removed from the lock and replaced by the separately classified first-party local component described below.** Investigation evidence is retained as history, not a license grant.
+
+The other text snapshots were captured from installed exact-name/version packages. Their notice hashes are now fixed in the manifest. Hashes detect changes to the reviewed texts; matching identities alone does not prove every installed file matches its tarball. Use a clean `npm ci` and retain installation/SRI evidence for the actual release.
+
+When dependencies or required notices change, inspect the new exact package source, preserve every applicable copyright/license/NOTICE, review upstream supplemental sources at the package’s recorded commit, and update the provenance deliberately. Do not regenerate hashes merely to silence a failed check. Re-run the behavioral tests and generator, and review every unresolved/native item. Do not copy an old notice bundle to describe a new lock.
+
+Keep this directory and the notice bundle with any distribution containing covered dependency code. Source and asset ownership, buyer modification/rebranding rights and contract acceptance remain UNKNOWN/OPEN in `../RIGHTS-CLEARANCE-REGISTER.md`; collection success would not close those gates.
+
+## First-party local alias
+
+`node_modules/promise-limit` is an explicit npm link/alias to `vendor/promise-limit`, whose real identity is `@shopeasy/task-limit@1.0.0`. The linked target has its own lock entry. The manifest records `kind: first-party-local`, the source path and alias, actual name/version, private/UNLICENSED status, `rightsStatus: UNKNOWN`, and hashes for every shipped local file (`package.json`, `index.cjs`, `PROVENANCE.md`). The generator validates the target lock metadata, exact installed link target, actual identity, complete file set and every source hash. A symlink to another directory, changed source, changed identity or attempted cleared-rights status fails closed.
+
+The generator prints a distinct first-party provenance row; it does not invent a third-party license for this component. Existing first-party ownership/grant remains UNKNOWN and must be resolved through the same root rights-clearance process as other first-party code. On the revised lock, collection succeeds with 104 third-party entries/112 notice texts, one first-party local row, zero missing collection items and nine open native review gates. This supersedes the earlier failed collection on the registry promise-limit lock; it does not claim legal clearance.

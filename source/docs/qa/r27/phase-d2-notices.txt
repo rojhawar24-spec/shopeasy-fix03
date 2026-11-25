@@ -1,0 +1,6 @@
+
+> shopeasy-store-starter@2.8.94 licenses:generate
+> node scripts/generate-third-party-notices.mjs
+
+Wrote THIRD-PARTY-NOTICES.generated.txt
+Package entries: 105; first-party links (rights UNKNOWN): 1; entries with texts: 104; texts copied: 112; optional absent: 7; unresolved: 0; native review gates: 9

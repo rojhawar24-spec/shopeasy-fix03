@@ -1,0 +1,8 @@
+# Production HTTPS reverse proxy template.
+# Replace shop.example.com with the exact hostname in BASE_URL in .env.
+# Caddy automatically obtains and renews certificates for a valid public DNS name.
+# Do not use a bare :80 reverse_proxy block for production.
+shop.example.com {
+    encode zstd gzip
+    reverse_proxy 127.0.0.1:3000
+}

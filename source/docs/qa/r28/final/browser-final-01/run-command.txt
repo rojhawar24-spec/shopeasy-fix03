@@ -1,0 +1,10 @@
+Working directory: /workspace/presale-r28/work
+
+/workspace/presale-r27/tools/qa-python313/bin/python qa/run-browser-qa.py --node /workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node --app-root /workspace/presale-r28/work --browser-executable /usr/bin/chromium --axe-path /tmp/shopeasy-a11y/node_modules/axe-core/axe.min.js --output /workspace/presale-r28/evidence/browser-final-01 --suite all --locales en,ckb,ar,nl,fr --widths 320,390,768,1440 --simulated-email
+
+Exit code:0
+Started UTC:2026-11-22T23:02:01.840182+00:00
+Finished UTC:2026-11-22T23:04:02.201694+00:00
+Actual summary: {"passed_checks": 201, "failed_or_not_run": 0, "axe_violation_items": 0, "axe_incomplete_items_pending_manual_review": 84}
+
+Synthetic local fixture only; actual email delivery/live providers/Windows/screen readers/physical devices/full manual WCAG NOT TESTED.

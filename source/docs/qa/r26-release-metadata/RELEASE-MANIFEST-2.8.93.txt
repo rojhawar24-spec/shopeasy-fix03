@@ -1,0 +1,17 @@
+ShopEasy release manifest — 2.8.93 R12.10 independent from-scratch audit candidate
+Date: 2026-11-01
+Baseline input: ShopEasy R12.9 language-reviewed archive dated 2026-10-31
+Output package: ShopEasy-R12.10-DESIGN-HARD-AUDIT-CANDIDATE-2026-11-01.zip
+Product version remains 2.8.93; R12.10 is a candidate revision label, not a public production release.
+
+Main change: complete Dutch (nl-BE, LTR) storefront UI support and runtime packs, joined to language preferences, Manager settings, branding, policy fields, checkout locale, accessibility labels and transactional emails. EN/CKB/AR/NL dictionaries share 1,757 keys.
+
+Independent verification: fresh extraction and ZIP integrity pass; no `.env`, `node_modules`, local database or backups included. Syntax 189/189; static audit 86 files; dictionary parity 1,757; EJS source audit 45 templates; one-active-stylesheet build; Cloudflare source bundle 45 templates; release preflight 85 production files; focused design/commerce tests 128/128 all pass; 184 static Chromium fixture renders show zero page-level overflow and zero broken fixture images. Full direct test diagnostic: 642/657 passed, 15 blocked before assertions at missing dependency import/startup. Official `npm test` preflight blocks because dependencies are absent. The fixture suite does not boot Express or dynamically render EJS.
+
+Environment: Node.js 22.16.0 available, but package.json requires >=24 <25. No clean supported-Node install, npm audit, live browser/HTTP/database integration, dynamic EJS execution, Mollie sandbox, or production backup/restore was completed.
+
+Payment: COD is the default. Mollie-hosted card checkout is conditional on supported merchant country/currency, live key, public HTTPS, explicit approval and staging verification. No live transaction was performed; do not enable production card payments. Other listed providers are not integrated payment adapters.
+
+Legal/commercial: Dutch copy requires native Belgian Dutch review; merchant policies require owner/legal review. LICENSE.txt remains DRAFT ONLY and the project remains private/UNLICENSED. No commercial resale or redistribution rights are confirmed.
+
+Release decision: NO-GO for production. Do not accept real orders or live card payments until every remaining verification gate is complete. Authoritative report: DESIGN-HARD-AUDIT-2026-11-01.md and R12.10-FROM-SCRATCH-AUDIT-2026-11-01.md.

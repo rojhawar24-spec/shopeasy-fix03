@@ -1,0 +1,27 @@
+
+> shopeasy-store-starter@2.8.94 audit:static
+> node scripts/static-audit.mjs
+
+Static audit passed: 132 source/config files inspected; 1829 aligned dictionary keys (EN/CKB/AR/NL), COD default, hosted Mollie card eligibility, password-recovery-code-email, archive and baseline security rules verified.
+Staff account provisioning safeguards verified.
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Release must use current EJS 6 line with no runtime jake dependency
+
+'7.0.2' !== '^6.0.1'
+
+    at file:///workspace/presale-r28/work/scripts/static-audit.mjs:130:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: '7.0.2',
+  expected: '^6.0.1',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.2

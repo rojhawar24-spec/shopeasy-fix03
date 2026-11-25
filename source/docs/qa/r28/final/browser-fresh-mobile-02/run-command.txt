@@ -1,0 +1,10 @@
+Working directory: /workspace/presale-r28/work
+
+/workspace/presale-r27/tools/qa-python313/bin/python /workspace/presale-r28/evidence/run-fresh-mobile-audit.py
+
+Exit code:0
+Started UTC:2026-11-22T23:09:19.748680+00:00
+Finished UTC:2026-11-22T23:09:41.869842+00:00
+Actual summary: {"passed_checks": 28, "failed_or_not_run": 0, "axe_violation_items": 0, "axe_incomplete_items_pending_manual_review": 24}
+
+Synthetic local fixture only; actual email delivery/live providers/Windows/screen readers/physical devices/full manual WCAG NOT TESTED.

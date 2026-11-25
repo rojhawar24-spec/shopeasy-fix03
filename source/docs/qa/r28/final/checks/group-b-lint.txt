@@ -1,0 +1,5 @@
+
+> shopeasy-store-starter@2.8.95 lint
+> node scripts/lint-project.mjs
+
+PASS: lint hygiene on 327 JS/MJS/CJS source files; 226 static relative imports resolved; no conflict markers or forbidden runtime debug primitives.

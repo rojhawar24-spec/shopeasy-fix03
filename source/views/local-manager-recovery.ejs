@@ -1,0 +1,45 @@
+<%- include('partials/header',{title:title||'Local Manager recovery'}) %>
+<section class="auth-wrap">
+  <div class="auth-card local-manager-recovery-card">
+    <span class="eyebrow">LOCAL DEVELOPMENT ONLY</span>
+    <h1>Manager account recovery</h1>
+    <p class="muted">This page is available only from this computer when ShopEasy is running in development mode with a local SQLite database. It is not a public password-reset page.</p>
+    <% if(error){ %><div class="alert" role="alert"><%= error %></div><% } %>
+    <% if(success){ %><div class="success-alert" role="status"><%= success %></div><% } %>
+    <section class="form-stack" aria-labelledby="manager-status-heading">
+      <h2 id="manager-status-heading">Manager status</h2>
+      <% if(managerFound){ %>
+        <p><strong>Manager account:</strong> <%= managerName||'Store Manager' %></p>
+        <p><strong>Email:</strong> <%= managerEmail %></p>
+        <p><strong>Login status:</strong> <%= loginStatus %></p>
+        <p class="field-note">This page does not display or change your authenticator secret or recovery codes.</p>
+        <div class="rule"></div>
+        <h2>Option 1 · Unlock only</h2>
+        <p class="muted">Use this if you know your current password and only want to clear the failed-login block. Your password and MFA remain unchanged.</p>
+        <form class="form-stack" method="post" action="/local-manager-recovery">
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <input type="hidden" name="action" value="unlock">
+          <label>Confirm Manager email<input type="email" name="managerEmail" required maxlength="120" autocomplete="off" value="<%= managerEmail %>"></label>
+          <label>Type UNLOCK MANAGER<input type="text" name="confirmation" required autocomplete="off" spellcheck="false"></label>
+          <button class="btn btn-dark btn-wide" type="submit">Clear login block</button>
+        </form>
+        <div class="rule"></div>
+        <h2>Option 2 · Set a new password</h2>
+        <p class="muted">Use this only if your current password is unknown or incorrect. Existing MFA settings are preserved.</p>
+        <form class="form-stack" method="post" action="/local-manager-recovery">
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <input type="hidden" name="action" value="reset-password">
+          <label>Confirm Manager email<input type="email" name="managerEmail" required maxlength="120" autocomplete="off" value="<%= managerEmail %>"></label>
+          <label>New password<input type="password" name="newPassword" required minlength="15" maxlength="200" autocomplete="new-password"></label>
+          <label>Confirm new password<input type="password" name="confirmPassword" required minlength="15" maxlength="200" autocomplete="new-password"></label>
+          <button class="btn btn-dark btn-wide" type="submit">Update Manager password</button>
+        </form>
+      <% } else { %>
+        <div class="alert" role="status"><%= loginStatus %></div>
+        <p class="muted">The page will not create a new Manager or promote an Admin. Check the Manager bootstrap settings and restart the local application first.</p>
+      <% } %>
+    </section>
+    <p class="switch-auth"><a href="/login">Return to sign in</a></p>
+  </div>
+</section>
+<%- include('partials/footer') %>

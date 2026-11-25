@@ -1,0 +1,184 @@
+{
+  "status": "PASS",
+  "time_utc": "2026-11-24T22:05:22.535940+00:00",
+  "fixture": {
+    "products": 5000,
+    "orders": 10000,
+    "order_items": 10000
+  },
+  "query": {
+    "limit": 24,
+    "offset": 2376,
+    "sort": "price_low"
+  },
+  "samples": [
+    {
+      "source": "original-fix02b",
+      "db_source_sha256": "ba732168d5c6af1cf2d7428740685c7062ec6e90cf87e74c356388eaf5bffaca",
+      "exit_code": 0,
+      "wall_seconds": 20.645529281000563,
+      "events": [
+        {
+          "stage": "query-start",
+          "runtime": "v24.22.3",
+          "offset": 2376,
+          "sort": "price_low",
+          "limit": 24
+        },
+        {
+          "stage": "query-complete",
+          "elapsed_ms": 20463.332405,
+          "returned_rows": 24,
+          "ids": [
+            396,
+            397,
+            398,
+            399,
+            400,
+            401,
+            402,
+            403,
+            404,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410,
+            411,
+            412,
+            413,
+            414,
+            415,
+            416,
+            417,
+            418,
+            419
+          ]
+        }
+      ],
+      "timeout": false,
+      "indexes": [
+        [
+          0,
+          "idx_order_items_order",
+          0,
+          "c",
+          0
+        ]
+      ],
+      "integrity": "ok"
+    },
+    {
+      "source": "repaired-fix03",
+      "db_source_sha256": "def251cee56cffb7179df84e10e6c7706350da9c79568ead9c20340ee553c54c",
+      "exit_code": 0,
+      "wall_seconds": 0.18722533999971347,
+      "events": [
+        {
+          "stage": "query-start",
+          "runtime": "v24.22.3",
+          "offset": 2376,
+          "sort": "price_low",
+          "limit": 24
+        },
+        {
+          "stage": "query-complete",
+          "elapsed_ms": 10.561433999999991,
+          "returned_rows": 24,
+          "ids": [
+            396,
+            397,
+            398,
+            399,
+            400,
+            401,
+            402,
+            403,
+            404,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410,
+            411,
+            412,
+            413,
+            414,
+            415,
+            416,
+            417,
+            418,
+            419
+          ]
+        }
+      ],
+      "timeout": false,
+      "indexes": [
+        [
+          0,
+          "idx_order_items_product",
+          0,
+          "c",
+          0
+        ],
+        [
+          1,
+          "idx_order_items_order",
+          0,
+          "c",
+          0
+        ]
+      ],
+      "integrity": "ok"
+    }
+  ],
+  "limits": "One local native query per source on clones of the same synthetic fixture; excludes HTTP/browser/concurrency/soak/production SLA. Completed COD fixtures have no payment references and are excluded from profit.",
+  "seed": {
+    "exit_code": 0,
+    "wall_seconds": 3.5168964790000246,
+    "events": [
+      {
+        "stage": "seed-start",
+        "runtime": "v24.22.3",
+        "products": 5000,
+        "orders": 10000,
+        "order_items": 10000
+      },
+      {
+        "stage": "seed-products-in-transaction",
+        "products": 5000
+      },
+      {
+        "stage": "seed-orders-in-transaction",
+        "orders": 2500
+      },
+      {
+        "stage": "seed-orders-in-transaction",
+        "orders": 5000
+      },
+      {
+        "stage": "seed-orders-in-transaction",
+        "orders": 7500
+      },
+      {
+        "stage": "seed-orders-in-transaction",
+        "orders": 10000
+      },
+      {
+        "stage": "seed-complete",
+        "runtime": "v24.22.3",
+        "elapsed_ms": 3132.678677,
+        "counts": {
+          "products": 5000,
+          "orders": 10000,
+          "order_items": 10000
+        },
+        "payment_fixture": "Completed synthetic COD orders intentionally retain NULL payment references, matching the recorded original fixture. They are excluded from recognized revenue/profit."
+      }
+    ],
+    "timeout": false
+  },
+  "same_ordered_ids": true
+}

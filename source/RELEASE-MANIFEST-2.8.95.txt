@@ -1,0 +1,28 @@
+ShopEasy 2.8.95 R28 FIX03 — CURRENT RELEASE CANDIDATE RECORD
+NOT PRODUCTION-CERTIFIED; exact clean-copy package outcome is recorded separately.
+
+Current remediation: REMEDIATION-FIX03.md and docs/qa/fix03/.
+Current local QA: QA-REPORT-2.8.95.md and VERIFICATION-SUMMARY-2.8.95.txt.
+Code remediation scope: 31/31 tracked audit items repaired in code.
+Final local suite: 1420 PASS, 0 FAIL, 0 skipped; 177 net new tests over the 1243-test repair baseline.
+Template audit: 62 EJS templates passed; no visual/browser implication.
+Current browser: BLOCKED before startup — pinned executable unavailable; system-browser socket() Operation not permitted.
+Current axe/Lighthouse: not executed for FIX03; no current certificate.
+
+Read FINAL-VERIFICATION-REPORT.json for the actual clean-copy outcome. It must identify this FIX03 candidate; a predecessor report is historical and does not verify these bytes.
+Match the final archive's actual SHA-256, contents and verification records to that report. No prior runtime fingerprint or archive digest is reused as the current ZIP identity.
+Live providers, actual assistive technology/devices, Windows, production hosting/recovery and legal/commercial clearance remain external validation requirements.
+
+HISTORICAL RECORD BELOW — retained verbatim, superseded for FIX03.
+Earlier claims and external artifact names describe only their original releases, not the current archive.
+--------------------------------------------------------------------------
+REMEDIATION CANDIDATE FIX02-B — NOT READY FOR RELEASE. Historical R28 statements below do not certify this candidate. Current evidence: REMEDIATION-FIX02-B.md.
+
+ShopEasy2.8.95 / R28
+VERIFIED: Current prepackaging observations are recorded in QA-REPORT-2.8.95.md and docs/qa/r28/final/.
+Final packager writes FINAL-VERIFICATION-REPORT.json and SHA256SUMS.txt after executing checks in a private fresh copy.
+Actual ZIP enumeration/digest and re-extraction: external CONTENTS.json and verification-log.json beside the ZIP.
+Independent whole-archive CRC/member/checksum/private-path checks: external INDEPENDENT-ARCHIVE-VALIDATION.json.
+Source/ZIP detected secret candidates and scope limits: external SECRETS-SCAN-TRIAGE.json.
+Final evidence-based score, honesty table, unproven and human checks: external RELEASE-SCORECARD.json and FINAL-DELIVERY.md.
+UNKNOWN: Effective rights/commercial clearance. NOT TESTED: Full manual every-file/security/WCAG audit and live buyer environment.

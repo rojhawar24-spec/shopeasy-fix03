@@ -1,0 +1,14 @@
+<%- include('partials/header',{title:'Wishlist'}) %>
+<section class="container page-head"><%- include('partials/back-button', { fallback: '/account' }) %><span class="eyebrow"><%= customerText("SAVED FOR LATER") %></span><h1><%= customerText("Your wishlist") %></h1><p><%= customerText("Keep products you like in one place and add them to your bag whenever you're ready.") %></p></section>
+<section class="container section">
+  <% if(!products.length){ %>
+    <div class="empty"><span class="empty-icon">♡</span><h2><%= customerText("Your wishlist is empty.") %></h2><p><%= customerText("Save products from the shop to find them here later.") %></p><a class="btn btn-dark" href="/shop"><%= customerText("Browse products") %></a></div>
+  <% } else { %>
+    <div class="product-grid product-grid-signature">
+      <% products.forEach(p=>{ %>
+        <%- include('partials/product-card',{p:p}) %>
+      <% }) %>
+    </div>
+  <% } %>
+</section>
+<%- include('partials/footer') %>

@@ -1,0 +1,18 @@
+{
+  "label": "VERIFIED",
+  "utc": "2026-11-21T23:02:33.793235+00:00",
+  "command": [
+    "patch",
+    "-p1",
+    "--batch",
+    "--forward",
+    "-i",
+    "/workspace/presale-r28/proposals/keyboard/keyboard.patch"
+  ],
+  "cwd": "[exclusive disposable baseline-copy directory]",
+  "exit_code": 0,
+  "output": "patching file public/js/app.js\npatching file public/js/retail-2027.js\npatching file qa/fixture-server.mjs\npatching file qa/run-browser-qa.py\n",
+  "compared_files": 4,
+  "post_patch_hash_mismatches": [],
+  "temporary_tree_removed": true
+}

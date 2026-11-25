@@ -1,0 +1,31 @@
+{
+  "startedUtc": "2026-11-22T23:19:49.373448+00:00",
+  "scope": "One cold-browser local disposable synthetic fixture per scenario, direct Node NODE_ENV=test; not production Core Web Vitals or WCAG certification.",
+  "tools": {
+    "node": "v24.22.2",
+    "python": "3.13.5",
+    "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+    "lighthouse": "13.6.0"
+  },
+  "applicationVersion": "2.8.95",
+  "runs": [
+    {
+      "scenario": "home-mobile",
+      "route": "/",
+      "startedUtc": "2026-11-22T23:19:49.527485+00:00",
+      "status": "FAIL",
+      "reason": "QaFailure",
+      "finishedUtc": "2026-11-22T23:19:50.481130+00:00",
+      "privateFixtureAndRawTelemetryRemoved": true
+    }
+  ],
+  "limitations": [
+    "This retained report is one repeat per scenario; the parent repeated-measurements summary records three repeats and explicitly avoids a production confidence claim.",
+    "Synthetic catalogue, local SQLite, loopback network and simulated Lighthouse throttling; no production hosting, remote database, real customer devices or real catalogue measured.",
+    "Production Caddy already enables zstd/gzip. These direct-Node results do not prove an additional production gain or guarantee a score of100.",
+    "Automated accessibility scores do not resolve manual checks or certify WCAG conformance."
+  ],
+  "rawTelemetry": "Private fixture only; deleted after extracting allowlisted numeric metrics and audit identifiers.",
+  "finishedUtc": "2026-11-22T23:19:50.481543+00:00",
+  "status": "FAIL"
+}

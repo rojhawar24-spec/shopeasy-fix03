@@ -1,0 +1,23 @@
+{
+  "label": "VERIFIED",
+  "generated_utc": "2026-11-22T23:12:07.291277+00:00",
+  "actual_raw_report": "browser-results.json",
+  "full_run_incomplete_rule_items": {
+    "color-contrast": 41,
+    "hidden-content": 43
+  },
+  "full_run_node_occurrences": {
+    "color-contrast": 421,
+    "hidden-content": 670
+  },
+  "disposition": {
+    "color-contrast": "NOT TESTED: complete manual disposition of421node occurrences. Representative current-source opaque text pairs and earlier bounded component probes are narrower evidence. Review all affected text/image/overlap/states before claiming WCAG conformance.",
+    "hidden-content": "NOT TESTED: complete manual disposition of670node occurrences. These are axe review questions, not670proven bugs. Targeted menu/category/cookie/drawer controls were exercised, but this does not establish all hidden states.",
+    "label-content-name-mismatch": "VERIFIED: zero incomplete/violation items for this configured rule in43actual final scans. This is a sampled automated result, not universal manual/voice-control conformance.",
+    "th-has-data-cells": "VERIFIED: zero incomplete/violation items for this configured rule in43actual final scans. Real/filled operational table states beyond fixture coverage still need human review."
+  },
+  "remaining_manual_review_items": 84,
+  "universal_WCAG_2_2_AA": "NOT TESTED",
+  "screen_reader_and_voice_control": "NOT TESTED",
+  "all_raw_items_retained": true
+}

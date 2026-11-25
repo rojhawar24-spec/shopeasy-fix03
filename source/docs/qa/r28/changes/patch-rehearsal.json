@@ -1,0 +1,23 @@
+{
+  "label": "VERIFIED",
+  "utc": "2026-11-22T23:33:22.808478+00:00",
+  "command": [
+    "patch",
+    "-p1",
+    "--batch",
+    "--forward",
+    "--fuzz=0",
+    "--no-backup-if-mismatch",
+    "--input",
+    "/workspace/presale-r28/proposals/final-changes/R27-TO-R28.patch"
+  ],
+  "exit_code": 0,
+  "actual_files": 909,
+  "expected_files": 909,
+  "baseline_zip_sha256": "ba433a2c7dffb30bf8a404f01f0c461351e575cf9a2bebab060d3f26e031594b",
+  "baseline_snapshot_sha256": "d57008763e6ee0a12494c05d69100343d1564d08dbd786366e0bf2b2359de9c5",
+  "r28_snapshot_sha256": "c5af976e2e94c4a6be25605868c09dc23f3172da4ffc192ab6ab32864d2703fc",
+  "patch_sha256": "e80bdb99166c35cf27a0327f4ffe6748fae384d63edc30f17208851fd43acbf8",
+  "mismatched_paths": [],
+  "interpretation": "Actual patch applied in a disposable source copy under the output directory; every resulting file SHA-256 and byte size compared to captured R28 manifest. Original ZIP and working source not written. This proves patch reconstruction of captured included bytes, not application correctness or final archive identity."
+}

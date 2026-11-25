@@ -1,0 +1,650 @@
+{
+  "startedAt": "2026-11-14T10:59:49.127Z",
+  "scope": "Disposable Linux local SQLite CLI drill; synthetic fixtures only; no providers/network, production, offsite SSH, retention or Windows proof.",
+  "node": "v24.22.2",
+  "source": "/workspace/presale-r27/work",
+  "commands": [
+    {
+      "name": "seed actual application functions",
+      "command": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node seed-drill.mjs",
+      "environment": "Fresh allowlist; synthetic DATABASE_URL; backup key passed only in private child environment where needed; no inherited provider credentials.",
+      "exitCode": 0,
+      "signal": null,
+      "stdout": "{\"seeded\":true,\"users\":2,\"products\":2,\"orders\":2,\"returnRecords\":1,\"ledgerEvents\":4,\"auditRows\":125,\"blobBytes\":68,\"blobDriverType\":\"ArrayBuffer\",\"filesystemImages\":1,\"appFunctions\":[\"createUser\",\"createCategory\",\"adminCreateOrUpdateProduct\",\"issueGiftCard\",\"createOrderAtomic\",\"setOrderStatus\",\"createOrderReturnRequest\",\"processOrderReturn\",\"createAudit\"]}\n",
+      "stderr": ""
+    },
+    {
+      "name": "backup real CLI",
+      "command": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/backup-database.mjs --output <DISPOSABLE>/encrypted/shop.jsonl.gz.enc",
+      "environment": "Fresh allowlist; synthetic DATABASE_URL; backup key passed only in private child environment where needed; no inherited provider credentials.",
+      "exitCode": 0,
+      "signal": null,
+      "stdout": "ShopEasy logical backup finished.\nFile: <DISPOSABLE>/encrypted/shop.jsonl.gz.enc\nCompressed bytes: 8942\nSHA-256: 4e5f96ec3b50bd2d4287b1e72a50b0c3edce0b7b7ea514164dea705ff124190d\nEncryption: AES-256-GCM; database BLOB images and safe-named public/uploads files are included. Keep the backup, checksum and BACKUP_ENCRYPTION_KEY encrypted/off-host and separate from each other; test restoration into a separate empty database.\n",
+      "stderr": ""
+    },
+    {
+      "name": "restore real CLI into separate target",
+      "command": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore",
+      "environment": "Fresh allowlist; synthetic DATABASE_URL; backup key passed only in private child environment where needed; no inherited provider credentials.",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "Restore failed: SQLite3 can only bind numbers, strings, bigints, buffers, and null\nA failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.\n"
+    },
+    {
+      "name": "wrong key refusal",
+      "command": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore",
+      "environment": "Fresh allowlist; synthetic DATABASE_URL; backup key passed only in private child environment where needed; no inherited provider credentials.",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "Restore failed: BACKUP_INVALID_OR_TRUNCATED:incorrect header check\nA failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.\n"
+    },
+    {
+      "name": "checksum mismatch refusal",
+      "command": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/damaged.jsonl.gz.enc --confirm-restore",
+      "environment": "Fresh allowlist; synthetic DATABASE_URL; backup key passed only in private child environment where needed; no inherited provider credentials.",
+      "exitCode": 2,
+      "signal": null,
+      "stdout": "",
+      "stderr": "Restore refused: SHA-256 checksum verification failed.\n"
+    },
+    {
+      "name": "source target refusal DATABASE_URL",
+      "command": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore",
+      "environment": "Fresh allowlist; synthetic DATABASE_URL; backup key passed only in private child environment where needed; no inherited provider credentials.",
+      "exitCode": 2,
+      "signal": null,
+      "stdout": "",
+      "stderr": "Restore refused: target URL resolves to a configured source database. Use a different empty staging database.\n"
+    },
+    {
+      "name": "source target refusal SHOP_DATABASE_URL",
+      "command": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore",
+      "environment": "Fresh allowlist; synthetic DATABASE_URL; backup key passed only in private child environment where needed; no inherited provider credentials.",
+      "exitCode": 2,
+      "signal": null,
+      "stdout": "",
+      "stderr": "Restore refused: target URL resolves to a configured source database. Use a different empty staging database.\n"
+    },
+    {
+      "name": "source target refusal TURSO_DATABASE_URL",
+      "command": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore",
+      "environment": "Fresh allowlist; synthetic DATABASE_URL; backup key passed only in private child environment where needed; no inherited provider credentials.",
+      "exitCode": 2,
+      "signal": null,
+      "stdout": "",
+      "stderr": "Restore refused: target URL resolves to a configured source database. Use a different empty staging database.\n"
+    },
+    {
+      "name": "nonempty database refusal",
+      "command": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore",
+      "environment": "Fresh allowlist; synthetic DATABASE_URL; backup key passed only in private child environment where needed; no inherited provider credentials.",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "Restore failed: RESTORE_TARGET_NOT_EMPTY: create a new empty database; restore never overwrites existing customer data\nA failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.\n"
+    },
+    {
+      "name": "nonempty uploads refusal",
+      "command": "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node scripts/restore-database.mjs --backup <DISPOSABLE>/encrypted/shop.jsonl.gz.enc --confirm-restore",
+      "environment": "Fresh allowlist; synthetic DATABASE_URL; backup key passed only in private child environment where needed; no inherited provider credentials.",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "Restore failed: SQLite3 can only bind numbers, strings, bigints, buffers, and null\nA failed restore may leave a partial target. Do not connect the live store to it; discard that target and retry with a fresh empty database.\n"
+    }
+  ],
+  "checks": [
+    {
+      "name": "copied runtime contains no dotenv file",
+      "passed": true
+    },
+    {
+      "name": "encrypted artifact and checksum",
+      "passed": true
+    },
+    {
+      "name": "positive restore CLI succeeds",
+      "passed": false,
+      "exitCode": 1
+    },
+    {
+      "name": "exact schema equality",
+      "passed": false
+    },
+    {
+      "name": "exact all-table row equality including sqlite_sequence",
+      "passed": false,
+      "mismatchedTables": [
+        "audit_logs",
+        "gift_card_ledger",
+        "gift_cards",
+        "order_items",
+        "order_returns",
+        "order_status_history",
+        "orders",
+        "product_images",
+        "product_variants",
+        "products",
+        "return_requests",
+        "sqlite_sequence",
+        "uploaded_assets",
+        "users"
+      ]
+    },
+    {
+      "name": "independent target foreign_key_check",
+      "passed": true,
+      "rows": []
+    },
+    {
+      "name": "independent target integrity_check",
+      "passed": true,
+      "rows": [
+        {
+          "integrity_check": "ok"
+        }
+      ]
+    },
+    {
+      "name": "filesystem upload hashes equal",
+      "passed": false,
+      "source": {
+        "0123456789abcdef0123456789abcdef.png": "6b1048f8a6d40bac0b2954c18fefa40c4ea7a96120fc2e54b7317c0e43c2bbec"
+      },
+      "target": {}
+    },
+    {
+      "name": "wrong key refusal",
+      "passed": true,
+      "exitCode": 1,
+      "targetState": {
+        "exists": true,
+        "userSchemaObjects": 0
+      }
+    },
+    {
+      "name": "checksum mismatch refusal",
+      "passed": true,
+      "exitCode": 2,
+      "targetState": {
+        "exists": false,
+        "userSchemaObjects": 0
+      }
+    },
+    {
+      "name": "source target refusal DATABASE_URL",
+      "passed": true,
+      "exitCode": 2
+    },
+    {
+      "name": "source target refusal SHOP_DATABASE_URL",
+      "passed": true,
+      "exitCode": 2
+    },
+    {
+      "name": "source target refusal TURSO_DATABASE_URL",
+      "passed": true,
+      "exitCode": 2
+    },
+    {
+      "name": "nonempty database refusal",
+      "passed": true,
+      "exitCode": 1,
+      "targetState": {
+        "exists": true,
+        "userSchemaObjects": 1
+      }
+    },
+    {
+      "name": "nonempty database sentinel preserved",
+      "passed": true
+    },
+    {
+      "name": "nonempty uploads refusal",
+      "passed": false,
+      "exitCode": 1,
+      "targetState": {
+        "exists": true,
+        "userSchemaObjects": 32
+      }
+    },
+    {
+      "name": "nonempty uploads sentinel preserved",
+      "passed": true,
+      "partialTargetSchemaObjects": 32
+    },
+    {
+      "name": "source database unchanged by restore attempts",
+      "passed": true
+    }
+  ],
+  "defects": [],
+  "cleanup": {
+    "temporaryTreeRemoved": true,
+    "keyPersisted": false,
+    "syntheticDatabasesDisposed": true,
+    "syntheticUploadsDisposed": true,
+    "encryptedArtifactDisposed": true
+  },
+  "sourceHashes": {
+    "scripts/backup-database.mjs": "aa735159ea87e065a3d2554f19bd800d3ee3574cc0c77ab4a2d1e0928b016ae6",
+    "scripts/restore-database.mjs": "1c5a1aa72d816a8ce433ec2ebedfc179ba9915e8da48f8cbbd6d644698a2236f",
+    "src/database.js": "69e281da09fa48ce3af8dd50cd9ea5debff7327b3587b7d245d7da2618c5da67",
+    "src/db.js": "33f00bdd965af697edbf5f4a65c41bc7a7ea85ce9497e136d81d6e65ef436be2",
+    "src/services/database-backup.js": "0b3bdb30919f6dd9dbeef8ff8417fea24e2246725d36d5ae6c3bad714903b144"
+  },
+  "fixture": {
+    "seeded": true,
+    "users": 2,
+    "products": 2,
+    "orders": 2,
+    "returnRecords": 1,
+    "ledgerEvents": 4,
+    "auditRows": 125,
+    "blobBytes": 68,
+    "blobDriverType": "ArrayBuffer",
+    "filesystemImages": 1,
+    "appFunctions": [
+      "createUser",
+      "createCategory",
+      "adminCreateOrUpdateProduct",
+      "issueGiftCard",
+      "createOrderAtomic",
+      "setOrderStatus",
+      "createOrderReturnRequest",
+      "processOrderReturn",
+      "createAudit"
+    ]
+  },
+  "sourceSnapshot": {
+    "schemaObjectCount": 75,
+    "schemaSha256": "a36ba547428ab5ba92508744205f38969e0c2213f1bcae1bd0ef54b54fc48f90",
+    "tables": {
+      "account_login_limits": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "asset_storage_quota": {
+        "rows": 1,
+        "sha256": "40124cde6e551dd834447b45c6d73b9204ff02a73db2872bf0e742725493dc38"
+      },
+      "audit_logs": {
+        "rows": 125,
+        "sha256": "0808714640760bfbe6343f0ffe081994dc2578cdefdc40eef25432f911e9acae"
+      },
+      "categories": {
+        "rows": 1,
+        "sha256": "ff999b31eebb71ea4545b5312f72b619c1c5e01ef59bb3654879e2879feaaa48"
+      },
+      "coupons": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "email_verification_tokens": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "gift_card_ledger": {
+        "rows": 4,
+        "sha256": "9846212c75839167fccbc351f6d39e6d31bc698df17ec2d687039622d6872fc6"
+      },
+      "gift_cards": {
+        "rows": 2,
+        "sha256": "22d8c436f1231476ed30ad04a241a09c419e3aacde7cde852aa065f0536348db"
+      },
+      "mfa_login_challenges": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "mfa_rate_limits": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "newsletter_campaigns": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "newsletter_deliveries": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "newsletter_subscriptions": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "order_email_deliveries": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "order_items": {
+        "rows": 2,
+        "sha256": "d2267f3c50ca754695012721811d778fde838c48218adedfa4b21036af645b73"
+      },
+      "order_returns": {
+        "rows": 1,
+        "sha256": "b6b883246ca998e08c63776f5f1bbafd06e25dda4918659c48170bd837eaab5b"
+      },
+      "order_status_history": {
+        "rows": 9,
+        "sha256": "f1c9f5e3fdf70661e0176b083ee1b1424c42572e02f6cae32e1ea48ea47b31e6"
+      },
+      "orders": {
+        "rows": 2,
+        "sha256": "db51bca57e652f85f687787b8d2282af9f7cb5a7260d6092e33e17c82571d36a"
+      },
+      "password_reset_cooldowns": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "password_reset_tokens": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "peppol_submissions": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "product_images": {
+        "rows": 3,
+        "sha256": "47a51f7b26e9c80f7be2b5a9fb7daf5c4c7a872b7f9a282b8f37d591fd854894"
+      },
+      "product_reviews": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "product_variants": {
+        "rows": 1,
+        "sha256": "4bcf3e9976d7339f3d4d3a38d9b852b0607e94930b31c4c300d7120613d529ab"
+      },
+      "products": {
+        "rows": 2,
+        "sha256": "43e3c691325b7ba9631e9b8a7daf78303c8171f96d35927cb8d472db8e565fb8"
+      },
+      "return_requests": {
+        "rows": 1,
+        "sha256": "150e9406932c00342cd25dfaad68c0224fc95decfc6841f711971b73c6bd5599"
+      },
+      "sessions": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "settings": {
+        "rows": 15,
+        "sha256": "0c4e6c1ea29a6c825e520d7649dc9d532478d57a5473ba55d201e028d16ef59b"
+      },
+      "sqlite_sequence": {
+        "rows": 12,
+        "sha256": "c135a1232fcb602de12dda65b9a257eda0073be01bed67b6ad8f21ec12ffdaf5"
+      },
+      "stock_alerts": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "stories": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "uploaded_assets": {
+        "rows": 1,
+        "sha256": "a3ce51a9f380423f6c38408e0413a49c40993ab2a703ba6e586054db2a954745"
+      },
+      "users": {
+        "rows": 2,
+        "sha256": "cc93b5ff0194336462911b81cf8a74bf25b8ca8ce70b0b668091aa7320b55967"
+      }
+    },
+    "foreignKeyCheck": [],
+    "integrityCheck": [
+      {
+        "integrity_check": "ok"
+      }
+    ]
+  },
+  "backup": {
+    "bytes": 8942,
+    "sha256": "4e5f96ec3b50bd2d4287b1e72a50b0c3edce0b7b7ea514164dea705ff124190d",
+    "magic": "SHEBKP01",
+    "mode": "600",
+    "checksumMode": "600"
+  },
+  "targetSnapshot": {
+    "schemaObjectCount": 33,
+    "schemaSha256": "05d74ce5d834104eb3846d41fbc556149718d5b0eae29b98c850c0df012a867c",
+    "tables": {
+      "account_login_limits": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "asset_storage_quota": {
+        "rows": 1,
+        "sha256": "40124cde6e551dd834447b45c6d73b9204ff02a73db2872bf0e742725493dc38"
+      },
+      "audit_logs": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "categories": {
+        "rows": 1,
+        "sha256": "ff999b31eebb71ea4545b5312f72b619c1c5e01ef59bb3654879e2879feaaa48"
+      },
+      "coupons": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "email_verification_tokens": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "gift_card_ledger": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "gift_cards": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "mfa_login_challenges": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "mfa_rate_limits": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "newsletter_campaigns": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "newsletter_deliveries": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "newsletter_subscriptions": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "order_email_deliveries": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "order_items": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "order_returns": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "order_status_history": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "orders": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "password_reset_cooldowns": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "password_reset_tokens": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "peppol_submissions": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "product_images": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "product_reviews": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "product_variants": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "products": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "return_requests": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "sessions": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "settings": {
+        "rows": 15,
+        "sha256": "0c4e6c1ea29a6c825e520d7649dc9d532478d57a5473ba55d201e028d16ef59b"
+      },
+      "sqlite_sequence": {
+        "rows": 1,
+        "sha256": "72a551b1bf633566ca938bcbbcda0c1c00284627cb09badcd86d32667cab55e6"
+      },
+      "stock_alerts": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "stories": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "uploaded_assets": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "users": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "foreignKeyCheck": [],
+    "integrityCheck": [
+      {
+        "integrity_check": "ok"
+      }
+    ]
+  },
+  "blobWitness": {
+    "sourceDriverType": "ArrayBuffer",
+    "sourceBlobBytes": 68,
+    "sourceHash": "6b1048f8a6d40bac0b2954c18fefa40c4ea7a96120fc2e54b7317c0e43c2bbec",
+    "restoredRowCount": 0
+  },
+  "syntheticFinancialAndStock": {
+    "products": [
+      {
+        "id": 1,
+        "stock": 10,
+        "reserved_stock": 0,
+        "price_cents": 1999,
+        "cost_price_cents": 731
+      },
+      {
+        "id": 2,
+        "stock": 0,
+        "reserved_stock": 0,
+        "price_cents": 1999,
+        "cost_price_cents": 431
+      }
+    ],
+    "variants": [
+      {
+        "id": 1,
+        "stock": 9,
+        "reserved_stock": 3
+      }
+    ],
+    "orders": [
+      {
+        "id": 1,
+        "status": "completed",
+        "currency": "EUR",
+        "total_cents": 4497,
+        "shipping_cents": 499
+      },
+      {
+        "id": 2,
+        "status": "paid",
+        "currency": "EUR",
+        "total_cents": 5997,
+        "shipping_cents": 0
+      }
+    ],
+    "cards": [
+      {
+        "id": 1,
+        "original_amount_cents": 25000,
+        "balance_cents": 20503
+      },
+      {
+        "id": 2,
+        "original_amount_cents": 15000,
+        "balance_cents": 9003
+      }
+    ],
+    "ledger": [
+      {
+        "id": 1,
+        "event": "issue",
+        "amount_cents": 25000,
+        "order_id": null
+      },
+      {
+        "id": 2,
+        "event": "redeem",
+        "amount_cents": 4497,
+        "order_id": 1
+      },
+      {
+        "id": 3,
+        "event": "issue",
+        "amount_cents": 15000,
+        "order_id": null
+      },
+      {
+        "id": 4,
+        "event": "redeem",
+        "amount_cents": 5997,
+        "order_id": 2
+      }
+    ],
+    "returns": [
+      {
+        "id": 1,
+        "status": "refund_recorded",
+        "refund_amount_cents": 1234
+      }
+    ]
+  },
+  "outcome": "FAIL",
+  "finishedAt": "2026-11-14T10:59:51.240Z"
+}

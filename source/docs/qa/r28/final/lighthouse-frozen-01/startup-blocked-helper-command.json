@@ -1,0 +1,18 @@
+[
+  {
+    "repeat": 1,
+    "command": [
+      "/workspace/presale-r27/tools/qa-python313/bin/python",
+      "/workspace/presale-r28/proposals/final-lighthouse/run-lighthouse-frozen.py",
+      "--output",
+      "/workspace/presale-r28/evidence/lighthouse-frozen-01/repeat-1",
+      "--app-root",
+      "/workspace/presale-r28/work",
+      "--expected-runtime-sha256",
+      "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81"
+    ],
+    "startedUtc": "2026-11-22T23:19:49.209213+00:00",
+    "exitCode": 1,
+    "finishedUtc": "2026-11-22T23:19:50.501303+00:00"
+  }
+]

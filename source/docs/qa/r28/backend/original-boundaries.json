@@ -1,0 +1,65 @@
+{
+  "label": "VERIFIED",
+  "scope": "Actual disposable SQLite helpers and actual Express routes. Random fixture passwords/session/CSRF/token values remain private. Injected SQLite DELETE trigger models revocation failure; no provider requests or real state.",
+  "node": "v24.22.2",
+  "observations": {
+    "branding": {
+      "http_status": 200,
+      "french_section_label": "Dutch",
+      "french_label_correct": false
+    },
+    "concurrent_cart_adds": {
+      "statuses": [
+        303,
+        303
+      ],
+      "barrier_session_reads": 2,
+      "expected_distinct_products": 2,
+      "persisted_distinct_products": 1,
+      "both_adds_preserved": false
+    },
+    "read_only_cart": {
+      "http_status": 200,
+      "cart_bytes_unchanged": true,
+      "revision_delta": 1,
+      "quote_preserved": false
+    },
+    "concurrent_email_verification": {
+      "helper_only": true,
+      "no_delivery_tested": true,
+      "barrier_existing_token_reads": 2,
+      "created_results": [
+        true,
+        true
+      ],
+      "persisted_active_tokens": 2,
+      "single_issuance_cooldown_enforced": false
+    },
+    "confirmed_stock_alert": {
+      "helper_only": true,
+      "no_delivery_tested": true,
+      "initial_confirmation": true,
+      "repeated_request_sends_again": true,
+      "status_after_repeat": "pending",
+      "confirmed_consent_preserved": false
+    },
+    "password_revocation_failure": {
+      "http_status": 500,
+      "old_password_retained": false,
+      "new_password_committed": true,
+      "authenticated_sessions": 2,
+      "credential_and_revocation_atomic": false
+    },
+    "email_revocation_failure": {
+      "http_status": 409,
+      "original_email_retained": false,
+      "new_email_committed": true,
+      "misleading_duplicate_email_error": true
+    }
+  },
+  "observed_error_log_events": 1,
+  "cleanup": {
+    "temporary_tree_removed": true,
+    "secrets_retained": false
+  }
+}

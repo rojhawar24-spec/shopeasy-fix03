@@ -1,0 +1,493 @@
+{
+  "startedUtc": "2026-11-21T22:58:20.368065+00:00",
+  "scope": "One cold-browser local disposable synthetic fixture per scenario, direct Node NODE_ENV=test; not production Core Web Vitals or WCAG certification.",
+  "tools": {
+    "node": "v24.22.2",
+    "python": "3.13.5",
+    "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+    "lighthouse": "13.6.0"
+  },
+  "applicationVersion": "2.8.94",
+  "runs": [
+    {
+      "scenario": "home-mobile",
+      "route": "/",
+      "startedUtc": "2026-11-21T22:58:20.474691+00:00",
+      "status": "PASS",
+      "runtimeFingerprint": {
+        "sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+        "files": 147,
+        "scope": "Copied src, views, public excluding uploads, generated and package.json"
+      },
+      "configuration": {
+        "preset": "default mobile",
+        "browserCache": "fresh profile; Lighthouse storage reset enabled",
+        "applicationCache": "fresh synthetic fixture per scenario",
+        "externalHttps": "blocked",
+        "environment": "Shipped QA allowlist, no inherited application secrets"
+      },
+      "exitCode": 0,
+      "rawReportSha256": "ef85e00bd6592f2ed7b3fbe0ea3e3cc289166410610435dc9194191a9d5928d3",
+      "fetchTime": "2026-11-21T22:58:25.933Z",
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "categoryScores": {
+        "performance": 95,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 2418.9786,
+          "numericUnit": "millisecond",
+          "score": 0.7
+        },
+        "largest-contentful-paint": {
+          "numericValue": 2418.9786,
+          "numericUnit": "millisecond",
+          "score": 0.91
+        },
+        "speed-index": {
+          "numericValue": 2418.9786,
+          "numericUnit": "millisecond",
+          "score": 0.98
+        },
+        "total-blocking-time": {
+          "numericValue": 0,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "numericUnit": "unitless",
+          "score": 1
+        },
+        "server-response-time": {
+          "numericValue": 101,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-byte-weight": {
+          "numericValue": 298434,
+          "numericUnit": "byte",
+          "score": 1
+        }
+      },
+      "observedFirstPaintMs": 514,
+      "observedFirstContentfulPaintMs": 514,
+      "failedOrPartialScoredAuditIds": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "interactive",
+        "largest-contentful-paint",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "speed-index",
+        "unminified-css",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "accessibilityFailedOrPartialAuditIds": [],
+      "accessibilityManualAuditIds": [
+        "custom-controls-labels",
+        "custom-controls-roles",
+        "focus-traps",
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "managed-focus",
+        "offscreen-content-hidden",
+        "use-landmarks",
+        "visual-order-follows-dom"
+      ],
+      "auditErrorIds": [],
+      "runWarningCount": 0,
+      "resourceSummary": [
+        {
+          "resourceType": "total",
+          "requestCount": 17,
+          "transferSize": 298434
+        },
+        {
+          "resourceType": "stylesheet",
+          "requestCount": 6,
+          "transferSize": 217458
+        },
+        {
+          "resourceType": "document",
+          "requestCount": 1,
+          "transferSize": 39620
+        },
+        {
+          "resourceType": "script",
+          "requestCount": 5,
+          "transferSize": 30961
+        },
+        {
+          "resourceType": "image",
+          "requestCount": 4,
+          "transferSize": 9526
+        },
+        {
+          "resourceType": "other",
+          "requestCount": 1,
+          "transferSize": 869
+        },
+        {
+          "resourceType": "media",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "font",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "third-party",
+          "requestCount": 0,
+          "transferSize": 0
+        }
+      ],
+      "networkStatusCounts": {
+        "200": 17
+      },
+      "staticAssetTransfers": [
+        {
+          "path": "/js/theme-early-2027.js",
+          "statusCode": 200,
+          "transferSize": 1183,
+          "resourceSize": 230,
+          "cache": "none"
+        },
+        {
+          "path": "/css/app.css",
+          "statusCode": 200,
+          "transferSize": 24153,
+          "resourceSize": 132041,
+          "cache": "none"
+        },
+        {
+          "path": "/css/design-tokens.css",
+          "statusCode": 200,
+          "transferSize": 4555,
+          "resourceSize": 3612,
+          "cache": "none"
+        },
+        {
+          "path": "/css/retail-2027.css",
+          "statusCode": 200,
+          "transferSize": 42081,
+          "resourceSize": 41136,
+          "cache": "none"
+        },
+        {
+          "path": "/css/editorial-2027.css",
+          "statusCode": 200,
+          "transferSize": 53305,
+          "resourceSize": 52360,
+          "cache": "none"
+        },
+        {
+          "path": "/css/research-polish-2027.css",
+          "statusCode": 200,
+          "transferSize": 92139,
+          "resourceSize": 91193,
+          "cache": "none"
+        },
+        {
+          "path": "/js/image-fallback.js",
+          "statusCode": 200,
+          "transferSize": 2470,
+          "resourceSize": 3908,
+          "cache": "none"
+        },
+        {
+          "path": "/js/product-image-preview.js",
+          "statusCode": 200,
+          "transferSize": 4013,
+          "resourceSize": 10026,
+          "cache": "none"
+        },
+        {
+          "path": "/js/app.js",
+          "statusCode": 200,
+          "transferSize": 17419,
+          "resourceSize": 65924,
+          "cache": "none"
+        },
+        {
+          "path": "/js/retail-2027.js",
+          "statusCode": 200,
+          "transferSize": 5876,
+          "resourceSize": 14746,
+          "cache": "none"
+        }
+      ],
+      "nonFixtureNetworkRequestCount": 0,
+      "privateFixtureAndRawTelemetryRemoved": true,
+      "finishedUtc": "2026-11-21T22:58:35.494107+00:00"
+    },
+    {
+      "scenario": "shop-desktop",
+      "route": "/shop",
+      "startedUtc": "2026-11-21T22:58:35.494666+00:00",
+      "status": "PASS",
+      "runtimeFingerprint": {
+        "sha256": "6e7eb2bfe853ad1db7c0ce92dcb47487ff4708b2c37fbd538a609061dfba887d",
+        "files": 147,
+        "scope": "Copied src, views, public excluding uploads, generated and package.json"
+      },
+      "configuration": {
+        "preset": "desktop",
+        "browserCache": "fresh profile; Lighthouse storage reset enabled",
+        "applicationCache": "fresh synthetic fixture per scenario",
+        "externalHttps": "blocked",
+        "environment": "Shipped QA allowlist, no inherited application secrets"
+      },
+      "exitCode": 0,
+      "rawReportSha256": "26261327f84833c51526f2cf4c9354c8fff5b56dfddf23b9cf00c4e9e509743e",
+      "fetchTime": "2026-11-21T22:58:39.320Z",
+      "formFactor": "desktop",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "categoryScores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 608.719,
+          "numericUnit": "millisecond",
+          "score": 0.99
+        },
+        "largest-contentful-paint": {
+          "numericValue": 708.7190000000002,
+          "numericUnit": "millisecond",
+          "score": 0.99
+        },
+        "speed-index": {
+          "numericValue": 608.719,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-blocking-time": {
+          "numericValue": 0,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "numericUnit": "unitless",
+          "score": 1
+        },
+        "server-response-time": {
+          "numericValue": 95,
+          "numericUnit": "millisecond",
+          "score": 1
+        },
+        "total-byte-weight": {
+          "numericValue": 302204,
+          "numericUnit": "byte",
+          "score": 1
+        }
+      },
+      "observedFirstPaintMs": 264,
+      "observedFirstContentfulPaintMs": 424,
+      "failedOrPartialScoredAuditIds": [
+        "bf-cache",
+        "document-latency-insight",
+        "first-contentful-paint",
+        "largest-contentful-paint",
+        "lcp-discovery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "unminified-css",
+        "unminified-javascript",
+        "unused-css-rules"
+      ],
+      "accessibilityFailedOrPartialAuditIds": [],
+      "accessibilityManualAuditIds": [
+        "custom-controls-labels",
+        "custom-controls-roles",
+        "focus-traps",
+        "focusable-controls",
+        "interactive-element-affordance",
+        "logical-tab-order",
+        "managed-focus",
+        "offscreen-content-hidden",
+        "use-landmarks",
+        "visual-order-follows-dom"
+      ],
+      "auditErrorIds": [],
+      "runWarningCount": 0,
+      "resourceSummary": [
+        {
+          "resourceType": "total",
+          "requestCount": 16,
+          "transferSize": 302204
+        },
+        {
+          "resourceType": "stylesheet",
+          "requestCount": 6,
+          "transferSize": 217458
+        },
+        {
+          "resourceType": "document",
+          "requestCount": 1,
+          "transferSize": 45723
+        },
+        {
+          "resourceType": "script",
+          "requestCount": 5,
+          "transferSize": 30961
+        },
+        {
+          "resourceType": "image",
+          "requestCount": 3,
+          "transferSize": 7193
+        },
+        {
+          "resourceType": "other",
+          "requestCount": 1,
+          "transferSize": 869
+        },
+        {
+          "resourceType": "media",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "font",
+          "requestCount": 0,
+          "transferSize": 0
+        },
+        {
+          "resourceType": "third-party",
+          "requestCount": 0,
+          "transferSize": 0
+        }
+      ],
+      "networkStatusCounts": {
+        "200": 16
+      },
+      "staticAssetTransfers": [
+        {
+          "path": "/js/theme-early-2027.js",
+          "statusCode": 200,
+          "transferSize": 1183,
+          "resourceSize": 230,
+          "cache": "none"
+        },
+        {
+          "path": "/css/app.css",
+          "statusCode": 200,
+          "transferSize": 24153,
+          "resourceSize": 132041,
+          "cache": "none"
+        },
+        {
+          "path": "/css/design-tokens.css",
+          "statusCode": 200,
+          "transferSize": 4555,
+          "resourceSize": 3612,
+          "cache": "none"
+        },
+        {
+          "path": "/css/retail-2027.css",
+          "statusCode": 200,
+          "transferSize": 42081,
+          "resourceSize": 41136,
+          "cache": "none"
+        },
+        {
+          "path": "/css/editorial-2027.css",
+          "statusCode": 200,
+          "transferSize": 53305,
+          "resourceSize": 52360,
+          "cache": "none"
+        },
+        {
+          "path": "/css/research-polish-2027.css",
+          "statusCode": 200,
+          "transferSize": 92139,
+          "resourceSize": 91193,
+          "cache": "none"
+        },
+        {
+          "path": "/js/image-fallback.js",
+          "statusCode": 200,
+          "transferSize": 2470,
+          "resourceSize": 3908,
+          "cache": "none"
+        },
+        {
+          "path": "/js/product-image-preview.js",
+          "statusCode": 200,
+          "transferSize": 4013,
+          "resourceSize": 10026,
+          "cache": "none"
+        },
+        {
+          "path": "/js/app.js",
+          "statusCode": 200,
+          "transferSize": 17419,
+          "resourceSize": 65924,
+          "cache": "none"
+        },
+        {
+          "path": "/js/retail-2027.js",
+          "statusCode": 200,
+          "transferSize": 5876,
+          "resourceSize": 14746,
+          "cache": "none"
+        }
+      ],
+      "nonFixtureNetworkRequestCount": 0,
+      "privateFixtureAndRawTelemetryRemoved": true,
+      "finishedUtc": "2026-11-21T22:58:48.757316+00:00"
+    }
+  ],
+  "limitations": [
+    "This retained report is one repeat per scenario; the parent repeated-measurements summary records three repeats and explicitly avoids a production confidence claim.",
+    "Synthetic catalogue, local SQLite, loopback network and simulated Lighthouse throttling; no production hosting, remote database, real customer devices or real catalogue measured.",
+    "Production Caddy already enables zstd/gzip. These direct-Node results do not prove an additional production gain or guarantee a score of100.",
+    "Automated accessibility scores do not resolve manual checks or certify WCAG conformance."
+  ],
+  "rawTelemetry": "Private fixture only; deleted after extracting allowlisted numeric metrics and audit identifiers.",
+  "finishedUtc": "2026-11-21T22:58:48.758080+00:00",
+  "status": "PASS"
+}

@@ -1,0 +1,11 @@
+VERIFIED: Input archive integrity; exit 0.
+VERIFIED: Fresh locked install; exit 0.
+VERIFIED: check; exit 0.
+VERIFIED: lint; exit 0.
+VERIFIED: typecheck:core; exit 0.
+VERIFIED: audit:static; exit 0.
+VERIFIED: preflight:release; exit 0.
+VERIFIED: Templates; exit 0.
+VERIFIED: Optional Cloudflare source build (not deployment); exit 0.
+FAILED: Complete test suite; exit 1.
+Release stopped: Complete test suite did not complete successfully; see the private verification-log.json. No release archive is accepted.

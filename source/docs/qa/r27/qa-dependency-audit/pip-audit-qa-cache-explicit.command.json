@@ -1,0 +1,29 @@
+{
+  "label": "pip-audit-qa-cache-explicit",
+  "argv": [
+    "/workspace/presale-r27/tools/qa-dependency-audit-tool/bin/python",
+    "-I",
+    "-m",
+    "pip_audit",
+    "--path",
+    "/workspace/presale-r27/tools/qa-python313/lib/python3.13/site-packages",
+    "--vulnerability-service",
+    "pypi",
+    "--strict",
+    "--cache-dir",
+    "/workspace/presale-r27/evidence/qa-dependency-audit/cache",
+    "--progress-spinner",
+    "off",
+    "--format",
+    "json",
+    "--output",
+    "/workspace/presale-r27/evidence/qa-dependency-audit/pip-audit-qa.json"
+  ],
+  "started_utc": "2026-11-14T20:27:07.338887+00:00",
+  "finished_utc": "2026-11-14T20:27:09.204303+00:00",
+  "exit_code": 0,
+  "stdout": "pip-audit-qa-cache-explicit.stdout.txt",
+  "stderr": "pip-audit-qa-cache-explicit.stderr.txt",
+  "tls_verification": "enabled; inherited proxy and CA settings preserved",
+  "execution_permission": "network enabled for this audit-only execution"
+}

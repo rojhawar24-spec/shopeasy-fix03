@@ -1,0 +1,13 @@
+{
+  "utc_started": "2026-11-22T17:25:32.462413+00:00",
+  "utc_finished": "2026-11-22T17:25:33.060825+00:00",
+  "cwd": "/workspace/presale-r28/work",
+  "command": [
+    "node",
+    "/workspace/presale-r28/evidence/backend-http-limits.mjs"
+  ],
+  "exit_code": 0,
+  "output_file": "backend-http-limits-command.txt",
+  "inherited_application_credentials": "removed; credential values not printed",
+  "original_output_file": "backend-http-limits-command.log"
+}

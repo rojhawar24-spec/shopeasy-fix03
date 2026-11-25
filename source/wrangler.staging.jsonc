@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "shopeasy-store-starter-staging",
+  "main": "./cloudflare-worker-entry.mjs",
+  "compatibility_date": "2026-09-30",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "CLOUDFLARE_WORKER": "1",
+    "NODE_ENV": "production",
+    "TRUST_PROXY": "1",
+    "STORE_TIMEZONE": "UTC",
+    "DEFAULT_LOCALE": "en",
+    "STORE_NAME": "ShopEasy Test Store",
+    "STORE_CURRENCY": "EUR",
+    "PRICES_INCLUDE_TAX": "true",
+    "SEED_DEMO_DATA": "false",
+    "AI_ENABLED": "false"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "SHOP_RATE_LIMITER",
+        "class_name": "ShopEasyRateLimiter"
+      }
+    ]
+  },
+  "exports": {
+    "ShopEasyRateLimiter": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  }
+}

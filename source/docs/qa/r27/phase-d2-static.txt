@@ -1,0 +1,7 @@
+
+> shopeasy-store-starter@2.8.94 audit:static
+> node scripts/static-audit.mjs
+
+Static audit passed: 128 source/config files inspected; 1829 aligned dictionary keys (EN/CKB/AR/NL), COD default, hosted Mollie card eligibility, password-recovery-code-email, archive and baseline security rules verified.
+Staff account provisioning safeguards verified.
+Environment example and default locale configuration verified.

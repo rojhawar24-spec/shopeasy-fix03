@@ -1,0 +1,2628 @@
+{
+  "started_utc": "2026-11-22T23:06:18.837170+00:00",
+  "label": "VERIFIED",
+  "scope": "Read-only robots, all discovered sitemap children and each listed HTML URL; no search-engine eligibility/indexing claim.",
+  "application_runtime": {
+    "sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+    "files": 152,
+    "scope": "Copied src, views, public excluding uploads, generated and package.json"
+  },
+  "robots_status": 200,
+  "sitemaps": [
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "kind": "sitemap",
+      "locations": 2
+    },
+    {
+      "path": "/sitemap-static.xml",
+      "status": 200,
+      "kind": "url",
+      "locations": 60
+    },
+    {
+      "path": "/sitemap-products-1.xml",
+      "status": 200,
+      "kind": "url",
+      "locations": 55
+    }
+  ],
+  "indexed_urls": 115,
+  "pages": [
+    {
+      "url": "https://fixture.example.test/",
+      "title": "Home \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/",
+        "ckb": "https://fixture.example.test/?lang=ckb",
+        "fr": "https://fixture.example.test/?lang=fr",
+        "nl": "https://fixture.example.test/?lang=nl",
+        "ar": "https://fixture.example.test/?lang=ar",
+        "x-default": "https://fixture.example.test/"
+      },
+      "json_ld_types": [
+        "Organization"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/?lang=ckb",
+      "title": "\u0633\u06d5\u0631\u06d5\u06a9\u06cc \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/",
+        "ckb": "https://fixture.example.test/?lang=ckb",
+        "fr": "https://fixture.example.test/?lang=fr",
+        "nl": "https://fixture.example.test/?lang=nl",
+        "ar": "https://fixture.example.test/?lang=ar",
+        "x-default": "https://fixture.example.test/"
+      },
+      "json_ld_types": [
+        "Organization"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/?lang=fr",
+      "title": "Accueil \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/",
+        "ckb": "https://fixture.example.test/?lang=ckb",
+        "fr": "https://fixture.example.test/?lang=fr",
+        "nl": "https://fixture.example.test/?lang=nl",
+        "ar": "https://fixture.example.test/?lang=ar",
+        "x-default": "https://fixture.example.test/"
+      },
+      "json_ld_types": [
+        "Organization"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/?lang=nl",
+      "title": "Startpagina \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/",
+        "ckb": "https://fixture.example.test/?lang=ckb",
+        "fr": "https://fixture.example.test/?lang=fr",
+        "nl": "https://fixture.example.test/?lang=nl",
+        "ar": "https://fixture.example.test/?lang=ar",
+        "x-default": "https://fixture.example.test/"
+      },
+      "json_ld_types": [
+        "Organization"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/?lang=ar",
+      "title": "\u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/",
+        "ckb": "https://fixture.example.test/?lang=ckb",
+        "fr": "https://fixture.example.test/?lang=fr",
+        "nl": "https://fixture.example.test/?lang=nl",
+        "ar": "https://fixture.example.test/?lang=ar",
+        "x-default": "https://fixture.example.test/"
+      },
+      "json_ld_types": [
+        "Organization"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/shop",
+      "title": "Shop \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/shop"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/shop",
+        "ckb": "https://fixture.example.test/shop?lang=ckb",
+        "fr": "https://fixture.example.test/shop?lang=fr",
+        "nl": "https://fixture.example.test/shop?lang=nl",
+        "ar": "https://fixture.example.test/shop?lang=ar",
+        "x-default": "https://fixture.example.test/shop"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/shop?lang=ckb",
+      "title": "\u0641\u0631\u06c6\u0634\u06af\u0627 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/shop?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/shop",
+        "ckb": "https://fixture.example.test/shop?lang=ckb",
+        "fr": "https://fixture.example.test/shop?lang=fr",
+        "nl": "https://fixture.example.test/shop?lang=nl",
+        "ar": "https://fixture.example.test/shop?lang=ar",
+        "x-default": "https://fixture.example.test/shop"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/shop?lang=fr",
+      "title": "Boutique \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/shop?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/shop",
+        "ckb": "https://fixture.example.test/shop?lang=ckb",
+        "fr": "https://fixture.example.test/shop?lang=fr",
+        "nl": "https://fixture.example.test/shop?lang=nl",
+        "ar": "https://fixture.example.test/shop?lang=ar",
+        "x-default": "https://fixture.example.test/shop"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/shop?lang=nl",
+      "title": "Winkel \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/shop?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/shop",
+        "ckb": "https://fixture.example.test/shop?lang=ckb",
+        "fr": "https://fixture.example.test/shop?lang=fr",
+        "nl": "https://fixture.example.test/shop?lang=nl",
+        "ar": "https://fixture.example.test/shop?lang=ar",
+        "x-default": "https://fixture.example.test/shop"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/shop?lang=ar",
+      "title": "\u0627\u0644\u0645\u062a\u062c\u0631 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/shop?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/shop",
+        "ckb": "https://fixture.example.test/shop?lang=ckb",
+        "fr": "https://fixture.example.test/shop?lang=fr",
+        "nl": "https://fixture.example.test/shop?lang=nl",
+        "ar": "https://fixture.example.test/shop?lang=ar",
+        "x-default": "https://fixture.example.test/shop"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/stories",
+      "title": "Stories \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/stories"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/stories",
+        "ckb": "https://fixture.example.test/stories?lang=ckb",
+        "fr": "https://fixture.example.test/stories?lang=fr",
+        "nl": "https://fixture.example.test/stories?lang=nl",
+        "ar": "https://fixture.example.test/stories?lang=ar",
+        "x-default": "https://fixture.example.test/stories"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/stories?lang=ckb",
+      "title": "\u0686\u06cc\u0631\u06c6\u06a9\u06d5\u06a9\u0627\u0646 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/stories?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/stories",
+        "ckb": "https://fixture.example.test/stories?lang=ckb",
+        "fr": "https://fixture.example.test/stories?lang=fr",
+        "nl": "https://fixture.example.test/stories?lang=nl",
+        "ar": "https://fixture.example.test/stories?lang=ar",
+        "x-default": "https://fixture.example.test/stories"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/stories?lang=fr",
+      "title": "Actualit\u00e9s \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/stories?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/stories",
+        "ckb": "https://fixture.example.test/stories?lang=ckb",
+        "fr": "https://fixture.example.test/stories?lang=fr",
+        "nl": "https://fixture.example.test/stories?lang=nl",
+        "ar": "https://fixture.example.test/stories?lang=ar",
+        "x-default": "https://fixture.example.test/stories"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/stories?lang=nl",
+      "title": "Verhalen \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/stories?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/stories",
+        "ckb": "https://fixture.example.test/stories?lang=ckb",
+        "fr": "https://fixture.example.test/stories?lang=fr",
+        "nl": "https://fixture.example.test/stories?lang=nl",
+        "ar": "https://fixture.example.test/stories?lang=ar",
+        "x-default": "https://fixture.example.test/stories"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/stories?lang=ar",
+      "title": "\u0627\u0644\u0642\u0635\u0635 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/stories?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/stories",
+        "ckb": "https://fixture.example.test/stories?lang=ckb",
+        "fr": "https://fixture.example.test/stories?lang=fr",
+        "nl": "https://fixture.example.test/stories?lang=nl",
+        "ar": "https://fixture.example.test/stories?lang=ar",
+        "x-default": "https://fixture.example.test/stories"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/faq",
+      "title": "FAQ \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/faq"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/faq",
+        "ckb": "https://fixture.example.test/faq?lang=ckb",
+        "fr": "https://fixture.example.test/faq?lang=fr",
+        "nl": "https://fixture.example.test/faq?lang=nl",
+        "ar": "https://fixture.example.test/faq?lang=ar",
+        "x-default": "https://fixture.example.test/faq"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/faq?lang=ckb",
+      "title": "FAQ \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/faq?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/faq",
+        "ckb": "https://fixture.example.test/faq?lang=ckb",
+        "fr": "https://fixture.example.test/faq?lang=fr",
+        "nl": "https://fixture.example.test/faq?lang=nl",
+        "ar": "https://fixture.example.test/faq?lang=ar",
+        "x-default": "https://fixture.example.test/faq"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/faq?lang=fr",
+      "title": "Questions fr\u00e9quentes \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/faq?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/faq",
+        "ckb": "https://fixture.example.test/faq?lang=ckb",
+        "fr": "https://fixture.example.test/faq?lang=fr",
+        "nl": "https://fixture.example.test/faq?lang=nl",
+        "ar": "https://fixture.example.test/faq?lang=ar",
+        "x-default": "https://fixture.example.test/faq"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/faq?lang=nl",
+      "title": "Veelgestelde vragen \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/faq?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/faq",
+        "ckb": "https://fixture.example.test/faq?lang=ckb",
+        "fr": "https://fixture.example.test/faq?lang=fr",
+        "nl": "https://fixture.example.test/faq?lang=nl",
+        "ar": "https://fixture.example.test/faq?lang=ar",
+        "x-default": "https://fixture.example.test/faq"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/faq?lang=ar",
+      "title": "FAQ \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/faq?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/faq",
+        "ckb": "https://fixture.example.test/faq?lang=ckb",
+        "fr": "https://fixture.example.test/faq?lang=fr",
+        "nl": "https://fixture.example.test/faq?lang=nl",
+        "ar": "https://fixture.example.test/faq?lang=ar",
+        "x-default": "https://fixture.example.test/faq"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/contact",
+      "title": "Contact \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/contact"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/contact",
+        "ckb": "https://fixture.example.test/contact?lang=ckb",
+        "fr": "https://fixture.example.test/contact?lang=fr",
+        "nl": "https://fixture.example.test/contact?lang=nl",
+        "ar": "https://fixture.example.test/contact?lang=ar",
+        "x-default": "https://fixture.example.test/contact"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/contact?lang=ckb",
+      "title": "\u067e\u06d5\u06cc\u0648\u06d5\u0646\u062f\u06cc \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/contact?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/contact",
+        "ckb": "https://fixture.example.test/contact?lang=ckb",
+        "fr": "https://fixture.example.test/contact?lang=fr",
+        "nl": "https://fixture.example.test/contact?lang=nl",
+        "ar": "https://fixture.example.test/contact?lang=ar",
+        "x-default": "https://fixture.example.test/contact"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/contact?lang=fr",
+      "title": "Contact \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/contact?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/contact",
+        "ckb": "https://fixture.example.test/contact?lang=ckb",
+        "fr": "https://fixture.example.test/contact?lang=fr",
+        "nl": "https://fixture.example.test/contact?lang=nl",
+        "ar": "https://fixture.example.test/contact?lang=ar",
+        "x-default": "https://fixture.example.test/contact"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/contact?lang=nl",
+      "title": "Contact \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/contact?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/contact",
+        "ckb": "https://fixture.example.test/contact?lang=ckb",
+        "fr": "https://fixture.example.test/contact?lang=fr",
+        "nl": "https://fixture.example.test/contact?lang=nl",
+        "ar": "https://fixture.example.test/contact?lang=ar",
+        "x-default": "https://fixture.example.test/contact"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/contact?lang=ar",
+      "title": "\u0627\u0644\u062a\u0648\u0627\u0635\u0644 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/contact?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/contact",
+        "ckb": "https://fixture.example.test/contact?lang=ckb",
+        "fr": "https://fixture.example.test/contact?lang=fr",
+        "nl": "https://fixture.example.test/contact?lang=nl",
+        "ar": "https://fixture.example.test/contact?lang=ar",
+        "x-default": "https://fixture.example.test/contact"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/privacy",
+      "title": "Privacy policy \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/privacy"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/privacy",
+        "ckb": "https://fixture.example.test/privacy?lang=ckb",
+        "fr": "https://fixture.example.test/privacy?lang=fr",
+        "nl": "https://fixture.example.test/privacy?lang=nl",
+        "ar": "https://fixture.example.test/privacy?lang=ar",
+        "x-default": "https://fixture.example.test/privacy"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/privacy?lang=ckb",
+      "title": "\u0633\u06cc\u0627\u0633\u06d5\u062a\u06cc \u062a\u0627\u06cc\u0628\u06d5\u062a\u0645\u06d5\u0646\u062f\u06cc \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/privacy?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/privacy",
+        "ckb": "https://fixture.example.test/privacy?lang=ckb",
+        "fr": "https://fixture.example.test/privacy?lang=fr",
+        "nl": "https://fixture.example.test/privacy?lang=nl",
+        "ar": "https://fixture.example.test/privacy?lang=ar",
+        "x-default": "https://fixture.example.test/privacy"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/privacy?lang=fr",
+      "title": "Politique de confidentialit\u00e9 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/privacy?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/privacy",
+        "ckb": "https://fixture.example.test/privacy?lang=ckb",
+        "fr": "https://fixture.example.test/privacy?lang=fr",
+        "nl": "https://fixture.example.test/privacy?lang=nl",
+        "ar": "https://fixture.example.test/privacy?lang=ar",
+        "x-default": "https://fixture.example.test/privacy"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/privacy?lang=nl",
+      "title": "Privacybeleid \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/privacy?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/privacy",
+        "ckb": "https://fixture.example.test/privacy?lang=ckb",
+        "fr": "https://fixture.example.test/privacy?lang=fr",
+        "nl": "https://fixture.example.test/privacy?lang=nl",
+        "ar": "https://fixture.example.test/privacy?lang=ar",
+        "x-default": "https://fixture.example.test/privacy"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/privacy?lang=ar",
+      "title": "\u0633\u064a\u0627\u0633\u0629 \u0627\u0644\u062e\u0635\u0648\u0635\u064a\u0629 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/privacy?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/privacy",
+        "ckb": "https://fixture.example.test/privacy?lang=ckb",
+        "fr": "https://fixture.example.test/privacy?lang=fr",
+        "nl": "https://fixture.example.test/privacy?lang=nl",
+        "ar": "https://fixture.example.test/privacy?lang=ar",
+        "x-default": "https://fixture.example.test/privacy"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/cookies",
+      "title": "Cookie policy \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/cookies"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/cookies",
+        "ckb": "https://fixture.example.test/cookies?lang=ckb",
+        "fr": "https://fixture.example.test/cookies?lang=fr",
+        "nl": "https://fixture.example.test/cookies?lang=nl",
+        "ar": "https://fixture.example.test/cookies?lang=ar",
+        "x-default": "https://fixture.example.test/cookies"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/cookies?lang=ckb",
+      "title": "\u0633\u06cc\u0627\u0633\u06d5\u062a\u06cc \u06a9\u0648\u06a9\u06cc \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/cookies?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/cookies",
+        "ckb": "https://fixture.example.test/cookies?lang=ckb",
+        "fr": "https://fixture.example.test/cookies?lang=fr",
+        "nl": "https://fixture.example.test/cookies?lang=nl",
+        "ar": "https://fixture.example.test/cookies?lang=ar",
+        "x-default": "https://fixture.example.test/cookies"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/cookies?lang=fr",
+      "title": "Politique des cookies \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/cookies?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/cookies",
+        "ckb": "https://fixture.example.test/cookies?lang=ckb",
+        "fr": "https://fixture.example.test/cookies?lang=fr",
+        "nl": "https://fixture.example.test/cookies?lang=nl",
+        "ar": "https://fixture.example.test/cookies?lang=ar",
+        "x-default": "https://fixture.example.test/cookies"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/cookies?lang=nl",
+      "title": "Cookiebeleid \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/cookies?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/cookies",
+        "ckb": "https://fixture.example.test/cookies?lang=ckb",
+        "fr": "https://fixture.example.test/cookies?lang=fr",
+        "nl": "https://fixture.example.test/cookies?lang=nl",
+        "ar": "https://fixture.example.test/cookies?lang=ar",
+        "x-default": "https://fixture.example.test/cookies"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/cookies?lang=ar",
+      "title": "\u0633\u064a\u0627\u0633\u0629 \u0645\u0644\u0641\u0627\u062a \u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0627\u0631\u062a\u0628\u0627\u0637 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/cookies?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/cookies",
+        "ckb": "https://fixture.example.test/cookies?lang=ckb",
+        "fr": "https://fixture.example.test/cookies?lang=fr",
+        "nl": "https://fixture.example.test/cookies?lang=nl",
+        "ar": "https://fixture.example.test/cookies?lang=ar",
+        "x-default": "https://fixture.example.test/cookies"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/terms",
+      "title": "Terms & conditions \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/terms"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/terms",
+        "ckb": "https://fixture.example.test/terms?lang=ckb",
+        "fr": "https://fixture.example.test/terms?lang=fr",
+        "nl": "https://fixture.example.test/terms?lang=nl",
+        "ar": "https://fixture.example.test/terms?lang=ar",
+        "x-default": "https://fixture.example.test/terms"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/terms?lang=ckb",
+      "title": "\u0645\u06d5\u0631\u062c \u0648 \u0695\u06ce\u0633\u0627\u06a9\u0627\u0646 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/terms?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/terms",
+        "ckb": "https://fixture.example.test/terms?lang=ckb",
+        "fr": "https://fixture.example.test/terms?lang=fr",
+        "nl": "https://fixture.example.test/terms?lang=nl",
+        "ar": "https://fixture.example.test/terms?lang=ar",
+        "x-default": "https://fixture.example.test/terms"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/terms?lang=fr",
+      "title": "Conditions g\u00e9n\u00e9rales \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/terms?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/terms",
+        "ckb": "https://fixture.example.test/terms?lang=ckb",
+        "fr": "https://fixture.example.test/terms?lang=fr",
+        "nl": "https://fixture.example.test/terms?lang=nl",
+        "ar": "https://fixture.example.test/terms?lang=ar",
+        "x-default": "https://fixture.example.test/terms"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/terms?lang=nl",
+      "title": "Algemene voorwaarden \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/terms?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/terms",
+        "ckb": "https://fixture.example.test/terms?lang=ckb",
+        "fr": "https://fixture.example.test/terms?lang=fr",
+        "nl": "https://fixture.example.test/terms?lang=nl",
+        "ar": "https://fixture.example.test/terms?lang=ar",
+        "x-default": "https://fixture.example.test/terms"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/terms?lang=ar",
+      "title": "\u0627\u0644\u0634\u0631\u0648\u0637 \u0648\u0627\u0644\u0623\u062d\u0643\u0627\u0645 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/terms?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/terms",
+        "ckb": "https://fixture.example.test/terms?lang=ckb",
+        "fr": "https://fixture.example.test/terms?lang=fr",
+        "nl": "https://fixture.example.test/terms?lang=nl",
+        "ar": "https://fixture.example.test/terms?lang=ar",
+        "x-default": "https://fixture.example.test/terms"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/shipping-returns",
+      "title": "Shipping & returns \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/shipping-returns"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/shipping-returns",
+        "ckb": "https://fixture.example.test/shipping-returns?lang=ckb",
+        "fr": "https://fixture.example.test/shipping-returns?lang=fr",
+        "nl": "https://fixture.example.test/shipping-returns?lang=nl",
+        "ar": "https://fixture.example.test/shipping-returns?lang=ar",
+        "x-default": "https://fixture.example.test/shipping-returns"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/shipping-returns?lang=ckb",
+      "title": "\u06af\u06d5\u06cc\u0627\u0646\u062f\u0646 \u0648 \u06af\u06d5\u0695\u0627\u0646\u062f\u0646\u06d5\u0648\u06d5 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/shipping-returns?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/shipping-returns",
+        "ckb": "https://fixture.example.test/shipping-returns?lang=ckb",
+        "fr": "https://fixture.example.test/shipping-returns?lang=fr",
+        "nl": "https://fixture.example.test/shipping-returns?lang=nl",
+        "ar": "https://fixture.example.test/shipping-returns?lang=ar",
+        "x-default": "https://fixture.example.test/shipping-returns"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/shipping-returns?lang=fr",
+      "title": "Livraison et retours \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/shipping-returns?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/shipping-returns",
+        "ckb": "https://fixture.example.test/shipping-returns?lang=ckb",
+        "fr": "https://fixture.example.test/shipping-returns?lang=fr",
+        "nl": "https://fixture.example.test/shipping-returns?lang=nl",
+        "ar": "https://fixture.example.test/shipping-returns?lang=ar",
+        "x-default": "https://fixture.example.test/shipping-returns"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/shipping-returns?lang=nl",
+      "title": "Verzending & retouren \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/shipping-returns?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/shipping-returns",
+        "ckb": "https://fixture.example.test/shipping-returns?lang=ckb",
+        "fr": "https://fixture.example.test/shipping-returns?lang=fr",
+        "nl": "https://fixture.example.test/shipping-returns?lang=nl",
+        "ar": "https://fixture.example.test/shipping-returns?lang=ar",
+        "x-default": "https://fixture.example.test/shipping-returns"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/shipping-returns?lang=ar",
+      "title": "\u0627\u0644\u0634\u062d\u0646 \u0648\u0627\u0644\u0625\u0631\u062c\u0627\u0639 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/shipping-returns?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/shipping-returns",
+        "ckb": "https://fixture.example.test/shipping-returns?lang=ckb",
+        "fr": "https://fixture.example.test/shipping-returns?lang=fr",
+        "nl": "https://fixture.example.test/shipping-returns?lang=nl",
+        "ar": "https://fixture.example.test/shipping-returns?lang=ar",
+        "x-default": "https://fixture.example.test/shipping-returns"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/imprint",
+      "title": "Business information \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/imprint"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/imprint",
+        "ckb": "https://fixture.example.test/imprint?lang=ckb",
+        "fr": "https://fixture.example.test/imprint?lang=fr",
+        "nl": "https://fixture.example.test/imprint?lang=nl",
+        "ar": "https://fixture.example.test/imprint?lang=ar",
+        "x-default": "https://fixture.example.test/imprint"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/imprint?lang=ckb",
+      "title": "\u0632\u0627\u0646\u06cc\u0627\u0631\u06cc\u06cc \u0628\u0627\u0632\u0631\u06af\u0627\u0646\u06cc \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/imprint?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/imprint",
+        "ckb": "https://fixture.example.test/imprint?lang=ckb",
+        "fr": "https://fixture.example.test/imprint?lang=fr",
+        "nl": "https://fixture.example.test/imprint?lang=nl",
+        "ar": "https://fixture.example.test/imprint?lang=ar",
+        "x-default": "https://fixture.example.test/imprint"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/imprint?lang=fr",
+      "title": "Mentions l\u00e9gales \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/imprint?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/imprint",
+        "ckb": "https://fixture.example.test/imprint?lang=ckb",
+        "fr": "https://fixture.example.test/imprint?lang=fr",
+        "nl": "https://fixture.example.test/imprint?lang=nl",
+        "ar": "https://fixture.example.test/imprint?lang=ar",
+        "x-default": "https://fixture.example.test/imprint"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/imprint?lang=nl",
+      "title": "Bedrijfsgegevens \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/imprint?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/imprint",
+        "ckb": "https://fixture.example.test/imprint?lang=ckb",
+        "fr": "https://fixture.example.test/imprint?lang=fr",
+        "nl": "https://fixture.example.test/imprint?lang=nl",
+        "ar": "https://fixture.example.test/imprint?lang=ar",
+        "x-default": "https://fixture.example.test/imprint"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/imprint?lang=ar",
+      "title": "\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0627\u0644\u0634\u0631\u0643\u0629 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/imprint?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/imprint",
+        "ckb": "https://fixture.example.test/imprint?lang=ckb",
+        "fr": "https://fixture.example.test/imprint?lang=fr",
+        "nl": "https://fixture.example.test/imprint?lang=nl",
+        "ar": "https://fixture.example.test/imprint?lang=ar",
+        "x-default": "https://fixture.example.test/imprint"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/withdrawal-form",
+      "title": "Withdrawal form \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/withdrawal-form"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/withdrawal-form",
+        "ckb": "https://fixture.example.test/withdrawal-form?lang=ckb",
+        "fr": "https://fixture.example.test/withdrawal-form?lang=fr",
+        "nl": "https://fixture.example.test/withdrawal-form?lang=nl",
+        "ar": "https://fixture.example.test/withdrawal-form?lang=ar",
+        "x-default": "https://fixture.example.test/withdrawal-form"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/withdrawal-form?lang=ckb",
+      "title": "\u0641\u06c6\u0631\u0645\u06cc \u067e\u0627\u0634\u06af\u06d5\u0632\u0628\u0648\u0648\u0646\u06d5\u0648\u06d5 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/withdrawal-form?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/withdrawal-form",
+        "ckb": "https://fixture.example.test/withdrawal-form?lang=ckb",
+        "fr": "https://fixture.example.test/withdrawal-form?lang=fr",
+        "nl": "https://fixture.example.test/withdrawal-form?lang=nl",
+        "ar": "https://fixture.example.test/withdrawal-form?lang=ar",
+        "x-default": "https://fixture.example.test/withdrawal-form"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/withdrawal-form?lang=fr",
+      "title": "Formulaire de r\u00e9tractation \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/withdrawal-form?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/withdrawal-form",
+        "ckb": "https://fixture.example.test/withdrawal-form?lang=ckb",
+        "fr": "https://fixture.example.test/withdrawal-form?lang=fr",
+        "nl": "https://fixture.example.test/withdrawal-form?lang=nl",
+        "ar": "https://fixture.example.test/withdrawal-form?lang=ar",
+        "x-default": "https://fixture.example.test/withdrawal-form"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/withdrawal-form?lang=nl",
+      "title": "Herroepingsformulier \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/withdrawal-form?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/withdrawal-form",
+        "ckb": "https://fixture.example.test/withdrawal-form?lang=ckb",
+        "fr": "https://fixture.example.test/withdrawal-form?lang=fr",
+        "nl": "https://fixture.example.test/withdrawal-form?lang=nl",
+        "ar": "https://fixture.example.test/withdrawal-form?lang=ar",
+        "x-default": "https://fixture.example.test/withdrawal-form"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/withdrawal-form?lang=ar",
+      "title": "\u0646\u0645\u0648\u0630\u062c \u0627\u0644\u0627\u0646\u0633\u062d\u0627\u0628 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/withdrawal-form?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/withdrawal-form",
+        "ckb": "https://fixture.example.test/withdrawal-form?lang=ckb",
+        "fr": "https://fixture.example.test/withdrawal-form?lang=fr",
+        "nl": "https://fixture.example.test/withdrawal-form?lang=nl",
+        "ar": "https://fixture.example.test/withdrawal-form?lang=ar",
+        "x-default": "https://fixture.example.test/withdrawal-form"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/category/qa-collection",
+      "title": "QA collection \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/category/qa-collection"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/category/qa-collection",
+        "ckb": "https://fixture.example.test/category/qa-collection?lang=ckb",
+        "fr": "https://fixture.example.test/category/qa-collection?lang=fr",
+        "nl": "https://fixture.example.test/category/qa-collection?lang=nl",
+        "ar": "https://fixture.example.test/category/qa-collection?lang=ar",
+        "x-default": "https://fixture.example.test/category/qa-collection"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/category/qa-collection?lang=ckb",
+      "title": "QA collection \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/category/qa-collection?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/category/qa-collection",
+        "ckb": "https://fixture.example.test/category/qa-collection?lang=ckb",
+        "fr": "https://fixture.example.test/category/qa-collection?lang=fr",
+        "nl": "https://fixture.example.test/category/qa-collection?lang=nl",
+        "ar": "https://fixture.example.test/category/qa-collection?lang=ar",
+        "x-default": "https://fixture.example.test/category/qa-collection"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/category/qa-collection?lang=fr",
+      "title": "QA collection \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/category/qa-collection?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/category/qa-collection",
+        "ckb": "https://fixture.example.test/category/qa-collection?lang=ckb",
+        "fr": "https://fixture.example.test/category/qa-collection?lang=fr",
+        "nl": "https://fixture.example.test/category/qa-collection?lang=nl",
+        "ar": "https://fixture.example.test/category/qa-collection?lang=ar",
+        "x-default": "https://fixture.example.test/category/qa-collection"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/category/qa-collection?lang=nl",
+      "title": "QA collection \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/category/qa-collection?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/category/qa-collection",
+        "ckb": "https://fixture.example.test/category/qa-collection?lang=ckb",
+        "fr": "https://fixture.example.test/category/qa-collection?lang=fr",
+        "nl": "https://fixture.example.test/category/qa-collection?lang=nl",
+        "ar": "https://fixture.example.test/category/qa-collection?lang=ar",
+        "x-default": "https://fixture.example.test/category/qa-collection"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/category/qa-collection?lang=ar",
+      "title": "QA collection \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/category/qa-collection?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/category/qa-collection",
+        "ckb": "https://fixture.example.test/category/qa-collection?lang=ckb",
+        "fr": "https://fixture.example.test/category/qa-collection?lang=fr",
+        "nl": "https://fixture.example.test/category/qa-collection?lang=nl",
+        "ar": "https://fixture.example.test/category/qa-collection?lang=ar",
+        "x-default": "https://fixture.example.test/category/qa-collection"
+      },
+      "json_ld_types": [],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-1",
+      "title": "QA product 1 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-1"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-1",
+        "ckb": "https://fixture.example.test/product/qa-product-1?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-1?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-1?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-1?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-1"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-1?lang=ckb",
+      "title": "QA product 1 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-1?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-1",
+        "ckb": "https://fixture.example.test/product/qa-product-1?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-1?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-1?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-1?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-1"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-1?lang=fr",
+      "title": "QA product 1 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-1?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-1",
+        "ckb": "https://fixture.example.test/product/qa-product-1?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-1?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-1?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-1?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-1"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-1?lang=nl",
+      "title": "QA product 1 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-1?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-1",
+        "ckb": "https://fixture.example.test/product/qa-product-1?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-1?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-1?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-1?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-1"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-1?lang=ar",
+      "title": "QA product 1 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-1?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-1",
+        "ckb": "https://fixture.example.test/product/qa-product-1?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-1?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-1?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-1?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-1"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-2",
+      "title": "Featured \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-2"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-2",
+        "ckb": "https://fixture.example.test/product/qa-product-2?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-2?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-2?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-2?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-2"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-2?lang=ckb",
+      "title": "Featured \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-2?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-2",
+        "ckb": "https://fixture.example.test/product/qa-product-2?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-2?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-2?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-2?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-2"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-2?lang=fr",
+      "title": "Featured \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-2?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-2",
+        "ckb": "https://fixture.example.test/product/qa-product-2?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-2?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-2?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-2?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-2"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-2?lang=nl",
+      "title": "Featured \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-2?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-2",
+        "ckb": "https://fixture.example.test/product/qa-product-2?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-2?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-2?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-2?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-2"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-2?lang=ar",
+      "title": "Featured \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-2?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-2",
+        "ckb": "https://fixture.example.test/product/qa-product-2?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-2?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-2?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-2?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-2"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-3",
+      "title": "QA product 3 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-3"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-3",
+        "ckb": "https://fixture.example.test/product/qa-product-3?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-3?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-3?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-3?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-3"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-3?lang=ckb",
+      "title": "QA product 3 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-3?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-3",
+        "ckb": "https://fixture.example.test/product/qa-product-3?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-3?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-3?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-3?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-3"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-3?lang=fr",
+      "title": "QA product 3 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-3?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-3",
+        "ckb": "https://fixture.example.test/product/qa-product-3?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-3?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-3?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-3?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-3"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-3?lang=nl",
+      "title": "QA product 3 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-3?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-3",
+        "ckb": "https://fixture.example.test/product/qa-product-3?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-3?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-3?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-3?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-3"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-3?lang=ar",
+      "title": "QA product 3 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-3?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-3",
+        "ckb": "https://fixture.example.test/product/qa-product-3?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-3?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-3?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-3?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-3"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-4",
+      "title": "QA product 4 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-4"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-4",
+        "ckb": "https://fixture.example.test/product/qa-product-4?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-4?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-4?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-4?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-4"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-4?lang=ckb",
+      "title": "QA product 4 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-4?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-4",
+        "ckb": "https://fixture.example.test/product/qa-product-4?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-4?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-4?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-4?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-4"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-4?lang=fr",
+      "title": "QA product 4 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-4?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-4",
+        "ckb": "https://fixture.example.test/product/qa-product-4?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-4?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-4?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-4?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-4"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-4?lang=nl",
+      "title": "QA product 4 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-4?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-4",
+        "ckb": "https://fixture.example.test/product/qa-product-4?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-4?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-4?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-4?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-4"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-4?lang=ar",
+      "title": "QA product 4 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-4?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-4",
+        "ckb": "https://fixture.example.test/product/qa-product-4?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-4?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-4?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-4?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-4"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-5",
+      "title": "QA product 5 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-5"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-5",
+        "ckb": "https://fixture.example.test/product/qa-product-5?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-5?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-5?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-5?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-5"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-5?lang=ckb",
+      "title": "QA product 5 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-5?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-5",
+        "ckb": "https://fixture.example.test/product/qa-product-5?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-5?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-5?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-5?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-5"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-5?lang=fr",
+      "title": "QA product 5 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-5?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-5",
+        "ckb": "https://fixture.example.test/product/qa-product-5?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-5?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-5?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-5?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-5"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-5?lang=nl",
+      "title": "QA product 5 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-5?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-5",
+        "ckb": "https://fixture.example.test/product/qa-product-5?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-5?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-5?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-5?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-5"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-5?lang=ar",
+      "title": "QA product 5 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-5?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-5",
+        "ckb": "https://fixture.example.test/product/qa-product-5?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-5?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-5?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-5?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-5"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-6",
+      "title": "QA product 6 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-6"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-6",
+        "ckb": "https://fixture.example.test/product/qa-product-6?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-6?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-6?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-6?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-6"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-6?lang=ckb",
+      "title": "QA product 6 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-6?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-6",
+        "ckb": "https://fixture.example.test/product/qa-product-6?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-6?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-6?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-6?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-6"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-6?lang=fr",
+      "title": "QA product 6 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-6?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-6",
+        "ckb": "https://fixture.example.test/product/qa-product-6?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-6?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-6?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-6?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-6"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-6?lang=nl",
+      "title": "QA product 6 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-6?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-6",
+        "ckb": "https://fixture.example.test/product/qa-product-6?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-6?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-6?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-6?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-6"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-6?lang=ar",
+      "title": "QA product 6 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-6?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-6",
+        "ckb": "https://fixture.example.test/product/qa-product-6?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-6?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-6?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-6?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-6"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-7",
+      "title": "QA product 7 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-7"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-7",
+        "ckb": "https://fixture.example.test/product/qa-product-7?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-7?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-7?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-7?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-7"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-7?lang=ckb",
+      "title": "QA product 7 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-7?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-7",
+        "ckb": "https://fixture.example.test/product/qa-product-7?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-7?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-7?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-7?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-7"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-7?lang=fr",
+      "title": "QA product 7 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-7?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-7",
+        "ckb": "https://fixture.example.test/product/qa-product-7?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-7?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-7?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-7?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-7"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-7?lang=nl",
+      "title": "QA product 7 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-7?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-7",
+        "ckb": "https://fixture.example.test/product/qa-product-7?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-7?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-7?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-7?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-7"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-7?lang=ar",
+      "title": "QA product 7 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-7?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-7",
+        "ckb": "https://fixture.example.test/product/qa-product-7?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-7?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-7?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-7?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-7"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-8",
+      "title": "QA product 8 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-8"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-8",
+        "ckb": "https://fixture.example.test/product/qa-product-8?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-8?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-8?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-8?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-8"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-8?lang=ckb",
+      "title": "QA product 8 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-8?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-8",
+        "ckb": "https://fixture.example.test/product/qa-product-8?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-8?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-8?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-8?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-8"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-8?lang=fr",
+      "title": "QA product 8 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-8?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-8",
+        "ckb": "https://fixture.example.test/product/qa-product-8?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-8?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-8?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-8?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-8"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-8?lang=nl",
+      "title": "QA product 8 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-8?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-8",
+        "ckb": "https://fixture.example.test/product/qa-product-8?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-8?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-8?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-8?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-8"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-8?lang=ar",
+      "title": "QA product 8 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-8?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-8",
+        "ckb": "https://fixture.example.test/product/qa-product-8?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-8?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-8?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-8?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-8"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-9",
+      "title": "QA product 9 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-9"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-9",
+        "ckb": "https://fixture.example.test/product/qa-product-9?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-9?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-9?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-9?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-9"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-9?lang=ckb",
+      "title": "QA product 9 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-9?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-9",
+        "ckb": "https://fixture.example.test/product/qa-product-9?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-9?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-9?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-9?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-9"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-9?lang=fr",
+      "title": "QA product 9 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-9?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-9",
+        "ckb": "https://fixture.example.test/product/qa-product-9?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-9?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-9?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-9?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-9"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-9?lang=nl",
+      "title": "QA product 9 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-9?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-9",
+        "ckb": "https://fixture.example.test/product/qa-product-9?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-9?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-9?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-9?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-9"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-9?lang=ar",
+      "title": "QA product 9 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-9?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-9",
+        "ckb": "https://fixture.example.test/product/qa-product-9?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-9?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-9?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-9?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-9"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-10",
+      "title": "QA product 10 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-10"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-10",
+        "ckb": "https://fixture.example.test/product/qa-product-10?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-10?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-10?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-10?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-10"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-10?lang=ckb",
+      "title": "QA product 10 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-10?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-10",
+        "ckb": "https://fixture.example.test/product/qa-product-10?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-10?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-10?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-10?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-10"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-10?lang=fr",
+      "title": "QA product 10 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-10?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-10",
+        "ckb": "https://fixture.example.test/product/qa-product-10?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-10?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-10?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-10?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-10"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-10?lang=nl",
+      "title": "QA product 10 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-10?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-10",
+        "ckb": "https://fixture.example.test/product/qa-product-10?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-10?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-10?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-10?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-10"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-10?lang=ar",
+      "title": "QA product 10 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-10?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-10",
+        "ckb": "https://fixture.example.test/product/qa-product-10?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-10?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-10?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-10?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-10"
+      },
+      "json_ld_types": [
+        "Product",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-11",
+      "title": "QA product 11 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "en-GB",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-11"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-11",
+        "ckb": "https://fixture.example.test/product/qa-product-11?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-11?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-11?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-11?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-11"
+      },
+      "json_ld_types": [
+        "ProductGroup",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-11?lang=ckb",
+      "title": "QA product 11 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ckb",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-11?lang=ckb"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-11",
+        "ckb": "https://fixture.example.test/product/qa-product-11?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-11?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-11?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-11?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-11"
+      },
+      "json_ld_types": [
+        "ProductGroup",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-11?lang=fr",
+      "title": "QA product 11 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "fr-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-11?lang=fr"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-11",
+        "ckb": "https://fixture.example.test/product/qa-product-11?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-11?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-11?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-11?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-11"
+      },
+      "json_ld_types": [
+        "ProductGroup",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-11?lang=nl",
+      "title": "QA product 11 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "nl-BE",
+      "direction": "ltr",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-11?lang=nl"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-11",
+        "ckb": "https://fixture.example.test/product/qa-product-11?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-11?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-11?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-11?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-11"
+      },
+      "json_ld_types": [
+        "ProductGroup",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    },
+    {
+      "url": "https://fixture.example.test/product/qa-product-11?lang=ar",
+      "title": "QA product 11 \u00b7 Disposable QA Store",
+      "h1_count": 1,
+      "language": "ar",
+      "direction": "rtl",
+      "canonical": [
+        "https://fixture.example.test/product/qa-product-11?lang=ar"
+      ],
+      "alternates": {
+        "en": "https://fixture.example.test/product/qa-product-11",
+        "ckb": "https://fixture.example.test/product/qa-product-11?lang=ckb",
+        "fr": "https://fixture.example.test/product/qa-product-11?lang=fr",
+        "nl": "https://fixture.example.test/product/qa-product-11?lang=nl",
+        "ar": "https://fixture.example.test/product/qa-product-11?lang=ar",
+        "x-default": "https://fixture.example.test/product/qa-product-11"
+      },
+      "json_ld_types": [
+        "ProductGroup",
+        "BreadcrumbList"
+      ],
+      "problems": [],
+      "status": 200
+    }
+  ],
+  "page_problem_count": 0,
+  "crawl_complete": true,
+  "temporary_fixture_removed": true,
+  "finished_utc": "2026-11-22T23:06:26.245004+00:00"
+}

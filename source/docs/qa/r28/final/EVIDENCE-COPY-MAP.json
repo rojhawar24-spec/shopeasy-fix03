@@ -1,0 +1,1084 @@
+{
+  "label": "VERIFIED",
+  "scope": "Public audit records only. Failed earlier groups are retained; group-c and separately named final runs are acceptance evidence. No keys, raw browser telemetry, real database, upload tree, or environment file copied.",
+  "files": [
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-all-advisories.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-all-advisories.json",
+      "source_sha256": "4c24d839185ee13db2accd57ee6c3c64b6a73837e2cde0a0e157f3e97a19335a",
+      "archived_sha256": "28f79f11983207c826ebb8beae22150be40f8a9d99f208baed63303f83b23964",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-all-advisories.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-all-advisories.txt",
+      "source_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "archived_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-build.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-build.json",
+      "source_sha256": "4e6e403112a5813da993bee56c8c1a0d790219180bd8e42efb74ee6809ae1773",
+      "archived_sha256": "1a7d9779101e99298037b11984ee96b25d314a6e5eb11439379df7602ad99e0b",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-build.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-build.txt",
+      "source_sha256": "ba26866eff7a200244f29d7a286727bade6a1c2d601c0abc9fc350de18ca0f6e",
+      "archived_sha256": "ba26866eff7a200244f29d7a286727bade6a1c2d601c0abc9fc350de18ca0f6e",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-css-build.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-css-build.json",
+      "source_sha256": "b56bee71c45ad681f32b391a44c1460dc30c49c1f64a64381074a91b9c229d8f",
+      "archived_sha256": "61f398f8b1cde89423e9782b66b238744e4e4fd5509f916fb6b11d0d3a121c30",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-css-build.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-css-build.txt",
+      "source_sha256": "2ef2e0d24dd407a892a8daa4b0eb9eb7a1435b9145058c6a7a0e77e948f7e009",
+      "archived_sha256": "2ef2e0d24dd407a892a8daa4b0eb9eb7a1435b9145058c6a7a0e77e948f7e009",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-failures.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-failures.json",
+      "source_sha256": "62de233e124d2ec6b049bc0a6ca19b43c577c006a364f810c06f6275abef5a7f",
+      "archived_sha256": "62de233e124d2ec6b049bc0a6ca19b43c577c006a364f810c06f6275abef5a7f",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-install.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-install.json",
+      "source_sha256": "28c820a0b7ca2ed10f7146e924a6ce9e66ae0106b544e9565de760f739d495c6",
+      "archived_sha256": "483af509eb106a1a06eee277abd16a4697db3b290c50c7229d53d1247607b6a7",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-install.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-install.txt",
+      "source_sha256": "e5949993c80373fda0ffe70b560d395dc861e37d8cb7bfff4f14a3ac7266d556",
+      "archived_sha256": "e5949993c80373fda0ffe70b560d395dc861e37d8cb7bfff4f14a3ac7266d556",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-lint.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-lint.json",
+      "source_sha256": "4ac41b99aa4715898a503df8281dff9274529f11102be64719c442a1fd517495",
+      "archived_sha256": "f993e9b14e75d8bc01da35f1187f68d9ba7e90ef4bace536d1781be4191e05b8",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-lint.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-lint.txt",
+      "source_sha256": "63ae4f51c2fefa412a18872e6e06c42a8b9b22f72ec382780f2f3ca0d1ed579e",
+      "archived_sha256": "63ae4f51c2fefa412a18872e6e06c42a8b9b22f72ec382780f2f3ca0d1ed579e",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-notices.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-notices.json",
+      "source_sha256": "386de10bf034938efc2fac3b1473ff368fadd53275c347e8fbfe7ccad7f1ff1a",
+      "archived_sha256": "5cf050e0bfd0beb215435abac35334b5bdc167315b774fcb027bcc4cdb02d811",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-notices.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-notices.txt",
+      "source_sha256": "313d0c028a739408213f3e4794ee07bfffaa290b1fec87102080c2c25d273dc4",
+      "archived_sha256": "313d0c028a739408213f3e4794ee07bfffaa290b1fec87102080c2c25d273dc4",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-preflight.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-preflight.json",
+      "source_sha256": "a4f1379f3b8fd11384d66d2047e300c0bcf9946f78de43d52eef7791cc50fbdb",
+      "archived_sha256": "55de4eac27db29a21cf29aadc6db076d3bc11ed42f0b1886e4797e21a9f79a7d",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-preflight.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-preflight.txt",
+      "source_sha256": "9dd11a411912c27ac428ff1b35c9116955afc809ea8cbbb6d7e5928d0c176a75",
+      "archived_sha256": "9dd11a411912c27ac428ff1b35c9116955afc809ea8cbbb6d7e5928d0c176a75",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-production-advisories.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-production-advisories.json",
+      "source_sha256": "ad762fa9228a7356eb6044d333dfa6b230eeb2ba2c61df2f80f0d1dff560bbfd",
+      "archived_sha256": "3e04259553b695b7510d23277ce9a516afd8ef45f7b54ba7b6bfc9dbf1597a6e",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-production-advisories.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-production-advisories.txt",
+      "source_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "archived_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-static.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-static.json",
+      "source_sha256": "d31a429120bd1165b7609c0758dd1f5581b0734fc16b06fcf4c749499fe76455",
+      "archived_sha256": "625d51971c52cc23cb4e02d015606531b9dddc4bdcf87c04fc93f5feda19da4b",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-static.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-static.txt",
+      "source_sha256": "e45a0ba54fb6779450c67fbac58eadab17b8f10c540ddd1ee833364a6b87692f",
+      "archived_sha256": "e45a0ba54fb6779450c67fbac58eadab17b8f10c540ddd1ee833364a6b87692f",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-summary.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-summary.json",
+      "source_sha256": "b6df9d32674558e3769a9d9eac9b52aa75a8ed9a4963a033c6ce8a12f75949ba",
+      "archived_sha256": "b6df9d32674558e3769a9d9eac9b52aa75a8ed9a4963a033c6ce8a12f75949ba",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-syntax.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-syntax.json",
+      "source_sha256": "be313c71cb6f8f7a775ce8e51020889a7a5bbf2f1776fa2ff00625b5cbfde2dc",
+      "archived_sha256": "6d8ddbea6680e02ddfaba4c8aa4639d0a0ae9aaec79569970c6ce1cdf93cac56",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-syntax.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-syntax.txt",
+      "source_sha256": "5bd72740c42951a30a9219009b1e2843382d0745524ed62e029aaf97e68992ce",
+      "archived_sha256": "5bd72740c42951a30a9219009b1e2843382d0745524ed62e029aaf97e68992ce",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-templates.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-templates.json",
+      "source_sha256": "7de2a4bf347217b4df021693785f290d18bac266d2e29aa7f4dc88eb066b8b90",
+      "archived_sha256": "d3bb58175c764928f7e046be1eb869ab5fdc545b52cd65046ed687768778be4d",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-templates.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-templates.txt",
+      "source_sha256": "e91cde49d8a6fd6325a8f6729065cd562c525ce2b0cf2b259d17cb75ea518c76",
+      "archived_sha256": "e91cde49d8a6fd6325a8f6729065cd562c525ce2b0cf2b259d17cb75ea518c76",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-tests.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-tests.json",
+      "source_sha256": "6271af312f279527c768afc2986df569285dff6414b5c95d51ead789510e518a",
+      "archived_sha256": "b8e9986a315ea156764a5250687fc24f65980dda1952987ecdb7a52b3e7c5858",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-tests.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-tests.txt",
+      "source_sha256": "e481b41ced183336a57278a843ebaef0bb78d22a1416cd843d2ffdfc0aed3f14",
+      "archived_sha256": "e481b41ced183336a57278a843ebaef0bb78d22a1416cd843d2ffdfc0aed3f14",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-types.json",
+      "archived_path": "docs/qa/r28/final/checks/group-a-types.json",
+      "source_sha256": "b9a37efe9bf3e47bc3a5ff069f74a5370043cdf817b3fdb5b3765d0faa634bf0",
+      "archived_sha256": "9e0abd21fcdbbdbd332ad940c354ca4364f667b8a71c1a1d9ec18c6824be371c",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-a-types.log",
+      "archived_path": "docs/qa/r28/final/checks/group-a-types.txt",
+      "source_sha256": "c0da92281182291cda0cce9603296c0f1c9b6e3f7efdbe2872106766bbdb20bc",
+      "archived_sha256": "c0da92281182291cda0cce9603296c0f1c9b6e3f7efdbe2872106766bbdb20bc",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-all-advisories.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-all-advisories.json",
+      "source_sha256": "5dffcb5655b9cf5916fbf368809db8fc005f996298cd5240916ac7eb6bd6b362",
+      "archived_sha256": "5e7b32588450845449dae9ba623684ae95fd848dfa96cf01efb3e26b7831f79f",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-all-advisories.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-all-advisories.txt",
+      "source_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "archived_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-build.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-build.json",
+      "source_sha256": "53c2703403972e866c06f1c8c455ba72e3bdb5340763d1ead788fdbe49ac0653",
+      "archived_sha256": "8f5804917b8a67c28725d4dd2f0b62bfa01f84085a5df2f0d91cab7a6d654313",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-build.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-build.txt",
+      "source_sha256": "d304f44597ff18b35e42e51bc7e43f9d18b7c22bf8677dc4947728553f990df7",
+      "archived_sha256": "d304f44597ff18b35e42e51bc7e43f9d18b7c22bf8677dc4947728553f990df7",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-install.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-install.json",
+      "source_sha256": "97704ad6176f363aa991ad71bd2b443064bf548aa57cbca4e10be9ef4ecac66c",
+      "archived_sha256": "d85667115e000ce49c2d4e839e63e910042d280e4f7cb481e0f95df65b34f806",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-install.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-install.txt",
+      "source_sha256": "e5949993c80373fda0ffe70b560d395dc861e37d8cb7bfff4f14a3ac7266d556",
+      "archived_sha256": "e5949993c80373fda0ffe70b560d395dc861e37d8cb7bfff4f14a3ac7266d556",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-lint.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-lint.json",
+      "source_sha256": "eebfd19ec9bf9cd50693285adf6f32416e5f017fabb5910c8b91af3f6f4421fc",
+      "archived_sha256": "44446d23b2ce4748c3231710dd4082a0eb19e7f4679d6ff3516ac1970fcc92a3",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-lint.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-lint.txt",
+      "source_sha256": "e412751844f95aec4a81e70644e5d78cf9413f728aee91fc9d255bae0787c355",
+      "archived_sha256": "e412751844f95aec4a81e70644e5d78cf9413f728aee91fc9d255bae0787c355",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-notices.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-notices.json",
+      "source_sha256": "89ca49a6a238d905a0873c738bc24f7c4164d19993f0a04300e5747ca91025f2",
+      "archived_sha256": "0598c2a67a4c0edc8017caae7a59aaede9510ffc9f3cfc5c8f89f4b1938bb19c",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-notices.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-notices.txt",
+      "source_sha256": "7273dddf53cafe85f4e7fbd49646b90ff7d258b758438c8373a93097bfa360e4",
+      "archived_sha256": "7273dddf53cafe85f4e7fbd49646b90ff7d258b758438c8373a93097bfa360e4",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-preflight.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-preflight.json",
+      "source_sha256": "689dc7f83c45200e8df8ffddc4a624a2b062eb42dca083f1acbca2f4f86a20c0",
+      "archived_sha256": "70777381ae1ef9987976bb3a7a1b6777c938d13137c5a37306d91b4b80876e1e",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-preflight.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-preflight.txt",
+      "source_sha256": "4fd3922a5fd5a2a00c001dbc401e2233f62625ed2f4c08e19ef7b1853df7e791",
+      "archived_sha256": "4fd3922a5fd5a2a00c001dbc401e2233f62625ed2f4c08e19ef7b1853df7e791",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-production-advisories.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-production-advisories.json",
+      "source_sha256": "02c8a12e92b64e6ea6b91205d18c7c837ce4fee470e5f559bf79d01e63c68afe",
+      "archived_sha256": "93d3339725ae448f19dc63a580a4fbd8d836402c3bc4ace7bf9346823d638f6c",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-production-advisories.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-production-advisories.txt",
+      "source_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "archived_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-static.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-static.json",
+      "source_sha256": "4edab7fdeb8b74474604d11757a577ddf7217f73e47a80d0cacc2d4841e11432",
+      "archived_sha256": "c1505f55697b48ebb8a9ec00af005b61f452f289a55be616aa05763c95862a70",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-static.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-static.txt",
+      "source_sha256": "f28ef036181081244fe84da5180f12fbc91df2f9efb16e636472a4abe6487345",
+      "archived_sha256": "f28ef036181081244fe84da5180f12fbc91df2f9efb16e636472a4abe6487345",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-summary.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-summary.json",
+      "source_sha256": "ed3e40f43e3ed2b0fbcf064bfcca9acb384b470000ce741e3c6bcf3ce7724913",
+      "archived_sha256": "ed3e40f43e3ed2b0fbcf064bfcca9acb384b470000ce741e3c6bcf3ce7724913",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-syntax.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-syntax.json",
+      "source_sha256": "1cb00fa37376f099135644e7f3de6f6ba8b53c4ee777a9b343df569a5c854d98",
+      "archived_sha256": "1c9b10b8cf96fb7e29503926e5a1b03e0af83a8f7be43325394faec46962850c",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-syntax.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-syntax.txt",
+      "source_sha256": "69e32f62181f17c95bfeaeac117782e5611855997c1307ad87ebfda78dfa531d",
+      "archived_sha256": "69e32f62181f17c95bfeaeac117782e5611855997c1307ad87ebfda78dfa531d",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-templates.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-templates.json",
+      "source_sha256": "f2102a774ed2741bc25c4fed30773b8c8aabcedf4b215e2af9805fc130fcd619",
+      "archived_sha256": "57d398d9d2a40cd66c898716f24b114e013e0aefb1e35f3cf95a3674f385da8a",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-templates.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-templates.txt",
+      "source_sha256": "e91cde49d8a6fd6325a8f6729065cd562c525ce2b0cf2b259d17cb75ea518c76",
+      "archived_sha256": "e91cde49d8a6fd6325a8f6729065cd562c525ce2b0cf2b259d17cb75ea518c76",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-tests.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-tests.json",
+      "source_sha256": "3f7e3a75b57ebf636ff49536e477442e8d2a9d82dfd81fe17dd1552649e2f1ea",
+      "archived_sha256": "fe9ea1988fad38f456a46de12749ccfce5f7454c6e1aebd816ba95bcc5fe5403",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-tests.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-tests.txt",
+      "source_sha256": "d1d2338483e002aecccb085854b8c2b2a16cf4229fd5d0c3ca2d96384c0ebb51",
+      "archived_sha256": "d1d2338483e002aecccb085854b8c2b2a16cf4229fd5d0c3ca2d96384c0ebb51",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-types.json",
+      "archived_path": "docs/qa/r28/final/checks/group-b-types.json",
+      "source_sha256": "30283b62780ae04745a53f06485a713143255f801c3c19fe4f6aa5319e7b4701",
+      "archived_sha256": "295d0bdf0af4fa18852b3ed8c7fdf162327e425e936431fb58d36a61b24ce262",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-b-types.log",
+      "archived_path": "docs/qa/r28/final/checks/group-b-types.txt",
+      "source_sha256": "153080c5b0f5a5ff141bc9151accc3e65c6e4c06b269f98f5314ee36de44c5b1",
+      "archived_sha256": "153080c5b0f5a5ff141bc9151accc3e65c6e4c06b269f98f5314ee36de44c5b1",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-all-advisories.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-all-advisories.json",
+      "source_sha256": "90484115ce56e526b1625e35e143da852badf75067695582fe8ba71d62313dbd",
+      "archived_sha256": "2d1be90b3e664d6eafde80ece53a20c566f871cc703c7fb8bc15890c7011e670",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-all-advisories.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-all-advisories.txt",
+      "source_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "archived_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-build.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-build.json",
+      "source_sha256": "dc72494eb5c4587560c7980c3e401f835bb625d4d73eb01226ba336f6174e869",
+      "archived_sha256": "ab4ee03bdcd5105cd318d6235728d846ef9146c472b06c6d4fa192dcc1d4acbc",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-build.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-build.txt",
+      "source_sha256": "d304f44597ff18b35e42e51bc7e43f9d18b7c22bf8677dc4947728553f990df7",
+      "archived_sha256": "d304f44597ff18b35e42e51bc7e43f9d18b7c22bf8677dc4947728553f990df7",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-lint.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-lint.json",
+      "source_sha256": "423691585e616d9a0dfb91f8fd188b53477337f7b9a5e00ab50655bd25cd38c6",
+      "archived_sha256": "80e2f7b89aad2c9710d348aca96a216c79a1ddd66db596b5f31f14e54b470c75",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-lint.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-lint.txt",
+      "source_sha256": "e412751844f95aec4a81e70644e5d78cf9413f728aee91fc9d255bae0787c355",
+      "archived_sha256": "e412751844f95aec4a81e70644e5d78cf9413f728aee91fc9d255bae0787c355",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-notices.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-notices.json",
+      "source_sha256": "9b544aa58251014934aa2e414d0aee9c1c8c9bfee25897d44b68d6df338085f1",
+      "archived_sha256": "76d00213e25dd2e805d1ac9ff4b89867ff6a5d6d17b779e221227d9ec2d297b3",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-notices.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-notices.txt",
+      "source_sha256": "7273dddf53cafe85f4e7fbd49646b90ff7d258b758438c8373a93097bfa360e4",
+      "archived_sha256": "7273dddf53cafe85f4e7fbd49646b90ff7d258b758438c8373a93097bfa360e4",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-preflight.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-preflight.json",
+      "source_sha256": "6614a6c0e99f56a668052ced66f17c8a615484b3a701050af2ea3837d74b98da",
+      "archived_sha256": "b905c31bc013313c95197e9766e5c6dfa86000cc20b6f4c96678d98fe12a39a7",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-preflight.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-preflight.txt",
+      "source_sha256": "4fd3922a5fd5a2a00c001dbc401e2233f62625ed2f4c08e19ef7b1853df7e791",
+      "archived_sha256": "4fd3922a5fd5a2a00c001dbc401e2233f62625ed2f4c08e19ef7b1853df7e791",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-production-advisories.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-production-advisories.json",
+      "source_sha256": "ce13cf7c4886227514bf05e44a55c59bc3b29f206835d824c3ceb6998ab70557",
+      "archived_sha256": "1ae91751696e714aba59b9c145a1cc88bd3350d5e9ef0837fc9a84b9a3bb5bef",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-production-advisories.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-production-advisories.txt",
+      "source_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "archived_sha256": "c5e3a2e342c1450e37841c849a7b154ec37ab679eaa0ade9020bf068d6cb16cd",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-static.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-static.json",
+      "source_sha256": "3274c830b98fff9b90be98c6e094d0dcb86cf5043fbb432dc647ad4ce6b89a94",
+      "archived_sha256": "74bef9d67fcee3844dd75d9791cd54d5dff82d9fa86ccffbece3942716fd32d4",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-static.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-static.txt",
+      "source_sha256": "f28ef036181081244fe84da5180f12fbc91df2f9efb16e636472a4abe6487345",
+      "archived_sha256": "f28ef036181081244fe84da5180f12fbc91df2f9efb16e636472a4abe6487345",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-summary.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-summary.json",
+      "source_sha256": "849935659940e2ab5c9ba5538b9ea4db3ec40b4290ef8145b01fbafaa0fd9a51",
+      "archived_sha256": "849935659940e2ab5c9ba5538b9ea4db3ec40b4290ef8145b01fbafaa0fd9a51",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-syntax.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-syntax.json",
+      "source_sha256": "93335aa9bd42ef3f53a0c21f6fb10407e3b23c12c3ef97700972ca8a44a2f3d1",
+      "archived_sha256": "5b2405dfa0d577a97fe84e14fd745f2ad9ee01c2c55d6802da69fcef8b0680f9",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-syntax.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-syntax.txt",
+      "source_sha256": "69e32f62181f17c95bfeaeac117782e5611855997c1307ad87ebfda78dfa531d",
+      "archived_sha256": "69e32f62181f17c95bfeaeac117782e5611855997c1307ad87ebfda78dfa531d",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-templates.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-templates.json",
+      "source_sha256": "8de4b9124ae67fa49543f5a73de63ab662ea1cc870ebb9249a205ea3b310863b",
+      "archived_sha256": "fa1363a8886db2a2e9172fce620546a0f1475414a60c69810765a539761164a6",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-templates.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-templates.txt",
+      "source_sha256": "e91cde49d8a6fd6325a8f6729065cd562c525ce2b0cf2b259d17cb75ea518c76",
+      "archived_sha256": "e91cde49d8a6fd6325a8f6729065cd562c525ce2b0cf2b259d17cb75ea518c76",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-tests.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-tests.json",
+      "source_sha256": "626948ea5950d92b77c162e9f695c1eaa852d5836cf20776d65124a958db35e7",
+      "archived_sha256": "84095e574e95ba19e691456fbf8c07a6681cc6c300b12b2c77424cd57c05196b",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-tests.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-tests.txt",
+      "source_sha256": "4ad1d10f35ad07dd9d71ccfac8fb61eef6095714aff6c9915d72c3258054b8b4",
+      "archived_sha256": "4ad1d10f35ad07dd9d71ccfac8fb61eef6095714aff6c9915d72c3258054b8b4",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-types.json",
+      "archived_path": "docs/qa/r28/final/checks/group-c-types.json",
+      "source_sha256": "80b46784ab07136b4e8ee8b3a230adc93b4a1f44ce54d4d9cabb7bff7d07496f",
+      "archived_sha256": "eeca75193bce4e1260d62ed22cb7dbc7051f04f585377b008bc1850d7941e075",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/group-c-types.log",
+      "archived_path": "docs/qa/r28/final/checks/group-c-types.txt",
+      "source_sha256": "153080c5b0f5a5ff141bc9151accc3e65c6e4c06b269f98f5314ee36de44c5b1",
+      "archived_sha256": "153080c5b0f5a5ff141bc9151accc3e65c6e4c06b269f98f5314ee36de44c5b1",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/seo-final-01.json",
+      "archived_path": "docs/qa/r28/final/seo-final-01.json",
+      "source_sha256": "4a3209047aaadaf1b515bb8d8c3686258c9548af12ec0f2b21878d162f964b8c",
+      "archived_sha256": "4a3209047aaadaf1b515bb8d8c3686258c9548af12ec0f2b21878d162f964b8c",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/tls-final-01.json",
+      "archived_path": "docs/qa/r28/final/tls-final-01.json",
+      "source_sha256": "956da2c89c44b36edb7cdaa4a56b0efccbc13ee9462666276a3fd09b5435deb9",
+      "archived_sha256": "956da2c89c44b36edb7cdaa4a56b0efccbc13ee9462666276a3fd09b5435deb9",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/final-schema.json",
+      "archived_path": "docs/qa/r28/final/final-schema.json",
+      "source_sha256": "9586c2a233280f2a3b1952c64b1a0f945145647e3df6cb3b61255c15304f636b",
+      "archived_sha256": "e41fa20323fea53b32076c9a12a2221d62b8e4584fa106379c12079f928e9768",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/final-schema.log",
+      "archived_path": "docs/qa/r28/final/final-schema.txt",
+      "source_sha256": "aa5f5cef7556bb3c1dc12ab78fa8997d523b79f90247ad86b8ca2937780939d4",
+      "archived_sha256": "aa5f5cef7556bb3c1dc12ab78fa8997d523b79f90247ad86b8ca2937780939d4",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/backend-http-limits.json",
+      "archived_path": "docs/qa/r28/final/backend-http-limits.json",
+      "source_sha256": "e1a5971817e24350e584ebc6d1a4bb8ed98b3b966a0987593611d6fd3cc516d7",
+      "archived_sha256": "e1a5971817e24350e584ebc6d1a4bb8ed98b3b966a0987593611d6fd3cc516d7",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/backend-http-limits-command.json",
+      "archived_path": "docs/qa/r28/final/backend-http-limits-command.json",
+      "source_sha256": "a5464fa914756dbd818ce3a3d90b9093557254a12661af56165c5577ce261b0d",
+      "archived_sha256": "31a1b579d83d321fb707de371d3646ef43dd81496a2defcdd5881167dcba9315",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/backup-final-cli.json",
+      "archived_path": "docs/qa/r28/final/backup-final-cli.json",
+      "source_sha256": "2c4453e69c2b475e7f335a16c1d55b116d98b93fef5964d9e2884f9a068d7a3f",
+      "archived_sha256": "ceebcc81e320f9fa7de8353dade04600afdfc0232a5fd3a9d93299ad46ccc807",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/backup-final-cli.log",
+      "archived_path": "docs/qa/r28/final/backup-final-cli.txt",
+      "source_sha256": "cb1f0d1778872fc15beda4575b420c2762ae16be427dab385d9bc850e210021e",
+      "archived_sha256": "cb1f0d1778872fc15beda4575b420c2762ae16be427dab385d9bc850e210021e",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/seo-title-negative-control.json",
+      "archived_path": "docs/qa/r28/final/seo-title-negative-control.json",
+      "source_sha256": "3f9403e7b8a14e9dd9ee247c1eeab97dda889b006e2ca92eaa8c4ed95efa8cbf",
+      "archived_sha256": "810aa06d40c804723ace2b4a14a899f6e617af3bef567f382e2d04931998543b",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/seo-title-negative-control.log",
+      "archived_path": "docs/qa/r28/final/seo-title-negative-control.txt",
+      "source_sha256": "4ee27a6ae47bfa48b9ca1d1e49705b2bc31eb3d426f8f75179f87159bb614595",
+      "archived_sha256": "4ee27a6ae47bfa48b9ca1d1e49705b2bc31eb3d426f8f75179f87159bb614595",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/seo-title-fixed-final.json",
+      "archived_path": "docs/qa/r28/final/seo-title-fixed-final.json",
+      "source_sha256": "8bb246a4636aca807d5da489104ff54d2be48a283e58d80385b12af66cb205bf",
+      "archived_sha256": "398dd909cdd675fdee8a627c11abc3ef858d85a8f90e1879c57edd8815754600",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/seo-title-fixed-final.log",
+      "archived_path": "docs/qa/r28/final/seo-title-fixed-final.txt",
+      "source_sha256": "5ad0d42e524f00497fed77145f702f3b5697324c4cb4e1ec068dc07751a59de0",
+      "archived_sha256": "5ad0d42e524f00497fed77145f702f3b5697324c4cb4e1ec068dc07751a59de0",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/final-outdated.json",
+      "archived_path": "docs/qa/r28/final/final-outdated.json",
+      "source_sha256": "e06330b3e08ec50c89d6bb2cc2d9ec187dde4382c23b82fc4fe3b4075a5bedca",
+      "archived_sha256": "dd9ccb3d32c1fb1dbd9c242f6b9abdc137e0fd8d0e8877e54cb2366c92360aa1",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/final-outdated.log",
+      "archived_path": "docs/qa/r28/final/final-outdated.txt",
+      "source_sha256": "34cf1abbd659aae142e408b65140b84761ded63fda37634eb7230f0228f83f0e",
+      "archived_sha256": "34cf1abbd659aae142e408b65140b84761ded63fda37634eb7230f0228f83f0e",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-final-01/application-runtime-manifest.json",
+      "archived_path": "docs/qa/r28/final/browser-final-01/application-runtime-manifest.json",
+      "source_sha256": "1e388e8a2c6b9d2568abb1270c286eda7c77b51c65e979ef183fdee0f415896e",
+      "archived_sha256": "1e388e8a2c6b9d2568abb1270c286eda7c77b51c65e979ef183fdee0f415896e",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-final-01/browser-results.json",
+      "archived_path": "docs/qa/r28/final/browser-final-01/browser-results.json",
+      "source_sha256": "4b7de6a88a639e4c51c1308882b6872c26b88c93b370b5736883e9f47429cc68",
+      "archived_sha256": "4b7de6a88a639e4c51c1308882b6872c26b88c93b370b5736883e9f47429cc68",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-final-01/final-browser-summary.json",
+      "archived_path": "docs/qa/r28/final/browser-final-01/final-browser-summary.json",
+      "source_sha256": "ba72c79c20caf9c30054bff7064991c3fe81434611a53bcfae04be6d56ba5ba0",
+      "archived_sha256": "ba72c79c20caf9c30054bff7064991c3fe81434611a53bcfae04be6d56ba5ba0",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-final-01/incomplete-triage.json",
+      "archived_path": "docs/qa/r28/final/browser-final-01/incomplete-triage.json",
+      "source_sha256": "98c9697f216676243b3ad85e5f0b2ad9b000b442b67a5d4a7933fe244b6b897b",
+      "archived_sha256": "98c9697f216676243b3ad85e5f0b2ad9b000b442b67a5d4a7933fe244b6b897b",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-final-01/run-command.json",
+      "archived_path": "docs/qa/r28/final/browser-final-01/run-command.json",
+      "source_sha256": "1b1bab71a8bba0bd1c31539ef5dbc65a3af651adc3876cb3071365b89dd7106d",
+      "archived_sha256": "1b1bab71a8bba0bd1c31539ef5dbc65a3af651adc3876cb3071365b89dd7106d",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-final-01/run-command.txt",
+      "archived_path": "docs/qa/r28/final/browser-final-01/run-command.txt",
+      "source_sha256": "7f31282c5b39965fabee7bc0189a790ecabd702b58265e4809aa084c0e5ab2bd",
+      "archived_sha256": "7f31282c5b39965fabee7bc0189a790ecabd702b58265e4809aa084c0e5ab2bd",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-final-01/source-still-matches.json",
+      "archived_path": "docs/qa/r28/final/browser-final-01/source-still-matches.json",
+      "source_sha256": "bf3567e2c5c437862dd6144178f4308ce97fb292646683fdce8a3fbc05a60aea",
+      "archived_sha256": "bf3567e2c5c437862dd6144178f4308ce97fb292646683fdce8a3fbc05a60aea",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-drawer-final-01/application-runtime-manifest.json",
+      "archived_path": "docs/qa/r28/final/browser-drawer-final-01/application-runtime-manifest.json",
+      "source_sha256": "1e388e8a2c6b9d2568abb1270c286eda7c77b51c65e979ef183fdee0f415896e",
+      "archived_sha256": "1e388e8a2c6b9d2568abb1270c286eda7c77b51c65e979ef183fdee0f415896e",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-drawer-final-01/browser-results.json",
+      "archived_path": "docs/qa/r28/final/browser-drawer-final-01/browser-results.json",
+      "source_sha256": "3f273352c379f991f1a9243cd26fa304b3475d18ca6d3113c27934541e44784a",
+      "archived_sha256": "3f273352c379f991f1a9243cd26fa304b3475d18ca6d3113c27934541e44784a",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-drawer-final-01/run-command.json",
+      "archived_path": "docs/qa/r28/final/browser-drawer-final-01/run-command.json",
+      "source_sha256": "32229528cf51cd27843749795a1387ac926b66d99f80ff24a5f162215c3af960",
+      "archived_sha256": "32229528cf51cd27843749795a1387ac926b66d99f80ff24a5f162215c3af960",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-drawer-final-01/run-command.txt",
+      "archived_path": "docs/qa/r28/final/browser-drawer-final-01/run-command.txt",
+      "source_sha256": "f2a75152c2c897f547ab685267821257c338d4068e9073781c9ddfd2be611715",
+      "archived_sha256": "f2a75152c2c897f547ab685267821257c338d4068e9073781c9ddfd2be611715",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-drawer-final-01/source-still-matches.json",
+      "archived_path": "docs/qa/r28/final/browser-drawer-final-01/source-still-matches.json",
+      "source_sha256": "bf3567e2c5c437862dd6144178f4308ce97fb292646683fdce8a3fbc05a60aea",
+      "archived_sha256": "bf3567e2c5c437862dd6144178f4308ce97fb292646683fdce8a3fbc05a60aea",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-fresh-mobile-02/application-runtime-manifest.json",
+      "archived_path": "docs/qa/r28/final/browser-fresh-mobile-02/application-runtime-manifest.json",
+      "source_sha256": "1e388e8a2c6b9d2568abb1270c286eda7c77b51c65e979ef183fdee0f415896e",
+      "archived_sha256": "1e388e8a2c6b9d2568abb1270c286eda7c77b51c65e979ef183fdee0f415896e",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-fresh-mobile-02/browser-results.json",
+      "archived_path": "docs/qa/r28/final/browser-fresh-mobile-02/browser-results.json",
+      "source_sha256": "dd62508e8f02bc333b1abdf93ba973627d32ef0efc89a496d3eb42f39a747817",
+      "archived_sha256": "dd62508e8f02bc333b1abdf93ba973627d32ef0efc89a496d3eb42f39a747817",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-fresh-mobile-02/computed-contrast.json",
+      "archived_path": "docs/qa/r28/final/browser-fresh-mobile-02/computed-contrast.json",
+      "source_sha256": "04839ace76454d19e562b35c567821a521154f79e08aabf4015c55982fbcbc3a",
+      "archived_sha256": "04839ace76454d19e562b35c567821a521154f79e08aabf4015c55982fbcbc3a",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-fresh-mobile-02/run-command.json",
+      "archived_path": "docs/qa/r28/final/browser-fresh-mobile-02/run-command.json",
+      "source_sha256": "08ba648ff7b87afec022a448a16bd68cad80b6d96b6d2214a38f6a60dcc3e732",
+      "archived_sha256": "08ba648ff7b87afec022a448a16bd68cad80b6d96b6d2214a38f6a60dcc3e732",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-fresh-mobile-02/run-command.txt",
+      "archived_path": "docs/qa/r28/final/browser-fresh-mobile-02/run-command.txt",
+      "source_sha256": "5fb60c473dd2372a7815f836de6b60b4f36056c30e3aa497835d79bb2e0f5605",
+      "archived_sha256": "5fb60c473dd2372a7815f836de6b60b4f36056c30e3aa497835d79bb2e0f5605",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/browser-fresh-mobile-02/source-still-matches.json",
+      "archived_path": "docs/qa/r28/final/browser-fresh-mobile-02/source-still-matches.json",
+      "source_sha256": "bf3567e2c5c437862dd6144178f4308ce97fb292646683fdce8a3fbc05a60aea",
+      "archived_sha256": "bf3567e2c5c437862dd6144178f4308ce97fb292646683fdce8a3fbc05a60aea",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/backup-final-01/r28-commands.log",
+      "archived_path": "docs/qa/r28/final/backup-final-01/r28-commands.txt",
+      "source_sha256": "c0aae6d796cddf81354549af716f4413aaa2351ab75ce46264182dd50e7cfc49",
+      "archived_sha256": "c0aae6d796cddf81354549af716f4413aaa2351ab75ce46264182dd50e7cfc49",
+      "transformation": "log extension renamed to txt; JSON output_file adjusted with original retained"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/backup-final-01/r28-results.json",
+      "archived_path": "docs/qa/r28/final/backup-final-01/r28-results.json",
+      "source_sha256": "58fafd60f255f5e785e314166f8978845cf3378221d4ca2a1ea16737303e2ac4",
+      "archived_sha256": "58fafd60f255f5e785e314166f8978845cf3378221d4ca2a1ea16737303e2ac4",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/container-final-01/build.txt",
+      "archived_path": "docs/qa/r28/final/container-final-01/build.txt",
+      "source_sha256": "ea2821b949ce34f8b7aaceba8d6b182603925cd5f927c26ceeafcaa51adaeecb",
+      "archived_sha256": "ea2821b949ce34f8b7aaceba8d6b182603925cd5f927c26ceeafcaa51adaeecb",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/container-final-01/engine.txt",
+      "archived_path": "docs/qa/r28/final/container-final-01/engine.txt",
+      "source_sha256": "3795a4b1e2c6937a65f1be5ac40e8c7998963c6077c5cb1d19874a2d2474db02",
+      "archived_sha256": "3795a4b1e2c6937a65f1be5ac40e8c7998963c6077c5cb1d19874a2d2474db02",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/container-final-01/image-id.txt",
+      "archived_path": "docs/qa/r28/final/container-final-01/image-id.txt",
+      "source_sha256": "946edaa2efeacc0b861c67a3f70762cdd143cbe4675a0ef963871c0229e28c94",
+      "archived_sha256": "946edaa2efeacc0b861c67a3f70762cdd143cbe4675a0ef963871c0229e28c94",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/container-final-01/port.txt",
+      "archived_path": "docs/qa/r28/final/container-final-01/port.txt",
+      "source_sha256": "592c37d7c53f7980cb3b0e164c27b094a753d13a9663b81bc9899e3ec6356a2e",
+      "archived_sha256": "592c37d7c53f7980cb3b0e164c27b094a753d13a9663b81bc9899e3ec6356a2e",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/container-final-01/results.json",
+      "archived_path": "docs/qa/r28/final/container-final-01/results.json",
+      "source_sha256": "6f427bba50feb1f7b6e8d8c251ce8e245aaf638d0c83d0e2bad433a23bc35144",
+      "archived_sha256": "6f427bba50feb1f7b6e8d8c251ce8e245aaf638d0c83d0e2bad433a23bc35144",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/container-final-01/runtime-node.txt",
+      "archived_path": "docs/qa/r28/final/container-final-01/runtime-node.txt",
+      "source_sha256": "6a0cec2e157365c1a8ac6d1715733b7c3321a7c5565862a701ca71ef00359d04",
+      "archived_sha256": "6a0cec2e157365c1a8ac6d1715733b7c3321a7c5565862a701ca71ef00359d04",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/container-final-01/runtime-uid.txt",
+      "archived_path": "docs/qa/r28/final/container-final-01/runtime-uid.txt",
+      "source_sha256": "83c02ac2d48c863dab2ccf6870455aadfc2cec073b8db269b517c879d76aa6d9",
+      "archived_sha256": "83c02ac2d48c863dab2ccf6870455aadfc2cec073b8db269b517c879d76aa6d9",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/container-final-01/start.txt",
+      "archived_path": "docs/qa/r28/final/container-final-01/start.txt",
+      "source_sha256": "15ecd660f69f48596c3dced99b79e2fe146c3bd6db9a552615c4f20694b569d5",
+      "archived_sha256": "15ecd660f69f48596c3dced99b79e2fe146c3bd6db9a552615c4f20694b569d5",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/container-final-01/stop.txt",
+      "archived_path": "docs/qa/r28/final/container-final-01/stop.txt",
+      "source_sha256": "15ecd660f69f48596c3dced99b79e2fe146c3bd6db9a552615c4f20694b569d5",
+      "archived_sha256": "15ecd660f69f48596c3dced99b79e2fe146c3bd6db9a552615c4f20694b569d5",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/README.md",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/README.md",
+      "source_sha256": "6b12f69c0582a1165f1d968a6a0f48c8fb155086b34bf2d703c91e4ef3f206c5",
+      "archived_sha256": "6b12f69c0582a1165f1d968a6a0f48c8fb155086b34bf2d703c91e4ef3f206c5",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/final-lighthouse-summary.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/final-lighthouse-summary.json",
+      "source_sha256": "9ad606fad2408f3c5ffd20b1ef85f5c86f013a0b19bf4cf26b7a91864e0871f2",
+      "archived_sha256": "9ad606fad2408f3c5ffd20b1ef85f5c86f013a0b19bf4cf26b7a91864e0871f2",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/final-runtime-manifest.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/final-runtime-manifest.json",
+      "source_sha256": "7507cdeaa53f56ea634b0803a6a82815ccbd40abf366fbf5b0245c6649c90259",
+      "archived_sha256": "7507cdeaa53f56ea634b0803a6a82815ccbd40abf366fbf5b0245c6649c90259",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/helper-commands.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/helper-commands.json",
+      "source_sha256": "d74e5757868b729338ae42797e06ce53933b12b0c9e977941070d3b367508412",
+      "archived_sha256": "d74e5757868b729338ae42797e06ce53933b12b0c9e977941070d3b367508412",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/process-release.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/process-release.json",
+      "source_sha256": "20547a747c005b55bcff8756de9e6fb0480ee23ede1546c78893fafc74be37f9",
+      "archived_sha256": "20547a747c005b55bcff8756de9e6fb0480ee23ede1546c78893fafc74be37f9",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/repeat-1/home-mobile-runtime-manifest.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/repeat-1/home-mobile-runtime-manifest.json",
+      "source_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "archived_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/repeat-1/lighthouse-summary.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/repeat-1/lighthouse-summary.json",
+      "source_sha256": "bac5f5e2e6728fecb9c72ce05309a3da2b2b5804d32d2a77ed85b23858a7be36",
+      "archived_sha256": "bac5f5e2e6728fecb9c72ce05309a3da2b2b5804d32d2a77ed85b23858a7be36",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/repeat-1/shop-desktop-runtime-manifest.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/repeat-1/shop-desktop-runtime-manifest.json",
+      "source_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "archived_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/repeat-2/home-mobile-runtime-manifest.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/repeat-2/home-mobile-runtime-manifest.json",
+      "source_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "archived_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/repeat-2/lighthouse-summary.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/repeat-2/lighthouse-summary.json",
+      "source_sha256": "f1052378497e7414331ff60f1887a00d7482c1099f76f045c7f66820c3415472",
+      "archived_sha256": "f1052378497e7414331ff60f1887a00d7482c1099f76f045c7f66820c3415472",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/repeat-2/shop-desktop-runtime-manifest.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/repeat-2/shop-desktop-runtime-manifest.json",
+      "source_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "archived_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/repeat-3/home-mobile-runtime-manifest.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/repeat-3/home-mobile-runtime-manifest.json",
+      "source_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "archived_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/repeat-3/lighthouse-summary.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/repeat-3/lighthouse-summary.json",
+      "source_sha256": "fa7c100d1e8872ad3cf5b186a8fd39545a22dbe9b3c224b95841cb393a15a8c9",
+      "archived_sha256": "fa7c100d1e8872ad3cf5b186a8fd39545a22dbe9b3c224b95841cb393a15a8c9",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/repeat-3/shop-desktop-runtime-manifest.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/repeat-3/shop-desktop-runtime-manifest.json",
+      "source_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "archived_sha256": "9e65dcccb1f140910ea91c189cf6f14715bca95747a8326442e9d3a9ebb53cb0",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/startup-blocked/lighthouse-summary.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/startup-blocked/lighthouse-summary.json",
+      "source_sha256": "1730dd84646f2929d00ea39949f05521cdcabcc71afb30350df97458b1484191",
+      "archived_sha256": "1730dd84646f2929d00ea39949f05521cdcabcc71afb30350df97458b1484191",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/evidence/lighthouse-frozen-01/startup-blocked-helper-command.json",
+      "archived_path": "docs/qa/r28/final/lighthouse-frozen-01/startup-blocked-helper-command.json",
+      "source_sha256": "eda49a3c5546fa4a608adfc786a6bdf99b33243110c134956ef7c145740067d6",
+      "archived_sha256": "eda49a3c5546fa4a608adfc786a6bdf99b33243110c134956ef7c145740067d6",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/KEYBOARD-REPORT.md",
+      "archived_path": "docs/qa/r28/final/keyboard/KEYBOARD-REPORT.md",
+      "source_sha256": "5b831fd837351f31300448d8765263c895e44f677acbfeb60cff430be384a012",
+      "archived_sha256": "5b831fd837351f31300448d8765263c895e44f677acbfeb60cff430be384a012",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/merge-manifest.json",
+      "archived_path": "docs/qa/r28/final/keyboard/merge-manifest.json",
+      "source_sha256": "3e812e65a197b8ac13455b39cd86d24acc0790462a29979000cc6552d8ad39e1",
+      "archived_sha256": "3e812e65a197b8ac13455b39cd86d24acc0790462a29979000cc6552d8ad39e1",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/keyboard.patch",
+      "archived_path": "docs/qa/r28/final/keyboard/keyboard.patch",
+      "source_sha256": "6897233266f3febca6158254353ca509a6fb7a794c8be766fa0b344d824b42b2",
+      "archived_sha256": "6897233266f3febca6158254353ca509a6fb7a794c8be766fa0b344d824b42b2",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/accessibility/INCOMPLETE-NODE-DISPOSITION.json",
+      "archived_path": "docs/qa/r28/final/accessibility/INCOMPLETE-NODE-DISPOSITION.json",
+      "source_sha256": "a7ce9da6d7fb47c854ca4e86f7fb757cd4a01068a79946e0483907caac558ddd",
+      "archived_sha256": "a7ce9da6d7fb47c854ca4e86f7fb757cd4a01068a79946e0483907caac558ddd",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/after/keyboard-results.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/after/keyboard-results.json",
+      "source_sha256": "569b9e2db8c67e5c2b6656c64bfc51113a5fc346c2c470fe3459267731109c96",
+      "archived_sha256": "569b9e2db8c67e5c2b6656c64bfc51113a5fc346c2c470fe3459267731109c96",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/after-corrected/keyboard-results.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/after-corrected/keyboard-results.json",
+      "source_sha256": "05600b4a370a9c5741cded4b68c718a1745ebf94b06fc55bcb60cf8f406b209c",
+      "archived_sha256": "05600b4a370a9c5741cded4b68c718a1745ebf94b06fc55bcb60cf8f406b209c",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/assistive-availability.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/assistive-availability.json",
+      "source_sha256": "b8dbda5370ceb9aecd7e45a53bb3a39786833fa090cc844631ac881eda14f283",
+      "archived_sha256": "b8dbda5370ceb9aecd7e45a53bb3a39786833fa090cc844631ac881eda14f283",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/before/keyboard-results.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/before/keyboard-results.json",
+      "source_sha256": "23e6c64fd08aa8c15bc07acc5664269809fa06aea9379af78be35b2b5e0e3b20",
+      "archived_sha256": "23e6c64fd08aa8c15bc07acc5664269809fa06aea9379af78be35b2b5e0e3b20",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/cookie-save-before/browser-results.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/cookie-save-before/browser-results.json",
+      "source_sha256": "211c66561960eab36da38ff4870b164943b5363adf51fb16f9ec50aec0d65b6a",
+      "archived_sha256": "211c66561960eab36da38ff4870b164943b5363adf51fb16f9ec50aec0d65b6a",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/cookie-save-before/summary.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/cookie-save-before/summary.json",
+      "source_sha256": "be38e0cd4c4d99c937376a7d1ab26807e1c84389ffead28241fc70415780c707",
+      "archived_sha256": "be38e0cd4c4d99c937376a7d1ab26807e1c84389ffead28241fc70415780c707",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/mobile-drawer-after/mobile-drawer-results.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/mobile-drawer-after/mobile-drawer-results.json",
+      "source_sha256": "ee899eb49370fbe9c88bca0add1ceaa66d6a38cdc241cd05f8afa563c4a74984",
+      "archived_sha256": "ee899eb49370fbe9c88bca0add1ceaa66d6a38cdc241cd05f8afa563c4a74984",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/mobile-drawer-before/mobile-drawer-results.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/mobile-drawer-before/mobile-drawer-results.json",
+      "source_sha256": "9b4876643bda03ffeeb335dc77347e8caede5df5a6cb822ddfc412ff6b0fdf36",
+      "archived_sha256": "9b4876643bda03ffeeb335dc77347e8caede5df5a6cb822ddfc412ff6b0fdf36",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/native-control.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/native-control.json",
+      "source_sha256": "a362cac5d4b1a536338fe3f5850c56b9ac5223f4d1a91da275a7b2e7d576d9e4",
+      "archived_sha256": "a362cac5d4b1a536338fe3f5850c56b9ac5223f4d1a91da275a7b2e7d576d9e4",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/patch-rehearsal.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/patch-rehearsal.json",
+      "source_sha256": "638ed57e9d659dd8500a870f4ba618575faf6b8f13ee2b4485fe82cf9a210653",
+      "archived_sha256": "638ed57e9d659dd8500a870f4ba618575faf6b8f13ee2b4485fe82cf9a210653",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/shipped-methods/browser-results.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/shipped-methods/browser-results.json",
+      "source_sha256": "c570342a95f776043358cbbc3ba6a42bdf3f83c36078c36a3cab701fe7777b6d",
+      "archived_sha256": "c570342a95f776043358cbbc3ba6a42bdf3f83c36078c36a3cab701fe7777b6d",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/shipped-methods/summary.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/shipped-methods/summary.json",
+      "source_sha256": "6f076e92e18ab2bcc66ed4647d20f886d537f60ec9bfa8a762ca8142cfc7f6e0",
+      "archived_sha256": "6f076e92e18ab2bcc66ed4647d20f886d537f60ec9bfa8a762ca8142cfc7f6e0",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/shipped-methods-final/browser-results.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/shipped-methods-final/browser-results.json",
+      "source_sha256": "b8f806a2081e11d84c760b6cabe230556943458e53b4dc4d412b4b3ac006e0f6",
+      "archived_sha256": "b8f806a2081e11d84c760b6cabe230556943458e53b4dc4d412b4b3ac006e0f6",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/shipped-methods-final/summary.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/shipped-methods-final/summary.json",
+      "source_sha256": "6f076e92e18ab2bcc66ed4647d20f886d537f60ec9bfa8a762ca8142cfc7f6e0",
+      "archived_sha256": "6f076e92e18ab2bcc66ed4647d20f886d537f60ec9bfa8a762ca8142cfc7f6e0",
+      "transformation": "none"
+    },
+    {
+      "source": "/workspace/presale-r28/proposals/keyboard/evidence/syntax-checks.json",
+      "archived_path": "docs/qa/r28/final/keyboard/evidence/syntax-checks.json",
+      "source_sha256": "fd9b6d3b52b1efb15afdcbc2cc4a8ec5bfa177fc00fcdf195a08fa85cd43247a",
+      "archived_sha256": "fd9b6d3b52b1efb15afdcbc2cc4a8ec5bfa177fc00fcdf195a08fa85cd43247a",
+      "transformation": "none"
+    }
+  ]
+}

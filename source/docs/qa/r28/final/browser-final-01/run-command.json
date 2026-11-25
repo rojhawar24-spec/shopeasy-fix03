@@ -1,0 +1,30 @@
+{
+  "label": "VERIFIED",
+  "cwd": "/workspace/presale-r28/work",
+  "command": [
+    "/workspace/presale-r27/tools/qa-python313/bin/python",
+    "qa/run-browser-qa.py",
+    "--node",
+    "/workspace/presale-r27/tools/node-v24.22.2-linux-x64/bin/node",
+    "--app-root",
+    "/workspace/presale-r28/work",
+    "--browser-executable",
+    "/usr/bin/chromium",
+    "--axe-path",
+    "/tmp/shopeasy-a11y/node_modules/axe-core/axe.min.js",
+    "--output",
+    "/workspace/presale-r28/evidence/browser-final-01",
+    "--suite",
+    "all",
+    "--locales",
+    "en,ckb,ar,nl,fr",
+    "--widths",
+    "320,390,768,1440",
+    "--simulated-email"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-11-22T23:02:01.840182+00:00",
+  "finished_utc": "2026-11-22T23:04:02.201694+00:00",
+  "output": "browser-results.json",
+  "scope": "Actual executed command; no private output or browser storage retained"
+}

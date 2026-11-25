@@ -1,0 +1,5 @@
+
+> shopeasy-store-starter@2.8.95 check
+> node scripts/check-syntax.mjs
+
+Syntax check passed: all 327 JS/MJS/CJS files (root entrypoints plus src, scripts, public/js, test, generated, qa, vendor).

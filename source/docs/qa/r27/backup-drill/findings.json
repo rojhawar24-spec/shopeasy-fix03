@@ -1,0 +1,136 @@
+{
+  "materialDefect": {
+    "source": "src/services/database-backup.js:27",
+    "summary": "Original encoder excludes ArrayBuffer returned by installed @libsql/client for SQLite BLOBs. JSON encoding silently converts the BLOB to {}; backup CLI exits 0 but actual CLI restore exits 1 with a bind-type error.",
+    "originalBackupExit": 0,
+    "originalRestoreExit": 1,
+    "originalError": "SQLite3 can only bind numbers, strings, bigints, buffers, and null",
+    "proposal": "arraybuffer-fix.patch",
+    "proposalCheck": "git apply --check succeeded against original source; no main source edits"
+  },
+  "patchedProof": {
+    "scope": "Patched disposable copy only; root must integrate proposal and rerun release checks.",
+    "outcome": "PASS",
+    "checksPassed": 19,
+    "checksTotal": 19,
+    "rowsRestored": 172,
+    "applicationTables": 32,
+    "sequenceTableAlsoCompared": true,
+    "indexesTriggersViews": 42,
+    "schemaSqlObjectsCompared": 75,
+    "allRowsCompared": "Exact normalized row multisets per table, including sqlite_sequence; binary values compared as bytes.",
+    "stockAndFinancialValues": "Exact equality covers stock/reservations, price/cost, orders 4497 and 5997 EUR minor units, card balances 20503 and 9003, issue/redeem ledger, and cash refund 1234.",
+    "blobWitness": {
+      "sourceDriverType": "ArrayBuffer",
+      "sourceBlobBytes": 68,
+      "sourceHash": "6b1048f8a6d40bac0b2954c18fefa40c4ea7a96120fc2e54b7317c0e43c2bbec",
+      "restoredRowCount": 1,
+      "restoredHash": "6b1048f8a6d40bac0b2954c18fefa40c4ea7a96120fc2e54b7317c0e43c2bbec"
+    },
+    "filesystemUpload": "One actual 68-byte PNG with safe 32-hex basename; SHA-256 compared.",
+    "negativeCases": [
+      {
+        "name": "wrong key refusal",
+        "passed": true,
+        "exitCode": 1,
+        "targetState": {
+          "exists": true,
+          "userSchemaObjects": 0
+        }
+      },
+      {
+        "name": "checksum mismatch refusal",
+        "passed": true,
+        "exitCode": 2,
+        "targetState": {
+          "exists": false,
+          "userSchemaObjects": 0
+        }
+      },
+      {
+        "name": "source target refusal DATABASE_URL",
+        "passed": true,
+        "exitCode": 2
+      },
+      {
+        "name": "source target refusal SHOP_DATABASE_URL",
+        "passed": true,
+        "exitCode": 2
+      },
+      {
+        "name": "source target refusal TURSO_DATABASE_URL",
+        "passed": true,
+        "exitCode": 2
+      },
+      {
+        "name": "nonempty database refusal",
+        "passed": true,
+        "exitCode": 1,
+        "targetState": {
+          "exists": true,
+          "userSchemaObjects": 1
+        }
+      },
+      {
+        "name": "nonempty database sentinel preserved",
+        "passed": true
+      },
+      {
+        "name": "nonempty uploads refusal",
+        "passed": true,
+        "exitCode": 1,
+        "targetState": {
+          "exists": true,
+          "userSchemaObjects": 32
+        }
+      },
+      {
+        "name": "nonempty uploads sentinel preserved",
+        "passed": true,
+        "partialTargetSchemaObjects": 32
+      }
+    ]
+  },
+  "sourceAnchorsOriginal": {
+    "dotenvImport": "scripts/backup-database.mjs:2 and scripts/restore-database.mjs:2",
+    "databaseSnapshot": "scripts/backup-database.mjs:20",
+    "databaseAndFilesystemBackup": "scripts/backup-database.mjs:22",
+    "sourceTargetRefusal": "scripts/restore-database.mjs:25-29",
+    "checksumRefusal": "scripts/restore-database.mjs:32-37",
+    "partialTargetWarning": "scripts/restore-database.mjs:49",
+    "emptyDatabaseRefusal": "src/services/database-backup.js:222-225",
+    "restoreWritesTablesIndividually": "src/services/database-backup.js:241-244",
+    "restoreWritesRowsInBatches": "src/services/database-backup.js:260",
+    "filesystemUploadStaging": "src/services/database-backup.js:247-249 and 303-305",
+    "safeUploadNames": "src/services/database-backup.js:19",
+    "filesystemReadOutsideDatabaseSnapshot": "src/services/database-backup.js:98-107",
+    "filesystemMaximumPerFile": "src/services/database-backup.js:103"
+  },
+  "limits": [
+    "Local Linux SQLite CLI evidence only; no production database, real .env, real credentials, .venv, network or providers accessed.",
+    "No production/offsite SSH, customer staging login/cutover, retention-law or Windows validation.",
+    "Restore is not globally atomic. Occupied uploads refusal actually left 32 app table definitions in its isolated target; all failed targets were discarded.",
+    "Wrong key in this run left an empty SQLite file with zero user schema objects; this is an observed result, not a promise that every failure is atomic.",
+    "Database uses a snapshot, but filesystem uploads are read separately; no concurrent media replacement drill was performed.",
+    "Only safe-named png/jpg/webp files up to 2 MiB are included.",
+    "Built-in foreign-key/integrity PRAGMA errors can be suppressed; independent successful PRAGMA executions were checked in this drill.",
+    "Export assumes rowid tables; arbitrary WITHOUT ROWID schemas were not tested.",
+    "Remote provider aliases and hardlink identity are outside this local URL/source guard proof.",
+    "Synthetic encrypted artifacts and random keys were intentionally disposed after verification; retained evidence contains sanitized commands, hashes, counts, source references and proposal only."
+  ],
+  "cleanup": {
+    "temporaryTreeRemoved": true,
+    "keyPersisted": false,
+    "syntheticDatabasesDisposed": true,
+    "syntheticUploadsDisposed": true,
+    "encryptedArtifactDisposed": true
+  },
+  "sourceHashes": {
+    "scripts/backup-database.mjs": "aa735159ea87e065a3d2554f19bd800d3ee3574cc0c77ab4a2d1e0928b016ae6",
+    "scripts/restore-database.mjs": "1c5a1aa72d816a8ce433ec2ebedfc179ba9915e8da48f8cbbd6d644698a2236f",
+    "src/database.js": "69e281da09fa48ce3af8dd50cd9ea5debff7327b3587b7d245d7da2618c5da67",
+    "src/db.js": "33f00bdd965af697edbf5f4a65c41bc7a7ea85ce9497e136d81d6e65ef436be2",
+    "src/services/database-backup.js": "0b3bdb30919f6dd9dbeef8ff8417fea24e2246725d36d5ae6c3bad714903b144"
+  },
+  "proposedServiceSha256": "896c143998fc56c7674d29eac4fa4147b59b81e63024f37cb264751e5be77f41"
+}

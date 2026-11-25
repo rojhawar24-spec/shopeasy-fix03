@@ -1,0 +1,15 @@
+{
+  "label": "VERIFIED",
+  "checked_utc": "2026-11-22T23:12:07.291277+00:00",
+  "reference": "application-runtime-manifest.json",
+  "application_runtime_sha256": "a67cac89b7c84263d456b3b2b071550d137bb009d4c8f0631c2c8da2bcf1fd81",
+  "files": 152,
+  "current_runtime_matches_executed_snapshot": true,
+  "changed_paths": [],
+  "qa_runner_fixture_oracle_match_executed": {
+    "qa_runner_sha256": true,
+    "fixture_server_sha256": true,
+    "login_oracle_sha256": true
+  },
+  "scope": "src/views/public excluding uploads/generated/package.json; docs/tests/installed dependency files are outside this scoped comparison"
+}

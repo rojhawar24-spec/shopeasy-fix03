@@ -1,0 +1,17 @@
+<%- include('partials/header',{title:title}) %>
+<section class="container error-page">
+  <div class="auth-card error-card">
+    <span class="error-mark" aria-hidden="true">!</span>
+    <span class="eyebrow"><%= customerText("SHOPPING HELP") %></span>
+    <h1><%= title || 'Something did not work' %></h1>
+    <p><%= message || 'We could not complete that action. Your account and order details have not been changed by this message.' %></p>
+    <p class="error-guidance"><%= typeof guidance !== 'undefined' && guidance ? guidance : (typeof actionUrl !== 'undefined' && actionUrl ? 'Open the form again to refresh its security token. Your previous submission was not saved.' : 'You can return to the shop or your bag and try again. If the problem keeps happening, contact the store using the details at the bottom of the page.') %></p>
+    <div class="error-actions">
+      <% if(typeof actionUrl !== 'undefined' && actionUrl && typeof actionLabel !== 'undefined' && actionLabel){ %><a class="btn btn-dark" href="<%= actionUrl %>"><%= actionLabel %></a><% } %>
+      <a class="btn btn-dark" href="/shop"><%= customerText("Back to shop") %></a>
+      <a class="btn btn-light" href="/cart"><%= customerText("View my bag") %></a>
+      <a class="btn btn-light" href="/"><%= customerText("Home") %></a>
+    </div>
+  </div>
+</section>
+<%- include('partials/footer') %>

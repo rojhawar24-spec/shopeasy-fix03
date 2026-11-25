@@ -1,0 +1,13 @@
+{
+  "utc_started": "2026-11-14T20:51:33.139075+00:00",
+  "utc_finished": "2026-11-14T20:51:33.727614+00:00",
+  "cwd": "/workspace/presale-r27/work",
+  "command": [
+    "npm",
+    "run",
+    "lint"
+  ],
+  "exit_code": 0,
+  "output_file": "phase-d2-lint.txt",
+  "inherited_application_credentials": "removed; credential values not printed"
+}

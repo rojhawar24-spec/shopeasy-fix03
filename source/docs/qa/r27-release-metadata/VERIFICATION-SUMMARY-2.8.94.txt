@@ -1,0 +1,9 @@
+ShopEasy 2.8.94 R27; final automated audit date2026-11-15
+VERIFIED: source1148/1148 tests; no failed/skipped/cancelled/todo; phase-e1 all12 final commands exit0.
+VERIFIED: exactruntime browser191 checks; zero failed/not run; zero strict axe violations;126 incomplete manual items.
+VERIFIED: npm all/prod advisory queries zero known advisories at execution time.
+UNKNOWN: firstparty/asset commercial rights and actual buyer grant;9native legal gates.
+NOT TESTED: actualWindows/liveproviders/fullWCAG/fullASVS/productionhost/offsite recovery/every-line manualreview.
+Final clean-copy recheck: FINAL-VERIFICATION-REPORT.json inside accepted ZIP and external verification-log.json.
+Actual ZIP listing+SHA256: external CONTENTS.json and archive.sha256; verify before installing.
+Details: R27-CLEANUP-REPORT.md, QA-REPORT-2.8.94.md, docs/qa/r27/.
