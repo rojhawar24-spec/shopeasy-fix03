@@ -1,6 +1,6 @@
 // Staging-only legacy SQL compatibility. Never accepts SQL from HTTP clients.
 // Produces native bound PostgreSQL statements; unsupported syntax fails closed.
-const identityTables = new Set(['users','categories','products','product_variants','product_images','coupons','orders','order_items','order_returns','order_status_history','audit_logs','gift_cards','gift_card_ledger','stories','product_reviews','newsletter_campaigns','order_email_deliveries','peppol_submissions']);
+const identityTables = new Set(['users','categories','products','product_variants','product_images','coupons','orders','order_items','order_returns','order_status_history','audit_logs','gift_cards','gift_card_ledger','stories','product_reviews','stock_alerts','newsletter_campaigns','order_email_deliveries','peppol_submissions']);
 export function compileLegacyQuery(sql, args = [], {runtime = false} = {}) {
   if (typeof sql !== 'string' || !sql.trim()) throw new TypeError('SQL required');
   if (!Array.isArray(args) && (!args || typeof args !== 'object')) throw new TypeError('SQL bindings required');
@@ -40,6 +40,7 @@ export function compileLegacyQuery(sql, args = [], {runtime = false} = {}) {
     const t=significant[j], n=significant[j+1];
     if(t.kind!=='word')continue;
     const word=t.text.toUpperCase();
+    if(runtime && word==='GLOB' && significant[j-1]?.text.toUpperCase()==='NOT' && n?.text==="'*[^A-Za-z0-9_-]*'"){significant[j-1].text='';t.text='!~';n.text="'[^A-Za-z0-9_-]'";continue;}
     if(['PRAGMA','AUTOINCREMENT','GLOB','ATTACH','DETACH','VACUUM','SQLITE_MASTER'].includes(word))throw new Error('SQLite-only SQL: '+word);
     if(word==='COLLATE'&&n?.text.toUpperCase()==='NOCASE'){if(!runtime)throw new Error('Explicit PostgreSQL collation required');n.text='shopeasy.nocase';}
     if(word==='INSERT'&&n?.text.toUpperCase()==='OR')throw new Error('Explicit PostgreSQL conflict clause required');
