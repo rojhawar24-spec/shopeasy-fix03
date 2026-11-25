@@ -1,5 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "node scripts/reject-vercel-deploy.mjs",
-  "outputDirectory": "public"
+  "framework": "express",
+  "buildCommand": "node scripts/verify-vercel-preview.mjs",
+  "regions": [
+    "fra1"
+  ]
 }
