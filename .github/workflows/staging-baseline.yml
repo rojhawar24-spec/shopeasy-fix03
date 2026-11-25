@@ -21,6 +21,20 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '24.22.2'
+      - name: Restore original CI contract from release archive
+        run: |
+          python3 - <<'PY'
+          import zipfile, io, pathlib
+          with zipfile.ZipFile("../ShopEasy-FIX03-GitHub-Upload-Kit.zip") as outer:
+              data=outer.read("ShopEasy-2.8.95-FIX03-FULL-PROJECT.zip")
+          with zipfile.ZipFile(io.BytesIO(data)) as inner:
+              matches=[n for n in inner.namelist() if n.endswith(".github/workflows/ci.yml")]
+              assert len(matches)==1, "Original CI contract not uniquely found"
+              target=pathlib.Path(".github/workflows/ci.yml")
+              target.parent.mkdir(parents=True,exist_ok=True)
+              target.write_bytes(inner.read(matches[0]))
+              print("Original CI contract restored")
+          PY
       - name: Install locked dependencies
         run: npm ci
       - name: Syntax and lint
