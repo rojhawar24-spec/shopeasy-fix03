@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import {isIP} from 'node:net';
 
 function actorIp(req) {
   const cloudflareIp = req.get?.('cf-connecting-ip') || req.headers?.['cf-connecting-ip'];
@@ -29,6 +30,28 @@ export function createShopRateLimiter({ name, windowMs, max, message, fallback, 
     return serviceUnavailable(res);
   };
   return function shopRateLimitMiddleware(req, res, next) {
+    if (!isCloudflareWorker && process.env.RATE_LIMIT_BACKEND === 'postgres-shared') {
+      return (async () => {
+        const ip = process.env.VERCEL === '1' ? req.get?.('x-vercel-forwarded-for') : req.ip;
+        if (typeof ip !== 'string' || !isIP(ip)) return unavailable(req,res,next);
+        const actorKey=crypto.createHash('sha256').update(name+'\\0'+ip).digest('hex');
+        const {isPostgresStaging,getRow}=await import('./database.js');
+        if (!isPostgresStaging) return unavailable(req,res,next);
+        const result=await getRow('SELECT * FROM shopeasy.consume_request_limit(?,?,?)',[actorKey,max,windowMs]);
+        if(typeof result?.allowed!=='boolean' || !Number.isSafeInteger(result.remaining) || !Number.isSafeInteger(result.reset_at))return unavailable(req,res,next);
+        const resetSeconds=Math.max(0,result.reset_at-Math.floor(Date.now()/1000));
+        res.set('RateLimit-Limit',String(max));
+        res.set('RateLimit-Remaining',String(result.remaining));
+        res.set('RateLimit-Reset',String(resetSeconds));
+        res.set('RateLimit-Policy',max+';w='+Math.ceil(windowMs/1000));
+        if(!result.allowed){
+          res.set('Retry-After',String(Math.max(1,resetSeconds)));
+          if(typeof onLimit==='function')return onLimit(req,res,next);
+          return res.status(429).type('text/plain').send(message);
+        }
+        return next();
+      })().catch(()=>unavailable(req,res,next));
+    }
     if (!isCloudflareWorker) {
       const production = process.env.NODE_ENV === 'production';
       const serverless = process.env.VERCEL === '1' || Boolean(process.env.AWS_LAMBDA_FUNCTION_NAME);
