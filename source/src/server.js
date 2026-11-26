@@ -946,8 +946,10 @@ async function storeLaunchConfig() {
   const readinessInputs={mode:setupMode,deliveryCountries,storeName,supportEmail,businessPhone,enterpriseNumber,legalName,businessAddress,policies:setupMode===MARKET_SETUP_MODES.STANDARD ? Object.values(policyChecks).every(Boolean) : {terms:termsPolicy},pricesIncludeTax,shippingConfigured,deliveryCountriesConfigured,sellableProductCount,currencyReviewComplete:!currencyPriceReviewRequired};
   const configurationReady=evaluateLaunchReadiness({...readinessInputs,sellableProductCount:1})&&pricingRulesValid;
   const ready=evaluateLaunchReadiness(readinessInputs)&&pricingRulesValid;
+  // Public checkout must not accept orders using the known demo identity or policies.
+  const demoIdentity=[legalName,businessAddress,enterpriseNumber,supportEmail,businessPhone,privacyPolicy,termsPolicy,shippingPolicy,returnsPolicy].some(value=>/\b(?:demo|demonstration|simulated|testing purposes|teststraat|fake)\b|example\.(?:com|org|net)|\+32\s*000\s*00\s*00\s*00/i.test(String(value||'')));
   const gateMessage=!pricingRulesValid?'The manager must correct the regional delivery/tax rules in Settings before checkout can accept orders.':launchGateMessage(setupMode);
-  return {storeName,supportEmail,businessPhone,enterpriseNumber,legalName,businessAddress,policies:Object.values(policyChecks).every(Boolean),policyChecks,termsPolicy,pricesIncludeTax,sellableProductCount,shippingConfigured,deliveryCountries,deliveryCountriesConfigured,currencyPriceReviewRequired,paymentMode,paymentProvider:paymentConfig.provider,paymentMerchantCountry:paymentConfig.merchantCountry,paymentStatus:paymentConfig.status,bankTransferReady:paymentConfig.bankTransfer.ready,emailEnabled:emailEnabled(),marketSetupMode:setupMode,shippingZoneRulesText,taxRulesText,pricingRulesValid,pricingRulesErrors,configurationReady,ready,gateMessage};
+  return {demoIdentity,storeName,supportEmail,businessPhone,enterpriseNumber,legalName,businessAddress,policies:Object.values(policyChecks).every(Boolean),policyChecks,termsPolicy,pricesIncludeTax,sellableProductCount,shippingConfigured,deliveryCountries,deliveryCountriesConfigured,currencyPriceReviewRequired,paymentMode,paymentProvider:paymentConfig.provider,paymentMerchantCountry:paymentConfig.merchantCountry,paymentStatus:paymentConfig.status,bankTransferReady:paymentConfig.bankTransfer.ready,emailEnabled:emailEnabled(),marketSetupMode:setupMode,shippingZoneRulesText,taxRulesText,pricingRulesValid,pricingRulesErrors,configurationReady,ready,gateMessage};
 }
 const POLICY_FIELDS = Object.freeze({ privacy:'privacy_policy', terms:'terms_policy', shipping:'shipping_policy', returns:'returns_policy' });
 const POLICY_LABELS = Object.freeze({
@@ -2253,6 +2255,12 @@ app.post('/payments/mollie/webhook',paymentWebhookLimiter,async(req,res)=>{
   }
 });
 
+function checkoutAccess(req,launch){
+  const production=process.env.VERCEL_ENV==='production';
+  const manager=String(req.user?.role||'').toLowerCase()==='manager';
+  const managerTest=isPostgresPreview&&production&&manager&&launch.demoIdentity;
+  return {managerTest,quoteOnly:isPostgresPreview&&(!production||(launch.demoIdentity&&!managerTest))};
+}
 app.get('/checkout',async(req,res)=>{
   let summary=await cartSummary(req);
   if(!summary.items.length)return res.redirect('/cart');
@@ -2281,6 +2289,9 @@ app.get('/checkout',async(req,res)=>{
   // revalidates ownership, the complete intent, provider credential and retry age.
   if(summary.hasStockIssues&&!recoveryOrder)return res.redirect(303,'/cart?stockMessage=changed');
   const [launch,termsPolicy,payments]=await Promise.all([storeLaunchConfig(),resolvePolicy('terms',res.locals.locale||'en'),readPaymentConfiguration()]);
+  const access=checkoutAccess(req,launch);
+  res.locals.demoCheckoutOnly=access.quoteOnly;
+  res.locals.managerTestCheckout=access.managerTest;
   const checkoutForm=recoveryOrder?{paymentMethod:'card',customerPhone:recoveryOrder.customer_phone,shippingName:recoveryOrder.shipping_name,shippingAddress:recoveryOrder.shipping_address,shippingCity:recoveryOrder.shipping_city,shippingPostalCode:recoveryOrder.shipping_postal_code,shippingCountry:recoveryOrder.shipping_country,customerNote:recoveryOrder.customer_note}:{paymentMethod:'cash_on_delivery'};
   if(recoveryOrder)res.locals.storeReady=launch.configurationReady;
   render(res,'checkout',{summary,storeReady:recoveryOrder?launch.configurationReady:launch.ready,paymentMode:payments.mode,checkoutCardEnabled:payments.status.checkoutCardEnabled,bankTransferEnabled:payments.bankTransfer.ready,giftCardsEnabled:(await getSetting('feature_gift_cards_enabled','0'))==='1',customerEmail:recoveryOrder?.email||req.user?.email||'',guestAccessToken,deliveryCountries:launch.deliveryCountries,marketSetupMode:launch.marketSetupMode,pricesIncludeTax:launch.pricesIncludeTax,pricingRulesActive:summary.pricingRulesActive,quoteReady:Boolean(recoveryOrder),quoteId:'',quoteMessage:'',checkoutForm,termsFallback:termsPolicy.fallback,termsActualLocale:termsPolicy.actualLocale,error:(recoveryOrder?launch.configurationReady:launch.ready)?null:launch.gateMessage,idempotencyKey,securityNotice:req.query.notice==='security-refresh'});
@@ -2298,6 +2309,9 @@ app.post('/checkout',checkoutDiagnosticStage('checkout-rate-limit'),checkoutLimi
   if(!summary.items.length) return res.redirect(303,'/cart');
   setCheckoutStage('store-and-payment-configuration');
   const [launch,payments]=await Promise.all([storeLaunchConfig(),readPaymentConfiguration()]);
+  const access=checkoutAccess(req,launch);
+  res.locals.demoCheckoutOnly=access.quoteOnly;
+  res.locals.managerTestCheckout=access.managerTest;
   setCheckoutStage('session-checkout-credentials');
   const checkoutCredentials=await getSessionCheckoutCredentials(req.sessionId);
   const activeCheckoutKey=String(checkoutCredentials?.checkout_idempotency_key||'');
@@ -2330,11 +2344,13 @@ app.post('/checkout',checkoutDiagnosticStage('checkout-rate-limit'),checkoutLimi
   const customerPhone=cleanText(req.body.customerPhone,32);
   const shipping={name:cleanText(req.body.shippingName,120),address:cleanText(req.body.shippingAddress,200),city:cleanText(req.body.shippingCity,100),postalCode:cleanText(req.body.shippingPostalCode,20),country:matchedCountry||submittedCountry};
   const termsAccepted=req.body.termsAccepted==='on';
-  const customerNote=cleanText(req.body.customerNote,500);
+  const rawCustomerNote=cleanText(req.body.customerNote,500);
+  const customerNote=access.managerTest?('[MANAGER TEST - DO NOT SHIP] '+rawCustomerNote).slice(0,500):rawCustomerNote;
+  if(isPostgresPreview&&requestedPaymentMethod!=='cash_on_delivery') return res.status(400).render('checkout',{...checkoutView,error:'Only cash on delivery is enabled for this deployment.'});
   if(!matchedCountry) return res.status(400).render('checkout',{...checkoutView,error:'This store does not currently deliver to that country. Choose one of the countries listed at checkout.'});
   if(!isValidPhone(customerPhone)||shipping.country.length<2||shipping.country.length>80||[shipping.name,shipping.address,shipping.city,shipping.country].some(v=>!v)||shipping.postalCode.length>20||!termsAccepted) return res.status(400).render('checkout',{...checkoutView,error:'Enter a valid phone number (at least 7 digits), complete every required delivery field and accept the store terms before continuing.'});
   // Staging can calculate a destination quote, but must never create or resume an order.
-  if(isPostgresPreview){
+  if(access.quoteOnly){
     if(summary.hasStockIssues) return res.redirect(303,'/cart?stockMessage=changed');
     if(!launch.ready) return render(res,'checkout',{...checkoutView,error:launch.gateMessage});
     if(summary.pricingRulesActive&&!summary.pricingRulesValid) return res.status(503).render('checkout',{...checkoutView,error:'The store regional delivery/tax rules are invalid.'});
@@ -2477,7 +2493,7 @@ app.post('/checkout',checkoutDiagnosticStage('checkout-rate-limit'),checkoutLimi
     try { await clearCheckoutCartIfUnchanged(req, created.items||[]); }
     catch(cleanupError) { logOperationalFailure('Post-checkout cart cleanup',cleanupError); }
     await safeAudit(req.user?.id||null,'order_created','order',created.orderId,{total:created.total,paymentProvider:selectedPaymentProvider});
-    await maybeSendOrderNotification(created.orderId,'confirmation');
+    if(!isPostgresPreview) await maybeSendOrderNotification(created.orderId,'confirmation');
     if(guestAccessToken) res.cookie(guestOrderCookieName(created.orderId),guestAccessToken,{httpOnly:true,sameSite:'lax',secure:isProd,path:'/',maxAge:1000*60*60*24*365});
     return res.redirect(303,`/checkout/success?order=${created.orderId}`);
   } catch(err) {
