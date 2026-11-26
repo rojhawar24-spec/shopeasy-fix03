@@ -82,6 +82,7 @@ if (isCloudflareWorker) {
   };
 }
 app.set('view engine','ejs');
+app.locals.demoCheckoutOnly=isPostgresPreview;
 if(isPostgresPreview) app.enable('view cache');
 app.set('views',path.join(root,'views'));
 app.disable('x-powered-by');
@@ -95,7 +96,7 @@ if (isPostgresPreview) {
       if(!this.headersSent) this.setHeader('Server-Timing','app;dur='+(performance.now()-started).toFixed(1));
       return originalWriteHead.apply(this,args);
     };
-    if (!['GET','HEAD','OPTIONS'].includes(req.method) && (req.path === '/checkout' || req.path.startsWith('/checkout/') || req.path.startsWith('/payments/') || req.path.startsWith('/admin/peppol') || req.path.startsWith('/admin/newsletter/send'))) {
+    if (!['GET','HEAD','OPTIONS'].includes(req.method) && (req.path.startsWith('/checkout/') || req.path.startsWith('/payments/') || req.path.startsWith('/admin/peppol') || req.path.startsWith('/admin/newsletter/send'))) {
       return res.status(503).type('text/plain').send('Live sales and external deliveries are disabled in this staging environment.');
     }
     return next();
@@ -2332,6 +2333,14 @@ app.post('/checkout',checkoutDiagnosticStage('checkout-rate-limit'),checkoutLimi
   const customerNote=cleanText(req.body.customerNote,500);
   if(!matchedCountry) return res.status(400).render('checkout',{...checkoutView,error:'This store does not currently deliver to that country. Choose one of the countries listed at checkout.'});
   if(!isValidPhone(customerPhone)||shipping.country.length<2||shipping.country.length>80||[shipping.name,shipping.address,shipping.city,shipping.country].some(v=>!v)||shipping.postalCode.length>20||!termsAccepted) return res.status(400).render('checkout',{...checkoutView,error:'Enter a valid phone number (at least 7 digits), complete every required delivery field and accept the store terms before continuing.'});
+  // Staging can calculate a destination quote, but must never create or resume an order.
+  if(isPostgresPreview){
+    if(summary.hasStockIssues) return res.redirect(303,'/cart?stockMessage=changed');
+    if(!launch.ready) return render(res,'checkout',{...checkoutView,error:launch.gateMessage});
+    if(summary.pricingRulesActive&&!summary.pricingRulesValid) return res.status(503).render('checkout',{...checkoutView,error:'The store regional delivery/tax rules are invalid.'});
+    if(summary.taxRuleMissing) return res.status(400).render('checkout',{...checkoutView,error:'No configured tax rule matches this destination.'});
+    return res.status(200).render('checkout',{...checkoutView,quoteReady:true,quoteId:'',quoteMessage:'Demo: delivery and tax calculated. No order or payment has been created.',error:null});
+  }
   let idem=submittedIdempotencyKey;
   let resumedExistingOrder=null;
   setCheckoutStage('load-order-currency');
