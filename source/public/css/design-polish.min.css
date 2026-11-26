@@ -282,3 +282,54 @@ body.is-storefront-app .shop-section .shop-controls .inline-search{min-width:0}
 @media(min-width:1500px){body.is-storefront-app .shop-results .shop-grid{grid-template-columns:repeat(auto-fill,minmax(245px,1fr))}}
 @media(max-width:900px){body.is-storefront-app .shop-section{grid-template-columns:minmax(0,1fr);gap:14px}body.is-storefront-app .shop-section>.shop-controls,body.is-storefront-app .shop-section .shop-results{grid-column:1}body.is-storefront-app .shop-section>.shop-controls{grid-template-columns:repeat(2,minmax(0,1fr));padding:14px}body.is-storefront-app .shop-results .shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body.is-storefront-app .shop-page-intro{padding-block:22px 14px;margin-block-end:12px}}
 @media(max-width:480px){body.is-storefront-app .shop-results .shop-grid{gap:10px}body.is-storefront-app .shop-grid .product-card-signature{border-radius:12px}body.is-storefront-app .shop-grid .product-card-body{padding:9px;gap:6px}body.is-storefront-app .shop-grid .product-blurb{display:none}body.is-storefront-app .shop-grid .product-title-block h3{font-size:.88rem}body.is-storefront-app .shop-grid .price-premium strong{font-size:1.05rem}body.is-storefront-app .shop-grid .product-main-cta{font-size:.73rem;padding:8px;min-height:42px}body.is-storefront-app .shop-grid .product-media{aspect-ratio:1/1}body.is-storefront-app .shop-grid .product-image img{padding:7px}body.is-storefront-app .shop-toolbar .chip{font-size:.75rem;padding:6px 10px}body.is-storefront-app .shop-toolbar{gap:7px}body.is-storefront-app .shop-total-count{font-size:.72rem}}
+
+/* Editorial catalogue: calm surfaces, genuine images, light controls, no card clutter. */
+body.is-storefront-app .shop-editorial-intro{margin-block:0 20px;padding-block:clamp(22px,3vw,42px) 18px;border-bottom:0}
+body.is-storefront-app .shop-editorial-intro .eyebrow{font-size:.68rem;letter-spacing:.16em;opacity:.8}
+body.is-storefront-app .shop-editorial-intro h1{font-size:clamp(1.9rem,3.3vw,3.25rem);letter-spacing:-.045em;line-height:1.12;font-weight:650}
+body.is-storefront-app .shop-editorial-intro p{font-size:.95rem;color:var(--muted,var(--text));margin-top:8px}
+body.is-storefront-app .shop-editorial{grid-template-columns:minmax(185px,215px) minmax(0,1fr);gap:clamp(20px,3vw,44px);padding-block:0 36px}
+body.is-storefront-app .shop-editorial>.shop-controls{border:0;border-inline-end:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none;padding:2px 20px 6px 0;padding-inline:0 20px;gap:16px}
+body.is-storefront-app .shop-editorial .shop-filters-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 0 13px;border-bottom:1px solid var(--line)}
+body.is-storefront-app .shop-editorial .shop-filters-heading h2{font-size:1rem;font-weight:650;letter-spacing:0}
+body.is-storefront-app .shop-editorial .shop-reset-link{font-size:.75rem;color:var(--muted,var(--text));text-underline-offset:3px}
+body.is-storefront-app .shop-editorial .shop-controls :is(input:not([type=checkbox]),select){min-height:40px;border-radius:7px;border-color:var(--line);background:var(--paper);font-size:.82rem}
+body.is-storefront-app .shop-editorial .shop-controls .filter-stock{background:transparent;padding-inline:0;border:0}
+body.is-storefront-app .shop-editorial .shop-filter-actions .btn{border-radius:7px;font-weight:600}
+body.is-storefront-app .shop-editorial .shop-results .shop-toolbar{margin:0 0 20px;padding:0 0 12px;min-height:44px}
+body.is-storefront-app .shop-editorial .shop-results .shop-toolbar .chips{flex-wrap:nowrap;overflow-x:auto;gap:6px;min-width:0}
+body.is-storefront-app .shop-editorial .shop-toolbar .chip{border:0;background:transparent;border-radius:8px;padding:8px 13px;min-height:36px;white-space:nowrap}
+body.is-storefront-app .shop-editorial .shop-toolbar .chip.active{background:var(--brand-primary);color:#fff}
+body.is-storefront-app .shop-editorial .shop-results .editorial-product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:clamp(20px,2.2vw,34px) clamp(12px,1.5vw,22px);align-items:stretch}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-signature{border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;min-width:0}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-signature .product-media{border-radius:12px;aspect-ratio:4/5;background:var(--surface-soft,var(--paper));overflow:hidden}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-image img{padding:clamp(10px,1.4vw,20px);object-fit:contain!important;transition:transform .22s ease}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-clothing .product-media{background:var(--surface-soft,var(--paper))!important}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-clothing .product-image img{background:transparent!important}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-body{padding:12px 2px 2px;gap:7px;border:0;background:transparent}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-topline{min-height:0;margin:0}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-category{font-size:.66rem;text-transform:uppercase;letter-spacing:.08em}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-main{gap:7px}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-title-block h3{font-size:1rem;font-weight:650;line-height:1.4;min-height:2.8em;letter-spacing:-.01em}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-blurb{font-size:.77rem;line-height:1.45;min-height:0;max-height:2.9em;overflow:hidden;color:var(--muted,var(--text))}
+body.is-storefront-app .shop-editorial .editorial-product-grid .price-premium strong{font-size:1.15rem;font-weight:700}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-meta-row{font-size:.71rem;min-height:0}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-main-cta{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none;border-radius:7px;font-size:.8rem;font-weight:600;min-height:38px}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-main-cta:hover{background:var(--surface-soft,var(--paper));border-color:var(--line-strong)}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-badge{font-size:.65rem;line-height:1.2;padding:5px 9px;border-radius:6px}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-hover-actions{max-width:calc(100% - 16px)}
+body.is-storefront-app .shop-editorial .editorial-product-grid .product-hover-actions button{font-size:.72rem;white-space:normal}
+body.is-storefront-app:has(.shop-editorial) .site-footer{border-top:1px solid var(--line);margin-block-start:30px;padding-block-start:30px}
+body.is-storefront-app:has(.shop-editorial) .site-footer .footer-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.7fr) minmax(0,1.3fr) minmax(0,1.2fr);gap:clamp(18px,3vw,40px);align-items:start}
+body.is-storefront-app:has(.shop-editorial) .site-footer .footer-grid>*{min-width:0;overflow-wrap:anywhere}
+body.is-storefront-app:has(.shop-editorial) .site-footer .footer-title{font-size:.85rem;font-weight:700;letter-spacing:0}
+body.is-storefront-app:has(.shop-editorial) .site-footer .footer-link-column{display:flex;flex-direction:column;gap:8px}
+body.is-storefront-app:has(.shop-editorial) .site-footer .footer-link-column a,body.is-storefront-app:has(.shop-editorial) .site-footer .footer-detail{font-size:.78rem;line-height:1.5}
+body.is-storefront-app:has(.shop-editorial) .site-footer .footer-business-column{display:grid;gap:9px}
+body.is-storefront-app:has(.shop-editorial) .site-footer .footer-detail{display:grid;gap:2px}
+body.is-storefront-app:has(.shop-editorial) .site-footer .footer-bottom{display:flex;flex-wrap:wrap;gap:12px 20px;font-size:.75rem;line-height:1.5}
+@media(min-width:1500px){body.is-storefront-app .shop-editorial .shop-results .editorial-product-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}}
+@media(max-width:900px){body.is-storefront-app .shop-editorial{grid-template-columns:minmax(0,1fr);gap:14px}body.is-storefront-app .shop-editorial>.shop-controls{padding:16px;border:1px solid var(--line);border-radius:12px;grid-template-columns:repeat(2,minmax(0,1fr))}body.is-storefront-app .shop-editorial .shop-results .editorial-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body.is-storefront-app:has(.shop-editorial) .site-footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){body.is-storefront-app .shop-editorial .shop-results .editorial-product-grid{gap:20px 10px}body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-body{padding:8px 1px 0;gap:6px}body.is-storefront-app .shop-editorial .editorial-product-grid .product-title-block h3{font-size:.85rem}body.is-storefront-app .shop-editorial .editorial-product-grid .price-premium strong{font-size:1rem}body.is-storefront-app .shop-editorial .editorial-product-grid .product-main-cta{font-size:.72rem;min-height:42px}body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-signature .product-media{aspect-ratio:4/5;border-radius:9px}body.is-storefront-app:has(.shop-editorial) .site-footer .footer-grid{gap:20px 12px}body.is-storefront-app:has(.shop-editorial) .site-footer .footer-business-column{grid-column:1/-1}}
+@media(prefers-reduced-motion:no-preference){body.is-storefront-app .shop-editorial .editorial-product-grid .product-card-signature:hover .product-image img{transform:scale(1.035)}}
+@media(prefers-reduced-motion:reduce){body.is-storefront-app .shop-editorial .editorial-product-grid .product-image img{transition:none}}
