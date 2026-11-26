@@ -7,7 +7,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const unsupportedServerlessTarget = process.env.VERCEL === '1' || Boolean(process.env.AWS_LAMBDA_FUNCTION_NAME);
-export const isPostgresPreview = process.env.VERCEL === '1' && process.env.VERCEL_ENV === 'preview' && process.env.SHOP_DB_BACKEND === 'postgres-preview' && process.env.RATE_LIMIT_BACKEND === 'postgres-shared';
+export const isPostgresPreview = process.env.VERCEL === '1' && ['preview', 'production'].includes(process.env.VERCEL_ENV) && process.env.SHOP_DB_BACKEND === 'postgres-preview' && process.env.RATE_LIMIT_BACKEND === 'postgres-shared';
 if (unsupportedServerlessTarget && !isPostgresPreview) {
   throw new Error('This ShopEasy release does not support Vercel/AWS Lambda serverless deployment: its shared rate limiter is provided by Cloudflare Durable Objects. Deploy with Cloudflare Workers + Turso (see CLOUDFLARE-DEPLOYMENT.md), or use a single persistent Node.js instance with RATE_LIMIT_BACKEND=memory-single-instance. Free plans have hard limits and are not unlimited.');
 }
