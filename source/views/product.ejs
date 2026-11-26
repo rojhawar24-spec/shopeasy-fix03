@@ -8,7 +8,7 @@
     <nav class="breadcrumbs" aria-label="<%= customerText("Breadcrumb") %>"><a href="/"><%= customerText("Home") %></a><span aria-hidden="true">/</span><a href="/shop"><%= customerText("Shop") %></a><% if(product.category_slug){ %><span aria-hidden="true">/</span><a href="/category/<%= encodeURIComponent(product.category_slug) %>" translate="no" data-no-translate><%= product.category_name || product.category_slug %></a><% } %><span aria-hidden="true">/</span><span aria-current="page" data-no-translate><%= product.name %></span></nav>
     
     <div class="product-media-gallery" data-product-gallery>
-      <div class="product-visual product-visual-v5 product-visual-v6">
+      <div class="product-visual product-visual-v5 product-visual-v6<%= /clothing|apparel|fashion|kleding|vêtements|ملابس|جلوبەرگ/i.test(String(product.category_slug||"")+" "+String(product.category_name||"")) ? " product-visual-clothing" : "" %>">
         <img src="<%= safeImageUrl(primaryProductImage?.image_url||product.image_url) %>" data-fallback-src="/assets/product-placeholder.svg" alt="<%= product.name %>" translate="no" data-no-translate width="800" height="1000" fetchpriority="high" decoding="async" data-product-main-image data-base-image-url="<%= safeImageUrl(primaryProductImage?.image_url||product.image_url) %>" data-base-image-alt="<%= product.name %>" translate="no" data-no-translate>
         <a class="product-photo-expand" href="<%= safeImageUrl(primaryProductImage?.image_url||product.image_url) %>" target="_blank" rel="noopener noreferrer" data-product-photo-expand><span aria-hidden="true">⌕</span><span><%= customerText(locale==='nl'?'Vergroten':locale==='fr'?'Agrandir':locale==='ckb'?'گەورەکردنەوە':locale==='ar'?'تكبير':'View larger') %></span></a>
       </div>
