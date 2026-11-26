@@ -1317,10 +1317,11 @@ app.get('/',async(req,res)=>{
   ]);
   const cutoff=Date.now()-30*86400000;
   const isRecent=p=>{const raw=String(p.created_at||'');const t=Date.parse(raw.replace(' ','T')+(/(?:Z|[+-]\d\d:\d\d)$/.test(raw)?'':'Z'));return Number.isFinite(t)&&t>=cutoff&&t<=Date.now();};
-  const featuredIds=new Set(featuredProducts.map(p=>Number(p.id)));
-  const newProducts=latestProducts.filter(p=>isRecent(p)&&!featuredIds.has(Number(p.id))).slice(0,4);
+  
+  const newProducts=latestProducts.filter(p=>isRecent(p)).slice(0,12);
   const newIds=new Set(newProducts.map(p=>Number(p.id)));
-  const products=featuredProducts.length?featuredProducts:latestProducts.filter(p=>!newIds.has(Number(p.id))).slice(0,8);
+  const normalFeatured=featuredProducts.filter(p=>!newIds.has(Number(p.id)));
+  const products=normalFeatured.length?normalFeatured:latestProducts.filter(p=>!newIds.has(Number(p.id))).slice(0,8);
   // A legacy/default /assets hero is not a manager-selected image. Only a real
   // uploaded asset or trusted HTTPS image may override the current catalogue photo.
   // This prevents the old editorial placeholder from masking the seller's product.
@@ -1337,7 +1338,7 @@ app.get('/',async(req,res)=>{
   };
   const heroProduct=latestProducts.find(hasRealProductImage)||null;
   const locale=BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en';
-  render(res,'home',{products,newProducts,hasFeaturedProducts:featuredProducts.length>0,heroProduct,categories,heroEyebrow,heroTitle,heroAccent,heroDescription,heroImage,added:req.query.added==='1'});
+  render(res,'home',{products,newProducts,hasFeaturedProducts:normalFeatured.length>0,heroProduct,categories,heroEyebrow,heroTitle,heroAccent,heroDescription,heroImage,added:req.query.added==='1'});
 });
 app.get('/category/:slug',async(req,res)=>{
   const categorySlug=cleanText(req.params.slug,80);
