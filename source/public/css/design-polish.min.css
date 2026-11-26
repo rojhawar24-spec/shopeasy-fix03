@@ -121,3 +121,26 @@ body.is-storefront-app .home-arrival-grid:has(> :only-child) .home-arrival-media
 body.is-storefront-app .home-arrival-grid:has(> :nth-child(2):last-child) .home-arrival-media{aspect-ratio:16/10}
 body.is-storefront-app .home-arrival-label,body.is-storefront-app .home-arrival-arrow{z-index:1;background:var(--paper);box-shadow:0 2px 12px rgb(0 0 0 / 10%)}
 @media(max-width:720px){body.is-storefront-app .home-arrival-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}body.is-storefront-app .home-arrival-grid:has(> :nth-child(3):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}body.is-storefront-app .home-arrival-grid:has(> :nth-child(3):last-child)>:first-child{grid-column:1/-1}body.is-storefront-app .home-arrival-grid:has(> :nth-child(3):last-child)>:first-child .home-arrival-media{aspect-ratio:16/9}body.is-storefront-app .home-arrival-grid:has(> :only-child) .home-arrival-media{height:clamp(210px,65vw,340px)}body.is-storefront-app .home-arrival-label{inset-block-start:8px;inset-inline-start:8px}body.is-storefront-app .home-arrival-arrow{inset-block-end:8px;inset-inline-end:8px;width:30px;height:30px}}
+
+/* Endless rightward new-arrival ribbon, independent of the normal catalogue. */
+body.is-storefront-app .arrival-ribbon{position:relative;min-width:0;max-width:100%;overflow:hidden;direction:ltr}
+body.is-storefront-app .arrival-ribbon-track{display:flex;width:200%;will-change:transform;animation:arrival-glide-right 36s linear infinite}
+body.is-storefront-app .arrival-ribbon-group{display:flex;flex:0 0 50%;box-sizing:border-box;min-width:0;gap:clamp(10px,1.3vw,20px);padding-inline-end:clamp(10px,1.3vw,20px)}
+body.is-storefront-app .arrival-ribbon-group .home-arrival-tile{flex:1 1 0;min-width:0;position:relative;display:block;border-radius:16px;background:var(--surface-soft,var(--paper));overflow:hidden}
+body.is-storefront-app .arrival-ribbon .home-arrival-media{height:auto;aspect-ratio:4/3;position:relative}
+body.is-storefront-app .arrival-ribbon .home-arrival-media img{object-fit:cover;position:absolute;inset:0;width:100%;height:100%;padding:0}
+body.is-storefront-app .arrival-ribbon .arrival-clothing img{object-fit:contain}
+body.is-storefront-app .arrival-ribbon .arrival-caption{position:absolute;z-index:1;inset:auto 0 0;display:flex;align-items:end;gap:10px;padding:32px 14px 14px;color:white;background:linear-gradient(transparent,rgba(0,0,0,.78));font-size:clamp(.85rem,1.1vw,1.1rem)}
+body.is-storefront-app .arrival-ribbon .arrival-name{min-width:0;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.is-storefront-app .arrival-ribbon .arrival-price{flex-shrink:0;white-space:nowrap}
+body.is-storefront-app .arrival-ribbon .home-arrival-label{background:#173c2c;color:white;border:0}
+body.is-storefront-app .arrival-ribbon.is-single .arrival-ribbon-track{width:100%;animation:none;will-change:auto}
+body.is-storefront-app .arrival-ribbon.is-single .arrival-ribbon-group{flex-basis:100%;padding:0;justify-content:center}
+body.is-storefront-app .arrival-ribbon.is-single .home-arrival-tile{flex:0 1 min(100%,640px)}
+body.is-storefront-app .arrival-pause{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;cursor:pointer;margin-block:0 10px}
+body.is-storefront-app .arrival-pause input{width:16px;height:16px;accent-color:var(--brand-primary)}
+body.is-storefront-app .arrival-ribbon:hover .arrival-ribbon-track,body.is-storefront-app .new-arrivals-section:has(.arrival-pause input:checked) .arrival-ribbon-track{animation-play-state:paused}
+body.is-storefront-app .arrival-ribbon:focus-within .arrival-ribbon-track{animation:none;transform:translateX(0)}
+@keyframes arrival-glide-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media(max-width:720px){body.is-storefront-app .arrival-ribbon:not(.is-single) .arrival-ribbon-track{width:calc(104% * var(--arrival-count));animation-duration:28s}body.is-storefront-app .arrival-ribbon .home-arrival-media{aspect-ratio:1/1}body.is-storefront-app .arrival-ribbon .arrival-caption{font-size:.8rem;gap:5px;padding:26px 8px 8px}body.is-storefront-app .arrival-ribbon .arrival-price{font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){body.is-storefront-app .arrival-ribbon{overflow-x:auto}body.is-storefront-app .arrival-ribbon:not(.is-single) .arrival-ribbon-track{width:100%;animation:none;will-change:auto}body.is-storefront-app .arrival-ribbon-group[aria-hidden=true]{display:none}body.is-storefront-app .arrival-ribbon-group{flex-basis:100%;padding:0}body.is-storefront-app .arrival-pause{display:none}body.is-storefront-app .arrival-ribbon:not(.is-single) .arrival-ribbon-group .home-arrival-tile{min-width:190px}}
