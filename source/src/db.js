@@ -3021,8 +3021,7 @@ export async function adminCreateOrUpdateProduct(data) {
     throw error;
   }
 }
-// Atomic, non-destructive archive. Keep the row and image so historic order items
-// remain traceable; refuse while checkout has stock reserved for this product.
+// Restock preserves existing reservations and historical order snapshots.
 export async function restockProduct(id, quantity) {
   const amount = Number(quantity);
   if (!Number.isSafeInteger(amount) || amount <= 0 || amount > 100000000) throw new Error('INVALID_RESTOCK');
@@ -3044,19 +3043,18 @@ export async function restockProductVariant(variantId, quantity) {
   return getProductVariantById(Number(variantId));
 }
 
+// Visibility only: preserve stock, variants and outstanding order reservations.
 export async function archiveProduct(id) {
   const result = await run(`UPDATE products SET active=0,featured=0,updated_at=datetime('now')
-    WHERE id=? AND reserved_stock=0
-      AND NOT EXISTS(SELECT 1 FROM product_variants pv WHERE pv.product_id=products.id AND pv.reserved_stock>0)`,[id]);
+    WHERE id=? AND active=1`,[id]);
   return result.changes === 1;
 }
 
 // Restore an archived product without implicitly featuring it again. The item remains
-// hidden unless the manager explicitly restores it, and reserved inventory must be clear.
+// hidden unless the manager explicitly restores it. Existing reservations remain unchanged.
 export async function restoreProduct(id) {
   const result = await run(`UPDATE products SET active=1,updated_at=datetime('now')
-    WHERE id=? AND active=0 AND reserved_stock=0
-      AND NOT EXISTS(SELECT 1 FROM product_variants pv WHERE pv.product_id=products.id AND pv.reserved_stock>0)`,[id]);
+    WHERE id=? AND active=0`,[id]);
   return result.changes === 1;
 }
 
