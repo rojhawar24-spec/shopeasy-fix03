@@ -2260,7 +2260,8 @@ function checkoutAccess(req,launch){
   const managerTest=isPostgresPreview&&production&&launch.demoIdentity;
   return {managerTest,quoteOnly:isPostgresPreview&&!production};
 }
-app.post('/checkout-price',checkoutLimiter,async(req,res)=>{
+const checkoutPriceLimiter=makeRateLimiter('checkout-price',{windowMs:10*60*1000,max:120,standardHeaders:true,legacyHeaders:false,message:'Too many price requests. Please try again later.'});
+app.post('/checkout-price',checkoutPriceLimiter,async(req,res)=>{
   res.set('Cache-Control','private, no-store');
   const launch=await storeLaunchConfig();
   const country=matchDeliveryCountry(cleanText(req.body.shippingCountry,80),launch.deliveryCountries);
