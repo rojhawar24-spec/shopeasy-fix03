@@ -11,7 +11,7 @@
   const status = preview.querySelector('[data-product-cover-preview-status]');
   if (!(image instanceof HTMLImageElement) || !(title instanceof HTMLElement) || !(status instanceof HTMLElement)) return;
 
-  const MAX_BYTES = 2 * 1024 * 1024;
+  const MAX_BYTES = 550 * 1024;
   const validTypes = new Set(['image/jpeg', 'image/png', 'image/webp']);
   let currentObjectUrl = '';
   let selectionToken = 0;
@@ -181,41 +181,52 @@
     if (stagedGrid) stagedGrid.replaceChildren();
   };
   if (galleryInput && stagedGallery && stagedGrid && stagedTitle) {
-    galleryInput.addEventListener('change', () => {
+    let galleryVersion=0;
+    galleryInput.addEventListener('change', async () => {
+      const token=++galleryVersion;
       clearStaged();
-      const files = [...(galleryInput.files || [])];
-      stagedGallery.hidden = files.length === 0;
-      stagedTitle.textContent = `${files.length} new photo${files.length === 1 ? '' : 's'} selected`;
-      files.slice(0, 6).forEach(file => {
-        const item = document.createElement('div');
-        item.className = 'product-staged-gallery-item';
-        const photo = document.createElement('img');
-        photo.alt = `New product photo preview: ${file.name}`;
-        const label = document.createElement('small');
-        label.textContent = `${file.name} · ${Math.round(file.size / 1024)} KB`;
-        if (validTypes.has(file.type) && file.size <= MAX_BYTES && file.size > 0) {
-          const url = URL.createObjectURL(file);
-          stagedUrls.push(url);
-          photo.onload = () => {
-            const review = photo.naturalWidth < 500 || photo.naturalHeight < 500 || Math.abs(photo.naturalWidth / photo.naturalHeight - 1) > 0.1;
-            label.textContent = `${file.name} · ${photo.naturalWidth} × ${photo.naturalHeight} px · ${review ? 'Review crop/resolution' : 'Ready to save'}`;
-            item.dataset.photoQuality = review ? 'review' : 'good';
-          };
-          photo.onerror = () => {
-            label.textContent = `${file.name} · Cannot display this photo; choose another file.`;
-            item.dataset.photoQuality = 'review';
-          };
-          photo.src = url;
-        } else {
-          item.dataset.photoQuality = 'review';
-          label.textContent = `${file.name} · Unsupported or larger than 2 MiB`;
+      const files=[...(galleryInput.files||[])];
+      stagedGallery.hidden=!files.length;
+      delete stagedGallery.dataset.processing;
+      delete stagedGallery.dataset.invalid;
+      if(!files.length)return;
+      stagedGallery.dataset.processing='true';
+      stagedTitle.textContent='Preparing '+files.length+' photos…';
+      try{
+        if(files.length>5)throw Error('Select up to five additional photos.');
+        const prepared=[];
+        for(const file of files){
+          if(!validTypes.has(file.type)||!file.size)throw Error('Choose valid JPG, PNG or WebP photos.');
+          const optimized=await optimizeLargeImage(file);
+          if(token!==galleryVersion)return;
+          prepared.push(optimized);
         }
-        item.append(photo, label);
-        stagedGrid.append(item);
-      });
+        const transfer=new DataTransfer();
+        prepared.forEach(file=>transfer.items.add(file));
+        galleryInput.files=transfer.files;
+        stagedTitle.textContent=prepared.length+' photos ready to save';
+        prepared.forEach(file=>{
+          const item=document.createElement('div');
+          item.className='product-staged-gallery-item';
+          const photo=document.createElement('img');
+          const url=URL.createObjectURL(file);stagedUrls.push(url);
+          photo.src=url;photo.alt=file.name;
+          const label=document.createElement('small');label.textContent=file.name+' · '+Math.round(file.size/1024)+' KB';
+          item.append(photo,label);stagedGrid.append(item);
+        });
+      }catch(error){
+        if(token!==galleryVersion)return;
+        stagedGallery.dataset.invalid='true';
+        stagedTitle.textContent=error.message||'Could not prepare photos. Try smaller images.';
+      }finally{
+        if(token===galleryVersion)delete stagedGallery.dataset.processing;
+      }
     });
   }
   form?.addEventListener('submit', event => {
+    if(stagedGallery?.dataset.processing==='true'||stagedGallery?.dataset.invalid==='true'){
+      event.preventDefault();galleryInput.focus();return;
+    }
     if (preview.dataset.previewInvalid === 'true' || preview.dataset.previewProcessing === 'true') {
       event.preventDefault();
       status.textContent = preview.dataset.previewProcessing === 'true'
