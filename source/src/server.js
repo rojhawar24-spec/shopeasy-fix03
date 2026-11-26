@@ -82,6 +82,7 @@ if (isCloudflareWorker) {
   };
 }
 app.set('view engine','ejs');
+if(isPostgresPreview) app.enable('view cache');
 app.set('views',path.join(root,'views'));
 app.disable('x-powered-by');
 // This deployment is an authenticated evaluation environment, not a commercial launch.
@@ -381,6 +382,16 @@ app.use((req,res,next)=>{ if(isCheckoutPost(req)) markCheckoutDiagnosticStage(re
 // client could force URL-encoded/JSON parsing work before any rate limiter runs.
 app.use(checkoutDiagnosticStage('general-rate-limit'));
 app.use(generalLimiter);
+// Public catalogue suggestions have no session-dependent fields. Keep both request limits.
+if(isPostgresPreview) app.get('/api/search',searchLimiter,async(req,res)=>{
+  res.set('Cache-Control','private, no-store');
+  const enabled=await getSetting('feature_autocomplete_enabled','1');
+  if(enabled==='0')return res.status(404).json({error:'Autocomplete disabled'});
+  const q=cleanText(req.query.q,80);
+  if(!q) return res.json({results:[]});
+  const [results,currency]=await Promise.all([listProducts({search:q,onlyActive:true,limit:6,offset:0}),getSetting('currency',DEFAULT_STORE_CURRENCY)]);
+  return res.json({results:results.map(p=>({id:p.id,name:p.name,slug:p.slug,image:app.locals.safeImageUrl(p.image_url),price:app.locals.formatPrice(app.locals.effectivePrice(p),currency),discount:app.locals.discountPercent(p)}))});
+});
 // The theme contains only allowlisted public colors/font. It needs no login,
 // customer session, cart, checkout readiness, or private page middleware.
 if(isPostgresPreview) app.get('/theme/shop.css',async(req,res,next)=>{
