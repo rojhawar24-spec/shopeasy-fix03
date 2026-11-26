@@ -2257,9 +2257,8 @@ app.post('/payments/mollie/webhook',paymentWebhookLimiter,async(req,res)=>{
 
 function checkoutAccess(req,launch){
   const production=process.env.VERCEL_ENV==='production';
-  const manager=String(req.user?.role||'').toLowerCase()==='manager';
-  const managerTest=isPostgresPreview&&production&&manager&&launch.demoIdentity;
-  return {managerTest,quoteOnly:isPostgresPreview&&(!production||(launch.demoIdentity&&!managerTest))};
+  const managerTest=isPostgresPreview&&production&&launch.demoIdentity;
+  return {managerTest,quoteOnly:isPostgresPreview&&!production};
 }
 app.get('/checkout',async(req,res)=>{
   let summary=await cartSummary(req);
@@ -2345,7 +2344,7 @@ app.post('/checkout',checkoutDiagnosticStage('checkout-rate-limit'),checkoutLimi
   const shipping={name:cleanText(req.body.shippingName,120),address:cleanText(req.body.shippingAddress,200),city:cleanText(req.body.shippingCity,100),postalCode:cleanText(req.body.shippingPostalCode,20),country:matchedCountry||submittedCountry};
   const termsAccepted=req.body.termsAccepted==='on';
   const rawCustomerNote=cleanText(req.body.customerNote,500);
-  const customerNote=access.managerTest?('[MANAGER TEST - DO NOT SHIP] '+rawCustomerNote).slice(0,500):rawCustomerNote;
+  const customerNote=access.managerTest?('[TEST ORDER - DO NOT SHIP] '+rawCustomerNote).slice(0,500):rawCustomerNote;
   if(isPostgresPreview&&requestedPaymentMethod!=='cash_on_delivery') return res.status(400).render('checkout',{...checkoutView,error:'Only cash on delivery is enabled for this deployment.'});
   if(!matchedCountry) return res.status(400).render('checkout',{...checkoutView,error:'This store does not currently deliver to that country. Choose one of the countries listed at checkout.'});
   if(!isValidPhone(customerPhone)||shipping.country.length<2||shipping.country.length>80||[shipping.name,shipping.address,shipping.city,shipping.country].some(v=>!v)||shipping.postalCode.length>20||!termsAccepted) return res.status(400).render('checkout',{...checkoutView,error:'Enter a valid phone number (at least 7 digits), complete every required delivery field and accept the store terms before continuing.'});
