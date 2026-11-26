@@ -1307,7 +1307,7 @@ function boundedPage(value,total,pageSize) {
 
 app.get('/',async(req,res)=>{
   const [featuredProducts,latestProducts,categories,heroSettings]=await Promise.all([
-    listProducts({onlyActive:true,featured:true,sort:'featured',limit:8,offset:0}),
+    listProducts({onlyActive:true,sort:'featured',limit:48,offset:0}),
     listProducts({onlyActive:true,sort:'newest',limit:32,offset:0}),
     listCategories({activeOnly:true}),
     Promise.all([
@@ -1320,8 +1320,12 @@ app.get('/',async(req,res)=>{
   
   const newProducts=latestProducts.filter(p=>isRecent(p)).slice(0,12);
   const newIds=new Set(newProducts.map(p=>Number(p.id)));
-  const normalFeatured=featuredProducts.filter(p=>!newIds.has(Number(p.id)));
-  const products=normalFeatured.length?normalFeatured:latestProducts.filter(p=>!newIds.has(Number(p.id))).slice(0,8);
+  // The collection is a catalogue preview, not a mutually exclusive status.
+  // Prioritise ordinary products, then use new products to fill available slots.
+  const catalogue=[...new Map([...featuredProducts,...latestProducts].map(p=>[Number(p.id),p])).values()];
+  const ordinary=catalogue.filter(p=>!newIds.has(Number(p.id)));
+  const arrivals=catalogue.filter(p=>newIds.has(Number(p.id)));
+  const products=[...ordinary,...arrivals].slice(0,8);
   // A legacy/default /assets hero is not a manager-selected image. Only a real
   // uploaded asset or trusted HTTPS image may override the current catalogue photo.
   // This prevents the old editorial placeholder from masking the seller's product.
@@ -1338,7 +1342,7 @@ app.get('/',async(req,res)=>{
   };
   const heroProduct=latestProducts.find(hasRealProductImage)||null;
   const locale=BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en';
-  render(res,'home',{products,newProducts,hasFeaturedProducts:normalFeatured.length>0,heroProduct,categories,heroEyebrow,heroTitle,heroAccent,heroDescription,heroImage,added:req.query.added==='1'});
+  render(res,'home',{products,newProducts,hasFeaturedProducts:false,heroProduct,categories,heroEyebrow,heroTitle,heroAccent,heroDescription,heroImage,added:req.query.added==='1'});
 });
 app.get('/category/:slug',async(req,res)=>{
   const categorySlug=cleanText(req.params.slug,80);
