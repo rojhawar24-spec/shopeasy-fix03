@@ -3050,6 +3050,29 @@ app.post('/admin/products/:productId/images/:imageId/delete',requireManager,veri
 app.post('/admin/products/restock',requireManager,verifyCsrf,async(req,res)=>{
   try {
     const productId=validId(req.body.id)?Number(req.body.id):null;
+    if(req.body.batch==='1'){
+      if(!productId)throw new Error('INVALID_RESTOCK');
+      const ids=Array.isArray(req.body.variantIds)?req.body.variantIds:[req.body.variantIds];
+      const amounts=Array.isArray(req.body.quantities)?req.body.quantities:[req.body.quantities];
+      if(ids.length!==amounts.length||ids.length>50)throw new Error('INVALID_RESTOCK');
+      const seen=new Set(), changes=[];
+      for(let i=0;i<ids.length;i++){
+        const id=optionalFormId(ids[i]), quantity=parseCartQuantity(amounts[i]);
+        if(!id||seen.has(id)||quantity===null||quantity>100000000)throw new Error('INVALID_RESTOCK');
+        seen.add(id);if(quantity>0)changes.push({id,quantity});
+      }
+      if(!changes.length)throw new Error('INVALID_RESTOCK');
+      const tx=await db.transaction('write');
+      try{
+        for(const {id,quantity} of changes){
+          const result=await run("UPDATE product_variants SET stock=stock+?,updated_at=datetime('now') WHERE id=? AND product_id=? AND active=1 AND stock<=100000000-?",[quantity,id,productId,quantity],tx);
+          if(result.changes!==1)throw new Error('RESTOCK_FAILED');
+        }
+        await tx.commit();
+      }catch(error){try{await tx.rollback();}catch{}throw error;}
+      await safeAudit(req.user.id,'product_variants_restocked','product',productId,{changes});
+      return res.redirect(303,`/admin/products/${productId}/edit?restocked=1`);
+    }
     const variantId=optionalFormId(req.body.variantId);
     const amount=parseCartQuantity(req.body.quantity);
     if(!productId || amount===null || amount<=0 || amount>100000000) throw new Error('INVALID_RESTOCK');
