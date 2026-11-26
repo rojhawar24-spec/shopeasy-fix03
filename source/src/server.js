@@ -285,7 +285,7 @@ function onlyCategoriesWithActiveAncestors(rows){
   return rows.filter(c=>Number(c.active)===1 && hasActiveAncestors(c));
 }
 async function getCategoryNav(){
-  if(categoryNavCache.expiresAt>Date.now()) return categoryNavCache.items;
+  if(!isPostgresPreview && categoryNavCache.expiresAt>Date.now()) return categoryNavCache.items;
   const visible=onlyCategoriesWithActiveAncestors(await listCategories());
   categoryNavCache={expiresAt:Date.now()+10_000,items:visible};
   return visible;
@@ -2966,6 +2966,7 @@ app.post('/admin/products/save',requireManager,upload.fields([{name:'image',maxC
     const data={id,name,slug:stableSlug,shortDescription:cleanText(req.body.shortDescription,300),description:cleanText(req.body.description,5000),imageUrl:image, galleryImages,priceCents:price,costPriceCents,salePriceCents:sale,saleStart,saleEnd,sku,stock,reorderLevel,categoryId,tags:cleanText(req.body.tags,300),featured:req.body.featured==='on',active:req.body.active==='on',automaticDiscountPercent,variants,variantOptionName,variantOptionName2};
     const savedId=await adminCreateOrUpdateProduct(data);
     productCommitted=true;
+    invalidateCategoryNav();
     await safeAudit(req.user.id,id?'product_updated':'product_created','product',savedId,{name:data.name,automaticDiscountPercent:data.automaticDiscountPercent,costPriceCents:data.costPriceCents,reorderLevel:data.reorderLevel,stock:data.stock,variantCount:variants.length,galleryImageCount:galleryImages.length});
     const keepNow=new Set(galleryImages);
     for(const oldUrl of new Set(previousImageUrls)) if(!keepNow.has(oldUrl)) { try { await deleteUploadedAsset(oldUrl); } catch(cleanupError) { logOperationalFailure('Old product image cleanup; metadata retained for recovery',cleanupError); } }
