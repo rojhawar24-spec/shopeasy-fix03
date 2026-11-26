@@ -2260,6 +2260,22 @@ function checkoutAccess(req,launch){
   const managerTest=isPostgresPreview&&production&&launch.demoIdentity;
   return {managerTest,quoteOnly:isPostgresPreview&&!production};
 }
+app.post('/checkout-price',checkoutLimiter,async(req,res)=>{
+  res.set('Cache-Control','private, no-store');
+  const launch=await storeLaunchConfig();
+  const country=matchDeliveryCountry(cleanText(req.body.shippingCountry,80),launch.deliveryCountries);
+  const city=cleanText(req.body.shippingCity,100);
+  const postalCode=cleanText(req.body.shippingPostalCode,20);
+  if(!launch.ready||!country||!city) return res.status(400).json({error:'Complete your delivery destination.'});
+  const destination={country,city,postalCode};
+  const summary=await cartSummary(req,destination);
+  if(!summary.items.length||summary.hasStockIssues||!summary.pricingRulesValid&&summary.pricingRulesActive||summary.taxRuleMissing) return res.status(409).json({error:'Delivery pricing or stock is unavailable. Review your cart and destination.'});
+  const quote=makeCheckoutPricingQuote(req,summary,destination);
+  await saveSessionCheckoutQuote(req.sessionId,quote);
+  const currency=String(await getSetting('currency',DEFAULT_STORE_CURRENCY)).trim().toUpperCase();
+  const price=n=>res.locals.formatPrice(n,currency);
+  return res.json({quoteId:quote.id,total:price(summary.total),shipping:price(summary.shipping),tax:price(summary.taxCents),taxRate:summary.taxRateBps===null?null:(summary.taxRateBps/100).toFixed(2),taxIncluded:summary.taxIncluded,subtotal:price(summary.subtotalBeforeAutomaticDiscount),discount:price(summary.discount),automaticDiscount:price(summary.automaticDiscount),bundleDiscount:price(summary.bundleDiscount)});
+});
 app.get('/checkout',async(req,res)=>{
   let summary=await cartSummary(req);
   if(!summary.items.length)return res.redirect('/cart');
