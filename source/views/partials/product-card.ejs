@@ -10,7 +10,7 @@ if (product) {
     : text.replace(/\{(\w+)\}/g, (match, key) => Object.hasOwn(parameters, key) ? String(parameters[key]) : match);
   const saved = typeof wishlistIds !== 'undefined' && wishlistIds?.has?.(product.id);
 %>
-<article class="product-card product-card-signature">
+<article class="product-card product-card-signature<%= /clothing|apparel|fashion|kleding|vêtements|ملابس|جلوبەرگ/i.test(String(product.category_slug||"")+" "+String(product.category_name||"")) ? " product-card-clothing" : "" %>">
   <div class="product-media">
     <a href="/product/<%= encodeURIComponent(product.slug) %>" class="product-image">
       <img src="<%= safeImageUrl(product.image_url) %>" data-fallback-src="/assets/product-placeholder.svg" alt="<%= product.name %>" data-no-translate width="800" height="1000" loading="lazy" decoding="async">
