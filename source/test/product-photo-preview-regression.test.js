@@ -29,7 +29,7 @@ test('selected image dimensions, decode failure, pending submit and stale events
     window:{addEventListener(){}},HTMLInputElement:Input,HTMLElement:El,HTMLImageElement:Img,Image:Probe,
     URL:{createObjectURL:()=> 'blob:fixture-'+(++seq),revokeObjectURL(){}}
   });
-  const pick=async()=>{input.files=[{name:'test.png',type:'image/png',size:1569*1024}];await input.handlers.change();};
+  const pick=async()=>{input.files=[{name:'test.png',type:'image/png',size:400*1024}];await input.handlers.change();};
   const blocked=()=>{let stopped=false;form.handlers.submit({preventDefault(){stopped=true;}});return stopped;};
   await pick();
   assert.equal(blocked(),true);
@@ -53,4 +53,12 @@ test('fallback handler does not take over staged upload previews',()=>{
   const source=read('public/js/image-fallback.js');
   assert.match(source,/getAttribute\('data-product-cover-preview-image'\) != null/);
   assert.match(source,/closest\('\[data-gallery-stage\]'\)/);
+});
+
+test('all product photos fit the shared upload budget',()=>{
+ const source=read('public/js/product-image-preview.js');
+ assert.match(source,/const MAX_BYTES = 550 \* 1024/);
+ assert.match(source,/const optimized=await optimizeLargeImage\(file\)/);
+ assert.match(source,/galleryInput\.files=transfer\.files/);
+ assert.ok(6*550*1024<4*1024*1024);
 });
