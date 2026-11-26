@@ -11,8 +11,8 @@ const key=()=>fields.map(f=>f.value.trim()).join('\u001f');
 const summary=document.querySelector('.checkout-summary-v5');
 const finalLabel=label.dataset.finalLabel;
 const priceNote=document.querySelector('.checkout-price-note span');
-let panel=document.createElement('div');panel.className='summary-row total';panel.hidden=true;panel.setAttribute('aria-live','polite');summary?.append(panel);
-function invalidate(){quote.value='';validUntil=0;button.disabled=true;label.textContent=words[0];amount.textContent='';panel.hidden=true;}
+if(!summary)return;
+function invalidate(){quote.value='';validUntil=0;button.disabled=true;label.textContent=words[0];amount.textContent='';summary.querySelectorAll('[data-checkout-estimate]').forEach(el=>el.hidden=false);}
 function schedule(){
  clearTimeout(timer);const current=++version;invalidate();
  if(!fields[0].value.trim()||!fields[1].value.trim()){status.textContent=words[1];return;}
@@ -27,8 +27,8 @@ function schedule(){
    const data=await res.json();
    if(current!==version||snapshot!==key())return;
    if(!data.quoteId||!data.total)throw Error('quote');
-   const rows=[...summary.querySelectorAll('.summary-row')].filter(r=>r!==panel);
-   const totalRow=summary.querySelector('.summary-row.total:not([hidden])');
+   const subtotalRow=summary.querySelector('[data-checkout-subtotal]');if(subtotalRow)subtotalRow.querySelector('strong').textContent=data.subtotal;
+   const totalRow=summary.querySelector('.summary-row.total');
    const shippingRow=summary.querySelector('[data-checkout-shipping]');
    const taxRow=summary.querySelector('[data-checkout-tax]');
    if(shippingRow){shippingRow.querySelector('strong').textContent=data.shipping;shippingRow.querySelector('span').textContent=shippingRow.dataset.label;}
