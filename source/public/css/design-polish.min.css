@@ -45,3 +45,18 @@ body.is-storefront-app .search-results{border-radius:16px}
 
 /* Easy photo chooser */
 .product-upload-card[data-easy-drop]{display:grid;gap:8px;padding:22px;border:2px dashed var(--line);border-radius:16px;cursor:pointer;background:var(--surface-soft);transition:border-color .15s,background .15s}.product-upload-card[data-easy-drop]:hover,.product-upload-card[data-easy-drop].is-dragging{border-color:var(--brand-primary);background:var(--surface-muted)}.product-upload-card[data-easy-drop] strong{font-size:1.1rem}.product-upload-card[data-easy-drop] input[type=file]{max-inline-size:100%;cursor:pointer}.easy-photo-preview{object-fit:contain;border-radius:12px;background:var(--surface-soft);vertical-align:middle;margin-inline-end:12px}.easy-photo-section{display:grid;gap:12px;min-inline-size:0}.easy-photo-section details{padding:10px;border:1px solid var(--line);border-radius:10px}.easy-photo-section summary{cursor:pointer}
+
+/* Clothing photography: preserve alpha, no crop, no artificial tint. */
+body.is-storefront-app .product-card-clothing .product-media,
+body.is-storefront-app .product-card-clothing .product-image,
+body.is-storefront-app .product-card-clothing .product-image img,
+body.is-storefront-app .product-visual-clothing,
+body.is-storefront-app .product-visual-clothing>img{background:transparent!important}
+body.is-storefront-app .product-card-clothing .product-image img,
+body.is-storefront-app .product-visual-clothing>img{object-fit:contain!important;object-position:center;box-sizing:border-box;padding:clamp(12px,3%,28px);mix-blend-mode:normal;filter:none}
+body.is-storefront-app .product-card-clothing .product-image-shade{display:none}
+body.is-storefront-app .product-card-clothing .product-image::before,
+body.is-storefront-app .product-card-clothing .product-image::after,
+body.is-storefront-app .product-visual-clothing::before,
+body.is-storefront-app .product-visual-clothing::after{background:none!important}
+body.is-admin-app .product-staged-gallery-item img,body.is-admin-app .product-upload-preview img,body.is-admin-app .product-gallery-editor-item img{object-fit:contain;background:transparent}
