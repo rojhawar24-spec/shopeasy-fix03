@@ -192,9 +192,9 @@
                 <form method="post" action="/admin/products/archive" data-confirm="Archive this product? It will be hidden from the shop but kept for historic orders.">
                   <input type="hidden" name="_csrf" value="<%= csrf %>">
                   <input type="hidden" name="id" value="<%= p.id %>">
-                  <button class="btn btn-light btn-small" type="submit" <% if(productHasReservations){ %>disabled title="Finish or cancel the reserved checkout before archiving this product."<% } %>>Archive</button>
+                  <button class="btn btn-light btn-small" type="submit">Hide from shop</button>
                 </form>
-                <% if(productHasReservations){ %><span class="delete-block-reason">An active order holds stock; finish or cancel it before archiving.</span><% } %>
+                <% if(productHasReservations){ %><span class="delete-block-reason">Existing orders keep their reserved stock even when hidden.</span><% } %>
                 <form method="post" action="/admin/products/delete" data-confirm="Permanently delete this product? This cannot be undone. Products with order history must be retained.">
                   <input type="hidden" name="_csrf" value="<%= csrf %>">
                   <input type="hidden" name="id" value="<%= p.id %>">
@@ -206,7 +206,7 @@
                 <form method="post" action="/admin/products/restore" data-confirm="Restore this product? It will become visible in the shop again.">
                   <input type="hidden" name="_csrf" value="<%= csrf %>">
                   <input type="hidden" name="id" value="<%= p.id %>">
-                  <button class="btn btn-mint btn-small" type="submit">Restore</button>
+                  <button class="btn btn-mint btn-small" type="submit">Show in shop</button>
                 </form>
                 <form method="post" action="/admin/products/delete" data-confirm="Permanently delete this archived product? This cannot be undone. Products with order history must be retained.">
                   <input type="hidden" name="_csrf" value="<%= csrf %>">
