@@ -3071,8 +3071,7 @@ app.post('/admin/products/restock',requireManager,verifyCsrf,async(req,res)=>{
         await tx.commit();
       }catch(error){try{await tx.rollback();}catch{}throw error;}
       await safeAudit(req.user.id,'product_variants_restocked','product',productId,{changes});
-      return res.redirect(303,`/admin/products/${productId}/edit?restocked=1`);
-    }
+    } else {
     const variantId=optionalFormId(req.body.variantId);
     const amount=parseCartQuantity(req.body.quantity);
     if(!productId || amount===null || amount<=0 || amount>100000000) throw new Error('INVALID_RESTOCK');
@@ -3084,6 +3083,7 @@ app.post('/admin/products/restock',requireManager,verifyCsrf,async(req,res)=>{
     } else {
       await restockProduct(productId,amount);
       await safeAudit(req.user.id,'product_restocked','product',productId,{quantity:amount});
+    }
     }
     // A restock is the only automatic email trigger; no third-party tracking.
     if(res.locals.appearance.stockAlerts && emailEnabled()){
@@ -3117,7 +3117,7 @@ app.post('/admin/products/archive',requireManager,verifyCsrf,async(req,res)=>{
   const product=await getProductById(id);
   if(!product) return res.redirect(303,'/admin/products?notice=deleteFailed');
   const archived=await archiveProduct(id);
-  if(!archived) return res.redirect(303,'/admin/products?notice=reserved');
+  if(!archived) return res.redirect(303,'/admin/products?status=archived');
   await safeAudit(req.user.id,'product_archived','product',id,{name:product.name});
   return res.redirect(303,'/admin/products?status=archived&notice=archived');
 });
@@ -3127,7 +3127,7 @@ app.post('/admin/products/restore',requireManager,verifyCsrf,async(req,res)=>{
   const product=await getProductById(id);
   if(!product) return res.redirect(303,'/admin/products?status=archived&notice=restoreFailed');
   const restored=await restoreProduct(id);
-  if(!restored) return res.redirect(303,'/admin/products?status=archived&notice=reserved');
+  if(!restored) return res.redirect(303,'/admin/products?status=active');
   await safeAudit(req.user.id,'product_restored','product',id,{name:product.name});
   return res.redirect(303,'/admin/products?status=active&notice=restored');
 });
