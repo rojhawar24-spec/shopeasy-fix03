@@ -589,7 +589,7 @@ app.use(csrfToken);
 app.use(checkoutDiagnosticStage('csrf-validation'));
 app.use(async(req,res,next)=>{
   const multipartTokenParsedAtRoute = req.is('multipart/form-data') &&
-    ['/admin/products/save','/admin/stories/save','/admin/branding','/admin/appearance'].includes(req.path);
+    ['/admin/categories/save','/admin/products/save','/admin/stories/save','/admin/branding','/admin/appearance'].includes(req.path);
   if (multipartTokenParsedAtRoute) return next();
   // Mollie server-to-server webhooks do not have a browser CSRF token. The route
   // independently authenticates every event by fetching the payment from Mollie
@@ -2870,10 +2870,11 @@ app.get('/admin',requireDashboardAccess,async(req,res)=>{
   render(res,'admin/dashboard',{launch,productCount:Number(stats.products.total||0),activeProducts:Number(stats.products.active||0),soldOutProducts:Number(stats.products.sold_out||0),orderCount:Number(stats.orders.total||0),storyCount:Number(stats.stories.total||0),liveStories:Number(stats.stories.live||0),customerCount:Number(stats.customers.total||0),pendingOrders:Number(stats.orders.pending||0),paidRevenue:Number(stats.orders.revenue||0),grossProfitCents:Number(stats.accounting.gross_profit_cents||0),grossProfitMissingOrders:Number(stats.accounting.completed_orders_missing_cost||0),grossProductRevenueCents:Number(stats.accounting.product_revenue_cents||0),lowStockCount:Number(stats.lowStock?.count||0),lowStockInventory,recentOrders});
 });
 app.get('/admin/categories',requireManager,async(req,res)=>{const editId=validId(req.query.edit)?Number(req.query.edit):null;const categories=await listCategories();const editCategory=editId?categories.find(c=>Number(c.id)===editId) || await getRow('SELECT * FROM categories WHERE id=?',[editId]):null;render(res,'admin/categories',{categories,editCategory,error:null});});
-app.post('/admin/categories/save',requireManager,async(req,res)=>{
+app.post('/admin/categories/save',requireManager,upload.single('image'),verifyCsrf,async(req,res)=>{
+  let uploaded='', committed=false;
   try {
     const id=optionalFormId(req.body.id),name=cleanText(req.body.name,80);
-    const existingCategory=id?await getRow('SELECT id,slug FROM categories WHERE id=?',[id]):null;
+    const existingCategory=id?await getRow('SELECT id,slug,image_url FROM categories WHERE id=?',[id]):null;
     if(id && !existingCategory) throw new Error('NOT_FOUND');
     const parentId=optionalFormId(req.body.parentId);
     // Blank means the default display order. Other values must be a single
@@ -2884,15 +2885,22 @@ app.post('/admin/categories/save',requireManager,async(req,res)=>{
     if(sortOrder===null || sortOrder>100000000) throw new Error('CATEGORY_SORT_ORDER');
     if(!name) throw new Error('VALIDATION');
     if(parentId && id===parentId) throw new Error('CATEGORY_CYCLE');
-    if(req.body.imageUrl && !isSafeUrl(cleanText(req.body.imageUrl,500))) throw new Error('CATEGORY_IMAGE');
+    let imageUrl=cleanText(req.body.imageUrl,500);
+    if(imageUrl && imageUrl!==existingCategory?.image_url && !/^https:\/\//i.test(imageUrl)) throw new Error('CATEGORY_IMAGE');
+    if(imageUrl && !isSafeUrl(imageUrl)) throw new Error('CATEGORY_IMAGE');
+    if(req.file){ uploaded=await safeImagePath(req.file.buffer,req.file.mimetype); if(!uploaded) throw new Error('CATEGORY_IMAGE'); imageUrl=uploaded; }
+    else if(req.body.removeImage==='1') imageUrl='';
     const slug=existingCategory?.slug || await uniqueCategorySlug(name,id);
-    const options={parentId,description:cleanText(req.body.description,2000),imageUrl:cleanText(req.body.imageUrl,500),sortOrder,active:req.body.active==='on'};
+    const options={parentId,description:cleanText(req.body.description,2000),imageUrl,sortOrder,active:req.body.active==='on'};
     const savedId=id?await updateCategory(id,name,slug,options):await createCategory(name,slug,options);
+    committed=true;
+    if(existingCategory?.image_url && existingCategory.image_url!==imageUrl) await deleteUploadedAsset(existingCategory.image_url).catch(e=>logOperationalFailure('Category photo cleanup',e));
     invalidateCategoryNav();
     await safeAudit(req.user.id,id?'category_updated':'category_created','category',savedId,{name,parentId,active:options.active});
     return res.redirect(303,'/admin/categories');
   } catch(err) {
-    const errors={INVALID_ID:'This category form contains an invalid ID. Reload it and check the category and parent-category fields.',CATEGORY_SORT_ORDER:'Display order must be a whole number between 0 and 100,000,000.',CATEGORY_PARENT:'Choose an existing parent category or leave it empty.',CATEGORY_CYCLE:'A category cannot be its own parent or a descendant of itself.',CATEGORY_IMAGE:'Category image URL must be a safe HTTPS address.'};
+    if(uploaded&&!committed) await deleteUploadedAsset(uploaded).catch(e=>logOperationalFailure('Category photo cleanup',e));
+    const errors={INVALID_ID:'This category form contains an invalid ID. Reload it and check the category and parent-category fields.',CATEGORY_SORT_ORDER:'Display order must be a whole number between 0 and 100,000,000.',CATEGORY_PARENT:'Choose an existing parent category or leave it empty.',CATEGORY_CYCLE:'A category cannot be its own parent or a descendant of itself.',CATEGORY_IMAGE:'Choose a valid JPG, PNG or WebP photo up to 2 MiB, or use a safe HTTPS address.'};
     return res.status(400).render('admin/categories',{categories:await listCategories(),editCategory:{...req.body,id:req.body.id||null},error:errors[err.message]||'Could not save category. Use a valid unique name and parent. See the fields below.'});
   }
 });
