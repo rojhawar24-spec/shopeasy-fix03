@@ -1315,11 +1315,12 @@ app.get('/',async(req,res)=>{
       getSetting('hero_image',''),getSetting('hero_image_mode','catalogue')
     ])
   ]);
-  const products=featuredProducts.length ? featuredProducts : latestProducts.slice(0,8);
-  // Always give recent, non-featured products a visible place instead of hiding
-  // them whenever the store already has four older featured items.
-  const homepageIds=new Set(products.map(product=>Number(product.id)));
-  const newProducts=latestProducts.filter(product=>!homepageIds.has(Number(product.id))).slice(0,4);
+  const cutoff=Date.now()-30*86400000;
+  const isRecent=p=>{const raw=String(p.created_at||'');const t=Date.parse(raw.replace(' ','T')+(/(?:Z|[+-]\d\d:\d\d)$/.test(raw)?'':'Z'));return Number.isFinite(t)&&t>=cutoff&&t<=Date.now();};
+  const featuredIds=new Set(featuredProducts.map(p=>Number(p.id)));
+  const newProducts=latestProducts.filter(p=>isRecent(p)&&!featuredIds.has(Number(p.id))).slice(0,4);
+  const newIds=new Set(newProducts.map(p=>Number(p.id)));
+  const products=featuredProducts.length?featuredProducts:latestProducts.filter(p=>!newIds.has(Number(p.id))).slice(0,8);
   // A legacy/default /assets hero is not a manager-selected image. Only a real
   // uploaded asset or trusted HTTPS image may override the current catalogue photo.
   // This prevents the old editorial placeholder from masking the seller's product.
