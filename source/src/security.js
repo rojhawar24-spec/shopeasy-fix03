@@ -366,10 +366,12 @@ const COMMON_NEW_PASSWORDS = new Set([
   'passwordpassword','password123456789','password12345678',
   '123456789012345','1234567890123456','12345678901234567890',
   'qwertyuiopasdfgh','qwertyuiop123456','letmeinletmeinletmein',
-  'correcthorsebatterystaple'
+  'correcthorsebatterystaple',
+  'password','password1','password123','password1234','12345678','123456789','1234567890','12345678901','123456789012','1234567890123','12345678901234',
+  '87654321','qwertyui','qwerty123','qwerty1234','qwertyuiop','iloveyou','letmein123','admin123','administrator','welcome123','welcome1','abc12345','abcd1234','football','monkey123','princess','sunshine','trustno1','passw0rd','p@ssw0rd','p@ssword','shop easy','shopeasy','shopeasy123'
 ]);
-export function isStrongEnoughPassword(value) {
-  if (typeof value !== 'string' || value.length > 200 || [...value.trim()].length < 15) return false;
+export function isStrongEnoughPassword(value, minimum = 15) {
+  if (typeof value !== 'string' || value.length > 200 || [...value.trim()].length < (minimum === 8 ? 8 : 15)) return false;
   const normalized=value.normalize('NFKC').trim().toLowerCase();
   const compact=normalized.replace(/\s+/gu,'');
   if (!compact || COMMON_NEW_PASSWORDS.has(compact)) return false;
