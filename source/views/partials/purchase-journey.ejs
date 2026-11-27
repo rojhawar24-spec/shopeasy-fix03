@@ -11,12 +11,13 @@
   const pCurrent=pSteps.indexOf(pStage);
   const pText=pLabels[locale]||pLabels.en;
 %>
-<nav class="purchase-journey container" aria-label="<%= locale==='nl'?'Voortgang van je bestelling':locale==='fr'?'Étapes de commande':locale==='ckb'?'قۆناغەکانی داواکاری':locale==='ar'?'خطوات الطلب':'Order progress' %>">
+<nav class="purchase-journey container purchase-journey-studio" aria-label="<%= locale==='nl'?'Voortgang van je bestelling':locale==='fr'?'Étapes de commande':locale==='ckb'?'قۆناغەکانی داواکاری':locale==='ar'?'خطوات الطلب':'Order progress' %>">
   <ol class="purchase-journey-list">
     <% pSteps.forEach((step,index)=>{const isCurrent=index===pCurrent;const isPast=index<pCurrent; %>
       <li class="purchase-journey-item <%= isCurrent?'is-current':isPast?'is-complete':'' %>" <%- isCurrent?'aria-current="step"':'' %>>
-        <span class="purchase-journey-number" aria-hidden="true"><%= isPast?'✓':index+1 %></span>
-        <% if(isPast && step==='cart'){ %><a href="/cart"><%= pText[index] %></a><% } else { %><span><%= pText[index] %></span><% } %>
+        <span class="purchase-journey-number" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><% if(isPast){ %><path d="m5 12 4 4 10-10"/><% } else if(index===0){ %><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><% } else if(index===1){ %><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M7 15h4"/><% } else { %><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/><% } %></svg></span>
+        <span class="purchase-journey-copy"><small aria-hidden="true"><%= String(index+1).padStart(2,'0') %> / 03</small>
+        <% if(isPast && step==='cart'){ %><a href="/cart"><%= pText[index] %></a><% } else { %><span><%= pText[index] %></span><% } %></span>
       </li>
     <% }) %>
   </ol>
