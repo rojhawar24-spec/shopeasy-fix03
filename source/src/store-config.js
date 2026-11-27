@@ -4,13 +4,15 @@ export const DEFAULT_STORE_NAME = 'ShopEasy Store';
 export const DEFAULT_STORE_CURRENCY = 'EUR';
 export const DEFAULT_STORE_TIMEZONE = 'UTC';
 export const DEFAULT_UI_LOCALE = 'en';
-export const SUPPORTED_UI_LOCALES = Object.freeze(['en', 'ckb', 'ar', 'nl', 'fr']);
+const badiniPreview = process.env.VERCEL_ENV === 'preview';
+export const SUPPORTED_UI_LOCALES = Object.freeze(['en', 'ckb', 'ar', 'nl', 'fr', ...(badiniPreview?['kmr']:[])]);
 export const UI_LOCALE_OPTIONS = Object.freeze([
   Object.freeze({ code: 'en', label: 'English', nativeLabel: 'English', dir: 'ltr' }),
   Object.freeze({ code: 'ckb', label: 'Sorani Kurdish', nativeLabel: 'کوردی (سۆرانی)', dir: 'rtl' }),
   Object.freeze({ code: 'ar', label: 'Arabic', nativeLabel: 'العربية', dir: 'rtl' }),
   Object.freeze({ code: 'nl', label: 'Dutch', nativeLabel: 'Nederlands', dir: 'ltr' }),
-  Object.freeze({ code: 'fr', label: 'French', nativeLabel: 'Français', dir: 'ltr' })
+  Object.freeze({ code: 'fr', label: 'French', nativeLabel: 'Français', dir: 'ltr' }),
+  ...(badiniPreview?[Object.freeze({code:'kmr',label:'Badini Kurdish (preview)',nativeLabel:'کوردی (بادینی) · BETA',dir:'rtl'})]:[])
 ]);
 
 export function normalizeEnabledUiLocales(value, fallback = SUPPORTED_UI_LOCALES) {
@@ -22,7 +24,7 @@ export function normalizeEnabledUiLocales(value, fallback = SUPPORTED_UI_LOCALES
   if (!Array.isArray(candidate)) candidate = fallback;
   const normalized = [...new Set(candidate.map(item => String(item ?? '').trim().toLowerCase())
     .filter(code => SUPPORTED_UI_LOCALES.includes(code)))];
-  if (normalized.length) return normalized;
+  if (normalized.length) return badiniPreview && !normalized.includes('kmr') ? [...normalized,'kmr'] : normalized;
   const safeFallback = [...new Set((Array.isArray(fallback) ? fallback : SUPPORTED_UI_LOCALES)
     .map(item => String(item ?? '').trim().toLowerCase())
     .filter(code => SUPPORTED_UI_LOCALES.includes(code)))];
@@ -62,6 +64,7 @@ export function getStoreTimezone(value) {
 export function getIntlLocaleForUi(locale) {
   if (locale === 'ar') return 'ar';
   if (locale === 'ckb') return 'ckb';
+  if (locale === 'kmr') return 'ku-Arab-IQ';
   if (locale === 'nl') return 'nl-BE';
   if (locale === 'fr') return 'fr-BE';
   return 'en-GB';
