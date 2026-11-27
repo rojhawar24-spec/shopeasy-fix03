@@ -665,7 +665,7 @@
     for(const select of form.querySelectorAll('[data-option-one-select],[data-option-two-select]')){
       const choices=document.createElement('div');choices.className='product-option-chips';choices.setAttribute('role','group');choices.setAttribute('aria-label',select.labels?.[0]?.querySelector('span')?.textContent||'Options');
       select.after(choices);
-      const render=()=>{const options=[...select.options].filter(o=>o.value);const use=options.length>0&&options.length<=8&&!select.disabled;choices.hidden=!use;select.classList.toggle('product-select-enhanced',use);choices.replaceChildren();if(!use)return;for(const opt of options){const b=document.createElement('button');b.type='button';b.textContent=opt.textContent;b.disabled=opt.disabled;b.setAttribute('aria-pressed',String(select.value===opt.value));b.addEventListener('click',()=>{select.value=opt.value;select.dispatchEvent(new Event('change',{bubbles:true}));});choices.append(b);}};
+      const render=()=>{const options=[...select.options].filter(o=>o.value);const use=options.length>0&&options.length<=8&&!select.disabled;choices.hidden=!use;select.classList.toggle('product-select-enhanced',use);choices.replaceChildren();if(!use)return;for(const opt of options){const b=document.createElement('button');b.type='button';b.textContent=opt.textContent;b.disabled=opt.disabled;const name=select.labels?.[0]?.querySelector('span')?.textContent||'';if(/^(colou?r|kleur|couleur|farbe|ڕەنگ|لون)$/iu.test(name.trim())){const match=opt.value.match(/\((#[0-9a-f]{6})\)$/i);const colours={black:'#171717',white:'#ffffff',grey:'#808080',gray:'#808080',navy:'#192c50',blue:'#2563eb',red:'#c72b35',green:'#277448',beige:'#e1d2b7',brown:'#79513b',pink:'#ef91b2',purple:'#794ba8',yellow:'#e9c742',orange:'#e98032'};const colour=match?.[1]||colours[opt.value.toLowerCase()];if(colour){const dot=document.createElementNS('http://www.w3.org/2000/svg','svg');dot.setAttribute('viewBox','0 0 24 24');dot.setAttribute('aria-hidden','true');dot.setAttribute('class','product-colour-dot');const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');circle.setAttribute('cx','12');circle.setAttribute('cy','12');circle.setAttribute('r','10');circle.setAttribute('fill',colour);circle.setAttribute('stroke','currentColor');circle.setAttribute('stroke-opacity','.2');dot.append(circle);b.prepend(dot);}}b.setAttribute('aria-pressed',String(select.value===opt.value));b.addEventListener('click',()=>{select.value=opt.value;select.dispatchEvent(new Event('change',{bubbles:true}));});choices.append(b);}};
       select.addEventListener('change',render);form.addEventListener('change',render);new MutationObserver(render).observe(select,{childList:true,attributes:true,attributeFilter:['disabled']});render();
     }
   });
@@ -862,6 +862,29 @@
     variantNameInput?.addEventListener('input', () => { updateVariantRows(); syncVariantLabels(); });
     variantEditor.querySelectorAll('[data-variant-value-two]').forEach(input => input.addEventListener('input', syncVariantLabels));
     matrixTwoInput?.addEventListener('input', syncVariantLabels);
+    const palette=document.querySelector('[data-colour-palette]');
+    const colourStatus=document.querySelector('[data-colour-status]');
+    const colourKey=v=>/^(colou?r|kleur|couleur|farbe|ڕەنگ|لون)$/iu.test(String(v||'').trim());
+    const colourTarget=()=>colourKey(variantNameTwoInput?.value)?matrixTwoInput:colourKey(variantNameInput?.value)?matrixOneInput:null;
+    const syncPalette=()=>{if(palette)palette.hidden=!colourTarget();};
+    function addColour(value){
+      const target=colourTarget();if(!target)return;
+      const clean=String(value||'').trim();if(!clean||clean.length>80||clean.includes(','))return;
+      const values=target.value.split(',').map(v=>v.trim()).filter(Boolean);
+      if(!values.some(v=>normalizeOptionKey(v)===normalizeOptionKey(clean)))values.push(clean);
+      target.value=values.join(', ');target.dispatchEvent(new Event('input',{bubbles:true}));
+      if(colourStatus)colourStatus.textContent='Colour added to builder. Generate combinations, review stock and save.';
+    }
+    document.querySelectorAll('[data-colour-preset]').forEach(button=>button.addEventListener('click',()=>{
+      const populated=[...variantEditor.querySelectorAll('[data-variant-value]')].some(input=>input.value.trim());
+      const first=button.dataset.colourPreset==='colour'?'Colour':'Size',second=button.dataset.colourPreset==='colour'?'':'Colour';
+      if(populated&&(normalizeOptionKey(variantNameInput.value)!==normalizeOptionKey(first)||normalizeOptionKey(variantNameTwoInput.value)!==normalizeOptionKey(second))){if(colourStatus)colourStatus.textContent='Existing variants are protected. Keep their option names or edit them manually after reviewing stock.';return;}
+      variantNameInput.value=first;variantNameTwoInput.value=second;
+      variantNameInput.dispatchEvent(new Event('input',{bubbles:true}));variantNameTwoInput.dispatchEvent(new Event('input',{bubbles:true}));syncPalette();
+    }));
+    document.querySelectorAll('[data-add-variant-colour]').forEach(b=>b.addEventListener('click',()=>addColour(b.dataset.addVariantColour)));
+    document.querySelector('[data-add-custom-colour]')?.addEventListener('click',()=>{const name=document.querySelector('[data-custom-colour-name]')?.value.trim();const hex=document.querySelector('[data-custom-colour-hex]')?.value;if(name&&/^#[0-9a-f]{6}$/i.test(hex))addColour(name+' ('+hex+')');});
+    variantNameInput?.addEventListener('input',syncPalette);variantNameTwoInput?.addEventListener('input',syncPalette);syncPalette();
     syncVariantLabels();
     document.querySelector('[data-generate-matrix]')?.addEventListener('click', () => {
       const splitValues = input => String(input?.value || '').split(',').map(value => value.trim()).filter(Boolean);
