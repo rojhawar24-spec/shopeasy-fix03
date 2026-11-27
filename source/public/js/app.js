@@ -1251,25 +1251,17 @@
     const toggle = document.querySelector('[data-shop-filter-toggle]');
     const panel = document.getElementById('shop-filter-form');
     if (toggle && panel) {
-      const mobile = window.matchMedia('(max-width: 760px)');
       document.body.classList.add('shop-filters-js-ready');
-      const sync = () => {
-        if (!mobile.matches) {
-          panel.hidden = false;
-          toggle.setAttribute('aria-expanded', 'true');
-        } else {
-          panel.hidden = toggle.getAttribute('aria-expanded') !== 'true';
-        }
+      const setOpen = (open) => {
+        panel.hidden=!open;
+        toggle.setAttribute('aria-expanded',String(open));
       };
-      toggle.setAttribute('aria-expanded', 'false');
-      sync();
-      toggle.addEventListener('click', () => {
-        const expanding = toggle.getAttribute('aria-expanded') !== 'true';
-        toggle.setAttribute('aria-expanded', String(expanding));
-        sync();
-        if (expanding) panel.querySelector('select, input')?.focus({preventScroll:true});
-      });
-      mobile.addEventListener?.('change', sync);
+      setOpen(false);
+      toggle.addEventListener('click',()=>setOpen(panel.hidden));
+      panel.addEventListener('keydown',event=>{if(event.key==='Escape'){setOpen(false);toggle.focus();}});
+      const sort=document.getElementById('sort-filter');
+      if(sort)sort.addEventListener('change',()=>panel.requestSubmit());
+
     }
     document.querySelectorAll('.cart-qty-stepper [data-cart-qty-step]').forEach(button => {
       button.addEventListener('click', () => {
