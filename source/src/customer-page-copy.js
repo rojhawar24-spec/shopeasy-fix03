@@ -1,3 +1,4 @@
+import { storefrontShellText } from './storefront-shell-copy.js';
 import { badiniText } from './badini-copy.js';
 // Customer interface copy selected from the exact keys used by these templates.
 // Seller-authored catalogue, address, policy and story content is never a key source.
@@ -1535,11 +1536,11 @@ const copy = {
 };
 
 export function customerText(locale, value, parameters) {
-  if(locale==='kmr') return badiniText(value,parameters) ?? String(value ?? '');
+  if(locale==='kmr') return badiniText(value,parameters) ?? storefrontShellText(locale,value) ?? String(value ?? '');
   const text = String(value ?? '');
   const key = text.trim();
   const dictionary = Object.hasOwn(copy, locale) ? copy[locale] : undefined;
-  const translated = dictionary && Object.hasOwn(dictionary, key) ? dictionary[key] : undefined;
+  const translated = dictionary && Object.hasOwn(dictionary, key) ? dictionary[key] : storefrontShellText(locale,key);
   const interfaceKey = translated !== undefined || Object.values(copy).some(entries => Object.hasOwn(entries, key));
   if (!interfaceKey) return pageText(locale, value, parameters);
   let result = translated ?? key;

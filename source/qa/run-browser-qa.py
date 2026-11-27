@@ -492,7 +492,15 @@ class Audit:
         page.set_viewport_size({"width": width, "height": 900})
         filter_toggle = page.locator("[data-shop-filter-toggle]")
         if filter_toggle.is_visible() and filter_toggle.get_attribute("aria-expanded") == "false":
-            filter_toggle.click()
+            filter_toggle.focus()
+            page.keyboard.press("Enter")
+            drawer = page.locator("#shop-filter-form")
+            require(drawer.is_visible() and drawer.get_attribute("aria-modal") == "true", "filter-drawer-modal")
+            require(drawer.locator("[data-filter-close]").evaluate("e=>document.activeElement===e"), "filter-drawer-focus")
+            require(page.locator("header.site-header").evaluate("e=>e.inert||Boolean(e.closest('[inert]'))"), "filter-drawer-background-inert")
+            page.keyboard.press("Escape")
+            require(not drawer.is_visible() and filter_toggle.evaluate("e=>document.activeElement===e"), "filter-drawer-escape-focus")
+            self.record("Filter drawer keyboard regression", route="/shop", locale=locale, width=width, modal=True, focus_restored=True)
         menu = page.locator("[data-menu-toggle]")
         nav = page.locator("#site-navigation")
         mobile = width <= 1023
@@ -527,7 +535,7 @@ class Audit:
             require(menu.evaluate("e=>document.activeElement===e"), "navigation-outer-escape-returns-toggle")
             menu.focus()
             page.keyboard.press("Enter")
-            outside = page.locator("#shop-search")
+            outside = page.locator("#sort-filter")
             outside.focus()
             page.keyboard.press("Escape")
             require(nav.is_visible() and outside.evaluate("e=>document.activeElement===e"), "navigation-escape-outside-does-not-steal-focus")
@@ -673,6 +681,17 @@ class Audit:
                 require("noindex" in (page.locator('meta[name="robots"]').get_attribute("content") or ""), "nojs-login-noindex-meta")
                 self.record("No-JavaScript localized Login", locale=locale, http_status=200, expected_heading=True, required_form_controls=True, no_store=True, noindex_meta=True, noindex_header=True)
             self.run(f"No-JavaScript Login {locale}", nojs)
+            def nojs_catalogue():
+                for route in ("/shop", "/category/qa-collection"):
+                    response = self.goto(page, route)
+                    require(response.status == 200, "nojs-catalogue-http")
+                    require(page.locator("#shop-filter-form").is_visible(), "nojs-filters-visible")
+                    require(page.locator("#category-filter").is_visible(), "nojs-category-select-visible")
+                    require(page.locator("#shop-search").is_visible(), "nojs-search-visible")
+                    require(page.locator(".newsletter-section").count() == 0, "no-newsletter-block")
+                    require(page.locator(".category-context-image").count() == 0, "no-oversized-category-banner")
+                self.record("No-JavaScript catalogue and category controls", locale=locale, routes=2)
+            self.run(f"No-JavaScript catalogue {locale}", nojs_catalogue)
             context.close()
 
     def manager_smoke(self):

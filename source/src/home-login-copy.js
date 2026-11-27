@@ -1,3 +1,4 @@
+import { storefrontShellText } from './storefront-shell-copy.js';
 import { badiniText } from './badini-copy.js';
 // Server-rendered copy for Home and account access; no browser script required.
 import { authPolicyText } from './auth-policy-copy.js';
@@ -646,13 +647,13 @@ const copy = {
 } ;
 
 export function pageText(locale, value, parameters) {
-  if(locale==='kmr') return badiniText(value,parameters) ?? String(value ?? '');
+  if(locale==='kmr') return badiniText(value,parameters) ?? storefrontShellText(locale,value) ?? String(value ?? '');
   const text = String(value ?? '');
   const key = text.trim();
   const securityCopy=authPolicyText(locale,key);
   if (securityCopy!==undefined) return text.match(/^\s*/)[0]+securityCopy+text.match(/\s*$/)[0];
   const dictionary = Object.hasOwn(copy, locale) ? copy[locale] : undefined;
-  const translated = dictionary && Object.hasOwn(dictionary, key) ? dictionary[key] : undefined;
+  const translated = dictionary && Object.hasOwn(dictionary, key) ? dictionary[key] : storefrontShellText(locale,key);
   // Unknown text belongs to the seller, even if it contains template-like braces.
   const interfaceKey = translated !== undefined || Object.values(copy).some(entries => Object.hasOwn(entries, key));
   if (!interfaceKey) return text;

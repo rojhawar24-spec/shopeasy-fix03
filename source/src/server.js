@@ -320,6 +320,8 @@ function buildCategoryPath(rows, categoryId){
 const BRANDING_LOCALES = Object.freeze(['en','ckb','ar','nl','fr']);
 const BRANDING_FIELDS = Object.freeze(['eyebrow','title','accent','description']);
 const BRANDING_DEFAULTS = Object.freeze({
+  // Preview-only draft; Manager production branding remains the five reviewed locales.
+  kmr: Object.freeze({eyebrow:'بەرهەمێن باش، ب ساناهی',title:'تشتەکی ببینە',accent:'یێ تە حەز ژێ بیت.',description:'ل بەرهەمێن ب مفا بنێڕە، بهایێن دیار ببینە و ب ساناهی داواکاری بکە. پارەدانێ ل دەمێ گەهاندنێ بکە ئەگەر ئەو رێکە بەردەست بیت.'}),
   en: Object.freeze({
     eyebrow: 'GOOD FINDS, MADE SIMPLE',
     title: 'Find something',
@@ -1324,12 +1326,13 @@ function isRecentlyAddedProduct(product){
 }
 
 app.get('/',async(req,res)=>{
+  const heroLocale=Object.hasOwn(BRANDING_DEFAULTS,res.locals.locale)?res.locals.locale:'en';
   const [featuredProducts,latestProducts,categories,heroSettings]=await Promise.all([
     listProducts({onlyActive:true,sort:'featured',limit:48,offset:0}),
     listProducts({onlyActive:true,sort:'newest',limit:32,offset:0}),
     listCategories({activeOnly:true}),
     Promise.all([
-      ...BRANDING_FIELDS.map(field=>getSetting(`hero_${field}_${BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en'}`,BRANDING_DEFAULTS[BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en'][field])),
+      ...BRANDING_FIELDS.map(field=>heroLocale==='kmr'?Promise.resolve(BRANDING_DEFAULTS.kmr[field]):getSetting(`hero_${field}_${heroLocale}`,BRANDING_DEFAULTS[heroLocale][field])),
       getSetting('hero_image',''),getSetting('hero_image_mode','catalogue')
     ])
   ]);
@@ -1356,7 +1359,6 @@ app.get('/',async(req,res)=>{
     return /^\/uploads\/[a-f0-9]{32}\.(?:png|jpg|webp)$/i.test(image)||/^https:\/\//i.test(image);
   };
   const heroProduct=latestProducts.find(hasRealProductImage)||null;
-  const locale=BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en';
   render(res,'home',{products,newProducts,hasFeaturedProducts:false,heroProduct,categories,heroEyebrow,heroTitle,heroAccent,heroDescription,heroImage,added:req.query.added==='1'});
 });
 app.get('/category/:slug',async(req,res)=>{

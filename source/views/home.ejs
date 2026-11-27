@@ -55,7 +55,7 @@
 
 <% if (categories && categories.some(c=>!c.parent_id)) { const homeRoots=categories.filter(c=>!c.parent_id); %>
 <section class="container home-category-section" aria-labelledby="home-category-title">
-  <div class="home-category-heading"><h2 id="home-category-title"><%= pageText(locale==='nl'?'Shop per categorie':locale==='fr'?'Par catégorie':locale==='ckb'?'بەپێی پۆل بگەڕێ':locale==='ar'?'تسوّق حسب الفئة':'Shop by category') %></h2><a href="/shop" class="home-category-all"><%= pageText(locale==='nl'?'Alles bekijken':locale==='fr'?'Tout voir':locale==='ckb'?'هەمووی ببینە':locale==='ar'?'عرض الكل':'View all') %><span aria-hidden="true"> →</span></a></div>
+  <div class="home-category-heading"><h2 id="home-category-title"><%= pageText('Shop by category') %></h2><a href="/shop" class="home-category-all"><%= pageText('View all') %><span aria-hidden="true"> →</span></a></div>
   <div class="home-category-rail" role="list">
     <% homeRoots.forEach(c=>{ %>
     <div class="home-category-entry" role="listitem"><a class="home-category-tile" href="/category/<%= encodeURIComponent(c.slug) %>">

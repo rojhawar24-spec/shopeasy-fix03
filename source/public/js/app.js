@@ -1324,15 +1324,28 @@
       const overlay=document.querySelector('[data-filter-overlay]');
       const close=panel.querySelector('[data-filter-close]');
       document.body.classList.add('shop-filters-js-ready');
+      const inerted=[];
+      const unlockBackground=()=>{for(const element of inerted.splice(0))element.inert=false;};
+      const lockBackground=()=>{
+        for(let child=panel,parent=panel.parentElement;parent;child=parent,parent=parent.parentElement){
+          for(const sibling of parent.children){
+            if(sibling===child||sibling===overlay||sibling.inert||/^(SCRIPT|STYLE|LINK|TEMPLATE)$/.test(sibling.tagName))continue;
+            sibling.inert=true;inerted.push(sibling);
+          }
+          if(parent===document.body)break;
+        }
+      };
       const setOpen=(open,restore=true)=>{
+        unlockBackground();
         panel.hidden=!open;
         if(overlay)overlay.hidden=!open;
         toggle.setAttribute('aria-expanded',String(open));
         document.body.classList.toggle('shop-filter-drawer-open',open);
-        if(open){panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');close?.focus();}
+        if(open){panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');lockBackground();close?.focus();}
         else{panel.removeAttribute('role');panel.removeAttribute('aria-modal');if(restore)toggle.focus();}
       };
       setOpen(false,false);
+      window.addEventListener('pageshow',event=>{if(event.persisted)setOpen(false,false);});
       toggle.addEventListener('click',()=>setOpen(panel.hidden));
       close?.addEventListener('click',()=>setOpen(false));
       overlay?.addEventListener('click',()=>setOpen(false));
