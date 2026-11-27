@@ -392,3 +392,16 @@ body.is-storefront-app .home-category-tile:focus-visible{outline:2px solid var(-
 
 /* Category rail controls appear only on overflow. */
 body.is-storefront-app .category-scroll-controls{display:flex;align-items:center;gap:6px;flex:none}body.is-storefront-app .category-scroll-controls[hidden]{display:none}body.is-storefront-app .category-scroll-arrow{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--text);font-size:23px;line-height:1;cursor:pointer}body.is-storefront-app .category-scroll-arrow:disabled{opacity:.35;cursor:default}body.is-storefront-app .category-scroll-arrow:focus-visible{outline:2px solid var(--focus,var(--brand-primary));outline-offset:2px}body.is-storefront-app .home-category-heading .home-category-all{margin-inline-start:auto}body.is-storefront-app .home-category-rail{flex-wrap:nowrap;scroll-behavior:smooth;overscroll-behavior-inline:contain}body.is-storefront-app .shop-editorial .shop-category-toolbar .category-scroll-controls{order:-1}body.is-storefront-app .shop-editorial .shop-category-rail>.chips{flex:1 1 auto;scroll-behavior:smooth;overscroll-behavior-inline:contain}@media(max-width:600px){body.is-storefront-app .category-scroll-arrow{width:30px;height:30px}body.is-storefront-app .home-category-heading{flex-wrap:wrap}body.is-storefront-app .shop-editorial .shop-category-toolbar .category-scroll-controls{order:0}}@media(prefers-reduced-motion:reduce){body.is-storefront-app .home-category-rail,body.is-storefront-app .shop-editorial .shop-category-rail>.chips{scroll-behavior:auto}}
+
+/* Optional AI entry: compact, distinct from ordinary search, and theme aware. */
+body.is-storefront-app .search .shop-ai-mode{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;gap:6px;min-height:36px;padding:8px 12px;border-radius:10px;background:#dcece3;color:#174536;font-size:.8rem;font-weight:750;line-height:1.2;white-space:nowrap;text-decoration:none}
+body.is-storefront-app .search .shop-ai-mode svg{width:16px;height:16px;flex:none}
+body.is-storefront-app .search .shop-ai-mode:hover{background:#c9e2d4}
+body.is-storefront-app .search .shop-ai-mode:focus-visible{outline:2px solid var(--focus,var(--brand-primary));outline-offset:3px}
+body.is-storefront-app .search:has(.shop-ai-mode) input{min-width:0;flex:1}
+body.is-storefront-app .ai-assistant-page{max-width:900px;margin-block:clamp(24px,5vw,64px);padding:clamp(20px,4vw,48px);display:grid;grid-template-columns:minmax(0,1fr);gap:24px;border:1px solid var(--line);border-radius:24px;background:var(--paper)}
+body.is-storefront-app .ai-assistant-page h2{font-size:clamp(1.7rem,3vw,2.7rem);line-height:1.2}
+body.is-storefront-app .ai-assistant-page .ai-input-row{display:flex;gap:10px;align-items:stretch}
+body.is-storefront-app .ai-assistant-page .ai-input-row input{min-width:0;flex:1;min-height:48px}
+body.is-storefront-app .ai-assistant-page .ai-answer{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.65}
+@media(max-width:600px){body.is-storefront-app .search .shop-ai-mode{padding:8px;gap:4px;font-size:.73rem}body.is-storefront-app .search .shop-ai-mode svg{width:14px;height:14px}body.is-storefront-app .ai-assistant-page{border-radius:16px}body.is-storefront-app .ai-assistant-page .ai-input-row{flex-wrap:wrap}}
