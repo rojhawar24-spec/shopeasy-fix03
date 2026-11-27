@@ -436,3 +436,13 @@ body.is-storefront-app #featured .home-empty-state{grid-column:1/-1}
 @media(max-width:900px){body.is-storefront-app :is(#featured,.shop-editorial) .product-grid-signature{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){body.is-storefront-app :is(#featured,.shop-editorial) .product-grid-signature{gap:20px 10px}body.is-storefront-app :is(#featured,.shop-editorial) .product-card-signature .product-media{border-radius:10px}body.is-storefront-app :is(#featured,.shop-editorial) .product-title-block h3{font-size:.86rem}body.is-storefront-app :is(#featured,.shop-editorial) .product-card-tools button{font-size:.65rem;min-height:40px}body.is-storefront-app :is(#featured,.shop-editorial) .product-main-cta{font-size:.73rem}body.is-storefront-app :is(#featured,.shop-editorial) .product-card-meta-row{font-size:.67rem}}
 @media(max-width:320px){body.is-storefront-app :is(#featured,.shop-editorial) .product-grid-signature{grid-template-columns:minmax(0,1fr)}}
+
+/* Home collection rail: stable card widths, native touch scrolling. */
+body.is-storefront-app #featured .home-product-rail{display:flex;flex-wrap:nowrap;align-items:stretch;gap:clamp(12px,1.6vw,24px);overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-behavior:smooth;overscroll-behavior-inline:contain;scrollbar-width:thin;padding:4px 2px 14px;min-width:0;max-width:100%}
+body.is-storefront-app #featured .home-product-rail>.product-card-signature{flex:0 0 clamp(210px,23%,310px);min-width:0;scroll-snap-align:start}
+body.is-storefront-app #featured .section-head>.text-link{margin-inline-start:auto}
+body.is-storefront-app #featured .section-head{display:flex;align-items:center;gap:12px}
+body.is-storefront-app .category-scroll-arrow svg{display:block;width:18px;height:18px;pointer-events:none}
+body.is-storefront-app .category-scroll-arrow:not(:disabled):hover{background:var(--surface-soft,var(--paper));border-color:var(--brand-primary)}
+@media(max-width:600px){body.is-storefront-app #featured .home-product-rail>.product-card-signature{flex-basis:clamp(160px,46vw,230px)}body.is-storefront-app #featured .section-head{flex-wrap:wrap;gap:8px}}
+@media(prefers-reduced-motion:reduce){body.is-storefront-app #featured .home-product-rail{scroll-behavior:auto}}
