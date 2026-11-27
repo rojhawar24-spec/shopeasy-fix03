@@ -105,7 +105,7 @@ test('source database, WAL, SHM and rollback journal names are refused for every
 test('backup CLI refuses source and SQLite sidecar outputs before a backup transaction or publication',async t=>{
   const f=await fixture(t),runtime=path.join(f.directory,'runtime');
   fs.mkdirSync(runtime);fs.cpSync(path.join(root,'src'),path.join(runtime,'src'),{recursive:true});
-  fs.mkdirSync(path.join(runtime,'scripts'));fs.copyFileSync(path.join(root,'scripts/backup-database.mjs'),path.join(runtime,'scripts/backup-database.mjs'));
+  fs.mkdirSync(path.join(runtime,'scripts'));for(const file of ['backup-database.mjs','legacy-backup-backend.mjs']) fs.copyFileSync(path.join(root,'scripts',file),path.join(runtime,'scripts',file));
   fs.copyFileSync(path.join(root,'package.json'),path.join(runtime,'package.json'));
   fs.symlinkSync(path.join(root,'node_modules'),path.join(runtime,'node_modules'),process.platform==='win32'?'junction':'dir');
   const env={};for(const name of ['PATH','SYSTEMROOT','WINDIR','COMSPEC','PATHEXT','LANG'])if(process.env[name])env[name]=process.env[name];

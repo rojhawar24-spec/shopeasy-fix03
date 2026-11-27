@@ -61,7 +61,7 @@ test('COM006 malformed local logo references are not silently ignored',async t=>
 async function offsiteFixture(t) {
   const f=await fixture(t),runtime=path.join(f.directory,'runtime');
   fs.mkdirSync(path.join(runtime,'scripts'),{recursive:true});fs.mkdirSync(path.join(runtime,'src','services'),{recursive:true});
-  for(const relative of ['package.json','scripts/backup-offsite.mjs','scripts/backup-database.mjs','src/load-environment.js','src/database.js','src/local-sqlite-transaction-queue.js','src/services/database-backup.js'])fs.copyFileSync(path.join(root,relative),path.join(runtime,relative));
+  for(const relative of ['package.json','scripts/backup-offsite.mjs','scripts/backup-database.mjs','scripts/legacy-backup-backend.mjs','src/load-environment.js','src/database.js','src/local-sqlite-transaction-queue.js','src/services/database-backup.js'])fs.copyFileSync(path.join(root,relative),path.join(runtime,relative));
   fs.symlinkSync(path.join(root,'node_modules'),path.join(runtime,'node_modules'),process.platform==='win32'?'junction':'dir');
   const env={};for(const key of ['PATH','SYSTEMROOT','WINDIR','COMSPEC','PATHEXT','LANG'])if(process.env[key])env[key]=process.env[key];
   Object.assign(env,{NODE_ENV:'test',CLOUDFLARE_WORKER:'0',DATABASE_URL:pathToFileURL(f.sourcePath).href,BACKUP_ENCRYPTION_KEY:f.key,OFFSITE_SSH_HOST:'audit@example.test'});

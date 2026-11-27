@@ -3157,7 +3157,7 @@ app.post('/admin/products/archive',requireManager,verifyCsrf,async(req,res)=>{
   const product=await getProductById(id);
   if(!product) return res.redirect(303,'/admin/products?notice=deleteFailed');
   const archived=await archiveProduct(id);
-  if(!archived) return res.redirect(303,'/admin/products?status=archived');
+  if(!archived) return res.redirect(303,product.active?'/admin/products?status=active&notice=reserved':'/admin/products?status=archived');
   await safeAudit(req.user.id,'product_archived','product',id,{name:product.name});
   return res.redirect(303,'/admin/products?status=archived&notice=archived');
 });

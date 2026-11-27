@@ -1,7 +1,7 @@
 name: ShopEasy integrated release checks
 on:
   push:
-    branches: ['release-integration-fixes-20261127']
+    branches: ['release-integration-fixes-20261127', 'vercel-preview']
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,8 +22,12 @@ jobs:
       - run: npm ci --include=dev
       - run: npm run check
       - run: npm test
-      - run: npm audit --omit=dev --audit-level=high
-      - run: npm audit --audit-level=high
+      - name: Production dependency security audit
+        if: ${{ always() }}
+        run: npm audit --omit=dev --audit-level=high
+      - name: Full dependency security audit
+        if: ${{ always() }}
+        run: npm audit --audit-level=high
   postgres:
     runs-on: ubuntu-latest
     timeout-minutes: 20

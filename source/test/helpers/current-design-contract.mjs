@@ -34,7 +34,10 @@ export function assertRuntimeStyles() {
 export function assertSharedAppCacheVersion() {
   const {header,preview,manager}=assertRuntimeStyles();
   const get=(str,prefix)=>str.split(`${prefix}design-foundation.min.css?v=`)[1]?.split('"')[0];
-  const runtime=get(header,'/css/');
+  const runtimeRaw=get(header,'/css/');
+  // The server adds a commit-specific suffix; standalone HTML has no runtime commit.
+  const runtime=runtimeRaw?.replace("<%= typeof assetRevision === 'string' ? assetRevision : '' %>",'');
+  assert.ok(runtimeRaw===runtime||runtimeRaw===runtime+"<%= typeof assetRevision === 'string' ? assetRevision : '' %>",'runtime cache suffix must use the validated asset revision');
   const storefront=get(preview,'./public/css/');
   const managerCache=get(manager,'./public/css/');
   assert.ok(runtime && runtime.length>5,'runtime must use a nonempty version token');

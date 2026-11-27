@@ -165,7 +165,7 @@
       delete preview.dataset.previewProcessing;
       image.src = '/assets/product-placeholder.svg';
       title.textContent = 'Photo could not be optimized';
-      markInvalid('ShopEasy accepts photos up to 2 MiB after optimization. Choose a smaller JPG, PNG or WebP image and try again.');
+      markInvalid('ShopEasy accepts photos up to 550 KB after optimization. Choose a smaller JPG, PNG or WebP image and try again.');
     }
   });
 
