@@ -1019,3 +1019,75 @@ body.is-storefront-app .purchase-journey-studio .purchase-journey-list{border-ra
 @media(max-width:600px){body.is-storefront-app .product-detail-studio .purchase-configurator{padding:15px;gap:17px;border-radius:16px}body.is-storefront-app .purchase-configurator .configurator-purchase-row{grid-template-columns:minmax(0,1fr)}body.is-storefront-app .purchase-configurator .quantity-field{max-width:145px}body.is-storefront-app .purchase-configurator .product-option-chips button{min-height:48px}body.is-storefront-app .cart-studio-head .cart-hero-visual{flex-basis:78px}body.is-storefront-app .cart-studio .cart-studio-item,body.is-storefront-app .cart-studio .cart-studio-item:last-child{padding:15px;gap:10px}}
 @media(prefers-reduced-motion:reduce){body.is-storefront-app .purchase-configurator *{animation:none!important;transition:none!important}}
 body[data-motion=off].is-storefront-app .purchase-configurator *{animation:none!important;transition:none!important}
+
+/* Checkout studio: calm, guided, accessible purchase flow. */
+body.is-storefront-app .checkout-studio-head{padding-block:12px 25px}
+body.is-storefront-app .checkout-hero{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+body.is-storefront-app .checkout-hero-copy{min-width:0;animation:seCartEnter .35s ease-out both}
+body.is-storefront-app .checkout-hero-copy h1{font-size:clamp(2rem,4vw,3.35rem);letter-spacing:-.045em;line-height:1.1;margin:8px 0}
+body.is-storefront-app .checkout-hero-copy p{color:var(--muted);max-width:60ch;line-height:1.55;margin:0}
+body.is-storefront-app .checkout-hero-art{flex:0 0 96px;color:var(--brand-primary)}
+body.is-storefront-app .checkout-hero-art svg{display:block;width:100%;height:auto}
+body.is-storefront-app .checkout-hero-lock{transform-origin:48px 74px;animation:seHeroBag .75s cubic-bezier(.16,1,.3,1) both}
+body.is-storefront-app .checkout-hero-spark{animation:seHeroSpark .6s .2s ease-out both}
+body.is-storefront-app .checkout-studio{grid-template-columns:minmax(0,1.55fr) minmax(320px,.9fr);gap:clamp(20px,3vw,40px);align-items:start;padding-block-end:48px}
+body.is-storefront-app .checkout-studio form.checkout-studio-form{display:grid;gap:16px;padding:0;border:0;background:transparent;box-shadow:none;min-width:0}
+body.is-storefront-app .checkout-form-intro{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:.82rem;padding-inline:4px}
+body.is-storefront-app .checkout-form-intro p{margin:0}
+body.is-storefront-app [data-checkout-progress]{font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}
+body.is-storefront-app .checkout-stage{display:grid;gap:16px;padding:clamp(18px,2.4vw,28px);background:var(--paper);border:1px solid var(--line);border-radius:20px;min-width:0;animation:seCartEnter .35s cubic-bezier(.16,1,.3,1) both}
+body.is-storefront-app .checkout-stage-heading{display:flex;align-items:center;gap:12px;padding-block-end:14px;border-bottom:1px solid var(--line)}
+body.is-storefront-app .checkout-stage-icon{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:12px;background:var(--surface-soft);color:var(--text)}
+body.is-storefront-app .checkout-stage-heading h2{margin:3px 0 0;font-size:1.18rem;line-height:1.3;letter-spacing:-.02em}
+body.is-storefront-app .checkout-stage-number{font-size:.66rem;color:var(--muted);font-weight:650;letter-spacing:.08em}
+body.is-storefront-app .checkout-stage-done{margin-inline-start:auto;display:grid;place-items:center;flex:0 0 30px;height:30px;border-radius:50%;background:var(--surface-soft);color:var(--brand-primary);animation:seJourneyIcon .3s ease-out both}
+body.is-storefront-app .checkout-stage-done[hidden]{display:none}
+body.is-storefront-app .checkout-stage.is-complete .checkout-stage-icon{color:var(--brand-primary)}
+body.is-storefront-app .checkout-stage>label,body.is-storefront-app .checkout-stage .form-two>label,body.is-storefront-app .checkout-note-disclosure>label{display:grid;gap:7px;min-width:0;font-size:.88rem;font-weight:650}
+body.is-storefront-app .checkout-stage label[hidden]{display:none}
+body.is-storefront-app .checkout-stage .form-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+body.is-storefront-app .checkout-studio-form :is(input:not([type=hidden]):not([type=checkbox]):not([type=radio]),select,textarea){min-height:50px;border-radius:12px;padding:12px;font-size:16px;transition:border-color .15s,box-shadow .15s;box-sizing:border-box;min-width:0}
+body.is-storefront-app .checkout-studio-form :is(input,select,textarea):focus{outline:2px solid var(--focus,var(--brand-primary));outline-offset:2px}
+body.is-storefront-app .checkout-studio-form .checkout-invalid{border-color:#b74646!important}
+body.is-storefront-app .checkout-stage .field-note{font-size:.76rem;line-height:1.45}
+body.is-storefront-app .checkout-stage .checkout-price-note{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface-soft);font-size:.78rem;line-height:1.5}
+body.is-storefront-app .checkout-stage .checkout-price-note strong{display:block;margin-bottom:4px}
+body.is-storefront-app .checkout-note-disclosure{border-top:1px solid var(--line);padding-block-start:5px}
+body.is-storefront-app .checkout-note-disclosure summary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;cursor:pointer;font-size:.86rem;font-weight:650;list-style:none}
+body.is-storefront-app .checkout-note-disclosure summary::-webkit-details-marker{display:none}
+body.is-storefront-app .checkout-note-disclosure summary span{font-size:1.4rem;transition:transform .18s}
+body.is-storefront-app .checkout-note-disclosure[open] summary span{transform:rotate(45deg)}
+body.is-storefront-app .checkout-studio .payment-method-options{display:grid;gap:10px;padding:0;margin:0;border:0;min-width:0}
+body.is-storefront-app .checkout-studio .payment-choice{display:grid;grid-template-columns:22px 44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:15px;border-radius:14px;min-width:0;outline:none}
+body.is-storefront-app .checkout-studio .payment-choice:has(input:checked){border-color:var(--brand-primary);box-shadow:inset 0 0 0 1px var(--brand-primary)}
+body.is-storefront-app .checkout-studio .payment-choice-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:11px;background:var(--surface-soft);color:var(--text)}
+body.is-storefront-app .checkout-studio .payment-choice-icon svg{width:24px;height:24px}
+body.is-storefront-app .checkout-studio .payment-choice-copy{display:grid;gap:5px;min-width:0;overflow-wrap:anywhere}
+body.is-storefront-app .checkout-studio .payment-choice-copy strong{font-size:.94rem}
+body.is-storefront-app .checkout-studio .payment-choice-copy span{font-size:.79rem;line-height:1.5}
+body.is-storefront-app .checkout-studio .payment-choice-brand{font-size:.7rem}
+body.is-storefront-app .checkout-studio .payment-security-note{font-size:.77rem;line-height:1.5;margin:2px 0;color:var(--muted)}
+body.is-storefront-app .checkout-review-actions{display:grid;gap:12px;padding:clamp(18px,2.4vw,26px);border:1px solid var(--line);border-radius:20px;background:var(--paper)}
+body.is-storefront-app .checkout-review-actions .checkbox-inline{display:flex;align-items:flex-start;gap:10px;padding:12px;border-radius:12px;line-height:1.5;font-size:.86rem}
+body.is-storefront-app .checkout-review-actions .checkbox-inline input{width:20px;height:20px;flex:0 0 20px;accent-color:var(--brand-primary)}
+body.is-storefront-app .checkout-studio .checkout-place-order{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;border-radius:13px;padding:14px 18px;white-space:normal;line-height:1.4;transition:transform .18s,box-shadow .18s}
+body.is-storefront-app .checkout-studio .checkout-place-order::before,body.is-storefront-app .checkout-studio .checkout-place-order::after{content:none!important;display:none!important}
+body.is-storefront-app .checkout-studio .checkout-place-order:not(:disabled):hover{transform:translateY(-1px);box-shadow:0 6px 20px #0002}
+body.is-storefront-app .checkout-studio .checkout-place-order:disabled{opacity:1;background:var(--surface-soft);color:var(--muted);border:1px solid var(--line)}
+body.is-storefront-app .checkout-studio .checkout-place-total{white-space:normal;text-align:end}
+body.is-storefront-app .checkout-review-actions .micro-copy{margin:0;font-size:.78rem;line-height:1.5}
+body.is-storefront-app .checkout-price-retry[hidden],body.is-storefront-app .checkout-studio [hidden]{display:none!important}
+body.is-storefront-app .checkout-studio .checkout-summary-v5{padding:clamp(20px,2.4vw,28px);border-radius:20px;box-shadow:none;min-width:0;animation:seCartEnter .4s ease-out both}
+body.is-storefront-app .checkout-summary-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+body.is-storefront-app .checkout-item-count{font-size:.8rem;color:var(--muted)}
+body.is-storefront-app .checkout-summary-item{display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:12px;align-items:start;padding-block:12px}
+body.is-storefront-app .checkout-summary-item img{width:58px;height:72px;border:1px solid var(--line);border-radius:10px;background:var(--surface-soft);object-fit:contain}
+body.is-storefront-app .checkout-summary-item-copy{display:grid;gap:5px;min-width:0;overflow-wrap:anywhere}
+body.is-storefront-app .checkout-summary-item-copy>strong{font-size:.9rem}
+body.is-storefront-app .checkout-summary-item-copy>span{font-size:.76rem;color:var(--muted);line-height:1.5}
+body.is-storefront-app .checkout-summary-item-price{font-size:.88rem}
+body.is-storefront-app .checkout-studio .summary-row.total strong{font-size:clamp(1.35rem,2.4vw,1.85rem);letter-spacing:-.04em}
+@media(max-width:1023px){body.is-storefront-app .checkout-studio{grid-template-columns:minmax(0,1fr)}body.is-storefront-app .checkout-studio .checkout-summary-v5{position:static;top:auto}}
+@media(max-width:600px){body.is-storefront-app .checkout-hero-art{flex-basis:68px}body.is-storefront-app .checkout-stage .form-two{grid-template-columns:minmax(0,1fr)}body.is-storefront-app .checkout-stage,body.is-storefront-app .checkout-review-actions{padding:16px;border-radius:16px}body.is-storefront-app .checkout-studio .payment-choice{grid-template-columns:20px 36px minmax(0,1fr);gap:8px;padding:12px}body.is-storefront-app .checkout-studio .payment-choice-icon{width:36px;height:36px}body.is-storefront-app .checkout-studio .payment-choice-brand{grid-column:3;justify-self:start;margin:0}body.is-storefront-app .checkout-studio .checkout-place-order{flex-wrap:wrap;justify-content:center;text-align:center}body.is-storefront-app .checkout-studio .checkout-place-total{text-align:center}}
+@media(prefers-reduced-motion:reduce){body.is-storefront-app .checkout-studio *,body.is-storefront-app .checkout-hero *{animation:none!important;transition:none!important}}
+body[data-motion=off].is-storefront-app .checkout-studio *,body[data-motion=off].is-storefront-app .checkout-hero *{animation:none!important;transition:none!important}
