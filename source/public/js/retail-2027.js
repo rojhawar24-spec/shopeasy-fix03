@@ -37,7 +37,7 @@
       if(dark)document.documentElement.dataset.theme='dark';else delete document.documentElement.dataset.theme;
       for(const button of themeButtons){
         const language=String(document.documentElement.lang||'en').split('-')[0];
-        const labels={en:['Use light mode','Use dark mode'],ckb:['دۆخی ڕوون بەکاربهێنە','دۆخی تاریک بەکاربهێنە'],ar:['استخدام الوضع الفاتح','استخدام الوضع الداكن'],nl:['Lichte modus gebruiken','Donkere modus gebruiken'],fr:['Activer le mode clair','Activer le mode sombre']};
+        const labels={kmr:['دۆخێ رووناک بکاربینە','دۆخێ تاری بکاربینە'],en:['Use light mode','Use dark mode'],ckb:['دۆخی ڕوون بەکاربهێنە','دۆخی تاریک بەکاربهێنە'],ar:['استخدام الوضع الفاتح','استخدام الوضع الداكن'],nl:['Lichte modus gebruiken','Donkere modus gebruiken'],fr:['Activer le mode clair','Activer le mode sombre']};
         const label=(labels[language]||labels.en)[dark?0:1];
         button.setAttribute('data-no-translate','');
         const icon=button.querySelector('[data-theme-icon]');
