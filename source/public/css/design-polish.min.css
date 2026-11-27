@@ -583,3 +583,34 @@ body.is-storefront-app .shop-filter-refined .editorial-product-grid{grid-templat
 @media(max-width:850px){body.is-storefront-app .shop-filter-refined>.shop-controls{grid-template-columns:repeat(2,minmax(0,1fr))}body.is-storefront-app .shop-filter-refined>.shop-controls>.shop-price-range{grid-column:1/-1}}
 @media(max-width:520px){body.is-storefront-app .shop-filter-refined>.shop-controls{grid-template-columns:minmax(0,1fr);padding:14px;gap:12px}body.is-storefront-app .shop-filter-refined .shop-toolbar-sort{margin-inline-start:auto;flex:1;justify-content:flex-end}body.is-storefront-app .shop-filter-refined .shop-sort-control label{display:none}body.is-storefront-app .shop-filter-refined .shop-sort-control select{max-width:145px;font-size:16px}body.is-storefront-app .shop-filter-refined .shop-mobile-result-count{flex-basis:100%}body.is-storefront-app .shop-filter-refined .shop-filter-actions{width:100%}body.is-storefront-app .shop-filter-refined .editorial-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(forced-colors:active){body.is-storefront-app .shop-filter-refined .shop-stock-switch input{appearance:auto}}
+
+/* Catalogue filter studio: compact toolbar and accessible side drawer. */
+body.is-storefront-app .shop-filter-refined>.shop-filter-toolbar{padding:10px 0;gap:12px;border-block-start:0}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filter-toggle{border-radius:8px;min-height:44px;background:var(--paper);color:var(--text);box-shadow:none}
+body.is-storefront-app .shop-filter-refined .shop-mobile-result-count{margin-inline-end:auto;font-variant-numeric:tabular-nums}
+body.is-storefront-app .shop-filter-refined .shop-toolbar-sort{margin-inline-start:0}
+body.is-storefront-app .shop-filter-refined .shop-sort-control select{border-radius:8px;min-height:44px}
+body.is-storefront-app .shop-filter-refined .shop-filter-close{display:none}
+body.is-storefront-app .shop-filter-refined .shop-filter-fields{display:grid;grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+body.is-storefront-app .shop-filter-refined .shop-filter-overlay[hidden],body.is-storefront-app .shop-filter-refined>.shop-controls[hidden]{display:none}
+body.is-storefront-app.shop-filter-drawer-open{overflow:hidden}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filter-overlay:not([hidden]){position:fixed;inset:0;background:rgba(12,24,18,.48);z-index:1100;backdrop-filter:blur(2px)}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined>.shop-controls:not([hidden]){position:fixed;inset-block:0;inset-inline-end:0;z-index:1101;display:flex;flex-direction:column;align-items:stretch;width:min(440px,100%);max-width:100%;height:100dvh;max-height:100dvh;margin:0;padding:0;gap:0;border:0;border-radius:0;background:var(--paper);box-shadow:-16px 0 64px #0002;overflow:hidden;animation:filterDrawerIn .24s cubic-bezier(.2,.8,.2,1)}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filters-heading{display:flex;align-items:center;gap:12px;padding:22px 24px;border-bottom:1px solid var(--line);margin:0}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filters-heading h2{flex:1;font-size:1.2rem;font-weight:650;letter-spacing:-.03em}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filter-close{display:grid;place-items:center;flex:0 0 40px;height:40px;border:1px solid var(--line);background:var(--surface-soft);color:var(--text);border-radius:50%;cursor:pointer}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filter-fields{display:flex;flex:1;min-height:0;flex-direction:column;gap:24px;padding:24px;overflow-y:auto;overscroll-behavior:contain}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filter-fields .filter-block,body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .filter-search{display:grid;gap:8px}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filter-fields select,body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filter-fields input:not([type=checkbox]){min-height:46px;border-radius:10px;font-size:16px;background:var(--surface-soft);border:1px solid var(--line)}
+body.is-storefront-app .shop-filter-refined .inline-search{position:relative}
+body.is-storefront-app .shop-filter-refined .filter-input-icon{position:absolute;inset-inline-start:12px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+body.is-storefront-app .shop-filter-refined .filter-input-icon svg{width:17px;height:17px}
+body.is-storefront-app .shop-filter-refined .inline-search input{padding-inline-start:38px!important}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-price-range{padding-block:14px 0;border-block-start:1px solid var(--line)}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-price-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-stock-switch{padding-block:16px;justify-content:space-between;flex-direction:row-reverse;border-block:1px solid var(--line)}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filter-actions{flex:none;width:100%;padding:16px 24px max(16px,env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--paper)}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-filter-actions .btn{width:100%;min-height:48px;border-radius:10px}
+@keyframes filterDrawerIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:600px){body.is-storefront-app .shop-filter-refined .shop-filter-fields{grid-template-columns:minmax(0,1fr)}body.is-storefront-app .shop-filter-refined .shop-mobile-result-count{order:3;flex-basis:100%}body.is-storefront-app.shop-filters-js-ready .shop-filter-refined>.shop-controls:not([hidden]){width:100%}}
+@media(prefers-reduced-motion:reduce){body.is-storefront-app.shop-filters-js-ready .shop-filter-refined>.shop-controls:not([hidden]){animation:none}}
