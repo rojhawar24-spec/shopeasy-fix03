@@ -1313,6 +1313,16 @@ function boundedPage(value,total,pageSize) {
   return Math.min(requested,pages);
 }
 
+// Use the same definition of a new arrival on the home and product pages.
+function isRecentlyAddedProduct(product){
+  const raw=String(product?.created_at||'').trim();
+  if(!raw)return false;
+  const normalized=raw.replace(/^(\d{4}-\d{2}-\d{2}) /,'$1T');
+  const timestamp=Date.parse(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/.test(normalized)?normalized+'Z':normalized);
+  const now=Date.now();
+  return Number.isFinite(timestamp)&&timestamp<=now&&timestamp>=now-30*86400000;
+}
+
 app.get('/',async(req,res)=>{
   const [featuredProducts,latestProducts,categories,heroSettings]=await Promise.all([
     listProducts({onlyActive:true,sort:'featured',limit:48,offset:0}),
@@ -1323,10 +1333,7 @@ app.get('/',async(req,res)=>{
       getSetting('hero_image',''),getSetting('hero_image_mode','catalogue')
     ])
   ]);
-  const cutoff=Date.now()-30*86400000;
-  const isRecent=p=>{const raw=String(p.created_at||'');const t=Date.parse(raw.replace(' ','T')+(/(?:Z|[+-]\d\d:\d\d)$/.test(raw)?'':'Z'));return Number.isFinite(t)&&t>=cutoff&&t<=Date.now();};
-  
-  const newProducts=latestProducts.filter(p=>isRecent(p)).slice(0,12);
+  const newProducts=latestProducts.filter(isRecentlyAddedProduct).slice(0,12);
   const newIds=new Set(newProducts.map(p=>Number(p.id)));
   // The collection is a catalogue preview, not a mutually exclusive status.
   // Prioritise ordinary products, then use new products to fill available slots.
@@ -1405,7 +1412,7 @@ app.get('/product/:slug',async(req,res)=>{
   const isManager=String(req.user?.role||'').trim().toLowerCase()==='manager';
   // Fetch persisted history/reservation facts only for managers so the customer
   // page can show safe lifecycle controls without adding cost to normal browsing.
-  const [currency,variants,images,relatedCandidates,shippingFeeSetting,shippingZoneRulesText,deliveryCountriesSetting,managerProduct,reviewData]=await Promise.all([
+  const [currency,variants,images,relatedCandidates,shippingFeeSetting,shippingZoneRulesText,deliveryCountriesSetting,managerProduct,reviewData,arrivalCandidates]=await Promise.all([
     getSetting('currency',DEFAULT_STORE_CURRENCY),
     listProductVariants(product.id),
     listProductImages(product.id),
@@ -1414,7 +1421,8 @@ app.get('/product/:slug',async(req,res)=>{
     getSetting('shipping_zone_rules',''),
     getSetting('delivery_countries',''),
     isManager?getProductById(product.id):Promise.resolve(null),
-    res.locals.appearance.reviews ? Promise.all([visibleReviews(product.id),reviewSummary(product.id),req.user?.role==='customer'?userCanReview(req.user.id,product.id):Promise.resolve(false)]) : Promise.resolve([[],{count:0,average:0},false])
+    res.locals.appearance.reviews ? Promise.all([visibleReviews(product.id),reviewSummary(product.id),req.user?.role==='customer'?userCanReview(req.user.id,product.id):Promise.resolve(false)]) : Promise.resolve([[],{count:0,average:0},false]),
+    listProducts({onlyActive:true,sort:'newest',limit:13,offset:0}).catch(()=>[])
   ]);
   const deliveryCountries=normalizeDeliveryCountries(deliveryCountriesSetting);
   const shippingRuleValidation=parseShippingZoneRules(shippingZoneRulesText,currency,deliveryCountries);
@@ -1459,7 +1467,8 @@ app.get('/product/:slug',async(req,res)=>{
     res.locals.breadcrumbJsonLdSafe=serializeJsonLdSafely({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:crumbs});
   }
   const [reviews,reviewStats,canReview]=reviewData;
-  render(res,'product',{product,managerProduct,isManager,variants,images,shippingDisplay,selectedVariantId,relatedProducts,reviews,reviewStats,canReview,reviewNotice:cleanText(req.query.review,24),alertNotice:cleanText(req.query.alert,24),description:String(product.short_description||product.description||'').slice(0,290),productJsonLdSafe,cartError:safeCartError(req.query.cartError),added:req.query.added==='1'});
+  const newArrivalPreview=arrivalCandidates.filter(item=>Number(item.id)!==Number(product.id)&&isRecentlyAddedProduct(item)&&Number(item.available_stock)>0).slice(0,6);
+  render(res,'product',{product,managerProduct,isManager,variants,images,shippingDisplay,selectedVariantId,relatedProducts,newArrivalPreview,reviews,reviewStats,canReview,reviewNotice:cleanText(req.query.review,24),alertNotice:cleanText(req.query.alert,24),description:String(product.short_description||product.description||'').slice(0,290),productJsonLdSafe,cartError:safeCartError(req.query.cartError),added:req.query.added==='1'});
 });
 
 app.get('/wishlist',requireAuth,async(req,res)=>{
