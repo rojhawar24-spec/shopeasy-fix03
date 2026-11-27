@@ -4,7 +4,8 @@ if(!form)return;
 const button=form.querySelector('.checkout-place-order'),label=button?.querySelector('.checkout-place-label'),amount=button?.querySelector('.checkout-place-total'),status=document.getElementById('checkout-price-status'),quote=form.elements.pricingQuoteId;
 if(!button||!label||!amount||!status||!quote)return;
 const fields=['shippingCountry','shippingCity','shippingPostalCode'].map(n=>form.elements[n]);
-const locale=document.documentElement.lang||'en';
+const locale=(document.documentElement.lang||'en').split('-')[0];
+const retry=form.querySelector('[data-checkout-price-retry]');
 const words={nl:['Bezorgkosten en btw berekenen…','Vul je land en stad in.','Prijsberekening mislukt. Probeer opnieuw.','Definitieve totaalprijs'],ckb:['حیسابکردنی باج و گەیاندن…','وڵات و شار بنووسە.','حیسابکردن سەرکەوتوو نەبوو.','کۆی گشتی کۆتایی'],fr:['Calcul de la livraison et des taxes…','Indiquez le pays et la ville.','Calcul indisponible. Réessayez.','Total définitif'],ar:['جارٍ حساب التوصيل والضريبة…','أدخل البلد والمدينة.','تعذر الحساب. حاول مجدداً.','الإجمالي النهائي']}[locale]||['Calculating delivery and tax…','Enter your country and city.','Pricing unavailable. Please try again.','Final total'];
 let timer,version=0,queue=Promise.resolve(),validUntil=0;
 const key=()=>fields.map(f=>f.value.trim()).join('\u001f');
@@ -14,7 +15,7 @@ const priceNote=document.querySelector('.checkout-price-note span');
 if(!summary)return;
 function invalidate(){quote.value='';validUntil=0;button.disabled=true;label.textContent=words[0];amount.textContent='';summary.querySelectorAll('[data-checkout-estimate]').forEach(el=>el.hidden=false);}
 function schedule(){
- clearTimeout(timer);const current=++version;invalidate();
+ clearTimeout(timer);const current=++version;invalidate();if(retry)retry.hidden=true;
  if(!fields[0].value.trim()||!fields[1].value.trim()){status.textContent=words[1];return;}
  status.textContent=words[0];
  timer=setTimeout(()=>{queue=queue.catch(()=>{}).then(async()=>{
@@ -38,11 +39,12 @@ function schedule(){
    if(priceNote)priceNote.textContent=(data.taxRate===null?'':(data.taxIncluded?'VAT included: ':'VAT added: ')+data.taxRate+'% · ')+words[3]+': '+data.total;
    label.textContent=finalLabel;amount.textContent=data.total;quote.value=data.quoteId;validUntil=Date.now()+14*60*1000;
    status.textContent=words[3]+': '+data.total;button.disabled=false;
-  }catch(e){if(current===version){status.textContent=words[2];button.disabled=true;}}
+  }catch(e){if(current===version){status.textContent=words[2];button.disabled=true;if(retry)retry.hidden=false;}}
  });},350);
 }
 fields.forEach(f=>{f.addEventListener('input',schedule);f.addEventListener('change',schedule);});
 form.addEventListener('submit',e=>{if(!quote.value||Date.now()>=validUntil){e.preventDefault();e.stopImmediatePropagation();schedule();}},true);
+retry?.addEventListener('click',schedule);
 window.addEventListener('pageshow',schedule);
 schedule();
 })();
