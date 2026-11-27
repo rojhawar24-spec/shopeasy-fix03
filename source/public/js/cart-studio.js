@@ -2,56 +2,83 @@
   'use strict';
   const root=document.querySelector('[data-cart-studio]');
   if(!root)return;
-  const forms=[...root.querySelectorAll('[data-cart-studio-quantity]')];
   const status=root.querySelector('[data-cart-studio-status]');
-  const checkout=root.querySelector('[data-cart-studio-checkout]');
-  const dirty=new Set();
-  const controls=[];
-  const lockOthers=()=>{for(const entry of controls){const locked=dirty.size>0&&!dirty.has(entry.form);entry.input.readOnly=locked;for(const b of entry.steps)b.disabled=locked||b.dataset.atLimit==='true';}};
   const announce=message=>{if(status){status.hidden=!message;status.textContent=message||'';}};
   const motion=()=>document.body.dataset.motion!=='off'&&!matchMedia('(prefers-reduced-motion: reduce)').matches;
-  for(const form of forms){
+  let busy=false;
+  const quantities=[...root.querySelectorAll('[data-cart-studio-quantity]')];
+  const syncs=[];
+  const reset=()=>{busy=false;root.removeAttribute('aria-busy');root.querySelectorAll('.is-saving').forEach(f=>f.classList.remove('is-saving'));syncs.forEach(fn=>fn());announce('');};
+  for(const form of quantities){
     const input=form.querySelector('input[name=quantity]'),save=form.querySelector('button[type=submit]');
     if(!input||!save)continue;
-    const original=input.value,steps=[...form.querySelectorAll('[data-cart-qty-step]')];
-    controls.push({form,input,steps});
+    const steps=[...form.querySelectorAll('[data-cart-qty-step]')];
     const sync=()=>{
       const n=input.valueAsNumber,min=Number(input.min)||1,max=Number(input.max)||99;
       const valid=Number.isInteger(n)&&n>=min&&n<=max;
-      const changed=input.value!==original;
-      if(changed)dirty.add(form);else dirty.delete(form);
-      form.classList.toggle('is-dirty',changed);
-      save.disabled=!changed||!valid;
-      steps.forEach(b=>{b.dataset.atLimit=String(Number(b.dataset.cartQtyStep)<0?Number.isFinite(n)&&n<=min:Number.isFinite(n)&&n>=max);});
-      lockOthers();
-      announce(dirty.size?root.dataset.pendingText:'');
+      save.disabled=busy||!valid||input.value===input.defaultValue;
+      steps.forEach(b=>{b.disabled=busy||(Number(b.dataset.cartQtyStep)<0?Number.isFinite(n)&&n<=min:Number.isFinite(n)&&n>=max);});
     };
+    syncs.push(sync);
     form.addEventListener('click',e=>{
       const b=e.target.closest('[data-cart-qty-step]');
-      if(!b||b.disabled||input.readOnly)return;
+      if(!b)return;
       e.preventDefault();e.stopImmediatePropagation();
-      const n=input.valueAsNumber,min=Number(input.min)||1,max=Number(input.max)||99;
-      input.value=String(Math.min(max,Math.max(min,(Number.isFinite(n)?n:min)+Number(b.dataset.cartQtyStep))));
-      input.dispatchEvent(new Event('input',{bubbles:true}));
-      if(motion()&&input.animate)input.animate([{transform:'scale(.88)',opacity:.7},{transform:'scale(1)',opacity:1}],{duration:180,easing:'ease-out'});
+      if(busy||b.disabled)return;
+      const min=Number(input.min)||1,max=Number(input.max)||99,n=input.valueAsNumber;
+      const next=Math.min(max,Math.max(min,(Number.isFinite(n)?n:min)+Number(b.dataset.cartQtyStep)));
+      if(next===n)return;
+      input.value=String(next);sync();
+      if(motion()&&input.animate)input.animate([{transform:'scale(.86)',opacity:.65},{transform:'scale(1)',opacity:1}],{duration:160,easing:'ease-out'});
+      form.requestSubmit();
     },true);
     input.addEventListener('input',sync);input.addEventListener('change',sync);
     form.addEventListener('submit',e=>{
-      if(!input.checkValidity()||dirty.size>1){e.preventDefault();if(dirty.size>1)announce(root.dataset.oneText);return;}
-      form.classList.add('is-saving');announce(root.dataset.savingText);
+      if(busy||!input.checkValidity()){e.preventDefault();return;}
+      if(e.defaultPrevented)return;
+      busy=true;form.classList.add('is-saving');root.setAttribute('aria-busy','true');announce(root.dataset.savingText);
+      syncs.forEach(fn=>fn());
     });
     sync();
   }
-  checkout?.addEventListener('click',e=>{
-    if(!dirty.size)return;
-    e.preventDefault();announce(root.dataset.pendingText);
-    const f=dirty.values().next().value;
-    (f.querySelector('button[type=submit]:not(:disabled)')||f.querySelector('input[name=quantity]'))?.focus();
+  const dialog=document.querySelector('[data-cart-remove-dialog]');
+  const confirm=dialog?.querySelector('[data-cart-remove-confirm]');
+  const cancel=dialog?.querySelector('[data-cart-remove-cancel]');
+  const description=dialog?.querySelector('[data-cart-remove-description]');
+  let pending=null,trigger=null;
+  if(dialog&&confirm&&cancel&&description&&typeof dialog.showModal==='function'){
+    for(const form of root.querySelectorAll('[data-cart-remove]')){
+      form.addEventListener('submit',e=>{
+        if(form.dataset.cartRemoveConfirmed==='1'){delete form.dataset.cartRemoveConfirmed;return;}
+        if(busy){e.preventDefault();e.stopImmediatePropagation();return;}
+        e.preventDefault();e.stopImmediatePropagation();
+        pending=form;trigger=e.submitter||form.querySelector('button');
+        description.textContent=[form.dataset.itemName,form.dataset.itemVariant].filter(Boolean).join(' — ');
+        if(!dialog.open)dialog.showModal();
+        cancel.focus();
+      },true);
+    }
+    cancel.addEventListener('click',()=>dialog.close());
+    dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
+    dialog.addEventListener('close',()=>{pending=null;trigger?.focus();trigger=null;});
+    confirm.addEventListener('click',()=>{
+      if(!pending||busy)return;
+      const form=pending,button=trigger;
+      // Preserve the original POST and CSRF fields, bypass only the redundant native confirmation.
+      const nativeConfirm=form.getAttribute('data-confirm');
+      form.removeAttribute('data-confirm');
+      form.dataset.cartRemoveConfirmed='1';
+      dialog.close();
+      busy=true;root.setAttribute('aria-busy','true');form.closest('.cart-studio-item')?.classList.add('is-removing');
+      syncs.forEach(fn=>fn());if(button)button.disabled=true;
+      HTMLFormElement.prototype.submit.call(form);
+      if(nativeConfirm!==null)form.setAttribute('data-confirm',nativeConfirm);
+    });
+  }
+  root.querySelector('[data-cart-studio-checkout]')?.addEventListener('click',e=>{
+    if(busy){e.preventDefault();return;}
+    const changed=quantities.find(f=>{const i=f.querySelector('input[name=quantity]');return i&&i.value!==i.defaultValue;});
+    if(changed){e.preventDefault();announce(root.dataset.pendingText);changed.querySelector('input[name=quantity]')?.focus();}
   });
-  // Prevent conflicting unsaved edits; existing server forms remain authoritative.
-  root.addEventListener('focusin',e=>{
-    const f=e.target.closest('[data-cart-studio-quantity]');
-    if(f&&dirty.size&&!dirty.has(f))announce(root.dataset.oneText);
-  });
-  // Only one line is edited at a time; no optimistic totals or hidden requests.
+  window.addEventListener('pageshow',e=>{if(e.persisted){reset();root.querySelectorAll('.is-removing').forEach(x=>x.classList.remove('is-removing'));root.querySelectorAll('[data-cart-remove] button').forEach(b=>b.disabled=false);}});
 })();
