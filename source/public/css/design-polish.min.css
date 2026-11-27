@@ -923,3 +923,59 @@ body.is-storefront-app .cart-studio :is(button,a,summary,input):focus-visible{ou
 @media(max-width:360px){body.is-storefront-app .cart-studio .cart-studio-item,body.is-storefront-app .cart-studio .cart-studio-item:last-child{grid-template-columns:64px minmax(0,1fr);padding:12px;gap:10px}body.is-storefront-app .cart-studio .qty-form .cart-qty-update{width:100%}}
 @media(prefers-reduced-motion:reduce){body.is-storefront-app .cart-studio *,body.is-storefront-app .cart-studio{animation:none!important;transition:none!important}}
 body[data-motion=off].is-storefront-app .cart-studio *,body[data-motion=off].is-storefront-app .cart-studio{animation:none!important;transition:none!important}
+
+/* Cart experience: expressive hero, connected steps and explicit actions. */
+body.is-storefront-app .purchase-journey-studio .purchase-journey-list{padding:18px 22px;gap:14px;border-radius:20px;align-items:stretch}
+body.is-storefront-app .purchase-journey-studio .purchase-journey-item{position:relative;display:flex;flex-direction:row;align-items:center;text-align:start;gap:12px;padding:8px;min-width:0;border-radius:12px}
+body.is-storefront-app .purchase-journey-studio .purchase-journey-item::after{content:'';position:absolute;inset-inline:8px;inset-block-end:-8px;height:3px;border-radius:4px;background:var(--line)}
+body.is-storefront-app .purchase-journey-studio .purchase-journey-item:is(.is-current,.is-complete)::after{background:var(--brand-primary)}
+body.is-storefront-app .purchase-journey-studio .purchase-journey-item.is-current::after{transform-origin:0 50%;animation:seJourneyProgress .55s cubic-bezier(.16,1,.3,1) both}
+html[dir=rtl] body.is-storefront-app .purchase-journey-studio .purchase-journey-item.is-current::after{transform-origin:100% 50%}
+body.is-storefront-app .purchase-journey-studio .purchase-journey-number{width:46px;height:46px;flex:0 0 46px;border-radius:14px}
+body.is-storefront-app .purchase-journey-studio .purchase-journey-item.is-current .purchase-journey-number{color:var(--on-brand,#fff);animation:seJourneyIcon .48s cubic-bezier(.16,1,.3,1) both}
+body.is-storefront-app .purchase-journey-copy{display:grid;gap:4px;min-width:0;font-size:.86rem;overflow-wrap:anywhere;line-height:1.35}
+body.is-storefront-app .purchase-journey-copy small{color:var(--muted);font-size:.64rem;letter-spacing:.08em;font-weight:650;font-variant-numeric:tabular-nums}
+body.is-storefront-app .cart-studio-head .page-back{margin-block:0 12px}
+body.is-storefront-app .cart-studio-head .back-button{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:11px;background:var(--paper);color:var(--text);transition:background .18s,transform .18s}
+body.is-storefront-app .cart-studio-head .back-button:hover{background:var(--surface-soft);transform:translateX(-2px)}
+html[dir=rtl] body.is-storefront-app .cart-studio-head .back-button:hover{transform:translateX(2px)}
+body.is-storefront-app .cart-hero{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:clamp(20px,3vw,34px);border:1px solid var(--line);border-radius:24px;background:var(--paper);overflow:hidden}
+body.is-storefront-app .cart-hero-copy{min-width:0;animation:seCartEnter .4s ease-out both}
+body.is-storefront-app .cart-hero-copy h1{margin-block:7px 10px}
+body.is-storefront-app .cart-hero-copy p{margin-block:0}
+body.is-storefront-app .cart-hero-visual{position:relative;flex:0 0 128px;color:var(--brand-primary);display:grid;place-items:center}
+body.is-storefront-app .cart-hero-visual svg{display:block;width:100%;height:auto}
+body.is-storefront-app .cart-hero-bag{transform-box:view-box;transform-origin:64px 90px;animation:seHeroBag .85s cubic-bezier(.16,1,.3,1) both}
+body.is-storefront-app .cart-hero-spark{animation:seHeroSpark .7s .2s ease-out both;transform-origin:center}
+body.is-storefront-app .cart-hero-count{position:absolute;inset-inline-end:4px;inset-block-end:3px;min-width:36px;height:36px;padding:0 8px;display:grid;place-items:center;border:2px solid var(--paper);background:var(--brand-primary);color:var(--on-brand,#fff);border-radius:999px;font-weight:750;font-size:.9rem;font-variant-numeric:tabular-nums;animation:seJourneyIcon .45s .35s cubic-bezier(.16,1,.3,1) both}
+body.is-storefront-app .cart-studio .cart-item>.cart-remove-form .cart-remove-action{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 13px;border:1px solid var(--line);border-radius:11px;background:var(--paper);color:var(--text);cursor:pointer;font:inherit;font-size:.8rem;font-weight:650;transition:background .18s,border-color .18s,transform .18s}
+body.is-storefront-app .cart-studio .cart-item>.cart-remove-form .cart-remove-action:hover{background:var(--surface-soft);border-color:#b65a55;color:var(--text)}
+body.is-storefront-app .cart-studio .cart-remove-action:active{transform:scale(.96)}
+body.is-storefront-app .cart-studio .cart-remove-action svg{flex:none}
+body.is-storefront-app .cart-studio .cart-primary-action{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:14px 42px;border-radius:14px;text-align:center;white-space:normal;line-height:1.35}
+body.is-storefront-app .cart-studio .cart-primary-action::before,body.is-storefront-app .cart-studio .cart-primary-action::after{content:none!important;display:none!important}
+body.is-storefront-app .cart-studio .cart-primary-action>svg{position:absolute;inset-inline-end:17px;width:20px;height:20px;border:0;border-radius:0;background:transparent;transition:translate .18s}
+body.is-storefront-app .cart-studio .cart-primary-action:hover>svg{translate:3px 0}
+html[dir=rtl] body.is-storefront-app .cart-studio .cart-primary-action:hover>svg{translate:-3px 0}
+body.is-storefront-app .cart-remove-dialog{width:min(430px,calc(100vw - 28px));max-width:430px;padding:0;border:1px solid var(--line);border-radius:24px;background:var(--paper);color:var(--text);box-shadow:0 24px 80px #0005}
+body.is-storefront-app .cart-remove-dialog::backdrop{background:rgb(8 15 13 / 65%)}
+body.is-storefront-app .cart-remove-dialog[open]{animation:seRemoveOpen .22s cubic-bezier(.16,1,.3,1) both}
+body.is-storefront-app .cart-remove-dialog-content{display:grid;gap:14px;padding:26px;text-align:center}
+body.is-storefront-app .cart-remove-art{display:grid;place-items:center;width:60px;height:60px;margin:auto;border-radius:18px;background:var(--surface-soft);color:var(--text)}
+body.is-storefront-app .cart-remove-dialog h2{margin:0;font-size:1.32rem;letter-spacing:-.02em}
+body.is-storefront-app .cart-remove-dialog p{margin:0;color:var(--muted);line-height:1.5;overflow-wrap:anywhere}
+body.is-storefront-app .cart-remove-dialog-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px}
+body.is-storefront-app .cart-remove-dialog-actions .btn{min-height:48px;border-radius:12px;white-space:normal}
+body.is-storefront-app .cart-remove-confirm{background:#a52d35;border:1px solid #a52d35;color:#fff}
+body.is-storefront-app .cart-remove-confirm:hover{background:#8c232b;color:#fff}
+body.is-storefront-app .cart-remove-dialog button:focus-visible{outline:2px solid var(--focus,var(--brand-primary));outline-offset:3px}
+body.is-storefront-app .cart-studio-item.is-removing{opacity:.5;pointer-events:none;transition:opacity .15s}
+body.is-storefront-app .cart-studio .qty-form.is-saving{opacity:.65;transition:opacity .15s}
+@keyframes seJourneyProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes seJourneyIcon{0%{opacity:0;transform:scale(.75)}65%{opacity:1;transform:scale(1.07)}100%{opacity:1;transform:none}}
+@keyframes seHeroBag{0%{opacity:0;transform:translateY(12px) scale(.8) rotate(-8deg)}50%{opacity:1;transform:translateY(-5px) scale(1.04) rotate(4deg)}75%{transform:translateY(1px) scale(.98) rotate(-2deg)}100%{opacity:1;transform:none}}
+@keyframes seHeroSpark{from{opacity:0;transform:scale(.7)}to{opacity:.8;transform:scale(1)}}
+@keyframes seRemoveOpen{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+@media(max-width:600px){body.is-storefront-app .purchase-journey-studio .purchase-journey-list{padding:10px 8px 16px;gap:5px}body.is-storefront-app .purchase-journey-studio .purchase-journey-item{flex-direction:column;text-align:center;gap:6px;padding:5px 2px}body.is-storefront-app .purchase-journey-studio .purchase-journey-number{width:38px;height:38px;flex-basis:38px;border-radius:11px}body.is-storefront-app .purchase-journey-copy{font-size:.68rem}body.is-storefront-app .purchase-journey-copy small{font-size:.59rem}body.is-storefront-app .cart-hero{padding:18px;gap:9px;border-radius:18px}body.is-storefront-app .cart-hero-visual{flex-basis:86px}body.is-storefront-app .cart-hero-count{min-width:29px;height:29px;font-size:.75rem}body.is-storefront-app .cart-studio .cart-item>.cart-remove-form .cart-remove-action{padding:8px 10px}}
+@media(prefers-reduced-motion:reduce){body.is-storefront-app .purchase-journey-studio *,body.is-storefront-app .cart-hero *,body.is-storefront-app .cart-remove-dialog,body.is-storefront-app .cart-remove-dialog *{animation:none!important;transition:none!important}}
+body[data-motion=off].is-storefront-app .purchase-journey-studio *,body[data-motion=off].is-storefront-app .cart-hero *,body[data-motion=off].is-storefront-app .cart-remove-dialog{animation:none!important;transition:none!important}
