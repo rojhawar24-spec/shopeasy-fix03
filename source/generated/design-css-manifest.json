@@ -40,14 +40,14 @@
     },
     {
       "output": "public/css/design-polish.min.css",
-      "sha256": "116bbcf346e3ea49f0a0559eae05601c3452521278312a53038cf4ecc99b409a",
-      "inputBytes": 91410,
-      "bytes": 86094,
+      "sha256": "d6da730e234dc9d452a999ee22fd0f3c65b76c71ea022e9beb7fb81cd877a238",
+      "inputBytes": 262532,
+      "bytes": 256078,
       "sources": [
         {
           "path": "public/css/research-polish-2027.css",
-          "bytes": 91410,
-          "sha256": "e2a2db0e484029258177a134370592fe9547630c10444d8fc33f3088db3598b5"
+          "bytes": 262532,
+          "sha256": "4b176dc8b1b9a19acfd489340f91d3ef08b1ea1bc1e31e9b7405049e578abfe2"
         }
       ],
       "warnings": []

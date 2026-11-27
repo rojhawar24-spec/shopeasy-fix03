@@ -22,9 +22,6 @@ jobs:
       - run: npm ci --include=dev
       - run: npm run build:design-css
       - run: node scripts/build-design-css.mjs --check
-      - name: Export only rebuilt public CSS and public build manifest for source recovery
-        run: |
-          node --input-type=module -e 'import fs from "node:fs"; for(const path of ["public/css/design-polish.min.css","generated/design-css-manifest.json"]){const content=fs.readFileSync(path).toString("base64");const chunks=content.match(/.{1,3000}/g)||[];for(let i=0;i<chunks.length;i++)console.log("CSS_RECOVERY "+path+" "+i+"/"+chunks.length+" "+chunks[i]);}'
       - name: Require committed generated output
         run: git diff --exit-code -- public/css/design-polish.min.css public/css/design-foundation.min.css generated/design-css-manifest.json
   sqlite:
