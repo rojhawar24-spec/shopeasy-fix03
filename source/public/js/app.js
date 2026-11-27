@@ -634,7 +634,7 @@
       if (submit) {
         submit.disabled = !available;
         const textNode = Array.from(submit.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
-        const label = available ? 'Add to bag' : (chosen ? 'Sold out' : !one ? 'Select '+(optionOne.closest('.product-attribute-select')?.querySelector('.configurator-option-label>span')?.textContent||'option') : 'Select '+(optionTwo?.closest('.product-attribute-select')?.querySelector('.configurator-option-label>span')?.textContent||'option'));
+        const label = available ? 'Add to cart' : (chosen ? 'Sold out' : 'Choose options');
         if (textNode) textNode.textContent = `${window.ShopEasyI18n?.translate(label) || label} `;
       }
       if (stockLabel) stockLabel.textContent = available ? 'In stock' : chosen ? 'Sold out' : (originalAggregateStock > 0 ? 'Choose options' : 'Sold out');

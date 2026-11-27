@@ -3043,7 +3043,7 @@ export async function restockProductVariant(variantId, quantity) {
   return getProductVariantById(Number(variantId));
 }
 
-// Visibility only: preserve stock, variants and outstanding order reservations.
+// Preserve stock and variants; refuse archiving while any active order reserves stock.
 export async function archiveProduct(id) {
   const result = await run(`UPDATE products SET active=0,featured=0,updated_at=datetime('now')
     WHERE id=? AND active=1 AND reserved_stock=0

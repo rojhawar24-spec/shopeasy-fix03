@@ -41,7 +41,7 @@ test('FIX03 UI-006: guest lookup and return selector preserve full purchased var
 test('FIX03 UI-006: quick-restock names and accessible descriptions distinguish both axes and SKU', () => {
   const template = source('admin/product-form').split('\n').find(line => line.includes('class="form-section restock-panel"'));
   const html = ejs.render(template, { currentVariants: items.map(i => ({ id: i.id, option_name: i.variant_name,
-    option_value: i.variant_value, option_name_2: i.variant_name_2, option_value_2: i.variant_value_2, sku: `RED-${i.variant_value_2}`, available_stock: 5, reserved_stock: 1 })),
+    option_value: i.variant_value, option_name_2: i.variant_name_2, option_value_2: i.variant_value_2, sku: `RED-${i.variant_value_2}`, available_stock: 5, reserved_stock: 1, active: 1 })),
     product: { id: 1 }, csrf: common.csrf, restockErrorSafe: null, restockedSafe: false });
   assert.match(plain(html), /Colour: Red · Size: Small · RED-Small/); assert.match(plain(html), /Colour: Red · Size: Large · RED-Large/);
   for (const id of [1, 2]) { assert.ok(html.includes(`id="restock-variant-${id}"`)); assert.ok(html.includes(`aria-describedby="restock-variant-${id}"`)); }
