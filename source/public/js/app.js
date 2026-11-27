@@ -654,6 +654,13 @@
     updateSelection();
   });
 
+  document.querySelectorAll('[data-cart-confirmation]').forEach(notice=>{
+    const close=notice.querySelector('[data-cart-confirmation-close]');
+    const dismiss=()=>{notice.hidden=true;try{const url=new URL(location.href);url.searchParams.delete('added');history.replaceState(history.state,'',url.pathname+url.search+url.hash);}catch{}};
+    close.hidden=false;close.addEventListener('click',dismiss);
+    notice.querySelector('[data-cart-confirmation-continue]')?.addEventListener('click',event=>{event.preventDefault();dismiss();});
+    notice.classList.add('cart-confirmation-floating');
+  });
   document.querySelectorAll('.product-detail-studio [data-product-variant-form]').forEach(form=>{
     const quantity=form.querySelector('[data-product-quantity]');
     if(!quantity)return;
@@ -877,7 +884,8 @@
     }
     document.querySelectorAll('[data-colour-preset]').forEach(button=>button.addEventListener('click',()=>{
       const populated=[...variantEditor.querySelectorAll('[data-variant-value]')].some(input=>input.value.trim());
-      const first=button.dataset.colourPreset==='colour'?'Colour':'Size',second=button.dataset.colourPreset==='colour'?'':'Colour';
+      const only=button.dataset.colourPreset==='colour';
+      const first=only?(colourKey(variantNameInput.value)?variantNameInput.value:'Colour'):(variantNameInput.value.trim()||'Size'),second=only?'':(colourKey(variantNameTwoInput.value)?variantNameTwoInput.value:'Colour');
       if(populated&&(normalizeOptionKey(variantNameInput.value)!==normalizeOptionKey(first)||normalizeOptionKey(variantNameTwoInput.value)!==normalizeOptionKey(second))){if(colourStatus)colourStatus.textContent='Existing variants are protected. Keep their option names or edit them manually after reviewing stock.';return;}
       variantNameInput.value=first;variantNameTwoInput.value=second;
       variantNameInput.dispatchEvent(new Event('input',{bubbles:true}));variantNameTwoInput.dispatchEvent(new Event('input',{bubbles:true}));syncPalette();
