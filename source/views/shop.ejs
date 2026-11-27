@@ -53,7 +53,7 @@ function shopFilterUrlWithout(excluded) {
 </section>
 <% } %>
 <section class="container section shop-section shop-editorial shop-filter-refined">
-  <% if(added){ %><div class="cart-added-success" role="status" aria-live="polite"><span class="cart-added-icon" aria-hidden="true">✓</span><div><strong><%= shopText('Added to your bag') %></strong><p><%= shopText("Your item is in the bag. You can keep shopping or review your bag when you're ready.") %></p></div><div class="cart-added-actions"><a class="btn btn-dark btn-small" href="/cart"><%= shopText('View bag') %></a><a class="btn btn-light btn-small" href="/shop"><%= shopText('Continue shopping') %></a></div></div><% } %>
+  <%- include('partials/cart-confirmation') %>
   <% if(cartError){ %><div class="alert cart-action-error" role="alert" aria-live="assertive"><% if(cartError==='option'){ %><%= shopText('Choose an available option before adding this product to your bag.') %><% } else if(cartError==='quantity'){ %><%= shopText('You can add up to 99 of the same product option. Check the quantity and try again.') %><% } else if(cartError==='stock'){ %><%= shopText('Stock changed before we could add this item. Please review current availability.') %><% } else { %><%= shopText('This product is no longer available. Please browse the shop for current products.') %><% } %></div><% } %>
   <div class="shop-filter-mobile-bar shop-filter-toolbar" data-shop-filter-mobile-bar>
     <button type="button" class="shop-filter-toggle" aria-controls="shop-filter-form" aria-expanded="true" data-shop-filter-toggle>
