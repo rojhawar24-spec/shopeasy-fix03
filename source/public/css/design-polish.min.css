@@ -1096,3 +1096,14 @@ body[data-motion=off].is-storefront-app .checkout-studio *,body[data-motion=off]
 body.is-storefront-app .demo-media-notice{display:block;margin-block:0 12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface-soft);color:var(--text);font-size:.77rem;line-height:1.5}
 body.is-storefront-app .product-gallery-thumbnail:has(.demo-thumbnail-label){position:relative}
 body.is-storefront-app .demo-thumbnail-label{position:absolute;inset-inline:4px;bottom:4px;background:#202020;color:#fff;border-radius:4px;padding:2px;font-size:9px;font-weight:700;line-height:1.2;text-align:center;pointer-events:none}
+
+/* Unified Arabic-script typography: Sorani, Badini and Arabic. */
+@font-face{font-family:"ShopEasy Arabic";src:url("/fonts/noto-sans-arabic-5.3.0.woff2") format("woff2");font-style:normal;font-weight:100 900;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+0870-089F,U+08A0-08FF,U+FB50-FDFF,U+FE70-FEFF}
+html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]){--font-body:"ShopEasy Arabic","Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;--font-sorani:var(--font-body);--font-arabic:var(--font-body);--brand-font:var(--font-body)}
+html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body{font-family:"ShopEasy Arabic","Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.75;letter-spacing:normal;font-feature-settings:normal}
+html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body :where(h1,h2,h3,h4,h5,h6,button,input,textarea,select,label,summary,.btn,.eyebrow,.brand-word,.purchase-journey-copy,.cart-hero-copy,.checkout-hero-copy,.product-intro,.configurator-option-label){font-family:inherit;letter-spacing:normal;font-feature-settings:normal}
+html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body :is(h1,h2,h3,h4){line-height:1.5;letter-spacing:normal}
+html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body :is(button,.btn,label,summary,.purchase-journey-copy,.field-note,.payment-choice-copy,.cart-confirmation-copy,.cart-hero-copy,.checkout-hero-copy,.product-intro,.configurator-feedback){line-height:1.65;letter-spacing:normal}
+html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body :is(.product-intro h1,.cart-studio-head .cart-hero-copy h1,.checkout-hero-copy h1){line-height:1.45;letter-spacing:normal}
+html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body :is(input[type=email],input[type=tel],input[type=password],input[autocomplete=one-time-code]){direction:ltr;text-align:start}
+html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body :is(.btn,button,.product-option-chips button){white-space:normal;overflow-wrap:normal}
