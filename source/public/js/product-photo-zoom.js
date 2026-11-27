@@ -17,6 +17,7 @@
     fr:['Photo précédente','Photo suivante','Photo','Photo de variante','sur'],
     ar:['الصورة السابقة','الصورة التالية','صورة','صورة الخيار','من'],
     ckb:['وێنەی پێشوو','وێنەی دواتر','وێنە','وێنەی جۆر','لە'],
+    kmr:['وێنەیێ بەرێ','وێنەیێ پاشێ','وێنە','وێنەیێ جۆری','ژ'],
     en:['Previous photo','Next photo','Photo','Variant photo','of']
   })[lang] || ['Previous photo','Next photo','Photo','Variant photo','of'];
   const abs = url => { try { return new URL(url, location.href).href; } catch { return ''; } };
@@ -105,14 +106,16 @@
       const b = document.createElement('button'); b.type='button';
       b.className = 'product-gallery-arrow ' + (delta < 0?'is-prev':'is-next');
       b.setAttribute('aria-label', words[delta < 0 ? 0 : 1]);
-      b.textContent = (delta < 0) !== rtl ? '‹' : '›';
+      const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('width','22');svg.setAttribute('height','22');svg.setAttribute('aria-hidden','true');
+      const path=document.createElementNS(svg.namespaceURI,'path');path.setAttribute('d',(delta<0)!==rtl?'M19 12H5m7-7-7 7 7 7':'M5 12h14m-7-7 7 7-7 7');path.setAttribute('fill','none');path.setAttribute('stroke','currentColor');path.setAttribute('stroke-width','1.8');path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-linejoin','round');svg.append(path);b.append(svg);b.title=words[delta<0?0:1];
       b.addEventListener('click',()=>go(delta)); return b;
     };
     const count = document.createElement('span'); count.className='product-gallery-count';
     count.setAttribute('role','status'); count.setAttribute('aria-live','polite'); count.setAttribute('aria-atomic','true');
     counters.push(count); nav.append(create(-1),count,create(1)); parent.append(nav);
   };
-  makeNav(stage,'is-stage');
+  makeNav(stage.parentElement,'is-stage');
   makeNav(large.parentElement,'is-dialog');
   if (thumbs.length > 1) {
     root.classList.add('has-multiple-photos');
