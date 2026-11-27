@@ -94,7 +94,7 @@ function shopFilterUrlWithout(excluded) {
     <a class="active-filter-clear" href="<%= _categoryInfo?'/category/'+encodeURIComponent(_categoryInfo.slug):'/shop' %>"><%= customerText(locale==='nl'?'Alles wissen':locale==='fr'?'Tout effacer':locale==='ckb'?'هەموو بسڕەوە':locale==='ar'?'مسح الكل':'Clear all') %></a>
   </nav>
   <% } %>
-  <% const rootCategories=categories.filter(c=>!c.parent_id); const visibleCategories=rootCategories.slice(0,5); const selectedCategory=categories.find(c=>c.slug===category); if(selectedCategory&&!visibleCategories.some(c=>c.slug===category))visibleCategories.push(selectedCategory); function categoryFilterHref(slug){const params=new URLSearchParams();for(const [key,value] of Object.entries(shopFilterState))if(key!=='category'&&value)params.set(key,value);if(slug)params.set('category',slug);return '/shop'+(params.size?'?'+params.toString():'');} %>
+  <% const rootCategories=categories.filter(c=>!c.parent_id); const visibleCategories=rootCategories.slice(); const selectedCategory=categories.find(c=>c.slug===category); if(selectedCategory&&!visibleCategories.some(c=>c.slug===category))visibleCategories.push(selectedCategory); function categoryFilterHref(slug){const params=new URLSearchParams();for(const [key,value] of Object.entries(shopFilterState))if(key!=='category'&&value)params.set(key,value);if(slug)params.set('category',slug);return '/shop'+(params.size?'?'+params.toString():'');} %>
 <div class="shop-toolbar shop-category-toolbar">
   <div class="shop-category-rail"><div class="chips" role="group" aria-label="<%= shopText('Category') %>">
     <a class="chip <%= !category?'active':'' %>" href="<%= categoryFilterHref('') %>" <% if(!category){ %>aria-current="true"<% } %>><%= shopText('All') %></a>
