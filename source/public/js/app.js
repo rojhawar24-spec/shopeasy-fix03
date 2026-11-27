@@ -122,6 +122,15 @@
   document.querySelectorAll('.nav-category-menu').forEach((categoryMenu) => {
     const trigger = categoryMenu.querySelector('.nav-category-trigger');
     if (!trigger) return;
+    const filter=categoryMenu.querySelector('[data-category-filter]');
+    const nodes=Array.from(categoryMenu.querySelectorAll('.nav-category-list > .nav-category-node'));
+    const empty=categoryMenu.querySelector('[data-category-empty]');
+    if(filter)filter.addEventListener('input',()=>{
+      const term=filter.value.normalize('NFKC').trim().toLocaleLowerCase();
+      let matches=0;
+      for(const node of nodes){const visible=!term||node.textContent.normalize('NFKC').toLocaleLowerCase().includes(term);node.hidden=!visible;if(visible)matches++}
+      if(empty)empty.hidden=matches!==0;
+    });
     const setCategoryOpen = (open) => {
       categoryMenu.classList.toggle('open', open);
       trigger.setAttribute('aria-expanded', String(open));
