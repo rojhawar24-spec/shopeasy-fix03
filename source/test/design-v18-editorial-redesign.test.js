@@ -19,7 +19,7 @@ test('RTL/LTR structure and functional storefront hooks remain present', () => {
   const header = read('views/partials/header.ejs');
   const home = read('views/home.ejs');
   const checkout = read('views/checkout.ejs');
-  assert.match(header, /dir="<%= \['ckb','ar'\]\.includes\(locale\)\?'rtl':'ltr' %>"/);
+  assert.match(header, /dir="<%= \['ckb','ar','kmr'\]\.includes\(locale\)\?'rtl':'ltr' %>"/);
   assert.match(header, /data-search-toggle/);
   assert.match(home, /href="\/shop"/);
   assert.match(checkout, /name="paymentMethod" value="cash_on_delivery"/);

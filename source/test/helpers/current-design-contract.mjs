@@ -47,7 +47,7 @@ export function assertSharedAppCacheVersion() {
 
 export function assertLocaleScripts() {
   const footer=read('views/partials/footer.ejs');
-  for(const locale of ['ar','ckb','nl','fr']) {
+  for(const locale of ['ar','ckb','nl','fr','kmr']) {
     assert.ok(footer.includes(`i18n-${locale}.js?v=`),`${locale} translation runtime must be cache-busted`);
     assert.ok(fs.statSync(path.join(root,'public/js',`i18n-${locale}.js`)).size>100,`${locale} translation runtime must exist`);
   }

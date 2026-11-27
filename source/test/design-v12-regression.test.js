@@ -46,9 +46,10 @@ test('successful Add to cart returns to a safe shopping page with a success noti
   assert.match(server,/function cartAddReturnPath\(req,slug\)/);
   assert.match(server,/u\.searchParams\.set\('added','1'\)/);
   assert.match(server,/const allowed=u\.pathname==='\/' \|\| u\.pathname==='\/shop'/);
-  assert.match(read('views/product.ejs'),/Added to your bag/);
-  assert.match(read('views/shop.ejs'),/Continue shopping/);
-  assert.match(read('views/home.ejs'),/View bag/);
+  const confirmation=read('views/partials/cart-confirmation.ejs');
+  for(const view of ['product','shop','home']) assert.ok(read('views/'+view+'.ejs').includes("include('partials/cart-confirmation')"),view);
+  for(const label of ['Added to your bag','Continue shopping','View bag'])assert.ok(confirmation.includes(label),label);
+  assert.match(confirmation,/role="status" aria-live="polite"/);
   assert.match(read('views/product.ejs'), /method="post" action="\/cart\/add"/);
   assert.match(read('views/partials/product-card.ejs'), /href="\/product\//);
   assert.match(read('views/partials/product-card.ejs'), /View product/);

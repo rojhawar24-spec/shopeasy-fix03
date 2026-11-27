@@ -96,7 +96,7 @@ test('active app.css includes gallery and responsive manager dashboard styles', 
   const header = read('views/partials/header.ejs');
   const css = read('public/css/app.css');
   const dashboard = read('views/admin/dashboard.ejs');
-  assert.match(header, /href="\/css\/design-foundation\.min\.css\?v=[A-Za-z0-9._-]+"/, "storefront must load the compiled foundation containing app.css with a versioned URL");
+  assert.match(header, /href="\/css\/design-foundation\.min\.css\?v=[A-Za-z0-9._-]+<%= typeof assetRevision === 'string' \? assetRevision : '' %>"/, "storefront must load the compiled foundation containing app.css with a versioned URL");
   assert.doesNotMatch(header, /href="\/css\/(?:style|design-v17)\.css/);
   assert.match(dashboard, /include\('\.\.\/partials\/admin-nav'\)/);
   assert.doesNotMatch(dashboard, /manager-dashboard-sidebar|manager-dashboard-nav/);

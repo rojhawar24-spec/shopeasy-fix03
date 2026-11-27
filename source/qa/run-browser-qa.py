@@ -91,7 +91,7 @@ class Fixture:
                 return [name for name in names if name.startswith(".env") or name in {".venv", ".git", "node_modules", "data", "uploads", "__pycache__"}]
 
             # Deliberately never traverse .env, data/, .venv, qa/ or user uploads.
-            for name in ("src", "views", "public", "generated"):
+            for name in ("src", "views", "public", "generated", "postgres"):
                 require(not (self.args.app_root / name).is_symlink(), "runtime-source-directory-symlink")
                 shutil.copytree(self.args.app_root / name, runtime / name, ignore=ignore)
             require(not (self.args.app_root / "package.json").is_symlink(), "runtime-package-symlink")
@@ -99,7 +99,7 @@ class Fixture:
             source_files = sorted(path for path in runtime.rglob("*") if path.is_file())
             self.source_manifest = [{"path": path.relative_to(runtime).as_posix(), "sha256": hashlib.sha256(path.read_bytes()).hexdigest()} for path in source_files]
             manifest = "\n".join(entry["path"] + ":" + entry["sha256"] for entry in self.source_manifest)
-            self.source_fingerprint = {"sha256": hashlib.sha256(manifest.encode()).hexdigest(), "files": len(source_files), "scope": "Copied src, views, public excluding uploads, generated and package.json"}
+            self.source_fingerprint = {"sha256": hashlib.sha256(manifest.encode()).hexdigest(), "files": len(source_files), "scope": "Copied src, views, public excluding uploads, generated, postgres and package.json"}
             env = safe_environment()
             env.update({"NODE_ENV": "test", "HOME": str(self.private), "USERPROFILE": str(self.private)})
             self.process = subprocess.Popen(

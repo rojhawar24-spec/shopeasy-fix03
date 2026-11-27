@@ -44,7 +44,7 @@ test('V13 is presentation-only and preserves checkout, locale direction and curr
   const header = read('views/partials/header.ejs');
   assert.match(checkout, /action="\/checkout"/);
   assert.match(checkout, /name="_csrf"/);
-  assert.match(header, /dir="<%= \['ckb','ar'\]\.includes\(locale\)\?'rtl':'ltr' %>"/);
+  assert.match(header, /dir="<%= \['ckb','ar','kmr'\]\.includes\(locale\)\?'rtl':'ltr' %>"/);
   assert.match(css, /html\[dir="rtl"\]/);
   assert.match(css, /:focus-visible/);
   assert.match(css, /prefers-reduced-motion/);

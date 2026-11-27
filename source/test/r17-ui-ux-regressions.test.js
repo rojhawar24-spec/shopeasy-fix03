@@ -38,7 +38,7 @@ test('R17 cart retains price, quantity, coupon, removal and checkout actions', (
   for (const action of ['/cart/update','/cart/remove','/cart/coupon']) assert.ok(cart.includes(`action="${action}"`), action);
   assert.match(cart, /class="cart-line-total"/);
   assert.match(cart, /class="summary-row total"/);
-  assert.match(cart, /class="btn btn-dark btn-wide checkout-btn" href="\/checkout"/);
+  assert.match(cart, /class="btn btn-dark btn-wide checkout-btn cart-primary-action" href="\/checkout" data-cart-studio-checkout/);
   assert.match(css, /body\.is-storefront-app \.cart-list-v5 \.cart-item \{display:grid/);
 });
 test('R17 consent remains off by default and can be reset from preferences', () => {
@@ -59,12 +59,12 @@ test('R17 Manager does not display customer storefront footer or cookie controls
 test('R17 design has responsive and RTL-safe mobile layouts without !important', () => {
   for (const selector of ['@media(max-width:760px)','@media(max-width:430px)','prefers-reduced-motion','grid-template-columns','minmax(0,1fr)']) assert.ok(css.includes(selector), selector);
   assert.doesNotMatch(css,/!important/);
-  const latestStyle = /design-polish\.min\.css\?v=(2027-r\d+)/;
+  const latestStyle = /design-polish\.min\.css\?v=(2027-r\d+(?:\.[A-Za-z0-9_-]+)?)/;
   const headerVersion=read('views/partials/header.ejs').match(latestStyle)?.[1];
   assert.ok(headerVersion,'current stylesheet has a cache version');
   assert.equal(read('PREVIEW.html').match(latestStyle)?.[1],headerVersion);
   assert.equal(read('PREVIEW-MANAGER.html').match(latestStyle)?.[1],headerVersion);
   // Any JS behaviour change must invalidate the cached live app for returning users.
-  const appVersion=footer.match(/\/js\/app\.js\?v=(2027-r\d+)/)?.[1];
+  const appVersion=footer.match(/\/js\/app\.js\?v=(2027-r\d+(?:\.[A-Za-z0-9_-]+)?)/)?.[1];
   assert.equal(appVersion,headerVersion,'app.js and the stylesheet must ship with the same release cache version');
 });

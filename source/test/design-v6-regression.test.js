@@ -25,7 +25,7 @@ test('checkout has a visible selected COD method and item thumbnails with server
   assert.match(checkout, /class="payment-choice/);
   assert.match(checkout, /aria-labelledby="payment-method-heading"/);
   assert.match(checkout, /id="payment-method-title"><%= customerText\("Cash on delivery"\) %>/);
-  assert.match(checkout, /safeImageUrl\(i\.product\.image_url\)/);
+  assert.match(checkout, /safeImageUrl\(i\.variant\?\.image_url\|\|i\.product\.image_url\)/);
   assert.match(checkout, /formatPrice\(i\.total,currency\)/);
   assert.match(checkout, /action="\/checkout"/);
   assert.match(checkout, /class="btn btn-mint btn-wide checkout-place-order"/);

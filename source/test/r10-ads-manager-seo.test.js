@@ -46,7 +46,8 @@ test('all product editor section links point to real section ids',()=>{
     assert.ok(form.includes(`href="#product-${section}"`),section+' anchor');
     assert.ok(form.includes(`id="product-${section}"`),section+' target');
   }
-  assert.match(form,/name="active"\s+<%= product\?\.active\?'checked':'' %>/);
+  assert.match(form,/name="active"<% \} %>\s+<%= product\?\.active\?'checked':'' %>/);
+  assert.match(form,/if\(visibilityLocked\)\{ %><input type="hidden" name="active" value="on">/);
 });
 test('Manager ad readiness panel does not assert official approval',()=>{
   const dashboard=read('views/admin/dashboard.ejs');

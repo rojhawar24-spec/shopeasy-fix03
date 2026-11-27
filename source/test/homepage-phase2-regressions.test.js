@@ -9,23 +9,25 @@ const read = rel => fs.readFileSync(path.join(root, rel), 'utf8');
 
 test('homepage requests enough active products for an eight-card primary catalogue row', () => {
   const server = read('src/server.js');
-  assert.match(server, /listProducts\(\{onlyActive:true,featured:true,sort:'featured',limit:8,offset:0\}\)/);
+  assert.match(server, /listProducts\(\{onlyActive:true,sort:'featured',limit:48,offset:0\}\)/);
   assert.match(server, /listProducts\(\{onlyActive:true,sort:'newest',limit:32,offset:0\}\)/);
-  assert.match(server, /const products=featuredProducts\.length \? featuredProducts : latestProducts\.slice\(0,8\)/);
-  assert.match(server, /const newProducts=latestProducts\.filter\(product=>!homepageIds\.has\(Number\(product\.id\)\)\)\.slice\(0,4\)/);
+  assert.match(server, /const products=\[\.\.\.ordinary,\.\.\.arrivals\]\.slice\(0,8\)/);
+  assert.match(server,/const catalogue=\[\.\.\.new Map/);
+  assert.match(server, /const newProducts=latestProducts\.filter\(isRecentlyAddedProduct\)\.slice\(0,12\)/);
 });
 
-test('homepage keeps Stories on their dedicated page and puts trust information before new arrivals', () => {
+test('homepage keeps Stories on their dedicated page and keeps customer service information below the catalogue', () => {
   const home = read('views/home.ejs');
   assert.doesNotMatch(home, /class="container section stories-section"/);
   assert.doesNotMatch(home, /include\('partials\/story-viewer'\)/);
-  assert.ok(home.indexOf('class="trust-row trust-row-four"') < home.indexOf("if (newProducts && newProducts.length)"));
+  assert.ok(home.indexOf("if (newProducts && newProducts.length)")>=0);
+  assert.ok(home.indexOf('class="container shop-service-strip"')>home.indexOf('product-grid-signature'));
   assert.match(home, /href="\/shipping-returns"/);
 });
 
 test('homepage trust row contains four localized customer-information items', () => {
   const home = read('views/home.ejs');
-  const start = home.indexOf('class="container trust-row trust-row-four"');
+  const start = home.indexOf('class="container shop-service-strip"');
   const end = home.indexOf('</section>', start);
   const trust = home.slice(start, end);
   assert.equal((trust.match(/<strong>/g) || []).length, 4);

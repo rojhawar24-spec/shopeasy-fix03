@@ -169,7 +169,7 @@ test('dynamic mobile bottom navigation is excluded from checkout', () => {
 
 test('frontend asset versions are consistent across the main shell and preview', () => {
   const footer = read('views/partials/footer.ejs');
-  const appVersion = footer.match(/app\.js\?v=([^"&]+)/)?.[1];
+  const appVersion = footer.match(/app\.js\?v=([A-Za-z0-9._-]+)<%= typeof assetRevision === 'string' \? assetRevision : '' %>/)?.[1];
   assert.ok(appVersion, 'the runtime application script must be cache-versioned');
   assert.match(appVersion, /^[A-Za-z0-9._-]+$/);
   assertDesignDelivery(['PREVIEW.html']);
@@ -468,18 +468,18 @@ test('currency allow-list is independent of online payment providers', () => {
 
 test('homepage shows a catalog fallback when nothing is featured and keeps newer products visible', () => {
   const server = read('src/server.js');
-  assert.match(server, /listProducts\(\{onlyActive:true,featured:true,sort:'featured',limit:8,offset:0\}\)/);
+  assert.match(server, /listProducts\(\{onlyActive:true,sort:'featured',limit:48,offset:0\}\)/);
   assert.match(server, /listProducts\(\{onlyActive:true,sort:'newest',limit:32,offset:0\}\)/);
-  assert.match(server, /const products=featuredProducts\.length \? featuredProducts : latestProducts\.slice\(0,8\)/);
+  assert.match(server, /const products=\[\.\.\.ordinary,\.\.\.arrivals\]\.slice\(0,8\)/);
   assert.match(server, /const newProducts=latestProducts\.filter/);
 });
 
 
 test('stock edits and checkout reservation have atomic SQL guards against races', () => {
   const db = read('src/db.js');
-  assert.match(db, /WHERE id=\? AND reserved_stock<=\?`/);
+  assert.match(db, /WHERE id=\? AND reserved_stock<=\?\s+AND \(\?=1 OR \(reserved_stock=0 AND NOT EXISTS/);
   assert.match(db, /WHERE id=\? AND active=1 AND stock-reserved_stock>=\?/);
-  assert.match(db, /throw new Error\('RESERVED_STOCK'\)/);
+  assert.match(db, /throw new Error\(data\.active\?'RESERVED_STOCK':'RESERVED_PRODUCT_VISIBILITY'\)/);
 });
 
 test('legacy order management does not expose old provider names or claim old orders are cash-on-delivery', () => {

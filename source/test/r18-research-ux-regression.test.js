@@ -22,9 +22,11 @@ test('R18 filter disclosure keeps server GET route and every real input',()=>{
 test('R18 mobile filters progressively disclose without locking non-JS browsing',()=>{
  const js=read('public/js/app.js'),css=read('public/css/research-polish-2027.css');
  assert.match(js,/body\.classList\.add\('shop-filters-js-ready'\)/);
- assert.match(js,/panel\.hidden = toggle\.getAttribute\('aria-expanded'\) !== 'true'/);
- assert.match(js,/if \(!mobile\.matches\)/);
- assert.match(css,/body\.is-storefront-app\.shop-filters-js-ready \.shop-filter-mobile-bar\s*\{\s*display:flex/);
+ assert.match(js,/panel\.hidden=!open/);
+ assert.match(js,/toggle\.setAttribute\('aria-expanded',String\(open\)\)/);
+ assert.match(js,/lockBackground\(\);close\?\.focus\(\)/);
+ assert.match(js,/if\(event\.key==='Escape'\)\{event\.preventDefault\(\);setOpen\(false\)/);
+ assert.match(css,/body\.is-storefront-app\.shop-filters-js-ready \.shop-filter-refined>\.shop-filter-toolbar \.shop-filter-toggle\{display:inline-flex/);
  assert.match(css,/\.shop-controls\[hidden\][^}]*display:none/);
 });
 

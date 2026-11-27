@@ -30,7 +30,7 @@ test('V11 keeps product imagery readable and mobile layouts responsive without c
  assert.match(css,/object-fit: contain/);
  assert.match(css,/min-height: 46px/);
  assert.match(css,/grid-template-columns: minmax\(0,1fr\)/);
- assert.match(h,/dir="<%= \['ckb','ar'\]\.includes\(locale\)\?'rtl':'ltr' %>"/);
+ assert.match(h,/dir="<%= \['ckb','ar','kmr'\]\.includes\(locale\)\?'rtl':'ltr' %>"/);
  assert.match(checkout,/action="\/checkout"/);
  assert.match(checkout,/name="_csrf"/);
  assert.match(checkout,/cash_on_delivery|cash on delivery/i);

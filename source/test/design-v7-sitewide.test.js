@@ -17,17 +17,20 @@ test('2027 layered CSS, matching preview versions and accessibility remain intac
 
 test('home page is shopper-first and does not expose manager/control-room messaging', () => {
   const home = read('views/home.ejs');
-  assert.ok(home.indexOf('category-grid') < home.indexOf('product-grid-signature'));
-  assert.ok(home.indexOf('product-grid-signature') < home.indexOf('trust-row-four'));
+  const categories=home.indexOf('class="home-category-rail"');
+  const products=home.indexOf('product-grid-signature');
+  const services=home.indexOf('class="container shop-service-strip"');
+  assert.ok(categories>=0&&categories<products&&products<services);
   assert.doesNotMatch(home, /CONTROL ROOM|Manage products, prices|Server-verified pricing|Secure session|Prices, stock and discounts are verified by the server/i);
   assert.match(home, /الدفع عند الاستلام/);
   assert.match(home, /راجع معلومات الشحن والإرجاع/);
-  assert.match(home, /class="trust-item" href="\/shipping-returns"/);
+  assert.match(home, /class="service-item service-link" href="\/shipping-returns"/);
 });
 
 test('catalog result summary is customer-facing instead of implementation detail', () => {
   const shop = read('views/shop.ejs');
-  assert.match(shop, /Explore by category or search/);
+  assert.match(shop, /Find your favourites\. Explore, compare and shop at your own pace\./);
+  assert.match(shop, /shop-mobile-result-count[\s\S]*?<%= resultCount %>/);
   assert.doesNotMatch(shop, /shopServerNote|shop-server-note|Prices and availability update from the server/);
 });
 

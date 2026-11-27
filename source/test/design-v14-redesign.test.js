@@ -33,7 +33,7 @@ test('homepage hero art is separately configurable through Manager branding and 
   assert.match(server,/safeImagePath\(req\.file\.buffer,req\.file\.mimetype\)/);
   assert.match(server,/getSetting\('hero_image',''\)/);
   assert.match(server,/UNION ALL SELECT 1 AS used FROM settings WHERE key IN \('hero_image','appearance_logo'\) AND value=\?/);
-  assert.match(server,/\['\/admin\/products\/save','\/admin\/stories\/save','\/admin\/branding','\/admin\/appearance'\]/);
+  assert.match(server,/\['\/admin\/categories\/save','\/admin\/products\/save','\/admin\/stories\/save','\/admin\/branding','\/admin\/appearance'\]/);
   assert.match(form,/enctype="multipart\/form-data"/);
   assert.match(form,/name="heroImage" type="file" accept="image\/jpeg,image\/png,image\/webp"/);
   assert.match(form,/name="removeHeroImage" value="1"/);

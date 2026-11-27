@@ -747,9 +747,9 @@ const rows=[
   ]
 ];
 export const STOREFRONT_SHELL_KEYS=Object.freeze(rows.map(row=>row[0]));
-const table=new Map(rows.map(row=>[row[0],Object.freeze(Object.fromEntries(languages.map((locale,i)=>[locale,row[i]))))]));
+const table=new Map(rows.map(row=>[row[0],Object.freeze(Object.fromEntries(languages.map((locale,i)=>[locale,row[i]])))]));
 export function storefrontShellText(locale,value){
   const text=String(value??'');const key=text.trim();
   const translated=table.get(key)?.[locale];
-  return translated===undefined?undefined:text.match(/^\\s*/)[0]+translated+text.match(/\\s*$/)[0];
+  return translated===undefined?undefined:text.match(/^\s*/)[0]+translated+text.match(/\s*$/)[0];
 }
