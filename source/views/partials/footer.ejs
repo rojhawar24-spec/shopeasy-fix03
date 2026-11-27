@@ -168,4 +168,5 @@
 <script src="/js/app.js?v=2027-r28.fix03<%= typeof assetRevision === 'string' ? assetRevision : '' %>" defer></script>
 <script src="/js/retail-2027.js?v=2027-p2.fix03<%= typeof assetRevision === 'string' ? assetRevision : '' %>" defer></script>
 <% if(path==='/login' || path==='/register'){ %><script src="/js/home-login.js?v=2027-r28<%= typeof assetRevision === 'string' ? assetRevision : '' %>" defer></script><% } %>
+<% if(!isAdminRoute){ %><script src="/js/category-scroll.js?v=1<%= typeof assetRevision === 'string' ? assetRevision : '' %>" defer></script><% } %>
 </body></html>
