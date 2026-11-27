@@ -768,6 +768,20 @@ async function main() {
   assert.match(lifecycleHtml,/name="status"/,'product manager must include an explicit status filter');
   let lifecycleCsrf=lifecycleHtml.match(/name="_csrf" value="([^"]+)"/)?.[1];
   assert.ok(lifecycleCsrf);
+  // A reserved product must be visibly blocked in both the list and the editor.
+  await db.execute({sql:'UPDATE products SET reserved_stock=1 WHERE id=?',args:[lifecycleProductId]});
+  const reservedList=await (await fetch(`${base}/admin/products?status=active`,{headers:{cookie:managerCookie}})).text();
+  const reservedRow=reservedList.match(/<tr>[\s\S]*?<\/tr>/g).find(row=>row.includes('Temporary lifecycle product'));
+  assert.ok(reservedRow);
+  assert.match(reservedRow,/<button[^>]*disabled[^>]*>Hide from shop<\/button>/);
+  const reservedEdit=await (await fetch(`${base}/admin/products/${lifecycleProductId}/edit`,{headers:{cookie:managerCookie}})).text();
+  assert.match(reservedEdit,/id="visibility-reserved-note"/);
+  assert.match(reservedEdit,/name="active" value="on"/);
+  const deniedArchive=await fetch(`${base}/admin/products/archive`,{method:'POST',headers:{cookie:managerCookie,'content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({_csrf:lifecycleCsrf,id:String(lifecycleProductId)}),redirect:'manual'});
+  assert.equal(deniedArchive.status,303);
+  assert.match(deniedArchive.headers.get('location')||'',/notice=reserved/);
+  assert.equal(Number((await data.getProductById(lifecycleProductId)).active),1);
+  await db.execute({sql:'UPDATE products SET reserved_stock=0 WHERE id=?',args:[lifecycleProductId]});
   let lifecycleAction=await fetch(`${base}/admin/products/archive`,{method:'POST',headers:{cookie:managerCookie,'content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({_csrf:lifecycleCsrf,id:String(lifecycleProductId)}),redirect:'manual'});
   assert.equal(lifecycleAction.status,303);
   assert.match(lifecycleAction.headers.get('location')||'',/status=archived&notice=archived/);

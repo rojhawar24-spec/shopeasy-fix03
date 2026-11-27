@@ -180,26 +180,28 @@
               </a>
 
               <% if(Number(p.variant_count||0)===0 && p.active){ %>
-              <form method="post" action="/admin/products/restock" class="inline-restock">
+              <form method="post" action="/admin/products/restock" class="inline-restock" data-refresh-csrf>
                 <input type="hidden" name="_csrf" value="<%= csrf %>">
                 <input type="hidden" name="id" value="<%= p.id %>">
-                <input id="list-restock-<%= p.id %>" aria-label="Units to add to <%= p.name %>" type="number" name="quantity" min="1" max="100000000" value="1" inputmode="numeric">
+                <input id="list-restock-<%= p.id %>" aria-label="Units to add to <%= p.name %>" type="number" name="quantity" min="1" max="100000000" value="1" inputmode="numeric" step="1" required>
                 <button class="btn btn-light btn-small" type="submit">+ Stock</button>
               </form>
+              <% } else if(Number(p.variant_count||0)>0 && p.active){ %>
+                <a class="btn btn-light btn-small" href="/admin/products/<%= p.id %>/edit#restock-product">+ Stock by option</a>
               <% } %>
 
               <% if(p.active){ %>
                 <form method="post" action="/admin/products/archive" data-confirm="Archive this product? It will be hidden from the shop but kept for historic orders.">
                   <input type="hidden" name="_csrf" value="<%= csrf %>">
                   <input type="hidden" name="id" value="<%= p.id %>">
-                  <button class="btn btn-light btn-small" type="submit">Hide from shop</button>
+                  <button class="btn btn-light btn-small" type="submit" <% if(productHasReservations){ %>disabled aria-disabled="true" title="Finish or cancel the reserved checkout before archiving this product"<% } %>>Hide from shop</button>
                 </form>
-                <% if(productHasReservations){ %><span class="delete-block-reason">Existing orders keep their reserved stock even when hidden.</span><% } %>
+                <% if(productHasReservations){ %><span class="delete-block-reason">Finish or cancel the reserved checkout before archiving this product.</span><% } %>
                 <form method="post" action="/admin/products/delete" data-confirm="Permanently delete this product? This cannot be undone. Products with order history must be retained.">
                   <input type="hidden" name="_csrf" value="<%= csrf %>">
                   <input type="hidden" name="id" value="<%= p.id %>">
                   <input type="hidden" name="returnStatus" value="<%= status %>">
-                  <button class="btn btn-danger btn-small" type="submit" <% if(!canDeleteProduct){ %>disabled aria-disabled="true" title="<%= productHasHistory?'This product has order history. Archive it to hide it; historical records must be kept.':'Stock is reserved by an active order. Finish or cancel that order first.' %>"<% } %>>Delete permanently</button>
+                  <button class="btn btn-danger btn-small" type="submit" <% if(!canDeleteProduct){ %>disabled aria-disabled="true" title="<%= productHasHistory?'This product has order history. Historical records must be kept. Archive it only when no stock is reserved.':'Stock is reserved by an active order. Finish or cancel that order first.' %>"<% } %>>Delete permanently</button>
                 </form>
                 <% if(!canDeleteProduct){ %><span class="delete-block-reason"><%= productHasHistory?'Order history must be kept.':'Reserved stock must be released first.' %></span><% } %>
               <% } else { %>

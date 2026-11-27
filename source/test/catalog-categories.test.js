@@ -18,7 +18,8 @@ test('catalog category foundation contains hierarchical manager fields',()=>{
   assert.match(header,/nav-category-menu/);
   assert.match(server,/function onlyCategoriesWithActiveAncestors\(rows\)/);
   assert.match(server,/childCategories=allCategories\.filter/);
-  assert.match(shop,/Shop .* by subcategory/);
+  assert.match(shop,/id="subcategory-title"/);
+  assert.match(shop,/_childCategories\.forEach\(child=>/);
 });
 
 test('category routes are manager-protected and storefront-driven',()=>{

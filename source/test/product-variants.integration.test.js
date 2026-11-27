@@ -65,6 +65,8 @@ async function createOrder(items) { return createOrderAtomic(orderData(items)); 
   assert.equal(Number(refreshed.reserved_stock),2);
   assert.equal(Number(refreshed.available_stock),1);
   assert.equal(await archiveProduct(productId),false,'a product must not archive while a variant reservation exists');
+  await assert.rejects(adminCreateOrUpdateProduct({...productData({name:'Test Runner Shoe',slug:'test-runner-shoe',sku:'TEST-SHOE',variants:[{value:'42',stock:3},{value:'43',stock:5}]}),id:productId,active:false}),{message:'RESERVED_PRODUCT_VISIBILITY'});
+  assert.equal(Number((await getProductById(productId)).active),1,'editing visibility cannot bypass archive guard');
   const managerProduct=(await listProducts({onlyActive:false,status:'active',search:'Test Runner Shoe',limit:20})).find(p=>Number(p.id)===productId);
   assert.equal(Number(managerProduct?.reserved_inventory_total),2,'manager list must show variant-level reservations, not only base stock reservations');
   const savedOrder=await getOrder(order.orderId);
@@ -124,6 +126,8 @@ test('variantless products keep simple stock, reject fake option IDs, and cannot
   const afterReservation=await getProductById(simpleId);
   assert.equal(Number(afterReservation.reserved_stock),2);
   assert.equal(await archiveProduct(simpleId),false);
+  await assert.rejects(adminCreateOrUpdateProduct({...productData({name:'Test Flower Bunch',slug:'test-flower-bunch',sku:'TEST-FLOWERS',stock:7}),id:simpleId,active:false}),{message:'RESERVED_PRODUCT_VISIBILITY'});
+  assert.equal(Number((await getProductById(simpleId)).active),1);
   assert.equal(await cancelOrderBeforeShipping(order.orderId,'Customer cancellation',managerActorId),true);
   const afterCancel=await getProductById(simpleId);
   assert.equal(Number(afterCancel.reserved_stock),0);

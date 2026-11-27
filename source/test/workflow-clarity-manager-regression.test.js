@@ -37,7 +37,7 @@ test('permanent delete returns safely to the manager catalogue filter and shows 
 test('product detail has option cards plus related products below the main detail',()=>{
  const product=read('views/product.ejs'),app=read('public/js/app.js'),server=read('src/server.js');
  assert.match(product,/data-option-one-select/); assert.match(product,/data-option-two-select/); assert.match(product,/data-product-variant-form/); assert.match(product,/data-gallery-image/); assert.match(product,/You may also like/); assert.match(product,/relatedProducts\.forEach/); assert.match(app,/data-option-one-select/); assert.match(app,/data-gallery-image/); assert.match(server,/relatedProducts/);
- assert.match(product,/if\(isManager && managerProduct\)/); assert.match(product,/action="\/admin\/products\/delete"/); assert.match(product,/action="\/admin\/products\/archive"/); assert.match(server,/const managerProduct=isManager\?await getProductById\(product\.id\):null/);
+ assert.match(product,/if\(isManager && managerProduct\)/); assert.match(product,/action="\/admin\/products\/delete"/); assert.match(product,/action="\/admin\/products\/archive"/); assert.match(server,/isManager\?getProductById\(product\.id\):Promise\.resolve\(null\)/);
 });
 
 test('orders have a clear Manage action and legacy pending orders have a safe action',()=>{
@@ -55,6 +55,6 @@ test('checkout selects only configured delivery countries and explains the deliv
 
 test('manager dashboard includes launch readiness and direct next-step links',()=>{
  const route=read('src/server.js'),view=read('views/admin/dashboard.ejs');
- assert.match(route,/getDashboardStats\(\),listOrders\(\{limit:6,offset:0\}\),storeLaunchConfig\(\)/); assert.match(view,/STORE READINESS/); assert.match(view,/Review store settings/); assert.match(view,/Add your first product/);
+ assert.match(route,/getDashboardStats\(\),listOrders\(\{limit:6,offset:0\}\),req\.shopLaunchSnapshot\?\?storeLaunchConfig\(\)/); assert.match(view,/STORE READINESS/); assert.match(view,/Review store settings/); assert.match(view,/Add your first product/);
 });
 

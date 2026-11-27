@@ -492,9 +492,9 @@ test('legacy order management does not expose old provider names or claim old or
 });
 
 
-test('serverless runtimes periodically clean expired sessions and stock reservations', () => {
+test('serverless runtimes periodically clean expired sessions without releasing open-order reservations', () => {
   const server = read('src/server.js');
-  assert.match(server, /process\.env\.CLOUDFLARE_WORKER!=='1' \|\| Date\.now\(\)-lastRequestMaintenanceAt<5\*60\*1000/);
+  assert.match(server, /\(process\.env\.CLOUDFLARE_WORKER!=='1' && !isPostgresPreview\) \|\| Date\.now\(\)-lastRequestMaintenanceAt<5\*60\*1000/);
   assert.match(server, /await cleanupSessions\(\);/);
   assert.doesNotMatch(server, /releaseExpiredReservations|Expired reservation cleanup/);
 });
@@ -684,4 +684,6 @@ test('manager product list reports variant reservations and uses them to guard a
   assert.match(dbSource,/SUM\(pv\.reserved_stock\)[\s\S]*?ELSE COALESCE\(p\.reserved_stock,0\) END AS reserved_inventory_total/);
   assert.match(template,/p\.reserved_inventory_total/);
   assert.match(template,/Finish or cancel the reserved checkout before archiving this product/);
+  assert.match(template,/<button[^>]*type="submit" <% if\(productHasReservations\)\{ %>disabled aria-disabled="true"/);
+  assert.match(dbSource,/RESERVED_PRODUCT_VISIBILITY/);
 });

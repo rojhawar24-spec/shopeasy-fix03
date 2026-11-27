@@ -2949,11 +2949,14 @@ export async function adminCreateOrUpdateProduct(data) {
       current=await getRow('SELECT id,reserved_stock FROM products WHERE id=?',[savedId],tx);
       if(!current) throw new Error('NOT_FOUND');
       const activeVariantRows=await getRows('SELECT id,option_value,option_value_2,stock,reserved_stock,active FROM product_variants WHERE product_id=?',[savedId],tx);
+      // Editing visibility must not bypass the separate archive endpoint's reservation guard.
+      if(!data.active && (Number(current.reserved_stock||0)>0 || activeVariantRows.some(v=>Number(v.reserved_stock||0)>0))) throw new Error('RESERVED_PRODUCT_VISIBILITY');
       if(Number(current.reserved_stock||0)>0 && hasVariants) throw new Error('RESERVED_STOCK_MODE_CHANGE');
       if(!hasVariants && activeVariantRows.some(v=>v.active && Number(v.reserved_stock||0)>0)) throw new Error('RESERVED_VARIANT_STOCK');
       if(stock<Number(current.reserved_stock||0)) throw new Error('RESERVED_STOCK');
-      const changed=(await run(`UPDATE products SET name=?,slug=?,short_description=?,description=?,image_url=?,price_cents=?,cost_price_cents=?,sale_price_cents=?,sale_start=?,sale_end=?,automatic_discount_percent=?,sku=?,stock=?,reorder_level=?,category_id=?,tags=?,featured=?,active=?,updated_at=datetime('now') WHERE id=? AND reserved_stock<=?`,[...values,savedId,stock],tx)).changes;
-      if(changed!==1) throw new Error('RESERVED_STOCK');
+      const changed=(await run(`UPDATE products SET name=?,slug=?,short_description=?,description=?,image_url=?,price_cents=?,cost_price_cents=?,sale_price_cents=?,sale_start=?,sale_end=?,automatic_discount_percent=?,sku=?,stock=?,reorder_level=?,category_id=?,tags=?,featured=?,active=?,updated_at=datetime('now') WHERE id=? AND reserved_stock<=?
+        AND (?=1 OR (reserved_stock=0 AND NOT EXISTS(SELECT 1 FROM product_variants pv WHERE pv.product_id=products.id AND pv.reserved_stock>0)))`,[...values,savedId,stock,data.active?1:0],tx)).changes;
+      if(changed!==1) throw new Error(data.active?'RESERVED_STOCK':'RESERVED_PRODUCT_VISIBILITY');
     } else {
       savedId=Number((await run(`INSERT INTO products(name,slug,short_description,description,image_url,price_cents,cost_price_cents,sale_price_cents,sale_start,sale_end,automatic_discount_percent,sku,stock,reorder_level,category_id,tags,featured,active) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,values,tx)).lastInsertRowid);
     }

@@ -80,7 +80,15 @@ test('manager product writes and financial tools are declared as role-gated rout
   assert.match(server,/app\.get\('\/admin\/e-invoicing',requireManager/);
 });
 test('AI search assistant has a server-side off switch, not merely a hidden button',()=>{
-  assert.match(read('src/server.js'),/app\.post\('\/api\/ai\/search-assistant',aiLimiter,async\(req,res\)=>\{\s*if\(!await aiIsEnabled\(\)\)return res\.status\(404\)/);
+  const server=read('src/server.js');
+  const start=server.indexOf("app.post('/api/ai/search-assistant'");
+  const end=server.indexOf("app.get('/stories'",start);
+  assert.ok(start>=0&&end>start);
+  const route=server.slice(start,end);
+  assert.match(route,/if\(\(await getSetting\('ai_enabled','0'\)\)!=='1'\)return res\.status\(404\)/);
+  assert.ok(route.indexOf("getSetting('ai_enabled','0')")<route.indexOf('aiLimiter'));
+  assert.ok(route.lastIndexOf("getSetting('ai_enabled','0')")<route.indexOf('aiService.shoppingAssistant'));
+  assert.equal((route.match(/getSetting\('ai_enabled','0'\)/g)||[]).length,2);
 });
 test('login, logout and password recovery use declared limited endpoints',()=>{
   const server=read('src/server.js');

@@ -60,4 +60,17 @@ test('real PostgreSQL: category search, wishlist persistence and inactive produc
   assert.equal((await core.toggleWishlist(sid,id)).reason,'product-unavailable');
   assert.equal(await core.countProducts({search:'Wishlist fixture item',category:'wishlist-fixtures'}),0);
 });
+test('real PostgreSQL: product edit cannot bypass reserved-stock visibility guard',async()=>{
+  const data={name:'Visibility guard fixture',slug:'visibility-guard-fixture',sku:'VIS-GUARD-CI-001',shortDescription:'CI fixture',description:'CI fixture',imageUrl:'',galleryImages:[],priceCents:1200,costPriceCents:500,salePriceCents:null,saleStart:null,saleEnd:null,automaticDiscountPercent:0,stock:5,reorderLevel:0,categoryId:null,tags:'ci',featured:false,active:true,variants:[],variantOptionName:'Size',variantOptionName2:''};
+  const id=await core.adminCreateOrUpdateProduct(data);
+  await run('UPDATE products SET reserved_stock=2 WHERE id=?',[id]);
+  assert.equal(await core.archiveProduct(id),false);
+  await assert.rejects(()=>core.adminCreateOrUpdateProduct({...data,id,active:false}),{message:'RESERVED_PRODUCT_VISIBILITY'});
+  assert.equal(Number((await core.getProductById(id)).active),1);
+  await core.adminCreateOrUpdateProduct({...data,id,name:'Visibility guard updated'});
+  assert.equal((await core.getProductById(id)).name,'Visibility guard updated');
+  await run('UPDATE products SET reserved_stock=0 WHERE id=?',[id]);
+  await core.adminCreateOrUpdateProduct({...data,id,active:false});
+  assert.equal(Number((await core.getProductById(id)).active),0);
+});
 test.after(async()=>{await connection.close();});

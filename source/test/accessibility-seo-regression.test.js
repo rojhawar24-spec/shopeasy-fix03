@@ -48,7 +48,7 @@ test('shop template defensively handles missing optional category locals', () =>
   assert.match(html, /const _categoryPath = typeof categoryPath !== 'undefined'/);
   assert.match(html, /const _childCategories = typeof childCategories !== 'undefined'/);
   assert.match(html, /if\(_categoryInfo && _categoryPath\.length>1\)/);
-  assert.match(html, /if\(_categoryInfo && \(_categoryInfo\.image_url \|\| _childCategories\.length\)\)/);
+  assert.match(html, /if\(_categoryInfo && _childCategories\.length\)/);
   assert.doesNotMatch(html, /<%= categoryInfo\?\.name %>/);
 });
 
