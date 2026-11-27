@@ -43,7 +43,8 @@ for (const group of groups) {
   manifest.bundles.push({ output: relative, sha256: hash(content), inputBytes: inputs.reduce((total, input) => total + input.bytes.length, 0), bytes: content.length,
     sources: inputs.map(({ name, bytes, sha256 }) => ({ path: 'public/css/' + name, bytes: bytes.length, sha256 })), warnings: result.warnings });
 }
-const header = fs.readFileSync(path.join(root, 'views/partials/header.ejs'), 'utf8');
+// The static cascade audit compares base URLs; runtime EJS adds validated cache suffixes.
+const header = fs.readFileSync(path.join(root, 'views/partials/header.ejs'), 'utf8').replace(/<%[\s\S]*?%>/g,'');
 const runtime = [...header.matchAll(/<link\s+rel="stylesheet"\s+href="([^"?]+)\?v=([^"?]+)"/g)];
 const expected = ['/css/design-foundation.min.css', '/theme/shop.css', '/css/design-polish.min.css'];
 if (JSON.stringify(runtime.map(([, href]) => href)) !== JSON.stringify(expected)) throw new Error('The runtime must preserve foundation → dynamic /theme/shop.css → polish cascade order.');

@@ -1970,7 +1970,7 @@ app.post('/register',registerLimiter,async(req,res)=>{
   const notice=registrationNotice(res.locals.locale,emailEnabled());
   if(!fullName) return render(res,'login',{...registrationLocals,error:'Enter your full name.'});
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return render(res,'login',{...registrationLocals,error:'Enter a valid email address.'});
-  if(!isStrongEnoughPassword(password,8)) return render(res,'login',{...registrationLocals,error:'Use a password with 8–200 characters that is not common or repeated.'});
+  if(!isStrongEnoughPassword(password)) return render(res,'login',{...registrationLocals,error:'Use a password with 15–200 characters that is not common or repeated.'});
   if(password!==confirmPassword) return render(res,'login',{...registrationLocals,error:'The passwords do not match. Please enter them again.'});
   if(!termsAccepted) return render(res,'login',{...registrationLocals,error:'Accept the Terms & Conditions and Privacy Policy to create an account.'});
   let userId, passwordHash;

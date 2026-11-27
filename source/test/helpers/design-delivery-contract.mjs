@@ -13,7 +13,7 @@ const groups = [
 const outputs = ['public/css/design-foundation.min.css', 'public/css/design-polish.min.css'];
 
 function stylesheets(source) {
-  return [...source.matchAll(/<link\b[^>]*>/gi)].flatMap(([tag]) => {
+  return [...source.replace(/<%[\s\S]*?%>/g,'').matchAll(/<link\b[^>]*>/gi)].flatMap(([tag]) => {
     if (!/\brel=["']stylesheet["']/i.test(tag)) return [];
     const href = tag.match(/\bhref=["']([^"']+)["']/i)?.[1];
     assert.ok(href, 'stylesheet links require an href');

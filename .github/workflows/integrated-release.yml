@@ -6,6 +6,27 @@ on:
 permissions:
   contents: read
 jobs:
+  css-rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: source
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.22.2'
+      - run: npm ci --include=dev
+      - run: npm run build:design-css
+      - run: node scripts/build-design-css.mjs --check
+      - name: Export only rebuilt public CSS and public build manifest for source recovery
+        run: |
+          node --input-type=module -e 'import fs from "node:fs"; for(const path of ["public/css/design-polish.min.css","generated/design-css-manifest.json"]){const content=fs.readFileSync(path).toString("base64");const chunks=content.match(/.{1,3000}/g)||[];for(let i=0;i<chunks.length;i++)console.log("CSS_RECOVERY "+path+" "+i+"/"+chunks.length+" "+chunks[i]);}'
+      - name: Require committed generated output
+        run: git diff --exit-code -- public/css/design-polish.min.css public/css/design-foundation.min.css generated/design-css-manifest.json
   sqlite:
     runs-on: ubuntu-latest
     timeout-minutes: 30

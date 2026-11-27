@@ -13,9 +13,10 @@ const read = (name) => fs.readFileSync(path.join(root, name), 'utf8');
 test('R16: integration checkout assertion matches the actual legally explicit submit label', () => {
   const checkout = read('views/checkout.ejs');
   const integration = read('scripts/manager-dashboard-integration.mjs');
-  assert.match(checkout, /class="checkout-place-label"[^>]*><%= customerText\(\(demoCheckoutOnly\|\|pricingRulesActive\)&&!quoteReady\?'Review delivery & tax →':/);
+  assert.ok(checkout.includes('class="checkout-place-label" data-final-label='));
+  assert.ok(checkout.includes("(demoCheckoutOnly||pricingRulesActive)&&!quoteReady?'Review delivery & tax →':"));
   assert.match(checkout, /'Order with obligation to pay'\)\) %><\/span>/);
-  assert.match(integration, /checkout-place-label"\[\^>\]\*>Order with obligation to pay<\\\/span>/);
+  assert.ok(integration.includes(String.raw`class="checkout-place-label"[^>]*>Order with obligation to pay<\/span>`));
   assert.doesNotMatch(integration, /Order with payment obligation/, 'old English label must not reappear in the HTTP integration test');
 });
 
