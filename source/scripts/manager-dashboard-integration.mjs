@@ -860,7 +860,7 @@ async function main() {
   const cashCheckoutHtml=await cashCheckoutPage.text();
   assert.match(cashCheckoutHtml,/Pay in cash when your order is delivered\./, 'checkout must explain the configured cash-on-delivery method using the current customer-facing copy');
   // This integration setup has no regional pricing rules, so the current CTA is the explicit payment-obligation label (not the retired 'Place order' copy).
-  assert.match(cashCheckoutHtml,/class="checkout-place-label">Order with obligation to pay<\/span>/, 'checkout must render the legally explicit payment-obligation action');
+  assert.match(cashCheckoutHtml,/class="checkout-place-label"[^>]*>Order with obligation to pay<\/span>/, 'checkout must render the legally explicit payment-obligation action');
   assert.doesNotMatch(cashCheckoutHtml,/Checkout is not live yet/);
   const cashCsrf=cashCheckoutHtml.match(/name="_csrf" value="([^"]+)"/)?.[1];
   const cashIdempotencyKey=cashCheckoutHtml.match(/name="idempotencyKey" value="([^"]+)"/)?.[1];
