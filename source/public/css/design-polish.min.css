@@ -1107,3 +1107,27 @@ html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body :is(button,.btn,label,sum
 html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body :is(.product-intro h1,.cart-studio-head .cart-hero-copy h1,.checkout-hero-copy h1){line-height:1.45;letter-spacing:normal}
 html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body :is(input[type=email],input[type=tel],input[type=password],input[autocomplete=one-time-code]){direction:ltr;text-align:start}
 html:is([lang^="ckb"],[lang^="kmr"],[lang^="ar"]) body :is(.btn,button,.product-option-chips button){white-space:normal;overflow-wrap:normal}
+
+/* Stable arrival cards and gallery control dock; no RTL marquee offsets. */
+body.is-storefront-app .arrival-studio{padding:20px;margin-block:24px 36px;background:var(--paper);border:1px solid var(--line);border-radius:18px}
+body.is-storefront-app .arrival-studio .mini-arrivals-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 16px}
+body.is-storefront-app .arrival-studio .mini-arrivals-heading>div{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+body.is-storefront-app .arrival-studio h2{font-size:1.05rem;margin:0;line-height:1.5}
+body.is-storefront-app .arrival-studio .mini-arrivals-heading>a{display:flex;align-items:center;gap:8px;min-height:44px;font-size:.85rem}
+html[dir=rtl] .arrival-studio .mini-arrivals-heading>a svg{transform:scaleX(-1)}
+body.is-storefront-app .arrival-studio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px}
+body.is-storefront-app .arrival-studio-card{display:flex;align-items:center;gap:12px;min-width:0;padding:10px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--text);background:var(--surface-soft);transition:transform .18s,border-color .18s}
+body.is-storefront-app .arrival-studio-card:hover{transform:translateY(-2px);border-color:var(--brand-primary)}
+body.is-storefront-app .arrival-studio-card img{width:72px;height:72px;flex:none;object-fit:contain;background:var(--paper);border-radius:8px}
+body.is-storefront-app .arrival-studio-card>span{display:grid;gap:5px;min-width:0}
+body.is-storefront-app .arrival-studio-card strong{font-size:.88rem;line-height:1.5;overflow-wrap:anywhere}
+body.is-storefront-app .arrival-studio-card small{color:var(--muted);font-weight:600}
+body.is-storefront-app .product-gallery-nav.is-stage{position:static;inset:auto;display:flex;justify-content:center;align-items:center;gap:8px;padding:10px 0 2px;pointer-events:auto}
+body.is-storefront-app .product-gallery-nav.is-stage .product-gallery-arrow,body.is-storefront-app .product-gallery-nav.is-stage .product-gallery-count{position:static;inset:auto}
+body.is-storefront-app .product-gallery-nav .product-gallery-arrow{display:grid;place-items:center;width:48px;height:44px;flex:0 0 48px;padding:0;border-radius:12px;background:var(--surface-soft);border:1px solid var(--line);color:var(--text);box-shadow:none;transition:background .18s,border-color .18s,transform .18s}
+body.is-storefront-app .product-gallery-nav .product-gallery-arrow:hover{background:var(--paper);border-color:var(--brand-primary);transform:translateY(-1px);box-shadow:none}
+body.is-storefront-app .product-gallery-nav .product-gallery-arrow:active{transform:scale(.94)}
+body.is-storefront-app .product-gallery-nav .product-gallery-count{min-width:65px;text-align:center;direction:ltr;border:0;background:transparent;font-weight:650}
+body.is-storefront-app .product-gallery-nav .product-gallery-arrow svg{display:block;flex:none}
+@media(max-width:600px){body.is-storefront-app .arrival-studio{padding:14px}body.is-storefront-app .arrival-studio-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){body.is-storefront-app .arrival-studio-card,body.is-storefront-app .product-gallery-nav .product-gallery-arrow{transition:none!important}}
