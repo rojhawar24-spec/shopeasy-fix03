@@ -1,3 +1,4 @@
+import { badiniText } from './badini-copy.js';
 // Server-rendered copy for Home and account access; no browser script required.
 import { authPolicyText } from './auth-policy-copy.js';
 
@@ -645,6 +646,7 @@ const copy = {
 } ;
 
 export function pageText(locale, value, parameters) {
+  if(locale==='kmr') return badiniText(value,parameters) ?? String(value ?? '');
   const text = String(value ?? '');
   const key = text.trim();
   const securityCopy=authPolicyText(locale,key);
