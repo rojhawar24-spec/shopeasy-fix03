@@ -40,8 +40,8 @@ test('disabling wishlist does not remove authenticated Account navigation or cor
   const header=read('views/partials/header.ejs');
   const footer=read('views/partials/footer.ejs');
   assert.match(header,/if \(isLoggedIn\) \{ %><% if\(featureWishlistEnabled\)/);
-  assert.match(header,/<a href="\/account"><%= locale==='fr'\?'Compte':'Account' %><\/a><% \} else \{ %><a href="\/login"><%= locale==='fr'\?'Se connecter':'Sign in' %>/);
-  assert.match(header, /<%= locale==='fr'\?'Favoris':'Saved' %>/);
+  assert.match(header,/<a[^>]*href="\/account">[\s\S]*?<%= pageText\('Account'\) %><\/a><% \} else \{ %><a[^>]*href="\/login">[\s\S]*?<%= pageText\('Sign in'\) %>/);
+  assert.match(header,/href="\/wishlist"><%= \(\{[^}]*fr:'Favoris'[^}]*\}\)\[locale\]\|\|'Saved' %>/);
   assert.match(footer,/<a href="\/order-lookup" class="<%= path\.startsWith/);
   assert.match(header,/form class="search" action="\/shop"/);
 });

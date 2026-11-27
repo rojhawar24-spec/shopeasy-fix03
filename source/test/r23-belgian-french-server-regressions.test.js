@@ -79,11 +79,11 @@ test('French category/shop heading renders in French before browser JavaScript r
   const expression=shop.match(/<h1(?: data-no-translate)?><%= ([\s\S]*?) %><\/h1>/)?.[1];
   assert.ok(expression,'actual shop heading expression exists');
   const evaluate=new Function('_categoryInfo','locale',`return (${expression});`);
-  assert.equal(evaluate(null,'fr'),'Découvrez tous les produits.');
-  assert.equal(evaluate(null,'nl'),'Bekijk alle producten.');
-  assert.equal(evaluate(null,'en'),'Shop everything.');
+  assert.equal(evaluate(null,'fr'),'Découvrez la collection');
+  assert.equal(evaluate(null,'nl'),'Ontdek de collectie');
+  assert.equal(evaluate(null,'en'),'Explore the collection');
   assert.equal(evaluate({name:'Lampes'},'fr'),'Lampes');
-  assert.match(shop,/Recherchez par nom ou description, parcourez les catégories/);
+  assert.match(shop,/Explorez, comparez et trouvez vos produits préférés\./);
 });
 
 test('French shop and footer server dictionaries cover important visible controls without JavaScript', () => {

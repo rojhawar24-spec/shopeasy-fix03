@@ -115,14 +115,14 @@ test('English, Sorani, Arabic and Dutch dictionaries have matching coverage with
     assert.notEqual(dictionaries.ckb[key], key, `Missing Sorani translation: ${key}`);
     assert.notEqual(dictionaries.ar[key], key, `Missing Arabic translation: ${key}`);
   }
-  assert.match(html, /dir="<%= \['ckb','ar'\]\.includes\(locale\)\?'rtl':'ltr' %>"/);
+  assert.match(html, /dir="<%= \['ckb','ar','kmr'\]\.includes\(locale\)\?'rtl':'ltr' %>"/);
 });
 
 test('Arabic locale has RTL metadata and the footer labels the selected language correctly', () => {
   const header = read('views/partials/header.ejs');
   const footer = read('views/partials/footer.ejs');
   assert.match(header, /option value="ar"/);
-  assert.match(header, /\['ckb','ar'\]\.includes\(locale\)/);
+  assert.match(header, /\['ckb','ar','kmr'\]\.includes\(locale\)/);
   assert.match(footer, /locale==='ar'\?'العربية'/);
 });
 

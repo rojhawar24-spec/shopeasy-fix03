@@ -101,9 +101,9 @@ test('RTL metadata and cache-busted language assets are wired for both supported
   // French is now a selectable, explicitly partial locale. A historical
   // four-language-only regex was rejecting the current correct five-language
   // HTML metadata, although Sorani and Arabic remained RTL throughout.
-  assert.match(header, /locale==='ckb'\?'ckb':locale==='ar'\?'ar':locale==='nl'\?'nl-BE':locale==='fr'\?'fr-BE':'en-GB'/);
-  assert.match(header, /\['ckb','ar'\]\.includes\(locale\)\?'rtl':'ltr'/);
-  for(const code of ['ar','ckb','nl','fr']) {
+  assert.match(header, /locale==='kmr'\?'kmr-Arab':locale==='ckb'\?'ckb':locale==='ar'\?'ar':locale==='nl'\?'nl-BE':locale==='fr'\?'fr-BE':'en-GB'/);
+  assert.match(header, /\['ckb','ar','kmr'\]\.includes\(locale\)\?'rtl':'ltr'/);
+  for(const code of ['ar','ckb','nl','fr','kmr']) {
     assert.match(footer,new RegExp(`i18n-${code}\\.js\\?v=[^"\\s]+`),`versioned translation asset missing: ${code}`);
   }
 });

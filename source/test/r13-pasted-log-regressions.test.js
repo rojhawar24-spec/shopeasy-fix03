@@ -61,5 +61,12 @@ test('checkout has explicit payment obligation labels in Dutch, English and Fren
 });
 
 test('supported UI locales include the five configured languages', () => {
-  assert.match(read('src/store-config.js'), /Object\.freeze\(\['en', 'ckb', 'ar', 'nl', 'fr'\]\)/);
+  for (const [mode,expected] of [['production',['en','ckb','ar','nl','fr']],['preview',['en','ckb','ar','nl','fr','kmr']]]) {
+    const result=spawnSync(process.execPath,['--input-type=module','-e',"import {SUPPORTED_UI_LOCALES,UI_LOCALE_OPTIONS} from './src/store-config.js'; console.log(JSON.stringify({locales:SUPPORTED_UI_LOCALES,options:UI_LOCALE_OPTIONS}));"],{cwd:root,env:{...process.env,VERCEL_ENV:mode},encoding:'utf8'});
+    assert.equal(result.status,0,result.stderr);
+    const actual=JSON.parse(result.stdout);
+    assert.deepEqual(actual.locales,expected);
+    assert.deepEqual(actual.options.map(o=>o.code),expected);
+    for(const option of actual.options)assert.equal(option.dir,['ckb','ar','kmr'].includes(option.code)?'rtl':'ltr');
+  }
 });

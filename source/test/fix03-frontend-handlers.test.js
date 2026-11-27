@@ -150,17 +150,27 @@ test('FIX03 UI-003: formatter failure preserves major-unit scale rather than exp
 });
 test('FIX03 UI-007: modifiers and non-primary photo clicks retain native navigation; normal click opens current image', async () => {
   const link = element(), large = element(), close = element();
-  const main = element({ currentSrc: '/uploads/selected.webp', alt: 'Selected' });
+  const stage=element(), root=element();
+  const main = element({ currentSrc: 'https://shop.example.test/uploads/old.webp', alt: 'Selected', parentElement:stage });
+  main.setAttribute('src','/uploads/selected.webp');
   const dialog = element({ querySelector: selector => selector === '[data-product-photo-large]' ? large : close });
   const nodes = { '[data-product-photo-expand]': link, '[data-product-photo-dialog]': dialog, '[data-product-main-image]': main };
-  vm.runInNewContext(read('public/js/product-photo-zoom.js'), { document: { querySelector: selector => nodes[selector] } });
+  root.querySelector=selector=>nodes[selector];
+  let observer;
+  class MutationObserver {constructor(fn){observer=fn;} observe(){}}
+  vm.runInNewContext(read('public/js/product-photo-zoom.js'), {
+    document: { querySelector: selector => selector==='[data-product-gallery]'?root:null,documentElement:{lang:'en-GB',dir:'ltr'},baseURI:'https://shop.example.test/product/test',body:{dataset:{motion:'off'}} },
+    URL,MutationObserver,matchMedia:()=>({matches:true})
+  });
   for (const modifier of ['ctrlKey', 'metaKey', 'shiftKey', 'altKey']) {
     const event = await link.fire('click', { button: 0, [modifier]: true });
     assert.ok(!event.defaultPrevented); assert.ok(!dialog.open);
   }
   for (const button of [1, 2]) { const event = await link.fire('click', { button }); assert.ok(!event.defaultPrevented); }
   const normal = await link.fire('click', { button: 0 });
-  assert.equal(normal.defaultPrevented, true); assert.equal(dialog.open, true); assert.equal(large.src, main.currentSrc);
+  assert.equal(normal.defaultPrevented, true); assert.equal(dialog.open, true); assert.equal(large.src, 'https://shop.example.test/uploads/selected.webp');
+  main.setAttribute('src','/uploads/new-variant.webp'); observer();
+  assert.equal(large.src,'https://shop.example.test/uploads/new-variant.webp');
   await close.fire('click'); assert.equal(link.focused, true);
 });
 function stepperFixture({ prevent = false, valid = true } = {}) {

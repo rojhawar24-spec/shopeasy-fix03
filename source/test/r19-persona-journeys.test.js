@@ -65,9 +65,9 @@ test('R19 returning customer: full-size product photo uses selected gallery or v
   assert.match(product,/data-product-photo-close/);
   assert.match(product,/data-product-photo-large/);
   assert.match(footer,/\/js\/product-photo-zoom\.js/);
-  assert.match(zoom,/main\.currentSrc \|\| main\.src/);
+  assert.match(zoom,/main\.getAttribute\('src'\) \|\| main\.currentSrc \|\| main\.src/);
   assert.match(zoom,/dialog\.showModal\(\)/);
-  assert.match(zoom,/dialog\.addEventListener\('close',\s*\(\)\s*=>\s*link\.focus\(\)\)/);
+  assert.match(zoom,/dialog\.addEventListener\('close',\s*\(\)\s*=>\s*\{[^}]*link\.focus\(\)/);
   assert.match(css,/\.product-photo-dialog::backdrop/);
   assert.match(css,/\.product-photo-expand[^\n]*min-height:44px/);
 });

@@ -20,9 +20,10 @@
     kmr:['وێنەیێ بەرێ','وێنەیێ پاشێ','وێنە','وێنەیێ جۆری','ژ'],
     en:['Previous photo','Next photo','Photo','Variant photo','of']
   })[lang] || ['Previous photo','Next photo','Photo','Variant photo','of'];
-  const abs = url => { try { return new URL(url, location.href).href; } catch { return ''; } };
+  const abs = url => { if (!url) return ''; try { return new URL(url, document.baseURI).href; } catch { return ''; } };
   const motion = () => document.body.dataset.motion !== 'off' && !matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const current = () => abs(main.getAttribute('src') || '');
+  // Read the selected src attribute first: currentSrc may lag during a variant change.
+  const current = () => abs(main.getAttribute('src') || main.currentSrc || main.src || '');
   const index = () => thumbs.findIndex(b => abs(b.dataset.imageUrl) === current());
   const counters = [];
   let displayed = main.complete && main.naturalWidth ? current() : '';

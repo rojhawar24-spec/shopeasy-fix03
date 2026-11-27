@@ -40,9 +40,11 @@ test('manager role is refreshed from the database for privileged requests', () =
 });
 
 test('every privileged multipart write remains CSRF-protected after upload parsing', () => {
-  assert.ok(server.includes("const multipartTokenParsedAtRoute = req.is('multipart/form-data')"));
+  assert.ok(server.includes("const multipartTokenParsedAtRoute = req.method==='POST' && req.is('multipart/form-data')"));
   for (const signature of [
     "app.post('/admin/products/save',requireManager,upload.fields([{name:'image',maxCount:1},{name:'galleryImages',maxCount:MAX_ADDITIONAL_GALLERY_UPLOADS}]),verifyCsrf",
+    "app.post('/admin/categories/save',requireManager,upload.single('image'),verifyCsrf",
+    "app.post('/admin/appearance',requireManager,upload.single('shopLogo'),verifyCsrf",
     "app.post('/admin/stories/save',requireManager,upload.single('image'),verifyCsrf",
     "app.post('/admin/branding',requireManager,upload.single('heroImage'),verifyCsrf",
   ]) assert.ok(server.includes(signature), `missing role/CSRF protection: ${signature}`);
