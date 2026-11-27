@@ -17,7 +17,11 @@ test('catalogue pagination reads one extra row in the same query',()=>{
 test('homepage and product data fetches overlap without caching private data',()=>{
  const s=read('src/server.js');
  assert.match(s,/featuredProducts,latestProducts,categories,heroSettings\]=await Promise\.all/);
- assert.match(s,/managerProduct,reviewData\]=await Promise\.all/);
+ assert.match(s,/managerProduct,reviewData,arrivalCandidates\]=await Promise\.all/);
+ const productRoute=s.slice(s.indexOf("app.get('/product/:slug'"),s.indexOf("app.get('/wishlist'"));
+ const parallelBlock=productRoute.slice(productRoute.indexOf('await Promise.all(['),productRoute.indexOf('const deliveryCountries='));
+ assert.match(parallelBlock,/listProducts\(\{onlyActive:true,sort:'newest',limit:13,offset:0\}\)\.catch\(\(\)=>\[\]\)/);
+ assert.match(productRoute,/arrivalCandidates\.filter\(item=>Number\(item\.id\)!==Number\(product\.id\)&&isRecentlyAddedProduct\(item\)&&Number\(item\.available_stock\)>0\)\.slice\(0,6\)/);
  assert.match(s,/const \[reviews,reviewStats,canReview\]=reviewData/);
  assert.match(s,/private, no-store, max-age=0/);
 });
