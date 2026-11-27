@@ -21,10 +21,6 @@ if (product) {
         <% if(discount>0){ %><span class="product-badge sale">-<%= discount %>%</span><% } %>
         <% if(available<=0){ %><span class="product-badge out"><%= cardText('Sold out') %></span><% } %>
     </span>
-    <% if(appearance.quickView||appearance.compare){ %><div class="product-hover-actions">
-      <% if(appearance.quickView){ %><button type="button" class="product-quick-view" data-quick-view data-quick-name="<%= product.name %>" data-quick-image="<%= safeImageUrl(product.image_url) %>" data-quick-price="<%= formatPrice(effective,currency) %>" data-quick-category="<%= product.category_name||'' %>" data-quick-url="/product/<%= encodeURIComponent(product.slug) %>" data-quick-stock="<%= available %>" aria-label="<%= cardText('Quick view {name}', {name:product.name}) %>"><%= cardText('Quick view') %> <span aria-hidden="true">↗</span></button><% } %>
-      <% if(appearance.compare){ %><button type="button" class="product-compare" data-compare-add data-compare-name="<%= product.name %>" data-compare-price="<%= formatPrice(effective,currency) %>" data-compare-url="/product/<%= encodeURIComponent(product.slug) %>" data-compare-image="<%= safeImageUrl(product.image_url) %>" aria-pressed="false"><span data-compare-label><%= cardText('Compare +') %></span><span class="sr-only">: <span data-no-translate><%= product.name %></span></span></button><% } %>
-    </div><% } %>
     <% if(isLoggedIn && featureWishlistEnabled){ %>
       <button type="button" class="product-favorite wishlist-toggle <%= saved?'saved':'' %>" data-wishlist-toggle data-product-id="<%= product.id %>" data-product-name="<%= product.name %>" aria-label="<%= cardText(saved ? 'Remove {name} from wishlist' : 'Add {name} to wishlist', {name:product.name}) %>" aria-pressed="<%= saved?'true':'false' %>">
         <span aria-hidden="true"><%= saved ? '♥' : '♡' %></span>
@@ -53,6 +49,11 @@ if (product) {
       <% if(variants>0){ %><span><span class="meta-icon" aria-hidden="true">◇</span><%= cardText(variants===1 ? '{count} option' : '{count} options', {count:variants}) %></span><% } %>
       <% if(available>0){ %><span class="in-stock"><span class="meta-icon" aria-hidden="true">✓</span> <%= cardText('In stock') %></span><% } else { %><span class="out-stock"><span class="meta-icon" aria-hidden="true">—</span> <%= cardText('Unavailable') %></span><% } %>
     </div>
+
+    <% if(appearance.quickView||appearance.compare){ %><div class="product-hover-actions product-card-tools">
+      <% if(appearance.quickView){ %><button type="button" class="product-quick-view" data-quick-view data-quick-name="<%= product.name %>" data-quick-image="<%= safeImageUrl(product.image_url) %>" data-quick-price="<%= formatPrice(effective,currency) %>" data-quick-category="<%= product.category_name||'' %>" data-quick-url="/product/<%= encodeURIComponent(product.slug) %>" data-quick-stock="<%= available %>" aria-label="<%= cardText('Quick view {name}', {name:product.name}) %>"><%= cardText('Quick view') %> <span aria-hidden="true">↗</span></button><% } %>
+      <% if(appearance.compare){ %><button type="button" class="product-compare" data-compare-add data-compare-name="<%= product.name %>" data-compare-price="<%= formatPrice(effective,currency) %>" data-compare-url="/product/<%= encodeURIComponent(product.slug) %>" data-compare-image="<%= safeImageUrl(product.image_url) %>" aria-pressed="false"><span data-compare-label><%= cardText('Compare +') %></span><span class="sr-only">: <span data-no-translate><%= product.name %></span></span></button><% } %>
+    </div><% } %>
 
     <div class="product-card-footer">
       <a class="btn btn-dark btn-small product-main-cta" href="/product/<%= encodeURIComponent(product.slug) %>">
