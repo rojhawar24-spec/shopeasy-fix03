@@ -714,3 +714,21 @@ body.is-storefront-app .product-detail-studio .product-purchase-facts{background
 body.is-storefront-app .product-detail-studio .product-gallery-thumbnails{display:flex;overflow-x:auto;gap:8px;scroll-snap-type:x proximity;max-width:100%;padding-block:8px}
 body.is-storefront-app .product-detail-studio .product-gallery-thumbnail{flex:0 0 64px;height:64px;border-radius:8px;scroll-snap-align:start}
 @media(max-width:800px){body.is-storefront-app .product-detail-studio{grid-template-columns:minmax(0,1fr);gap:18px}body.is-storefront-app .product-detail-studio .product-visual{max-height:min(60vh,480px)}body.is-storefront-app .product-detail-studio .product-copy{padding-block-start:0}}
+
+/* Colour studio and compact visual variant options. */
+.variant-colour-studio{display:grid;gap:12px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface-soft,var(--paper));min-width:0}
+.variant-colour-studio .variant-colour-presets,.variant-colour-studio .variant-colour-buttons{display:flex;flex-wrap:wrap;gap:7px}
+.variant-colour-studio .variant-colour-palette{display:grid;gap:12px}
+.variant-colour-studio .variant-colour-palette[hidden]{display:none}
+.variant-colour-studio .variant-custom-colour{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:end}
+.variant-colour-studio input[type=color]{width:48px;height:44px;padding:4px;border:1px solid var(--line);border-radius:8px;cursor:pointer}
+.variant-colour-studio .field-note{margin:0}
+body.is-storefront-app .product-detail-studio .product-option-chips button{display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:border-color .15s,background-color .15s}
+body.is-storefront-app .product-detail-studio .product-colour-dot{width:24px;height:24px;flex:0 0 24px}
+body.is-storefront-app .product-detail-studio .product-option-chips button:focus-visible{outline:2px solid var(--brand-primary);outline-offset:3px}
+body.is-storefront-app .product-detail-studio .product-option-chips button:not(:disabled):hover{border-color:var(--brand-primary)}
+body.is-storefront-app .product-detail-studio .product-intro h1{max-width:22ch}
+body.is-storefront-app .product-detail-studio .product-price-block{border-bottom:1px solid var(--line)}
+body.is-storefront-app .product-detail-studio .product-option-field .field-note{padding:8px 10px;border-radius:6px;background:var(--surface-soft,var(--paper));color:var(--muted)}
+@media(max-width:600px){.variant-colour-studio .variant-custom-colour{grid-template-columns:minmax(0,1fr) auto}.variant-colour-studio .variant-custom-colour button{grid-column:1/-1}}
+@media(prefers-reduced-motion:reduce){body.is-storefront-app .product-detail-studio .product-option-chips button{transition:none}}
