@@ -1,4 +1,130 @@
-<% const footerFrench = {
+<% const footerLocales = {
+  "nl": {
+    "Shop": "Winkel",
+    "All products": "Alle producten",
+    "Stories": "Verhalen",
+    "Wishlist": "Verlanglijst",
+    "Cart": "Winkelmandje",
+    "Information": "Informatie",
+    "Privacy": "Privacy",
+    "Cookies": "Cookies",
+    "Terms": "Voorwaarden",
+    "Shipping & returns": "Verzending en retouren",
+    "FAQ": "Veelgestelde vragen",
+    "Contact": "Contact",
+    "Track an order": "Bestelling volgen",
+    "Account": "Account",
+    "Contact & business details": "Contact- en bedrijfsgegevens",
+    "Phone": "Telefoon",
+    "Business name": "Bedrijfsnaam",
+    "Registration / licence": "Registratie / vergunning",
+    "Business address": "Bedrijfsadres",
+    "Payment options shown at checkout.": "Betaalopties worden bij het afrekenen getoond.",
+    "Home": "Home",
+    "Saved": "Opgeslagen",
+    "Cart preview": "Winkelmandje bekijken",
+    "View bag": "Bekijk winkelmandje",
+    "Checkout": "Afrekenen",
+    "Close cart preview": "Winkelmandje sluiten",
+    "Loading cart…": "Winkelmandje laden…",
+    "Language": "Taal",
+    "Apply": "Toepassen",
+    "Not now": "Niet nu",
+    "Necessary": "Noodzakelijk",
+    "Always on": "Altijd actief",
+    "Analytics": "Statistieken",
+    "Marketing": "Marketing"
+  },
+  "ckb": {
+    "Shop": "فرۆشگا",
+    "All products": "هەموو بەرهەمەکان",
+    "Stories": "چیرۆکەکان",
+    "Wishlist": "لیستی دڵخوازەکان",
+    "Cart": "سەبەتە",
+    "Information": "زانیاری",
+    "Privacy": "تایبەتمەندی",
+    "Cookies": "کوکییەکان",
+    "Terms": "مەرجەکان",
+    "Shipping & returns": "گەیاندن و گەڕاندنەوە",
+    "FAQ": "پرسیارە باوەکان",
+    "Contact": "پەیوەندی",
+    "Track an order": "بەدواداچوونی داواکاری",
+    "Account": "هەژمار",
+    "Contact & business details": "زانیاری پەیوەندی و کۆمپانیا",
+    "Phone": "تەلەفۆن",
+    "Business name": "ناوی کۆمپانیا",
+    "Registration / licence": "تۆمارکردن / مۆڵەت",
+    "Business address": "ناونیشانی کۆمپانیا",
+    "Payment options shown at checkout.": "شێوازەکانی پارەدان لە کاتی تەواوکردنی کڕین پیشان دەدرێن.",
+    "Home": "سەرەکی",
+    "Saved": "دڵخوازەکان",
+    "Cart preview": "پێشبینینی سەبەتە",
+    "View bag": "بینینی سەبەتە",
+    "Checkout": "تەواوکردنی کڕین",
+    "Close cart preview": "داخستنی پێشبینینی سەبەتە",
+    "Loading cart…": "سەبەتە بار دەکرێت…",
+    "Language": "زمان",
+    "Apply": "جێبەجێکردن",
+    "Not now": "ئێستا نا",
+    "Necessary": "پێویست",
+    "Always on": "هەمیشە چالاکە",
+    "Analytics": "شیکاری",
+    "Marketing": "بازاڕگەری"
+  },
+  "ar": {
+    "Shop": "المتجر",
+    "All products": "جميع المنتجات",
+    "Stories": "القصص",
+    "Wishlist": "المفضلة",
+    "Cart": "السلة",
+    "Information": "المعلومات",
+    "Privacy": "الخصوصية",
+    "Cookies": "ملفات تعريف الارتباط",
+    "Terms": "الشروط",
+    "Shipping & returns": "الشحن والإرجاع",
+    "FAQ": "الأسئلة الشائعة",
+    "Contact": "اتصل بنا",
+    "Track an order": "تتبع الطلب",
+    "Account": "الحساب",
+    "Contact & business details": "معلومات الاتصال والنشاط التجاري",
+    "Phone": "الهاتف",
+    "Business name": "اسم النشاط التجاري",
+    "Registration / licence": "التسجيل / الترخيص",
+    "Business address": "عنوان النشاط التجاري",
+    "Payment options shown at checkout.": "تظهر خيارات الدفع عند إتمام الطلب.",
+    "Home": "الرئيسية",
+    "Saved": "المفضلة",
+    "Cart preview": "معاينة السلة",
+    "View bag": "عرض السلة",
+    "Checkout": "إتمام الطلب",
+    "Close cart preview": "إغلاق معاينة السلة",
+    "Loading cart…": "جارٍ تحميل السلة…",
+    "Language": "اللغة",
+    "Apply": "تطبيق",
+    "Not now": "ليس الآن",
+    "Necessary": "ضرورية",
+    "Always on": "مفعلة دائماً",
+    "Analytics": "التحليلات",
+    "Marketing": "التسويق"
+  },
+  "kmr": {
+    "Home": "سەرەکی",
+    "Saved": "لیستا دڵخوازان",
+    "Cart preview": "پێشبینینا سەبەتێ",
+    "Close cart preview": "پێشبینینا سەبەتێ داخە",
+    "Loading cart…": "سەبەت دهێتە بارکرن…",
+    "Not now": "نە نوکە",
+    "Necessary": "پێدڤی",
+    "Always on": "هەردەم چالاک",
+    "Analytics": "شیکارن",
+    "Marketing": "بازاڕگەری"
+  },
+  "fr": {
+    "Home": "Accueil",
+    "Saved": "Favoris"
+  }
+};
+const footerFrench = {
   'Recently viewed products': 'Produits consultés récemment',
   'Close cart preview': 'Fermer l’aperçu du panier',
   'Dismiss language suggestion': 'Ignorer la suggestion de langue',
@@ -6,10 +132,7 @@
   'Products selected for comparison': 'Produits sélectionnés pour la comparaison',
   'Close comparison': 'Fermer la comparaison',
   'EXPLORE AGAIN': 'À DÉCOUVRIR À NOUVEAU',
-  'STAY CONNECTED': 'RESTONS EN CONTACT',
-  'Receive updates only after confirming your email. No third-party tracker is required.': 'Recevez des nouvelles uniquement après confirmation de votre adresse e-mail. Aucun traceur tiers n’est nécessaire.',
   'Email address': 'Adresse e-mail',
-  'Subscribe': 'S’abonner',
   'Shop': 'Boutique',
   'All products': 'Tous les produits',
   'Stories': 'Actualités',
@@ -55,7 +178,7 @@
   'Advertising cookies and campaign measurement.': 'Cookies publicitaires et mesure des campagnes.',
   'Necessary storage is always on. Your choice is saved on this device for 180 days. No analytics or advertising scripts are loaded in this release.': 'Les cookies nécessaires sont toujours actifs. Votre choix est conservé pendant 180 jours sur cet appareil. Aucun script statistique ou publicitaire n’est chargé dans cette version.',
   'Payment options shown at checkout.': 'Moyens de paiement indiqués à la commande.'
-}; const footerText = value => locale === 'fr' ? (footerFrench[value] || value) : value; %>
+}; const footerText = value => footerLocales[locale]?.[value] || (locale === 'fr' && footerFrench[value]) || (typeof customerText === 'function' ? customerText(value) : value); %>
 <% if(typeof managerWorkspaceShell!=='undefined' && managerWorkspaceShell){ %></div><!-- /.admin-workspace-content --><% } %>
 <% if(!isAdminRoute && appearance.recentlyViewed){ %>
 <section class="container recently-viewed" data-recently-viewed hidden aria-label="<%= footerText('Recently viewed products') %>">
@@ -64,9 +187,6 @@
 </section>
 <% } %>
 </main>
-<% if(!isAdminRoute && appearance.newsletter){ %>
-<section class="container newsletter-section" aria-labelledby="newsletter-title"><div><span class="eyebrow"><%= footerText('STAY CONNECTED') %></span><h2 id="newsletter-title"><%= locale==='fr'?'Actualités de la boutique':locale==='nl'?'Nieuws uit de winkel':locale==='ckb'?'هەواڵی فرۆشگا':locale==='ar'?'أخبار المتجر':'Store updates, by choice' %></h2><p><%= footerText('Receive updates only after confirming your email. No third-party tracker is required.') %></p></div><form action="/newsletter/subscribe" method="post" class="engagement-inline-form"><input type="hidden" name="_csrf" value="<%= csrf %>"><label for="newsletter-email"><%= footerText('Email address') %></label><input type="email" name="email" id="newsletter-email" maxlength="254" autocomplete="email" required><button class="btn btn-dark" type="submit"><%= footerText('Subscribe') %></button></form></section>
-<% } %>
 <% if(isAdminRoute){ %><div class="manager-quiet-footer" role="contentinfo"><span>ShopEasy Manager</span><span>Use <a href="/admin/products">Products</a> to manage the catalogue or <a href="/">View shop</a> to check the public design.</span></div><% } else { %><footer class="site-footer"><div class="container footer-grid">
   <div class="footer-brand"><strong translate="no" data-no-translate><%= storeName %></strong><p><%= checkoutCardEnabled
   ? (locale==='nl'?'Duidelijke prijzen en betaalopties bij het afrekenen.':locale==='fr'?'Prix clairs et moyens de paiement indiqués à la commande.':'Clear prices and payment options at checkout.')
@@ -81,7 +201,7 @@
     <% if(businessAddress){ %><div class="footer-detail"><span><%= footerText('Business address') %></span><strong translate="no" data-no-translate><%= businessAddress %></strong></div><% } %>
     <% if(vatNumber){ %><div class="footer-detail"><span><%= locale==='fr'?'Numéro de TVA':locale==='nl'?'Btw-nummer':locale==='ckb'?'ژمارەی باج':locale==='ar'?'الرقم الضريبي':'Tax / VAT number' %></span><strong><%= vatNumber %></strong></div><% } %>
   </div><% } %>
-</div><div class="container footer-bottom"><span>© <%= new Date().getFullYear() %> <span translate="no" data-no-translate><%= legalName || storeName %></span>. <%= locale==='fr'?'Tous droits réservés.':locale==='nl'?'Alle rechten voorbehouden.':locale==='ckb'?'هەموو مافەکان پارێزراون.':locale==='ar'?'جميع الحقوق محفوظة.':'All rights reserved.' %></span><% if(licenseInfo?.licensedTo){ %><span>Licensed to: <span translate="no" data-no-translate><%= licenseInfo.licensedTo %></span></span><% } %><button type="button" class="footer-cookie-open" data-cookie-open><%= locale==='fr'?'Paramètres des cookies':locale==='nl'?'Cookie-instellingen':locale==='ckb'?'ڕێکخستنی کوکی':locale==='ar'?'إعدادات ملفات تعريف الارتباط':'Cookie settings' %></button><span><%= footerText('Payment options shown at checkout.') %></span><span class="language-pill footer-language"><%= locale==='ckb'?'کوردی':locale==='ar'?'العربية':locale==='en'?'EN':locale.toUpperCase() %></span></div></footer><% } %>
+</div><div class="container footer-bottom"><span>© <%= new Date().getFullYear() %> <span translate="no" data-no-translate><%= legalName || storeName %></span>. <%= locale==='fr'?'Tous droits réservés.':locale==='nl'?'Alle rechten voorbehouden.':locale==='ckb'?'هەموو مافەکان پارێزراون.':locale==='ar'?'جميع الحقوق محفوظة.':'All rights reserved.' %></span><% if(licenseInfo?.licensedTo){ %><span>Licensed to: <span translate="no" data-no-translate><%= licenseInfo.licensedTo %></span></span><% } %><button type="button" class="footer-cookie-open" data-cookie-open><%= locale==='fr'?'Paramètres des cookies':locale==='nl'?'Cookie-instellingen':locale==='ckb'?'ڕێکخستنی کوکی':locale==='ar'?'إعدادات ملفات تعريف الارتباط':'Cookie settings' %></button><span><%= footerText('Payment options shown at checkout.') %></span><span class="language-pill footer-language"><%= locale==='ckb'?'کوردی (سۆرانی)':locale==='kmr'?'کوردی (بادینی)':locale==='ar'?'العربية':locale==='en'?'EN':locale.toUpperCase() %></span></div></footer><% } %>
 
 <% if(!isAdminRoute && appearance.cartDrawer){ %>
 <dialog class="shop-dialog cart-preview-dialog" data-cart-drawer aria-labelledby="cart-preview-title">
@@ -155,9 +275,9 @@
 <% } %>
 
 <% if(!isAdminRoute && !isCheckoutRoute){ %><nav class="mobile-bottom-nav" aria-label="Mobile navigation">
-  <a href="/" class="<%= path==='/'?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m3 10 9-7 9 7M5.5 9v12h13V9M9.5 21v-6h5v6"/></svg></span><span class="mobile-nav-label">Home</span></a>
-  <a href="/shop" class="<%= path.startsWith('/shop')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M9 4v5m6-5v5"/></svg></span><span class="mobile-nav-label"><%= footerText('Shop') %></span></a>
-  <% if(featureWishlistEnabled && isLoggedIn){ %><a href="/wishlist" class="<%= path.startsWith('/wishlist')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20.8 8.7c0 5.4-8.8 11-8.8 11s-8.8-5.6-8.8-11A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8.8 2.7Z"/></svg><b data-wishlist-count><%= wishlistCount %></b></span><span class="mobile-nav-label">Saved</span></a><% } else if(featureWishlistEnabled){ %><a href="/login?next=%2Fwishlist"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20.8 8.7c0 5.4-8.8 11-8.8 11s-8.8-5.6-8.8-11A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8.8 2.7Z"/></svg></span><span class="mobile-nav-label">Saved</span></a><% } else { %><a href="/order-lookup" class="<%= path.startsWith('/order-lookup')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M7 10h10M7 14h7"/></svg></span><span class="mobile-nav-label"><%= locale==='fr'?'Suivre':locale==='nl'?'Volgen':locale==='ckb'?'شوێنکەوتن':locale==='ar'?'التتبع':'Track' %></span></a><% } %>
+  <a href="/" class="<%= path==='/'?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m3 10 9-7 9 7M5.5 9v12h13V9M9.5 21v-6h5v6"/></svg></span><span class="mobile-nav-label"><%= footerText('Home') %></span></a>
+  <a href="/shop" class="<%= (path.startsWith('/shop')||path.startsWith('/category/'))?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M9 4v5m6-5v5"/></svg></span><span class="mobile-nav-label"><%= footerText('Shop') %></span></a>
+  <% if(featureWishlistEnabled && isLoggedIn){ %><a href="/wishlist" class="<%= path.startsWith('/wishlist')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20.8 8.7c0 5.4-8.8 11-8.8 11s-8.8-5.6-8.8-11A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8.8 2.7Z"/></svg><b data-wishlist-count><%= wishlistCount %></b></span><span class="mobile-nav-label"><%= footerText('Saved') %></span></a><% } else if(featureWishlistEnabled){ %><a href="/login?next=%2Fwishlist"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20.8 8.7c0 5.4-8.8 11-8.8 11s-8.8-5.6-8.8-11A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8.8 2.7Z"/></svg></span><span class="mobile-nav-label"><%= footerText('Saved') %></span></a><% } else { %><a href="/order-lookup" class="<%= path.startsWith('/order-lookup')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M7 10h10M7 14h7"/></svg></span><span class="mobile-nav-label"><%= locale==='fr'?'Suivre':locale==='nl'?'Volgen':locale==='ckb'?'شوێنکەوتن':locale==='ar'?'التتبع':'Track' %></span></a><% } %>
   <a href="/cart" class="<%= path.startsWith('/cart')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><b><%= cartCount %></b></span><span class="mobile-nav-label"><%= footerText('Cart') %></span></a>
   <a href="<%= isLoggedIn?'/account':'/login' %>" class="<%= path.startsWith('/account')||path.startsWith('/login')?'active':'' %>"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg></span><span class="mobile-nav-label"><%= footerText('Account') %></span></a>
 </nav><% } %>

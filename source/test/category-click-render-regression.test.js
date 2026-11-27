@@ -66,6 +66,14 @@ test('category link renders category heading, child category and empty result wi
   assert.doesNotMatch(page, /AI expanded your search/);
 });
 
+test('category pages expose every subcategory without a huge parent banner', () => {
+  const children=Array.from({length:15},(_,i)=>({id:i+2,slug:'child-'+i,name:'Child '+i,image_url:'/uploads/child.webp',product_count:i}));
+  const page=evaluateShopView(shopView,{...common,category:'kleding',categoryInfo:{id:1,slug:'kleding',name:'Kleding',image_url:'/uploads/parent.webp'},categoryPath:[],childCategories:children});
+  for(const child of children)assert.ok(page.includes('/category/'+child.slug+'\"'));
+  assert.match(page,/home-category-rail/);
+  assert.doesNotMatch(page,/category-context-image|\/uploads\/parent\.webp/);
+});
+
 test('normal shop route still displays AI expansion only when enabled', () => {
   const ordinary = evaluateShopView(shopView, {...common, aiSearchUsed:false, categoryInfo:null, categoryPath:[], childCategories:[]});
   assert.doesNotMatch(ordinary, /AI expanded your search/);

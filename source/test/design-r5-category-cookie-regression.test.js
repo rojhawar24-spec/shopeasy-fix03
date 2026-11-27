@@ -11,13 +11,13 @@ const footer = read('views/partials/footer.ejs');
 test('category links keep their text outside the fixed-aspect-ratio media wrapper', () => {
   assert.doesNotMatch(home, /class="category-card category-card-image/);
   assert.doesNotMatch(shop, /class="category-card category-card-image/);
-  assert.match(css, /\.category-card-media\s*\{[^}]*aspect-ratio:\s*3\s*\/\s*2/);
+  assert.match(read('public/css/research-polish-2027.css'),/\.home-category-photo\{[^}]*aspect-ratio:1\/1/);
   assert.doesNotMatch(css, /\.category-card-media,\s*\.category-card-image\s*\{/);
   assert.ok(fs.existsSync(new URL('../public/assets/category-placeholder.svg', import.meta.url)));
   assert.match(home, /c\.image_url \? safeImageUrl\(c\.image_url\) : '\/assets\/category-placeholder\.svg'/, 'homepage category always renders a fallback when no image is configured');
   assert.match(shop, /child\.image_url \? safeImageUrl\(child\.image_url\) : '\/assets\/category-placeholder\.svg'/, 'subcategory card always renders a fallback when no image is configured');
-  assert.match(home, /<div class=\"category-card-media\"><img/);
-  assert.match(shop, /<div class=\"category-card-media\"><img/);
+  assert.match(home, /<div class=\"home-category-photo\"><img/);
+  assert.match(shop, /<div class=\"home-category-photo\"><img/);
 });
 
 test('mobile cookie consent is compact, keeps reject and accept equally available, and clears bottom navigation', () => {

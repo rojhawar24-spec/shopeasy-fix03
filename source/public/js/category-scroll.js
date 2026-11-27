@@ -1,7 +1,7 @@
 (()=>{'use strict';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const lang=document.documentElement.lang.split('-')[0];
-const labels={nl:['Scroll naar links','Scroll naar rechts'],fr:['Défiler à gauche','Défiler à droite'],ckb:['بۆ چەپ','بۆ ڕاست'],ar:['التمرير لليسار','التمرير لليمين'],en:['Scroll left','Scroll right']}[lang]||['Scroll left','Scroll right'];
+const labels={nl:['Scroll naar links','Scroll naar rechts'],fr:['Défiler à gauche','Défiler à droite'],ckb:['بۆ چەپ','بۆ ڕاست'],ar:['التمرير لليسار','التمرير لليمين'],kmr:['بەرەڤ چەپێ','بەرەڤ راستێ'],en:['Scroll left','Scroll right']}[lang]||['Scroll left','Scroll right'];
 for(const rail of document.querySelectorAll('.home-category-rail,.shop-category-rail>.chips,.home-product-rail')){
   const heading=rail.closest('.home-category-section')?.querySelector('.home-category-heading')||rail.closest('#featured')?.querySelector('.section-head')||rail.closest('.shop-category-toolbar');
   if(!heading)continue;

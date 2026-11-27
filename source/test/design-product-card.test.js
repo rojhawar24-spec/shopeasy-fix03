@@ -92,17 +92,16 @@ test('product-card visible and accessibility strings all have runtime-matching t
   assert.ok(card.includes('class="out-stock"'));
   assert.ok(card.includes("cardText('Unavailable')"));
   assert.ok(shop.includes("'CATEGORY'"));
-  assert.ok(shop.includes('>EXPLORE</span>') || shop.includes('EXPLORE'));
-  assert.match(shop, /locale === 'ckb' \? `بەرهەم: \${Number\(child\.product_count\|\|0\)}` : locale === 'ar' \? `المنتجات: \${Number\(child\.product_count\|\|0\)}`/);
-  assert.match(shop, /locale === 'fr' \? `Produits : \${Number\(child\.product_count\|\|0\)}` : `Products: \${Number\(child\.product_count\|\|0\)}`/);
-  assert.match(shop, /Products: \${Number\(child\.product_count\|\|0\)}/);
-  assert.ok(shop.includes('Explore by category or search'));
+  assert.match(shop,/id="subcategory-title"/);
+  assert.match(shop,/_childCategories\.forEach\(child=>/);
+  assert.match(shop,/Number\(child\.product_count\|\|0\)/);
+  assert.ok(shop.includes('Find your favourites. Explore, compare and shop at your own pace.'));
   assert.doesNotMatch(shop,/shopServerNote|shopLocaleLabel|Prices and availability update from the server/);
 });
 
 test('category cards expose configured category images when available',()=>{
   assert.ok(home.includes('c.image_url'));
-  assert.ok(home.includes('category-card-media'));
+  assert.ok(home.includes('home-category-photo'));
   assert.ok(shop.includes('child.image_url'));
 });
 

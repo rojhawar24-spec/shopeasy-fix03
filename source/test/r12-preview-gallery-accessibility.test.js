@@ -8,6 +8,6 @@ test('static product preview gallery thumbnail has a name and a selected state',
 });
 test('live product gallery controls name each photograph and expose selected state',()=>{
   const source=readFileSync(new URL('../views/product.ejs',import.meta.url),'utf8');
-  assert.match(source,/data-gallery-image[\s\S]*?aria-label="View product photo <%= index\+1 %>"/);
+  assert.match(source,/data-gallery-image[\s\S]*?aria-label="<%= \(\{[^}]*kmr:[^}]*\}\)\[locale\]\|\|'Product photo' %> <%= index\+1 %>"/);
   assert.match(source,/aria-pressed=/);
 });
