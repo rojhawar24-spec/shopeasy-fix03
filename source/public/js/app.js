@@ -592,7 +592,7 @@
       if (!optionTwo) return;
       const wanted = preserve ? optionTwo.value : '';
       const primary = normalize(optionOne.value);
-      const candidates = primary ? variants.filter(item => normalize(item.value) === primary) : [];
+      const candidates = primary ? variants.filter(item => normalize(item.value) === primary) : variants;
       const values = [...new Set(candidates.map(item => String(item.value2 || '')))].filter(Boolean);
       optionTwo.replaceChildren();
       const placeholder = document.createElement('option');
@@ -634,13 +634,13 @@
       if (submit) {
         submit.disabled = !available;
         const textNode = Array.from(submit.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
-        const label = available ? 'Add to cart' : (chosen ? 'Sold out' : 'Choose options');
+        const label = available ? 'Add to bag' : (chosen ? 'Sold out' : !one ? 'Select '+(optionOne.closest('.product-attribute-select')?.querySelector('.configurator-option-label>span')?.textContent||'option') : 'Select '+(optionTwo?.closest('.product-attribute-select')?.querySelector('.configurator-option-label>span')?.textContent||'option'));
         if (textNode) textNode.textContent = `${window.ShopEasyI18n?.translate(label) || label} `;
       }
       if (stockLabel) stockLabel.textContent = available ? 'In stock' : chosen ? 'Sold out' : (originalAggregateStock > 0 ? 'Choose options' : 'Sold out');
       if (stockCount) stockCount.textContent = available ? `${availableStock} available for this combination` : chosen ? 'This combination is currently unavailable' : `${originalAggregateStock} available in total`;
       if (stockDot) { stockDot.classList.toggle('ok', available || (!complete && originalAggregateStock > 0)); stockDot.classList.toggle('bad', !available && complete || originalAggregateStock <= 0); }
-      if (optionNote) optionNote.textContent = available ? `SKU: ${chosen.sku || 'Product variant'} · ${availableStock} available` : chosen ? 'This combination is sold out. Choose another option.' : 'Select each option to check its own SKU and stock.';
+      if (optionNote) {const t=window.ShopEasyI18n?.translate;const tr=x=>t?.(x)||x;optionNote.dataset.state=available?'ready':chosen?'unavailable':'pending';optionNote.textContent=available?tr('In stock')+' · '+availableStock:chosen?tr('Sold out'):tr('Choose options');}
       if (chosen?.imageUrl) setMainImage(chosen.imageUrl, `${document.querySelector('h1')?.textContent || 'Product'} · ${chosen.value}${chosen.value2 ? ` · ${chosen.value2}` : ''}`, chosen.imageUrl);
       else if (form.dataset.selectedGalleryImage || manuallySelectedGalleryImage) {
         manuallySelectedGalleryImage = form.dataset.selectedGalleryImage || manuallySelectedGalleryImage;
@@ -670,9 +670,32 @@
     quantity.addEventListener('input',sync);quantity.addEventListener('change',sync);form.addEventListener('change',sync);
     new MutationObserver(sync).observe(quantity,{attributes:true,attributeFilter:['disabled','max','min']});sync();
     for(const select of form.querySelectorAll('[data-option-one-select],[data-option-two-select]')){
-      const choices=document.createElement('div');choices.className='product-option-chips';choices.setAttribute('role','group');choices.setAttribute('aria-label',select.labels?.[0]?.querySelector('span')?.textContent||'Options');
+      const wrapper=select.closest('.product-attribute-select');
+      const name=wrapper?.querySelector('.configurator-option-label>span')?.textContent?.trim()||'Options';
+      const selected=wrapper?.querySelector('[data-option-selected]');
+      const colourField=/^(colou?r|kleur|couleur|farbe|ڕەنگ|لون)$/iu.test(name);
+      const choices=document.createElement('div');choices.className='product-option-chips'+(colourField?' is-colour':'');choices.setAttribute('role','group');choices.setAttribute('aria-label',name);
       select.after(choices);
-      const render=()=>{const options=[...select.options].filter(o=>o.value);const use=options.length>0&&options.length<=8&&!select.disabled;choices.hidden=!use;select.classList.toggle('product-select-enhanced',use);choices.replaceChildren();if(!use)return;for(const opt of options){const b=document.createElement('button');b.type='button';b.textContent=opt.textContent;b.disabled=opt.disabled;const name=select.labels?.[0]?.querySelector('span')?.textContent||'';if(/^(colou?r|kleur|couleur|farbe|ڕەنگ|لون)$/iu.test(name.trim())){const match=opt.value.match(/\((#[0-9a-f]{6})\)$/i);const colours={black:'#171717',white:'#ffffff',grey:'#808080',gray:'#808080',navy:'#192c50',blue:'#2563eb',red:'#c72b35',green:'#277448',beige:'#e1d2b7',brown:'#79513b',pink:'#ef91b2',purple:'#794ba8',yellow:'#e9c742',orange:'#e98032'};const colour=match?.[1]||colours[opt.value.toLowerCase()];if(colour){const dot=document.createElementNS('http://www.w3.org/2000/svg','svg');dot.setAttribute('viewBox','0 0 24 24');dot.setAttribute('aria-hidden','true');dot.setAttribute('class','product-colour-dot');const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');circle.setAttribute('cx','12');circle.setAttribute('cy','12');circle.setAttribute('r','10');circle.setAttribute('fill',colour);circle.setAttribute('stroke','currentColor');circle.setAttribute('stroke-opacity','.2');dot.append(circle);b.prepend(dot);}}b.setAttribute('aria-pressed',String(select.value===opt.value));b.addEventListener('click',()=>{select.value=opt.value;select.dispatchEvent(new Event('change',{bubbles:true}));});choices.append(b);}};
+      const colors={black:'#171717',white:'#ffffff',grey:'#808080',gray:'#808080',navy:'#192c50',blue:'#2563eb',red:'#c72b35',green:'#277448',beige:'#e1d2b7',brown:'#79513b',pink:'#ef91b2',purple:'#794ba8',yellow:'#e9c742',orange:'#e98032'};
+      const render=()=>{
+        const options=[...select.options].filter(o=>o.value);
+        const use=options.length>0&&options.length<=24;
+        choices.hidden=!use;select.classList.toggle('product-select-enhanced',use);
+        if(use){select.setAttribute('tabindex','-1');select.setAttribute('aria-hidden','true');}else{select.removeAttribute('tabindex');select.removeAttribute('aria-hidden');}
+        if(selected)selected.textContent=select.value||'';
+        const signature=JSON.stringify(options.map(o=>[o.value,o.textContent,o.disabled]));
+        if(choices.dataset.signature!==signature){
+          choices.dataset.signature=signature;choices.replaceChildren();
+          for(const opt of options){
+            const button=document.createElement('button');button.type='button';button.dataset.value=opt.value;
+            const label=document.createElement('span');label.textContent=opt.textContent;button.append(label);
+            if(colourField){const color=opt.value.match(/\((#[0-9a-f]{6})\)$/i)?.[1]||colors[opt.value.trim().toLowerCase()];if(color){const dot=document.createElementNS('http://www.w3.org/2000/svg','svg');dot.setAttribute('viewBox','0 0 24 24');dot.setAttribute('aria-hidden','true');dot.setAttribute('class','product-colour-dot');const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');circle.setAttribute('cx','12');circle.setAttribute('cy','12');circle.setAttribute('r','10');circle.setAttribute('fill',color);circle.setAttribute('stroke','currentColor');circle.setAttribute('stroke-opacity','.28');dot.append(circle);button.prepend(dot);}}
+            button.addEventListener('click',()=>{if(button.disabled)return;select.value=button.dataset.value;select.dispatchEvent(new Event('change',{bubbles:true}));if(document.body.dataset.motion!=='off'&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&button.animate)button.animate([{transform:'scale(.94)'},{transform:'scale(1)'}],{duration:180,easing:'ease-out'});});
+            choices.append(button);
+          }
+        }
+        for(const button of choices.children){const opt=options.find(o=>o.value===button.dataset.value);button.disabled=select.disabled||!!opt?.disabled;button.setAttribute('aria-pressed',String(select.value===button.dataset.value));}
+      };
       select.addEventListener('change',render);form.addEventListener('change',render);new MutationObserver(render).observe(select,{childList:true,attributes:true,attributeFilter:['disabled']});render();
     }
   });
