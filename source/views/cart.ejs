@@ -1,6 +1,7 @@
 <%- include('partials/header',{title:'Cart'}) %>
 <%- include('partials/purchase-journey',{journeyStage:'cart'}) %>
-<section class="container page-head cart-page-head">
+<% const bagItemCount=items.reduce((sum,item)=>sum+Number(item.quantity||0),0); const bagLabels=({en:['Items in your bag','Save your quantity change before checkout.','Updating your bag…','Save or revert the other changed quantity first.','Have a discount code?','Remove'],nl:['Artikelen in je winkelmand','Sla het gewijzigde aantal op voordat je afrekent.','Winkelmand bijwerken…','Sla het andere gewijzigde aantal op of herstel het eerst.','Heb je een kortingscode?','Verwijderen'],fr:['Articles dans votre panier','Enregistrez la quantité avant de continuer.','Mise à jour du panier…','Rétablissez d’abord l’autre quantité modifiée.','Vous avez un code promo ?','Retirer'],ckb:['کاڵاکانی سەبەتەکەت','ژمارەی نوێ پاشەکەوت بکە پێش پارەدان.','سەبەتە نوێ دەکرێتەوە…','ژمارەی گۆڕدراوی تر بگەڕێنەوە.','کۆدی داشکاندنت هەیە؟','سڕینەوە'],ar:['المنتجات في سلتك','احفظ تعديل الكمية قبل متابعة الدفع.','جارٍ تحديث السلة…','أعد الكمية الأخرى المعدلة أولاً.','هل لديك رمز خصم؟','إزالة']})[locale]||['Items in your bag','Save your quantity change before checkout.','Updating your bag…','Revert the other changed quantity first.','Have a discount code?','Remove']; %>
+<section class="container page-head cart-page-head cart-studio-head">
   <%- include('partials/back-button', { fallback: '/shop' }) %>
   <span class="eyebrow"><%= customerText(locale==='nl'?'JE WINKELMANDJE':locale==='fr'?'VOTRE PANIER':locale==='ckb'?'سەبەتەکەت':locale==='ar'?'سلة التسوق':'YOUR BAG') %></span>
   <h1><%= customerText(locale==='nl'?'Winkelmandje':locale==='fr'?'Votre panier':locale==='ckb'?'سەبەتە':locale==='ar'?'السلة':'Your bag') %></h1>
@@ -8,7 +9,7 @@
 </section>
 
 <% if(appearance.freeShipping&&appearance.freeShippingMinimum>0 && items?.length){ const remaining=Math.max(0,appearance.freeShippingMinimum-Number(subtotal||0)); %><section class="container"><div class="shipping-progress"><strong id="shipping-progress-label"><%= customerText(remaining===0?'Your cart reached the store’s configured free-shipping threshold.':'Progress toward the store’s free-shipping threshold') %></strong><meter aria-labelledby="shipping-progress-label" aria-describedby="shipping-progress-detail" min="0" max="<%= appearance.freeShippingMinimum %>" value="<%= Math.min(appearance.freeShippingMinimum,Number(subtotal||0)) %>"></meter><p class="field-note" id="shipping-progress-detail"><%= customerText("Threshold: ") %><%= formatPrice(appearance.freeShippingMinimum,currency) %>. <%= remaining>0?`Remaining: ${formatPrice(remaining,currency)}.`:'' %><%= customerText(" Final delivery fees depend on the actual shipping rules and delivery address at checkout.") %></p></div></section><% } %>
-<section class="container cart-layout cart-layout-v5" aria-label="<%= customerText("Cart items and order summary") %>">
+<section class="container cart-layout cart-layout-v5 cart-studio<%= items.length?'':' is-empty' %>" data-cart-studio data-pending-text="<%= bagLabels[1] %>" data-saving-text="<%= bagLabels[2] %>" data-one-text="<%= bagLabels[3] %>" aria-label="<%= customerText("Cart items and order summary") %>">
   <% if(typeof securityNotice!=='undefined' && securityNotice){ %><div class="alert" role="status"><%= customerText(locale==='nl'?'Je beveiligingscontrole is verlopen voordat deze actie werd aanvaard. Er is niets opnieuw verzonden. Controleer je winkelmandje en ga verder met het nieuwe beveiligde formulier.':'Your security check expired before this action was accepted. Nothing was submitted again. Review the bag, then continue with a fresh secure form.') %></div><% } %>
   <% const nlCartCopy={option:'Deze productoptie is niet meer beschikbaar. Verwijder ze en kies een andere optie.',quantity:'Je kunt maximaal 99 stuks van dezelfde productoptie toevoegen. Controleer het aantal en probeer opnieuw.',stock:'De voorraad is gewijzigd voordat we je winkelmandje konden bijwerken. Controleer het beschikbare aantal bij het betreffende artikel.',unavailable:'Dit product is niet meer beschikbaar. Controleer je winkelmandje of bekijk de momenteel beschikbare producten.',stockIssues:'Sommige artikelen in je winkelmandje zijn niet meer beschikbaar in het gevraagde aantal. Controleer de voorraadmelding bij elk artikel voordat je verdergaat.',stockChanged:'De voorraad is gewijzigd sinds je deze artikelen hebt toegevoegd. Je gevraagde aantallen zijn behouden; pas de betrokken artikelen aan of verwijder ze voordat je afrekent.',discountApplied:'Kortingscode toegepast.',discountInvalid:'Die code is ongeldig, inactief of verlopen.',discountMinimum:'Je bestelling voldoet niet aan het minimale bestelbedrag voor deze code.',pricesUnchanged:'De prijzen in je winkelmandje zijn door deze poging niet gewijzigd.',discountEmpty:'Voer een kortingscode in voordat je op Code toepassen klikt. Gebruik Code verwijderen om een actieve code te wissen.',discountRemoved:'De kortingscode is verwijderd. Het totaal van de bestelling is bijgewerkt.',couponIneligible:'Je vorige kortingscode voldoet niet meer aan het minimale bestelbedrag en wordt daarom niet langer toegepast.'}; %>
   <% if(cartError){ %>
@@ -45,18 +46,18 @@
   <div class="panel cart-list cart-list-v5">
     <% if(!items.length){ %>
       <div class="empty compact">
-        <span class="empty-icon" aria-hidden="true"><%= customerText("Bag") %></span>
+        <span class="cart-empty-art" aria-hidden="true"><svg viewBox="0 0 96 96" fill="none" width="96" height="96"><circle cx="48" cy="48" r="44" fill="currentColor" opacity=".07"/><g class="cart-empty-bag" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><path d="M25 35h46l4 43H21l4-43Z" fill="currentColor" fill-opacity=".08"/><path d="M37 35v-8a11 11 0 0 1 22 0v8M40 57h16"/></g></svg></span>
         <h2><%= customerText("Your bag is empty.") %></h2>
         <p><%= customerText("Nothing is waiting here yet. Browse the shop and add an item whenever you are ready.") %></p>
         <a href="/shop" class="btn btn-dark"><%= customerText("Continue shopping") %></a>
       </div>
     <% } else { %>
-      <h2 class="sr-only"><%= customerText("Items") %></h2>
+      <div class="cart-list-heading"><h2><%= bagLabels[0] %></h2><span class="cart-item-count" aria-label="<%= bagLabels[0] %>: <%= bagItemCount %>"><%= bagItemCount %></span></div><p class="cart-studio-status" data-cart-studio-status role="status" aria-live="polite" hidden></p>
     <% items.forEach(i=>{ %>
-      <div class="cart-item">
-        <a class="cart-product-image" href="/product/<%= i.product.slug %>"><img src="<%= safeImageUrl(i.product.image_url) %>" data-fallback-src="/assets/product-placeholder.svg" alt="<%= i.product.name %>" width="120" height="150" loading="lazy" decoding="async"></a>
+      <article class="cart-item cart-studio-item">
+        <a class="cart-product-image" href="/product/<%= i.product.slug %>"><img src="<%= safeImageUrl(i.variant?.image_url||i.product.image_url) %>" data-fallback-src="/assets/product-placeholder.svg" alt="<%= i.product.name %>" width="120" height="150" loading="lazy" decoding="async"></a>
         <div class="cart-info">
-          <span class="muted cart-sku"><%= i.product.sku %></span>
+          <span class="muted cart-sku" data-no-translate><%= i.variant?.sku||i.product.sku %></span>
           <h3 data-no-translate><a href="/product/<%= i.product.slug %>"><%= i.product.name %></a></h3>
           <p class="cart-unit-pricing">
             <% if(i.automaticDiscount>0){ %>
@@ -64,21 +65,21 @@
               <strong><%= formatPrice(i.price,currency) %> <%= customerText(locale==='nl'?'per stuk na ':'each after ') %><%= i.automaticDiscountPercent %>% <%= customerText(locale==='nl'?'korting':'off') %></strong>
             <% } else { %><strong><%= formatPrice(i.price,currency) %><%= customerText(" each") %></strong><% } %>
           </p>
-          <% if(i.variant){ %><p class="cart-variant"><%= i.variant.option_name %>: <strong><%= i.variant.option_value %></strong><% if(i.variant.option_value_2){ %> · <%= i.variant.option_name_2 %>: <strong><%= i.variant.option_value_2 %></strong><% } %></p><% } %>
+          <% if(i.variant){ %><p class="cart-variant"><span class="cart-option-chip"><%= i.variant.option_name %>: <strong><%= i.variant.option_value %></strong></span><% if(i.variant.option_value_2){ %><span class="cart-option-chip"><%= i.variant.option_name_2 %>: <strong><%= i.variant.option_value_2 %></strong></span><% } %></p><% } %>
           <% if(i.stockIssue==='product_unavailable'){ %><p class="alert" role="status"><%= customerText("This product is no longer available. Remove it from your cart.") %></p>
           <% } else if(i.stockIssue==='variant_unavailable'){ %><p class="alert" role="status"><%= customerText("This option is no longer available. Remove it and choose an available option again.") %></p>
           <% } else if(i.stockIssue==='out_of_stock'){ %><p class="alert" role="status"><%= customerText("This option is out of stock. Remove it from your cart.") %></p>
           <% } else if(i.stockIssue==='quantity_exceeds_stock'){ %><p class="alert" role="status"><%= customerText(locale==='nl'?'Nog maar ':'Only ') %><%= i.availableStock %> <%= customerText(locale==='nl'?'beschikbaar. Verlaag het aantal tot dit aantal of minder en werk je winkelmandje bij.':'available. Change the quantity to this number or less, then update.') %></p>
           <% } else if(i.stockIssue==='quantity_exceeds_limit'){ %><p class="alert" role="status"><%= customerText("The maximum is 99 of the same product option. Reduce the quantity to 99 or less and update.") %></p><% } %>
           <% if(!i.stockIssue||['quantity_exceeds_stock','quantity_exceeds_limit'].includes(i.stockIssue)){ %>
-            <form method="post" action="/cart/update" class="qty-form">
+            <form method="post" action="/cart/update" class="qty-form" data-cart-studio-quantity>
               <input type="hidden" name="_csrf" value="<%= csrf %>">
               <input type="hidden" name="productId" value="<%= i.product.id %>">
               <input type="hidden" name="variantId" value="<%= i.variantId||0 %>">
               <label class="sr-only" for="qty-<%= i.product.id %>-<%= i.variantId||0 %>"><%= customerText("Quantity for ") %><%= i.product.name %><%= i.variant?' '+i.variant.option_value:'' %></label>
               <div class="cart-qty-stepper" role="group" aria-label="Quantity for <%= i.product.name %>">
                 <button type="button" class="cart-qty-step" data-cart-qty-step="-1" aria-label="Decrease quantity of <%= i.product.name %>"><%- include('partials/ui-icon',{iconName:'minus'}) %></button>
-                <input id="qty-<%= i.product.id %>-<%= i.variantId||0 %>" type="number" name="quantity" min="1" max="<%= Math.min(99,i.availableStock) %>" value="<%= i.quantity %>">
+                <input id="qty-<%= i.product.id %>-<%= i.variantId||0 %>" type="number" name="quantity" min="1" max="<%= Math.min(99,i.availableStock) %>" value="<%= i.quantity %>" required inputmode="numeric">
                 <button type="button" class="cart-qty-step" data-cart-qty-step="1" aria-label="Increase quantity of <%= i.product.name %>"><%- include('partials/ui-icon',{iconName:'plus'}) %></button>
               </div>
               <button type="submit" class="icon-btn cart-qty-update"><%= customerText(locale==='nl'?'Bijwerken':locale==='fr'?'Actualiser':locale==='ckb'?'نوێکردنەوە':locale==='ar'?'تحديث':'Update') %></button>
@@ -90,24 +91,24 @@
           <input type="hidden" name="_csrf" value="<%= csrf %>">
           <input type="hidden" name="productId" value="<%= i.product.id %>">
           <input type="hidden" name="variantId" value="<%= i.variantId||0 %>">
-          <button type="submit" class="icon-btn" aria-label="Remove <%= i.product.name %><%= i.variant?' '+i.variant.option_value:'' %>"><span aria-hidden="true">×</span><span class="cart-remove-label"><%= customerText("Remove") %></span></button>
+          <button type="submit" class="icon-btn" aria-label="Remove <%= i.product.name %><%= i.variant?' '+i.variant.option_value:'' %>"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 10v6m4-6v6"/></svg><span class="cart-remove-label"><%= bagLabels[5] %></span></button>
         </form>
-      </div>
+      </article>
     <% }) } %>
   </div>
 
   <% if(items.length){ %>
     <section class="summary cart-summary-v5" aria-labelledby="cart-summary-heading">
       <h2 id="cart-summary-heading" class="summary-head"><%= customerText("Order summary") %></h2>
-      <div class="summary-row"><span><%= customerText("Subtotal before discounts") %></span><strong><%= formatPrice(subtotalBeforeAutomaticDiscount,currency) %></strong></div>
+      <div class="summary-row"><span><%= customerText(automaticDiscount>0?"Subtotal before discounts":"Subtotal") %></span><strong><%= formatPrice(subtotalBeforeAutomaticDiscount,currency) %></strong></div>
       <% if(automaticDiscount>0){ %><div class="summary-row summary-discount"><span><%= customerText("Automatic product discounts") %></span><strong>−<%= formatPrice(automaticDiscount,currency) %></strong></div><% } %>
       <% if(discount>0){ %><div class="summary-row summary-discount"><span><%= customerText("Discount code") %><% if(coupon){ %> · <%= coupon.code %><% } %></span><strong>−<%= formatPrice(discount,currency) %></strong></div><% } %>
-      <div class="summary-row"><span><%= customerText("Delivery") %></span><strong><%= shipping===0?'Free':formatPrice(shipping,currency) %></strong></div>
-      <div class="rule"></div>
+      <div class="summary-row"><span><%= customerText("Delivery") %></span><strong><%= shipping===0?customerText('Free'):formatPrice(shipping,currency) %></strong></div>
+      
       <% if(bundleDiscount>0){ %><div class="summary-row"><span><%= customerText("Bundle saving") %></span><strong>− <%= formatPrice(bundleDiscount,currency) %></strong></div><% } %><div class="summary-row total"><span><%= customerText("Order total") %></span><strong><%= formatPrice(total,currency) %></strong></div>
 
       <% if(couponIneligible){ %><div class="alert coupon-ineligible" role="status"><%= locale==='nl'?nlCartCopy.couponIneligible:'Your previous discount code no longer meets its minimum order value, so it is no longer applied.' %></div><% } %>
-      <form method="post" action="/cart/coupon" class="coupon-form" aria-label="<%= customerText("Discount code") %>">
+      <details class="cart-coupon-disclosure" <%= coupon||couponMessage?'open':'' %>><summary><span><%= bagLabels[4] %></span><span aria-hidden="true" class="cart-coupon-chevron">⌄</span></summary><form method="post" action="/cart/coupon" class="coupon-form" aria-label="<%= customerText("Discount code") %>">
         <input type="hidden" name="_csrf" value="<%= csrf %>">
         <label for="coupon-code"><%= customerText("Discount code") %></label>
         <div class="coupon-input-row">
@@ -118,10 +119,10 @@
           <div class="coupon-active" role="status"><span><%= customerText("Active code") %></span><strong><%= coupon.code %></strong><span><%= customerText("You save ") %><%= formatPrice(discount,currency) %><%= customerText(" on this order.") %></span></div>
           <button type="submit" class="btn btn-light coupon-remove-button" name="action" value="remove" formnovalidate><%= customerText("Remove code") %></button>
         <% } else { %><small><%= customerText("Enter the code provided by the shop. An invalid replacement will not remove a valid code that is already active.") %></small><% } %>
-      </form>
+      </form></details>
 
       <% if(items.length&&!hasStockIssues){ %>
-        <a class="btn btn-dark btn-wide checkout-btn" href="/checkout"><%= customerText("Continue to checkout") %></a>
+        <a class="btn btn-dark btn-wide checkout-btn" href="/checkout" data-cart-studio-checkout><%= customerText("Continue to checkout") %><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
       <% } else { %>
         <button class="btn btn-dark btn-wide checkout-btn" type="button" disabled><%= customerText("Fix stock issues to continue") %></button>
       <% } %>
@@ -130,4 +131,5 @@
     </section>
   <% } %>
 </section>
+<script src="/js/cart-studio.js?v=1<%= typeof assetRevision === 'string' ? assetRevision : '' %>" defer></script>
 <%- include('partials/footer') %>
