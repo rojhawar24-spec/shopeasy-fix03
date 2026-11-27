@@ -192,9 +192,9 @@ app.use(cookieParser());
 app.use(privatePageRobotsHeader);
 
 const makeRateLimiter=(name,options)=>{
-  const {onLimit,onUnavailable,...rateOptions}=options;
-  const fallback=rateLimit(onLimit?{...rateOptions,handler:(req,res,next)=>onLimit(req,res,next)}:rateOptions);
-  return createShopRateLimiter({name,...rateOptions,onLimit,onUnavailable,fallback,isCloudflareWorker});
+  const {onLimit,onUnavailable,scope='ip',...rateOptions}=options;
+  const fallback=rateLimit({...rateOptions,...(scope==='global'?{keyGenerator:()=> 'store-wide'}:{}),...(onLimit?{handler:(req,res,next)=>onLimit(req,res,next)}:{})});
+  return createShopRateLimiter({name,...rateOptions,onLimit,onUnavailable,fallback,isCloudflareWorker,scope});
 };
 const generalLimiter=makeRateLimiter('general',{windowMs:60*1000,max:300,standardHeaders:true,legacyHeaders:false,message:'Too many requests. Please slow down.'});
 const loginLimiter=makeRateLimiter('login',{windowMs:15*60*1000,max:10,standardHeaders:true,legacyHeaders:false,message:'Too many authentication attempts. Please try again later.'});
@@ -212,7 +212,12 @@ const emailVerificationResendLimiter=makeRateLimiter('email-verification-resend'
 const emailVerificationConfirmLimiter=makeRateLimiter('email-verification-confirm',{windowMs:15*60*1000,max:10,standardHeaders:true,legacyHeaders:false,message:'Too many verification attempts. Please try again later.'});
 const orderLookupLimiter=makeRateLimiter('order-lookup',{windowMs:15*60*1000,max:10,standardHeaders:true,legacyHeaders:false,message:'Too many order lookup attempts. Please try again later.'});
 const returnRequestLimiter=makeRateLimiter('return-request',{windowMs:15*60*1000,max:5,standardHeaders:true,legacyHeaders:false,message:'Too many return requests. Please try again later.'});
-const aiLimiter=makeRateLimiter('ai',{windowMs:15*60*1000,max:3,standardHeaders:true,legacyHeaders:false,message:'AI usage limit reached. Please try again later.'});
+const aiQuotaOptions={windowMs:15*60*1000,max:3,standardHeaders:true,legacyHeaders:false,message:'AI usage limit reached. Please try again later.'};
+const aiDailyOptions={scope:'global',windowMs:24*60*60*1000,max:100,standardHeaders:true,legacyHeaders:false,message:'Daily store AI allowance reached. Try normal search.'};
+const aiLimitResponse=(req,res)=>res.status(429).json({error:'AI usage limit reached. Please try again later.'});
+const aiProtectionUnavailable=(req,res)=>res.status(503).json({error:'AI service temporarily unavailable.'});
+const aiLimiter=makeRateLimiter('ai-combined', {...aiQuotaOptions,onLimit:aiLimitResponse,onUnavailable:aiProtectionUnavailable});
+const aiDailyLimiter=makeRateLimiter('ai-daily-global',{...aiDailyOptions,onLimit:aiLimitResponse,onUnavailable:aiProtectionUnavailable});
 const cartLimiter=makeRateLimiter('cart',{windowMs:60*1000,max:90,standardHeaders:true,legacyHeaders:false,message:'Too many cart requests. Please slow down.'});
 const couponLimiter=makeRateLimiter('coupon',{windowMs:60*1000,max:10,standardHeaders:true,legacyHeaders:false,message:'Too many coupon attempts. Please try again later.'});
 const checkoutLimiter=makeRateLimiter('checkout',{windowMs:10*60*1000,max:20,standardHeaders:true,legacyHeaders:false,message:'Too many checkout attempts. Please try again later.'});
@@ -237,7 +242,8 @@ function redactCheckoutDiagnosticText(value) {
 const adminLimiter=makeRateLimiter('admin',{windowMs:60*1000,max:120,standardHeaders:true,legacyHeaders:false,message:'Too many admin requests. Please slow down.'});
 const searchLimiter=makeRateLimiter('search',{windowMs:60*1000,max:60,standardHeaders:true,legacyHeaders:false,message:'Too many searches. Please slow down.'});
 const skipOptionalAiSearch=(req,res,next)=>{req.aiSearchRateLimited=true;return next();};
-const aiProductSearchLimiter=makeRateLimiter('ai-product-search',{windowMs:15*60*1000,max:3,standardHeaders:true,legacyHeaders:false,message:'AI search allowance reached. Standard product search remains available.',onLimit:skipOptionalAiSearch,onUnavailable:skipOptionalAiSearch});
+const aiProductSearchLimiter=makeRateLimiter('ai-combined',{...aiQuotaOptions,onLimit:skipOptionalAiSearch,onUnavailable:skipOptionalAiSearch});
+const aiProductDailyLimiter=makeRateLimiter('ai-daily-global',{...aiDailyOptions,onLimit:skipOptionalAiSearch,onUnavailable:skipOptionalAiSearch});
 const healthLimiter=makeRateLimiter('health',{windowMs:60*1000,max:30,standardHeaders:true,legacyHeaders:false,message:'Too many health checks. Please slow down.'});
 const readyLimiter=makeRateLimiter('ready',{windowMs:60*1000,max:30,standardHeaders:true,legacyHeaders:false,message:'Too many readiness checks. Please slow down.'});
 const paymentWebhookLimiter=makeRateLimiter('mollie-webhook',{windowMs:60*1000,max:120,standardHeaders:true,legacyHeaders:false,message:'Payment webhook rate limit reached.'});
@@ -863,7 +869,7 @@ async function expandCatalogSearch(search,locale='en') {
 async function optionalAiShopSearchLimiter(req,res,next) {
   try {
     if(!cleanText(req.query.search,80)||!(await aiIsEnabled())) return next();
-    return aiProductSearchLimiter(req,res,next);
+    return aiProductSearchLimiter(req,res,()=>req.aiSearchRateLimited?next():aiProductDailyLimiter(req,res,next));
   } catch(error) { return next(error); }
 }
 function paymentNodeEnvironment() {
@@ -2636,7 +2642,16 @@ app.get('/ai-assistant',async(req,res)=>{
   return render(res,'ai-assistant',{title:'AI shopping assistant',aiModeRequested:true,aiEnabled:Boolean(aiService?.aiEnabled?.())});
 });
 
-app.post('/api/ai/search-assistant',aiLimiter,async(req,res)=>{
+app.post('/api/ai/search-assistant',async(req,res,next)=>{
+  res.set('Cache-Control','private, no-store');
+  if((await getSetting('ai_enabled','0'))!=='1')return res.status(404).json({error:'AI is disabled'});
+  if(!aiService?.aiEnabled?.())return res.status(503).json({error:'AI service unavailable'});
+  return next();
+},aiLimiter,async(req,res,next)=>{
+  if(!req.is('application/json')||typeof req.body?.message!=='string'||req.body.message.length>500)return res.status(400).json({error:'Enter a product question of up to 500 characters.'});
+  if(!aiService.isAllowedShoppingQuestion(req.body.message))return res.status(400).json({error:'Ask a product-related question without private data or instructions to the AI system.'});
+  return next();
+},aiDailyLimiter,async(req,res)=>{
   if((await getSetting('ai_enabled','0'))!=='1')return res.status(404).json({error:'AI is disabled'});
   if(!aiService?.aiEnabled?.())return res.status(503).json({error:'AI service unavailable'});
   const message=cleanText(req.body.message,500);
