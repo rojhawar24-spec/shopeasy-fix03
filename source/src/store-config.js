@@ -12,7 +12,7 @@ export const UI_LOCALE_OPTIONS = Object.freeze([
   Object.freeze({ code: 'ar', label: 'Arabic', nativeLabel: 'العربية', dir: 'rtl' }),
   Object.freeze({ code: 'nl', label: 'Dutch', nativeLabel: 'Nederlands', dir: 'ltr' }),
   Object.freeze({ code: 'fr', label: 'French', nativeLabel: 'Français', dir: 'ltr' }),
-  ...(badiniPreview?[Object.freeze({code:'kmr',label:'Badini Kurdish (preview)',nativeLabel:'کوردی (بادینی) · BETA',dir:'rtl'})]:[])
+  ...(badiniPreview?[Object.freeze({code:'kmr',label:'Badini Kurdish',nativeLabel:'کوردی (بادینی)',dir:'rtl'})]:[])
 ]);
 
 export function normalizeEnabledUiLocales(value, fallback = SUPPORTED_UI_LOCALES) {
