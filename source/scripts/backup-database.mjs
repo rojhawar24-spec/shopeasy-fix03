@@ -3,7 +3,8 @@ import '../src/load-environment.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { db } from '../src/database.js';
+import { assertLegacyBackupBackend } from './legacy-backup-backend.mjs';
+let db;
 import { writeCompressedBackup, assertSafeBackupOutput } from '../src/services/database-backup.js';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -15,9 +16,11 @@ const maxBytes=Number.isFinite(maxEnv)?Math.min(Math.max(maxEnv,10*1024*1024),2*
 const batchEnv=Number.parseInt(process.env.BACKUP_BATCH_SIZE||'200',10);
 const batchSize=Number.isFinite(batchEnv)?Math.min(Math.max(batchEnv,1),200):200;
 try {
+  assertLegacyBackupBackend();
   if(!String(process.env.BACKUP_ENCRYPTION_KEY||'').trim()) throw new Error('Set BACKUP_ENCRYPTION_KEY before creating backups. Generate one with: node -e "console.log(require(\'node:crypto\').randomBytes(32).toString(\'base64\'))" and store it separately from the backup.');
   assertSafeBackupOutput(path.resolve(output));
   // One read-only transaction keeps database rows on a stable snapshot while pages are exported. WAL lets local writers progress during the backup.
+  ({db}=await import('../src/database.js'));
   const snapshot=await db.transaction('read');
   let result;
   try { result=await writeCompressedBackup(snapshot,{outputPath:path.resolve(output),uploadsDir:path.join(root,'public','uploads'),maxBytes,batchSize,encryptionKey:process.env.BACKUP_ENCRYPTION_KEY}); await snapshot.commit(); }
@@ -32,5 +35,5 @@ try {
   console.error(`Backup failed: ${String(error?.message||'unknown error').slice(0,240)}`);
   process.exitCode=1;
 } finally {
-  try{await db.close();}catch{}
+  try{await db?.close();}catch{}
 }

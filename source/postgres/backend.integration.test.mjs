@@ -44,4 +44,20 @@ test('real PostgreSQL: manager MFA enrollment, exact credential proof, challenge
   const authenticated=await core.createAuthenticatedSession(id,proof);
   assert.equal((await core.getSession(authenticated)).user_id,id);
 });
+test('real PostgreSQL: category search, wishlist persistence and inactive product rejection',async()=>{
+  const categoryId=await core.createCategory('Wishlist fixtures','wishlist-fixtures');
+  const product=await run('INSERT INTO products(name,slug,sku,price_cents,stock,category_id,active) VALUES(?,?,?,?,?,?,?)',['Wishlist fixture item','wishlist-fixture-item','WISH-CI-001',1200,3,categoryId,1]);
+  const id=product.lastInsertRowid;
+  assert.ok(id>0);
+  assert.equal(await core.countProducts({search:'Wishlist fixture item',category:'wishlist-fixtures'}),1);
+  assert.ok((await core.listProducts({search:'Wishlist fixture item',category:'wishlist-fixtures'})).some(p=>p.id===id));
+  const sid=await core.createSession(null,300000);
+  assert.deepEqual((await core.toggleWishlist(sid,id)).wishlist,[id]);
+  const stored=await core.getSession(sid);
+  assert.deepEqual(JSON.parse(stored.wishlist_json),[id]);
+  assert.deepEqual((await core.toggleWishlist(sid,id)).wishlist,[]);
+  await run('UPDATE products SET active=0 WHERE id=?',[id]);
+  assert.equal((await core.toggleWishlist(sid,id)).reason,'product-unavailable');
+  assert.equal(await core.countProducts({search:'Wishlist fixture item',category:'wishlist-fixtures'}),0);
+});
 test.after(async()=>{await connection.close();});

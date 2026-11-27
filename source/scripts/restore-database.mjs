@@ -3,6 +3,8 @@ import '../src/load-environment.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createClient } from '@libsql/client';
+import { assertLegacyBackupBackend } from './legacy-backup-backend.mjs';
+try { assertLegacyBackupBackend(); } catch(error) { console.error(error.message); process.exit(2); }
 import { fileURLToPath } from 'node:url';
 import { restoreCompressedBackup, resolveFileUrl, sha256File, fileUrlForPath, sameDatabaseTarget } from '../src/services/database-backup.js';
 
