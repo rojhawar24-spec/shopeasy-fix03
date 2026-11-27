@@ -22,6 +22,19 @@
 
   // Story viewer: large tap targets, keyboard controls and a direct product action.
   const storyButtons = Array.from(document.querySelectorAll('[data-story-open]'));
+  const studio=document.querySelector('[data-story-studio]');
+  if(studio){
+    const preview=document.querySelector('[data-studio-photo]');
+    const title=document.querySelector('[data-studio-title]');
+    const body=document.querySelector('[data-studio-body]');
+    const file=studio.querySelector('[data-studio-file]');
+    const filename=studio.querySelector('[data-studio-filename]');
+    let objectUrl='';
+    const update=()=>{title.textContent=studio.elements.title.value||'Your story title';body.textContent=studio.elements.body.value||'Your story text appears here.';};
+    studio.elements.title.addEventListener('input',update);studio.elements.body.addEventListener('input',update);
+    file.addEventListener('change',()=>{if(objectUrl)URL.revokeObjectURL(objectUrl);objectUrl='';const f=file.files[0];if(!f)return;if(!['image/jpeg','image/png','image/webp'].includes(f.type)||f.size>2097152){file.value='';filename.textContent='Select a JPG, PNG or WebP under 2 MiB.';return;}objectUrl=URL.createObjectURL(f);preview.src=objectUrl;filename.textContent=f.name;});
+    window.addEventListener('pagehide',()=>{if(objectUrl)URL.revokeObjectURL(objectUrl)});
+  }
   const cinema=document.querySelector('[data-story-cinema]');
   if(cinema&&storyButtons.length){
     const photo=cinema.querySelector('[data-cinema-photo]'), title=cinema.querySelector('[data-cinema-title]'), body=cinema.querySelector('[data-cinema-body]'), progress=cinema.querySelector('[data-cinema-progress]'), count=cinema.querySelector('[data-cinema-count]'), pause=cinema.querySelector('[data-cinema-pause]');
