@@ -547,3 +547,39 @@ body.is-storefront-app .story-cinema-list .story-card-body>span:not(.muted){disp
 body.is-storefront-app .story-cinema-list .story-card-body strong{font-size:.9rem;overflow-wrap:anywhere}
 body.is-storefront-app .story-cinema-list .muted{font-size:.7rem}
 @media(max-width:800px){body.is-storefront-app .story-cinema{grid-template-columns:minmax(0,1fr);gap:18px}body.is-storefront-app .story-cinema-stage{aspect-ratio:4/5;max-height:580px}body.is-storefront-app .story-cinema-list{flex-direction:row;overflow-x:auto;max-height:none;scroll-snap-type:x proximity}body.is-storefront-app .story-cinema-list .story-card{flex:0 0 180px;scroll-snap-align:start}body.is-storefront-app .story-cinema-list .story-card>img{width:55px;flex-basis:55px;height:72px}body.is-storefront-app .story-cinema-copy{inset-inline:18px}}
+
+/* Refined catalogue controls: full-width results, compact disclosure filters. */
+body.is-storefront-app .shop-section.shop-filter-refined{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;align-items:start}
+body.is-storefront-app .shop-filter-refined>.shop-filter-toolbar{display:flex;grid-column:1/-1;align-items:center;gap:12px;min-width:0;padding:9px 0;border-block:1px solid var(--line);flex-wrap:wrap}
+body.is-storefront-app .shop-filter-refined>.shop-filter-toolbar .shop-filter-toggle{display:none}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined>.shop-filter-toolbar .shop-filter-toggle{display:inline-flex;min-height:44px;padding:8px 14px;gap:8px;background:var(--paper);color:var(--text);border:1px solid var(--line);border-radius:9px;font-size:.86rem;font-weight:650}
+body.is-storefront-app .shop-filter-refined .shop-filter-toggle[aria-expanded=true]{border-color:var(--brand-primary)}
+body.is-storefront-app .shop-filter-refined .shop-filter-count{min-width:20px;height:20px;font-size:.7rem}
+body.is-storefront-app .shop-filter-refined .shop-toolbar-sort{display:flex;align-items:center;gap:6px;margin-inline-start:auto;min-width:0}
+body.is-storefront-app .shop-filter-refined .shop-sort-control{display:flex;align-items:center;gap:8px;min-width:0}
+body.is-storefront-app .shop-filter-refined .shop-sort-control label{font-size:.77rem;color:var(--muted);white-space:nowrap}
+body.is-storefront-app .shop-filter-refined .shop-sort-control select{min-height:44px;max-width:210px;width:auto;border:1px solid var(--line);border-radius:9px;background:var(--paper);color:var(--text);font-size:.85rem;padding:8px 12px}
+body.is-storefront-app .shop-filter-refined .shop-sort-submit{min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;background:var(--paper);color:var(--text)}
+body.is-storefront-app.shop-filters-js-ready .shop-filter-refined .shop-sort-submit{display:none}
+body.is-storefront-app .shop-filter-refined .shop-mobile-result-count{font-size:.8rem;color:var(--muted);white-space:nowrap}
+body.is-storefront-app .shop-filter-refined>.shop-controls{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--paper);box-shadow:none}
+body.is-storefront-app .shop-filter-refined>.shop-controls[hidden]{display:none}
+body.is-storefront-app .shop-filter-refined>.shop-controls>.shop-filters-heading{grid-column:1/-1;padding-bottom:12px}
+body.is-storefront-app .shop-filter-refined>.shop-controls>.filter-block,body.is-storefront-app .shop-filter-refined>.shop-controls>.filter-search,body.is-storefront-app .shop-filter-refined>.shop-controls>.shop-price-range{grid-column:auto;min-width:0}
+body.is-storefront-app .shop-filter-refined .shop-price-range{padding:0;border:0}
+body.is-storefront-app .shop-filter-refined .shop-price-range legend{font-weight:650;font-size:.83rem;margin-bottom:6px;padding:0}
+body.is-storefront-app .shop-filter-refined .shop-price-fields{gap:8px}
+body.is-storefront-app .shop-filter-refined .shop-price-fields label{font-size:.72rem;color:var(--muted)}
+body.is-storefront-app .shop-filter-refined .shop-stock-switch{display:flex;align-items:center;gap:10px;grid-column:1/-1;border-block-start:1px solid var(--line);padding-block:14px 0;font-size:.85rem}
+body.is-storefront-app .shop-filter-refined .shop-stock-switch input{appearance:none;display:inline-block;position:relative;width:38px;height:22px;flex:0 0 38px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface-muted);cursor:pointer}
+body.is-storefront-app .shop-filter-refined .shop-stock-switch input::after{content:'';position:absolute;inset-block-start:3px;inset-inline-start:3px;width:14px;height:14px;border-radius:50%;background:var(--muted)}
+body.is-storefront-app .shop-filter-refined .shop-stock-switch input:checked{background:var(--brand-primary);border-color:var(--brand-primary)}
+body.is-storefront-app .shop-filter-refined .shop-stock-switch input:checked::after{inset-inline-start:19px;background:white}
+body.is-storefront-app .shop-filter-refined .shop-filter-actions{grid-column:1/-1;justify-self:end;width:min(100%,240px)}
+body.is-storefront-app .shop-filter-refined .shop-results{grid-column:1/-1;min-width:0}
+body.is-storefront-app .shop-filter-refined .shop-total-count{display:none}
+body.is-storefront-app .shop-filter-refined .shop-category-toolbar{margin-block:4px 16px}
+body.is-storefront-app .shop-filter-refined .editorial-product-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,245px),1fr))}
+@media(max-width:850px){body.is-storefront-app .shop-filter-refined>.shop-controls{grid-template-columns:repeat(2,minmax(0,1fr))}body.is-storefront-app .shop-filter-refined>.shop-controls>.shop-price-range{grid-column:1/-1}}
+@media(max-width:520px){body.is-storefront-app .shop-filter-refined>.shop-controls{grid-template-columns:minmax(0,1fr);padding:14px;gap:12px}body.is-storefront-app .shop-filter-refined .shop-toolbar-sort{margin-inline-start:auto;flex:1;justify-content:flex-end}body.is-storefront-app .shop-filter-refined .shop-sort-control label{display:none}body.is-storefront-app .shop-filter-refined .shop-sort-control select{max-width:145px;font-size:16px}body.is-storefront-app .shop-filter-refined .shop-mobile-result-count{flex-basis:100%}body.is-storefront-app .shop-filter-refined .shop-filter-actions{width:100%}body.is-storefront-app .shop-filter-refined .editorial-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(forced-colors:active){body.is-storefront-app .shop-filter-refined .shop-stock-switch input{appearance:auto}}
