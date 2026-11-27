@@ -751,3 +751,40 @@ body.is-storefront-app .cart-confirmation-view{background:var(--brand-primary);c
 @keyframes bagNoticeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:600px){body.is-storefront-app .cart-confirmation-floating{inset-block-start:auto;inset-block-end:calc(80px + env(safe-area-inset-bottom));inset-inline-end:12px}}
 @media(prefers-reduced-motion:reduce){body.is-storefront-app .cart-confirmation-floating{animation:none}}
+
+/* ShopEasy success choreography */
+body.is-storefront-app .cart-confirmation{gap:16px;padding:20px;border-radius:22px;border-color:var(--line);background:var(--paper);box-shadow:0 12px 36px #00000012}
+body.is-storefront-app .cart-confirmation-floating{width:min(410px,calc(100vw - 24px));box-shadow:0 18px 56px #0003,0 2px 8px #0001;animation:seBagNoticeReveal .48s cubic-bezier(.16,1,.3,1) both}
+body.is-storefront-app .cart-confirmation-top{gap:14px;min-height:84px}
+body.is-storefront-app .cart-confirmation-icon{position:relative;isolation:isolate;flex:0 0 84px;width:84px;height:84px;border-radius:24px;background:linear-gradient(145deg,#f0faf4,#d6efe1);color:#205d47;overflow:hidden}
+body.is-storefront-app .cart-confirmation-icon .bag-success-art{display:block;width:84px;height:84px;max-width:100%;max-height:100%;overflow:visible}
+.bag-success-art .bag-success-halo{transform-origin:48px 48px;animation:seBagHalo 1.15s .06s ease-out both}
+.bag-success-art .bag-success-bag{transform-box:view-box;transform-origin:48px 72px;animation:seBagBounce 1.05s cubic-bezier(.2,.8,.25,1) both}
+.bag-success-art .bag-success-seal{transform-box:view-box;transform-origin:67px 66px;animation:seBagSeal .58s .68s cubic-bezier(.18,.89,.32,1.35) both}
+.bag-success-art .bag-success-check{stroke-dasharray:1;stroke-dashoffset:0;animation:seBagCheck .38s .91s ease-in-out both}
+.bag-success-art .bag-success-sparks{transform-box:view-box;transform-origin:48px 48px;animation:seBagSparks 1s .75s cubic-bezier(.16,1,.3,1) both}
+body.is-storefront-app .cart-confirmation-copy strong{display:block;font-size:1.08rem;line-height:1.25;font-weight:750;letter-spacing:-.02em}
+body.is-storefront-app .cart-confirmation-copy p{font-size:.86rem;line-height:1.4;margin-top:6px}
+body.is-storefront-app .cart-confirmation-copy{animation:seBagCopy .45s .14s cubic-bezier(.16,1,.3,1) both}
+body.is-storefront-app .cart-confirmation-close{align-self:flex-start;flex-basis:44px;width:44px;height:44px;border-radius:50%;transition:background-color .18s ease}
+body.is-storefront-app .cart-confirmation-close:hover{background:var(--surface-soft,var(--paper))}
+body.is-storefront-app .cart-confirmation-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+body.is-storefront-app .cart-confirmation-actions a{min-height:48px;border-radius:13px;font-size:.84rem;line-height:1.25;overflow-wrap:anywhere;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease}
+body.is-storefront-app .cart-confirmation-view{box-shadow:0 5px 12px #0002}
+body.is-storefront-app .cart-confirmation-view span{display:inline-block;transition:transform .2s ease}
+body.is-storefront-app .cart-confirmation-view:hover span{transform:translateX(3px)}
+[dir=rtl] body.is-storefront-app .cart-confirmation-view:hover span{transform:translateX(-3px)}
+body.is-storefront-app .cart-confirmation-actions a:active{transform:scale(.97)}
+body.is-storefront-app .cart-confirmation-actions a:focus-visible,body.is-storefront-app .cart-confirmation-close:focus-visible{outline:2px solid var(--focus,var(--brand-primary));outline-offset:3px}
+@keyframes seBagNoticeReveal{0%{opacity:0;transform:translateY(-18px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes seBagBounce{0%{opacity:0;transform:translateY(19px) scale(.74,.7) rotate(-11deg)}25%{opacity:1;transform:translateY(-11px) scale(.91,1.08) rotate(-8deg)}48%{transform:translateY(1px) scale(1.13,.87) rotate(5deg)}68%{transform:translateY(-5px) scale(.97,1.04) rotate(-3deg)}84%{transform:translateY(1px) scale(1.02,.98) rotate(1deg)}100%{opacity:1;transform:none}}
+@keyframes seBagHalo{0%{opacity:0;transform:scale(.25)}48%{opacity:.22;transform:scale(1.16)}100%{opacity:.08;transform:scale(1)}}
+@keyframes seBagSeal{0%{opacity:0;transform:scale(.15) rotate(-35deg)}48%{opacity:1;transform:scale(1.18) rotate(7deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes seBagCheck{0%{stroke-dashoffset:1}100%{stroke-dashoffset:0}}
+@keyframes seBagSparks{0%{opacity:0;transform:scale(.55) rotate(-12deg)}32%{opacity:1;transform:scale(1.05) rotate(0)}72%{opacity:.65;transform:scale(1.17)}100%{opacity:.55;transform:scale(1)}}
+@keyframes seBagCopy{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:none}}
+@keyframes seBagMobileReveal{0%{opacity:0;transform:translateY(22px) scale(.96)}100%{opacity:1;transform:none}}
+@media(max-width:600px){body.is-storefront-app .cart-confirmation-floating{animation-name:seBagMobileReveal}body.is-storefront-app .cart-confirmation{padding:16px;gap:12px}body.is-storefront-app .cart-confirmation-top{gap:10px;min-height:72px}body.is-storefront-app .cart-confirmation-icon{width:72px;height:72px;flex-basis:72px;border-radius:19px}}
+@media(max-width:350px){body.is-storefront-app .cart-confirmation-actions{grid-template-columns:1fr}body.is-storefront-app .cart-confirmation-copy strong{font-size:.98rem}}
+@media(prefers-reduced-motion:reduce){body.is-storefront-app .cart-confirmation,body.is-storefront-app .cart-confirmation *,body.is-storefront-app .cart-confirmation *::before,body.is-storefront-app .cart-confirmation *::after{animation:none!important;transition:none!important}}
+body[data-motion=off].is-storefront-app .cart-confirmation,body[data-motion=off].is-storefront-app .cart-confirmation *{animation:none!important;transition:none!important}
