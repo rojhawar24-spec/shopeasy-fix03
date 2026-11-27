@@ -22,7 +22,7 @@ function serviceUnavailable(res) {
  * into a single-process memory store; serverless platforms are refused because
  * per-process memory does not provide a shared enforcement boundary.
  */
-export function createShopRateLimiter({ name, windowMs, max, message, fallback, isCloudflareWorker, onLimit, onUnavailable }) {
+export function createShopRateLimiter({ name, windowMs, max, message, fallback, isCloudflareWorker, onLimit, onUnavailable, scope = 'ip' }) {
   const unavailable = (req, res, next) => {
     if (typeof onUnavailable === 'function') {
       try { return onUnavailable(req, res, next); } catch { /* retain fail-closed default */ }
@@ -34,7 +34,7 @@ export function createShopRateLimiter({ name, windowMs, max, message, fallback, 
       return (async () => {
         const ip = process.env.VERCEL === '1' ? req.get?.('x-vercel-forwarded-for') : req.ip;
         if (typeof ip !== 'string' || !isIP(ip)) return unavailable(req,res,next);
-        const actorKey=crypto.createHash('sha256').update(name+'\0'+ip).digest('hex');
+        const actorKey=crypto.createHash('sha256').update(name+'\0'+(scope==='global'?'store-wide':ip)).digest('hex');
         const {isPostgresStaging,db}=await import('./database.js');
         if (!isPostgresStaging) return unavailable(req,res,next);
         const result=await db.consumeRequestLimit(actorKey,max,windowMs);
@@ -68,7 +68,7 @@ export function createShopRateLimiter({ name, windowMs, max, message, fallback, 
       }
       const ip = actorIp(req);
       if (!ip) return unavailable(req, res, next);
-      const actorKey = crypto.createHash('sha256').update(`${name}\0${ip}`).digest('hex');
+      const actorKey = crypto.createHash('sha256').update(`${name}\0${scope==='global'?'store-wide':ip}`).digest('hex');
       const stub = binding.get(binding.idFromName(actorKey));
       const response = await stub.fetch('https://shopeasy-rate-limit.internal/consume', {
         method: 'POST',
