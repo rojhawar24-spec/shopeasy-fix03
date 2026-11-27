@@ -372,3 +372,20 @@ body.is-storefront-app .site-header .store-nav-item.is-current{background:var(--
 body.is-storefront-app .site-header .cart-nav{gap:7px}
 @media(max-width:900px){body.is-storefront-app .shop-editorial>.shop-controls{padding:14px;gap:12px}body.is-storefront-app .shop-editorial .shop-price-range{grid-column:1/-1}body.is-storefront-app .shop-category-more-panel{inset-inline-end:0}}
 @media(max-width:560px){body.is-storefront-app .shop-editorial .shop-category-toolbar{flex-wrap:wrap;gap:4px;align-items:flex-start}body.is-storefront-app .shop-category-rail{flex:1 1 100%;max-width:100%}body.is-storefront-app .shop-category-more>summary{font-size:.73rem;padding:8px}body.is-storefront-app .shop-category-more>summary svg{width:14px;height:14px}body.is-storefront-app .shop-editorial .shop-category-rail .chip{font-size:.76rem;min-height:36px;padding:7px 12px}body.is-storefront-app .shop-total-count{margin-inline-start:auto}body.is-storefront-app .shop-category-more-panel{max-height:45vh}body.is-storefront-app .shop-editorial .shop-controls :is(input:not([type=checkbox]),select){font-size:16px}}
+
+/* Compact photo-led category discovery, independent of legacy banner grids. */
+body.is-storefront-app .home-category-section{margin-block:clamp(24px,3vw,44px);padding-block:0;min-width:0}
+body.is-storefront-app .home-category-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-block-end:16px}
+body.is-storefront-app .home-category-heading h2{margin:0;font-size:clamp(1.3rem,2vw,1.9rem);line-height:1.2;letter-spacing:-.03em;font-weight:650}
+body.is-storefront-app .home-category-all{font-size:.85rem;font-weight:600;white-space:nowrap;color:var(--text);text-decoration:none}
+body.is-storefront-app .home-category-all:hover{text-decoration:underline;text-underline-offset:4px}
+body.is-storefront-app .home-category-rail{display:flex;gap:clamp(12px,1.6vw,24px);overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:thin;padding:4px 2px 12px;max-inline-size:100%;min-width:0}
+body.is-storefront-app .home-category-entry{flex:0 0 clamp(112px,12vw,166px);min-width:0;scroll-snap-align:start}
+body.is-storefront-app .home-category-tile{display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--text);text-decoration:none;border-radius:12px;min-width:0}
+body.is-storefront-app .home-category-photo{width:100%;aspect-ratio:1/1;position:relative;overflow:hidden;border-radius:14px;background:var(--surface-soft,var(--paper));border:1px solid var(--line);box-sizing:border-box}
+body.is-storefront-app .home-category-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+body.is-storefront-app .home-category-name{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;max-width:100%;text-align:center;font-size:.88rem;font-weight:600;line-height:1.35}
+body.is-storefront-app .home-category-tile:hover .home-category-name{text-decoration:underline;text-underline-offset:3px}
+body.is-storefront-app .home-category-tile:focus-visible{outline:2px solid var(--focus,var(--brand-primary));outline-offset:3px}
+@media(max-width:600px){body.is-storefront-app .home-category-entry{flex-basis:108px}body.is-storefront-app .home-category-rail{gap:12px}body.is-storefront-app .home-category-name{font-size:.78rem}body.is-storefront-app .home-category-photo{border-radius:11px}}
+@media(prefers-reduced-motion:no-preference){body.is-storefront-app .home-category-photo img{transition:transform .22s ease}body.is-storefront-app .home-category-tile:hover img{transform:scale(1.045)}}
