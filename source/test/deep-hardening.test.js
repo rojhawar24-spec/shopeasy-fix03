@@ -126,9 +126,12 @@ test('all non-multipart state-changing routes are protected by global CSRF valid
   assert.ok(auth>=0&&csrf>auth&&guard>csrf&&dynamicRoutes>guard,
     'global CSRF guard must run after session/CSRF token setup and before mutation routes');
   const guardBlock=server.slice(csrf,dynamicRoutes);
-  assert.match(guardBlock,/req\.is\('multipart\/form-data'\)\s*&&\s*\['\/admin\/products\/save','\/admin\/stories\/save','\/admin\/branding','\/admin\/appearance'\]\.includes\(req\.path\)/,
+  assert.match(guardBlock,/req\.method==='POST'\s*&&\s*req\.is\('multipart\/form-data'\)\s*&&\s*\['\/admin\/categories\/save','\/admin\/products\/save','\/admin\/stories\/save','\/admin\/branding','\/admin\/appearance'\]\.includes\(req\.path\)/,
     'only explicitly listed multipart uploads may defer global CSRF validation until Multer parses the token; each route must validate CSRF afterward');
-  assert.match(server,/app\.post\('\/admin\/appearance',requireManager,upload\.single\('shopLogo'\),verifyCsrf/, 'new Manager branding upload must validate CSRF after Multer');
+  for (const [route, upload] of [['categories/save',"upload.single('image')"],['stories/save',"upload.single('image')"],['branding',"upload.single('heroImage')"],['appearance',"upload.single('shopLogo')"]]) {
+    assert.ok(server.includes("app.post('/admin/"+route+"',requireManager,"+upload+",verifyCsrf,"),route+' must require Manager and validate CSRF after parsing');
+  }
+  assert.match(server,/app\.post\('\/admin\/products\/save',requireManager,upload\.fields\([^\n]+?\),verifyCsrf,/);
   assert.match(guardBlock,/req\.method\s*===\s*'POST'\s*&&\s*req\.path\s*===\s*'\/payments\/mollie\/webhook'/, 'the Mollie server-to-server webhook is the only deliberate non-browser CSRF exception');
   assert.match(guardBlock,/return verifyCsrf\(req,res,next\)/);
   assert.doesNotMatch(server,/app\.use\(\(req,res,next\)=>req\.is\('multipart\/form-data'\)\?next\(\):verifyCsrf\(req,res,next\)\);/,

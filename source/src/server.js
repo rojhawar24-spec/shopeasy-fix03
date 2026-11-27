@@ -595,7 +595,7 @@ app.use(csrfToken);
 // can be checked here before any mutation handler runs.
 app.use(checkoutDiagnosticStage('csrf-validation'));
 app.use(async(req,res,next)=>{
-  const multipartTokenParsedAtRoute = req.is('multipart/form-data') &&
+  const multipartTokenParsedAtRoute = req.method==='POST' && req.is('multipart/form-data') &&
     ['/admin/categories/save','/admin/products/save','/admin/stories/save','/admin/branding','/admin/appearance'].includes(req.path);
   if (multipartTokenParsedAtRoute) return next();
   // Mollie server-to-server webhooks do not have a browser CSRF token. The route

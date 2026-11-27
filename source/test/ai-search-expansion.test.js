@@ -92,87 +92,62 @@ test('AI search rejects provider JSON responses above the configured byte ceilin
 });
 
 
-test('shopping assistant redacts email, phone, IBAN and street-address data from the outbound prompt', async () => {
-  const keys = ['AI_ENABLED', 'AI_BASE_URL', 'AI_API_KEY', 'AI_MODEL', 'NODE_ENV'];
-  const saved = Object.fromEntries(keys.map(key => [key, process.env[key]]));
-  const originalFetch = globalThis.fetch;
-  let sentBody = null;
+test('shopping assistant rejects private identifiers before any provider request and redacts product metadata', async () => {
+  const keys=['AI_ENABLED','AI_BASE_URL','AI_API_KEY','AI_MODEL','NODE_ENV'];
+  const saved=Object.fromEntries(keys.map(key=>[key,process.env[key]]));
+  const originalFetch=globalThis.fetch;
+  const sent=[];
   try {
-    process.env.AI_ENABLED = 'true';
-    process.env.AI_BASE_URL = 'https://ai.example.test/v1';
-    process.env.AI_API_KEY = 'unit-test-key';
-    process.env.AI_MODEL = 'unit-test-model';
-    process.env.NODE_ENV = 'test';
-    globalThis.fetch = async (_url, options) => {
-      assert.equal(options.redirect, 'error', 'provider redirects must not be followed');
-      sentBody = JSON.parse(options.body);
-      return new Response(JSON.stringify({ choices: [{ message: { content: 'A rain jacket is a good choice.' } }] }), { status: 200 });
+    Object.assign(process.env,{AI_ENABLED:'true',AI_BASE_URL:'https://ai.example.test/v1',AI_API_KEY:'unit-test-key',AI_MODEL:'unit-test-model',NODE_ENV:'test'});
+    globalThis.fetch=async (_url,options)=>{
+      assert.equal(options.redirect,'error');
+      sent.push(JSON.parse(options.body));
+      return new Response(JSON.stringify({choices:[{message:{content:'A rain jacket is a good choice.'}}]}),{status:200});
     };
-    const answer = await (await import('../src/services/ai.js')).shoppingAssistant(
-      'I need a coat. Email me at person@example.test and call +32 471 23 45 67. IBAN BE68 5390 0754 7034. Deliver to Rue de la Loi 16.',
-      [{ name: 'Rain jacket', short_description: 'Waterproof shell. Contact owner@example.test at Rue de la Loi 16.', available_price: 5900, available_stock: 2, stock: 4, reserved_stock: 2, slug: 'rain-jacket' }],
-      'EUR'
-    );
-    const userPrompt = sentBody.messages.find(message => message.role === 'user')?.content || '';
-    assert.equal(answer, 'A rain jacket is a good choice.');
-    assert.doesNotMatch(userPrompt, /person@example\.test|\+32 471 23 45 67|BE68 5390 0754 7034/);
-    assert.match(userPrompt, /\[email removed\]/);
-    assert.match(userPrompt, /\[phone number removed\]/);
-    assert.match(userPrompt, /\[IBAN removed\]/);
-    assert.match(userPrompt, /\[street address removed\]/);
-    assert.doesNotMatch(userPrompt, /Rue de la Loi 16/i);
-    assert.match(userPrompt, /Rain jacket/);
-    assert.match(userPrompt, /\[email removed\]/);
-    assert.match(userPrompt, /\[street address removed\]/);
-    assert.doesNotMatch(userPrompt, /owner@example\.test|Rue de la Loi 16/i);
-    const localAddressAnswer = await (await import('../src/services/ai.js')).shoppingAssistant(
-      'أريد حذاء. عنواني شارع 60 متري أربيل، اتصل بي.',
-      [],
-      'EUR'
-    );
-    const localAddressPrompt = sentBody.messages.find(message => message.role === 'user')?.content || '';
-    assert.equal(localAddressAnswer, 'A rain jacket is a good choice.');
-    assert.doesNotMatch(localAddressPrompt, /شارع 60 متري أربيل/);
-    assert.match(localAddressPrompt, /\[street address removed\]/);
-    assert.match(userPrompt, /price_minor_units\":5900/);
-    assert.match(userPrompt, /currency\":\"EUR\"/);
-    assert.match(userPrompt, /available_stock\":2/);
-    assert.doesNotMatch(userPrompt, /reserved_stock|\"stock\":4/);
+    const {shoppingAssistant}=await import('../src/services/ai.js');
+    for(const question of [
+      'person@example.test',
+      'I need a coat. Email me at person@example.test',
+      'Find a coat and call +32 471 23 45 67',
+      'Find a coat. IBAN BE68 5390 0754 7034.',
+      'Find a coat. Deliver to Rue de la Loi 16.',
+      'أريد حذاء. عنواني شارع 60 متري أربيل، اتصل بي.'
+    ]) await assert.rejects(()=>shoppingAssistant(question,[]),/AI_QUESTION_REJECTED/);
+    assert.equal(sent.length,0,'private customer input must never reach an external provider');
+    const answer=await shoppingAssistant('Find a waterproof coat',[
+      {name:'Rain jacket',short_description:'Waterproof shell. Contact owner@example.test. Phone +32 471 23 45 67. IBAN BE68 5390 0754 7034. Rue de la Loi 16.',available_price:5900,available_stock:2,stock:4,reserved_stock:2,slug:'rain-jacket'},
+      {name:'Local product',short_description:'عنواني شارع 60 متري أربيل، اتصل بي.',slug:'local-product'}
+    ],'EUR');
+    assert.equal(answer,'A rain jacket is a good choice.');
+    assert.equal(sent.length,1);
+    const prompt=sent[0].messages.find(message=>message.role==='user').content;
+    assert.doesNotMatch(prompt,/owner@example\.test|\+32 471 23 45 67|BE68 5390 0754 7034|Rue de la Loi 16|شارع 60 متري أربيل/i);
+    for(const label of ['email','phone number','IBAN','street address']) assert.ok(prompt.includes('['+label+' removed]'),label+' redaction missing');
+    assert.match(prompt,/Rain jacket/);
+    assert.match(prompt,/price_minor_units":5900/);
+    assert.match(prompt,/currency":"EUR"/);
+    assert.match(prompt,/available_stock":2/);
+    assert.doesNotMatch(prompt,/reserved_stock|"stock":4/);
   } finally {
-    globalThis.fetch = originalFetch;
-    for (const key of keys) {
-      if (saved[key] === undefined) delete process.env[key];
-      else process.env[key] = saved[key];
-    }
+    globalThis.fetch=originalFetch;
+    for(const key of keys) {if(saved[key]===undefined)delete process.env[key];else process.env[key]=saved[key];}
   }
 });
 
-test('shopping assistant rejects a message when redaction removes the entire content', async () => {
-  const keys = ['AI_ENABLED', 'AI_BASE_URL', 'AI_API_KEY', 'AI_MODEL', 'NODE_ENV'];
-  const saved = Object.fromEntries(keys.map(key => [key, process.env[key]]));
-  const originalFetch = globalThis.fetch;
-  let calls = 0;
+test('shopping assistant rejects identifier-only input without contacting the provider', async () => {
+  const keys=['AI_ENABLED','AI_BASE_URL','AI_API_KEY','AI_MODEL','NODE_ENV'];
+  const saved=Object.fromEntries(keys.map(key=>[key,process.env[key]]));
+  const originalFetch=globalThis.fetch;
+  let calls=0;
   try {
-    process.env.AI_ENABLED = 'true';
-    process.env.AI_BASE_URL = 'https://ai.example.test/v1';
-    process.env.AI_API_KEY = 'unit-test-key';
-    process.env.AI_MODEL = 'unit-test-model';
-    process.env.NODE_ENV = 'test';
-    globalThis.fetch = async () => { calls += 1; return new Response('{}'); };
-    await assert.rejects(
-      () => (async () => {
-        const { shoppingAssistant } = await import('../src/services/ai.js');
-        return shoppingAssistant('person@example.test', []);
-      })(),
-      /AI_MESSAGE_REDACTED/
-    );
-    assert.equal(calls, 0);
+    Object.assign(process.env,{AI_ENABLED:'true',AI_BASE_URL:'https://ai.example.test/v1',AI_API_KEY:'unit-test-key',AI_MODEL:'unit-test-model',NODE_ENV:'test'});
+    globalThis.fetch=async()=>{calls++;return new Response('{}');};
+    const {shoppingAssistant}=await import('../src/services/ai.js');
+    await assert.rejects(()=>shoppingAssistant('person@example.test',[]),/AI_QUESTION_REJECTED/);
+    assert.equal(calls,0);
   } finally {
-    globalThis.fetch = originalFetch;
-    for (const key of keys) {
-      if (saved[key] === undefined) delete process.env[key];
-      else process.env[key] = saved[key];
-    }
+    globalThis.fetch=originalFetch;
+    for(const key of keys) {if(saved[key]===undefined)delete process.env[key];else process.env[key]=saved[key];}
   }
 });
 

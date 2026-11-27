@@ -70,7 +70,7 @@ test('privacy deletion includes marketing and stock-alert tables',()=>{
 });
 test('multipart manager appearance form validates CSRF after Multer parsing',()=>{
   const server=source('src/server.js');
-  assert.match(server,/\['\/admin\/products\/save','\/admin\/stories\/save','\/admin\/branding','\/admin\/appearance'\]/);
+  assert.match(server,/\['\/admin\/categories\/save','\/admin\/products\/save','\/admin\/stories\/save','\/admin\/branding','\/admin\/appearance'\]/);
   assert.match(server,/app\.post\('\/admin\/appearance',requireManager,upload\.single\('shopLogo'\),verifyCsrf/);
 });
 

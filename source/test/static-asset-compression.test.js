@@ -64,7 +64,7 @@ function hasVary(response) {
   assert.ok(values.includes('accept-encoding'));
 }
 
-test('all 21 shipped CSS/JS files preserve exact bytes over actual plain and gzip HTTP responses', async t => {
+test('all 27 shipped CSS/JS files preserve exact bytes over actual plain and gzip HTTP responses', async t => {
   const { publicRoot, request } = await fixture(t, { isProd: true });
   let count = 0;
   for (const directory of ['css', 'js']) {
@@ -102,7 +102,7 @@ test('all 21 shipped CSS/JS files preserve exact bytes over actual plain and gzi
       count++;
     }
   }
-  assert.equal(count, 21);
+  assert.equal(count, 27);
 });
 
 test('negotiation respects explicit exclusions, quality, wildcard, identity and malformed values', async t => {

@@ -8,7 +8,9 @@ for(const rail of document.querySelectorAll('.home-category-rail,.shop-category-
   const controls=document.createElement('div');controls.className='category-scroll-controls';controls.hidden=true;
   const buttons=[-1,1].map((direction,i)=>{
     const b=document.createElement('button');b.type='button';b.className='category-scroll-arrow';b.setAttribute('aria-label',labels[i]);
-    b.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+(direction<0?'m15 6-6 6 6 6':'m9 6 6 6-6 6')+'"/></svg>';
+    const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg'),icon=document.createElementNS(ns,'path');
+    for(const [name,value] of Object.entries({viewBox:'0 0 24 24',width:'18',height:'18',fill:'none',stroke:'currentColor','stroke-width':'1.8','stroke-linecap':'round','stroke-linejoin':'round','aria-hidden':'true'}))svg.setAttribute(name,value);
+    icon.setAttribute('d',direction<0?'m15 6-6 6 6 6':'m9 6 6 6-6 6');svg.append(icon);b.append(svg);
     b.addEventListener('click',()=>rail.scrollBy({left:direction*Math.max(120,rail.clientWidth*.8),behavior:reduced.matches?'auto':'smooth'}));controls.append(b);return b;
   });
   heading.append(controls);let queued=false;

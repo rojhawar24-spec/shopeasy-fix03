@@ -73,7 +73,22 @@ test('EJS templates do not nest HTML forms', () => {
 test('every non-submit button in EJS has a matching app.js interaction handler', () => {
   const missing = [];
   const homeLoginJs = fs.readFileSync(path.join(root, 'public/js/home-login.js'), 'utf8');
+  const cartStudioJs = fs.readFileSync(path.join(root, 'public/js/cart-studio.js'), 'utf8');
+  const checkoutAutoJs = fs.readFileSync(path.join(root, 'public/js/checkout-auto-price-v1.js'), 'utf8');
   const handlers = [
+    { attribute:'data-colour-preset', handler:/querySelectorAll\('\[data-colour-preset\]'\)\.forEach\(button=>button\.addEventListener\('click'/ },
+    { attribute:'data-add-variant-colour', handler:/querySelectorAll\('\[data-add-variant-colour\]'\)\.forEach\(b=>b\.addEventListener\('click'/ },
+    { attribute:'data-add-custom-colour', handler:/querySelector\('\[data-add-custom-colour\]'\)\?\.addEventListener\('click'/ },
+    { attribute:'data-cart-remove-cancel', handler:/cancel\.addEventListener\('click'/,source:'cart-studio' },
+    { attribute:'data-cart-remove-confirm', handler:/confirm\.addEventListener\('click'/,source:'cart-studio' },
+    { attribute:'data-checkout-price-retry', handler:/retry\?\.addEventListener\('click',schedule\)/,source:'checkout-auto' },
+    { attribute:'data-cart-confirmation-close', handler:/close=notice\.querySelector\('\[data-cart-confirmation-close\]'\)[\s\S]*?close\.addEventListener\('click',dismiss\)/ },
+    { attribute:'data-product-qty-step', handler:/steps=\[\.\.\.form\.querySelectorAll\('\[data-product-qty-step\]'\)\][\s\S]*?b\.addEventListener\('click'/ },
+    { attribute:'data-filter-close', handler:/close=panel\.querySelector\('\[data-filter-close\]'\)[\s\S]*?close\?\.addEventListener\('click'/ },
+    { attribute:'data-cinema-pause', handler:/pause\.addEventListener\('click'/ },
+    { attribute:'data-cinema-open', handler:/querySelector\('\[data-cinema-open\]'\)\.addEventListener\('click'/ },
+    { attribute:'data-cinema-prev', handler:/querySelector\('\[data-cinema-prev\]'\)\.addEventListener\('click'/ },
+    { attribute:'data-cinema-next', handler:/querySelector\('\[data-cinema-next\]'\)\.addEventListener\('click'/ },
     { attribute: 'data-password-toggle', handler: /toggle\.addEventListener\('click'/, source:'home-login' },
     { attribute: 'data-story-open', handler: /storyButtons\.forEach\([\s\S]*?addEventListener\('click'/ },
     { attribute: 'data-story-close', handler: /close\.addEventListener\('click'/ },
@@ -125,7 +140,7 @@ test('every non-submit button in EJS has a matching app.js interaction handler',
       const tag = match.tag;
       if (!/\btype\s*=\s*(["'])button\1/i.test(tag)) continue;
       if (/\bdisabled(?:\s|>|$)/i.test(tag)) continue;
-      const registered = handlers.some(({ attribute, handler, source }) => tag.includes(attribute) && handler.test(source === 'home-login' ? homeLoginJs : source === 'photo-zoom' ? photoZoomJs : source === 'retail' ? retailJs : appJs))
+      const registered = handlers.some(({ attribute, handler, source }) => tag.includes(attribute) && handler.test(source === 'home-login' ? homeLoginJs : source === 'photo-zoom' ? photoZoomJs : source === 'retail' ? retailJs : source === 'cart-studio' ? cartStudioJs : source === 'checkout-auto' ? checkoutAutoJs : appJs))
         || pageSpecificHandlers.some(({ attribute, handler }) => tag.includes(attribute) && handler.test(mfaSetupJs));
       if (!registered) {
         const line = template.source.slice(0, match.index).split('\n').length;
@@ -142,8 +157,11 @@ test('quick-restock forms are independent from product-save and refresh CSRF bef
   const productSave = productForm.indexOf('action="/admin/products/save"');
   assert.ok(firstRestock >= 0, 'variant quick-restock action should exist');
   assert.ok(productSave > firstRestock, 'quick-restock controls must be outside and before the product-save form');
-  assert.equal((productForm.match(/action="\/admin\/products\/restock"[^>]*data-refresh-csrf/g) || []).length, 2,
-    'both variant and regular-product restock forms should refresh their CSRF token');
+  assert.equal((productForm.match(/action="\/admin\/products\/restock"[^>]*data-refresh-csrf/g) || []).length, 1,
+    'the unified variant/simple restock form must refresh its CSRF token');
+  assert.match(productForm,/name="batch" value="1"/);
+  assert.match(productForm,/name="quantities"/);
+  assert.match(productForm,/name="quantity"/);
   assert.equal((productForm.match(/action="\/admin\/products\/save"/g) || []).length, 1,
     'there should be exactly one product-save form');
 });

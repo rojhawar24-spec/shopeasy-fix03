@@ -14,6 +14,8 @@ const ASSETS = new Set([
   '/css/research-polish-2027.css', '/css/retail-2027.css',
   '/css/design-foundation.min.css', '/css/design-polish.min.css',
   '/js/admin-settings-ux.js', '/js/app.js', '/js/home-login.js',
+  '/js/cart-studio.js', '/js/category-scroll.js', '/js/checkout-auto-price-v1.js',
+  '/js/checkout-studio.js', '/js/easy-photo-upload-v1.js', '/js/i18n-kmr.js',
   '/js/i18n.js', '/js/i18n-ar.js', '/js/i18n-ckb.js', '/js/i18n-fr.js',
   '/js/i18n-nl.js', '/js/image-fallback.js', '/js/mfa-setup.js',
   '/js/product-image-preview.js', '/js/product-photo-zoom.js',
@@ -142,7 +144,7 @@ export function createStaticAssetCompression({ publicRoot, isProd = false } = {}
     finally { await handle?.close().catch(() => {}); }
   };
 
-  // The fixed allowlist bounds this queue to at most 21 distinct paths; callers
+  // The fixed allowlist bounds this queue to the explicitly shipped paths; callers
   // for the same path share one promise. Only two file/compression jobs run at
   // once. A cold page no longer loses compression when its third asset arrives.
   const drain = () => {
