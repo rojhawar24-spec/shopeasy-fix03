@@ -654,6 +654,22 @@
     updateSelection();
   });
 
+  document.querySelectorAll('.product-detail-studio [data-product-variant-form]').forEach(form=>{
+    const quantity=form.querySelector('[data-product-quantity]');
+    if(!quantity)return;
+    const steps=[...form.querySelectorAll('[data-product-qty-step]')];
+    const sync=()=>{const n=Number(quantity.value),min=Number(quantity.min)||1,max=Number(quantity.max)||99;for(const b of steps){b.hidden=false;b.disabled=quantity.disabled||!Number.isInteger(n)||(Number(b.dataset.productQtyStep)<0?n<=min:n>=max);}};
+    for(const b of steps)b.addEventListener('click',()=>{if(quantity.disabled||b.disabled)return;const n=Number(quantity.value),min=Number(quantity.min)||1,max=Number(quantity.max)||99;quantity.value=String(Math.min(max,Math.max(min,(Number.isInteger(n)?n:min)+Number(b.dataset.productQtyStep))));quantity.dispatchEvent(new Event('input',{bubbles:true}));});
+    quantity.addEventListener('input',sync);quantity.addEventListener('change',sync);form.addEventListener('change',sync);
+    new MutationObserver(sync).observe(quantity,{attributes:true,attributeFilter:['disabled','max','min']});sync();
+    for(const select of form.querySelectorAll('[data-option-one-select],[data-option-two-select]')){
+      const choices=document.createElement('div');choices.className='product-option-chips';choices.setAttribute('role','group');choices.setAttribute('aria-label',select.labels?.[0]?.querySelector('span')?.textContent||'Options');
+      select.after(choices);
+      const render=()=>{const options=[...select.options].filter(o=>o.value);const use=options.length>0&&options.length<=8&&!select.disabled;choices.hidden=!use;select.classList.toggle('product-select-enhanced',use);choices.replaceChildren();if(!use)return;for(const opt of options){const b=document.createElement('button');b.type='button';b.textContent=opt.textContent;b.disabled=opt.disabled;b.setAttribute('aria-pressed',String(select.value===opt.value));b.addEventListener('click',()=>{select.value=opt.value;select.dispatchEvent(new Event('change',{bubbles:true}));});choices.append(b);}};
+      select.addEventListener('change',render);form.addEventListener('change',render);new MutationObserver(render).observe(select,{childList:true,attributes:true,attributeFilter:['disabled']});render();
+    }
+  });
+
   document.querySelectorAll('[data-gallery-image]').forEach(button => {
     button.addEventListener('click', () => {
       const mainImage = document.querySelector('[data-product-main-image]');
