@@ -1251,17 +1251,39 @@
     const toggle = document.querySelector('[data-shop-filter-toggle]');
     const panel = document.getElementById('shop-filter-form');
     if (toggle && panel) {
+      const overlay=document.querySelector('[data-filter-overlay]');
+      const close=panel.querySelector('[data-filter-close]');
       document.body.classList.add('shop-filters-js-ready');
-      const setOpen = (open) => {
+      const setOpen=(open,restore=true)=>{
         panel.hidden=!open;
+        if(overlay)overlay.hidden=!open;
         toggle.setAttribute('aria-expanded',String(open));
+        document.body.classList.toggle('shop-filter-drawer-open',open);
+        if(open){panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');close?.focus();}
+        else{panel.removeAttribute('role');panel.removeAttribute('aria-modal');if(restore)toggle.focus();}
       };
-      setOpen(false);
+      setOpen(false,false);
       toggle.addEventListener('click',()=>setOpen(panel.hidden));
-      panel.addEventListener('keydown',event=>{if(event.key==='Escape'){setOpen(false);toggle.focus();}});
+      close?.addEventListener('click',()=>setOpen(false));
+      overlay?.addEventListener('click',()=>setOpen(false));
+      document.addEventListener('keydown',event=>{
+        if(panel.hidden)return;
+        if(event.key==='Escape'){event.preventDefault();setOpen(false);}
+        if(event.key==='Tab'){
+          const items=[...panel.querySelectorAll('a[href],button:not([disabled]),input:not([type=hidden]):not([disabled]),select:not([disabled])')].filter(el=>el.getClientRects().length);
+          if(!items.length)return;
+          if(event.shiftKey&&document.activeElement===items[0]){event.preventDefault();items.at(-1).focus();}
+          else if(!event.shiftKey&&document.activeElement===items.at(-1)){event.preventDefault();items[0].focus();}
+        }
+      });
       const sort=document.getElementById('sort-filter');
-      if(sort)sort.addEventListener('change',()=>panel.requestSubmit());
-
+      if(sort)sort.addEventListener('change',()=>sort.form?.requestSubmit());
+      const categorySearch=panel.querySelector('[data-filter-category-search]');
+      const categorySelect=panel.querySelector('#category-filter');
+      if(categorySearch&&categorySelect)categorySearch.addEventListener('input',()=>{
+        const term=categorySearch.value.normalize('NFKC').trim().toLocaleLowerCase();
+        for(const option of categorySelect.options)option.hidden=!!term&&!!option.value&&!option.selected&&!option.textContent.normalize('NFKC').toLocaleLowerCase().includes(term);
+      });
     }
     document.querySelectorAll('.cart-qty-stepper [data-cart-qty-step]').forEach(button => {
       button.addEventListener('click', () => {
