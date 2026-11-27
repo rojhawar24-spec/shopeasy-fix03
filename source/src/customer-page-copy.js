@@ -1,3 +1,4 @@
+import { badiniText } from './badini-copy.js';
 // Customer interface copy selected from the exact keys used by these templates.
 // Seller-authored catalogue, address, policy and story content is never a key source.
 import { pageText } from './home-login-copy.js';
@@ -1534,6 +1535,7 @@ const copy = {
 };
 
 export function customerText(locale, value, parameters) {
+  if(locale==='kmr') return badiniText(value,parameters) ?? String(value ?? '');
   const text = String(value ?? '');
   const key = text.trim();
   const dictionary = Object.hasOwn(copy, locale) ? copy[locale] : undefined;
