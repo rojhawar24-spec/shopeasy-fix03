@@ -557,6 +557,7 @@ app.use((req,res,next)=>{
     // Early CSRF and rate-limit errors render the shared header before
     // database-backed settings have loaded. AI must be off by default.
     aiEnabled:false,
+    aiModeRequested:false,
     featureStoriesEnabled:true,
     featureWishlistEnabled:true,
     featureAutocompleteEnabled:true,
@@ -662,8 +663,8 @@ app.use(async(req,res,next)=>{
   // Never let a shared cache replay one customer's personalized HTML to another visitor.
   if (req.method === 'GET' || req.method === 'HEAD') res.set('Cache-Control','private, no-store');
   try {
-  const [storeName,currency,aiEnabled,launch,supportEmail,legalName,businessAddress,businessPhone,enterpriseNumber,vatNumber,uiDefaultSetting,uiEnabledSetting,featureStoriesSetting,featureWishlistSetting,featureAutocompleteSetting,featureRelatedProductsSetting,appearanceRaw,navRows]=await Promise.all([
-    getSetting('store_name',storeNameFallback),getSetting('currency',DEFAULT_STORE_CURRENCY),aiIsEnabled(),storeLaunchConfig(),getSetting('support_email',''),getSetting('legal_name',''),getSetting('business_address',''),getSetting('business_phone',''),getSetting('enterprise_number',''),getSetting('vat_number',''),
+  const [storeName,currency,aiModeSetting,launch,supportEmail,legalName,businessAddress,businessPhone,enterpriseNumber,vatNumber,uiDefaultSetting,uiEnabledSetting,featureStoriesSetting,featureWishlistSetting,featureAutocompleteSetting,featureRelatedProductsSetting,appearanceRaw,navRows]=await Promise.all([
+    getSetting('store_name',storeNameFallback),getSetting('currency',DEFAULT_STORE_CURRENCY),getSetting('ai_enabled','0'),storeLaunchConfig(),getSetting('support_email',''),getSetting('legal_name',''),getSetting('business_address',''),getSetting('business_phone',''),getSetting('enterprise_number',''),getSetting('vat_number',''),
     getSetting('ui_default_locale',getDefaultUiLocale(process.env.DEFAULT_LOCALE)),getSetting('ui_enabled_locales',JSON.stringify(SUPPORTED_UI_LOCALES)),getSetting('feature_stories_enabled','1'),getSetting('feature_wishlist_enabled','1'),getSetting('feature_autocomplete_enabled','1'),getSetting('feature_related_products_enabled','1'),
     Promise.all([
     ...['brand_primary','brand_accent','font','logo','free_shipping_minimum'].map(key=>getSetting(`appearance_${key}`,'')),
@@ -673,7 +674,8 @@ app.use(async(req,res,next)=>{
   ]);
   res.locals.storeName=storeName;
   res.locals.currency=currency;
-  res.locals.aiEnabled=aiEnabled;
+  res.locals.aiModeRequested=aiModeSetting==='1';
+  res.locals.aiEnabled=res.locals.aiModeRequested && Boolean(aiService?.aiEnabled?.());
   res.locals.emailEnabled=emailEnabled();
   res.locals.storeReady=launch.ready;
   res.locals.supportEmail=supportEmail;
@@ -2629,12 +2631,14 @@ app.get('/checkout/cancel',(req,res)=>res.redirect(303,req.user?'/account':'/car
 
 app.get('/ai-assistant',async(req,res)=>{
   res.set('Cache-Control','no-store');
-  if(!await aiIsEnabled())return res.redirect(303,'/shop');
-  return render(res,'ai-assistant',{title:'AI shopping assistant'});
+  const requested=(await getSetting('ai_enabled','0'))==='1';
+  if(!requested)return res.redirect(303,'/shop');
+  return render(res,'ai-assistant',{title:'AI shopping assistant',aiModeRequested:true,aiEnabled:Boolean(aiService?.aiEnabled?.())});
 });
 
 app.post('/api/ai/search-assistant',aiLimiter,async(req,res)=>{
-  if(!await aiIsEnabled())return res.status(404).json({error:'AI is disabled'});
+  if((await getSetting('ai_enabled','0'))!=='1')return res.status(404).json({error:'AI is disabled'});
+  if(!aiService?.aiEnabled?.())return res.status(503).json({error:'AI service unavailable'});
   const message=cleanText(req.body.message,500);
   if(!message)return res.status(400).json({error:'Message is required'});
   try { const [products,currency]=await Promise.all([listProducts({onlyActive:true,limit:12,offset:0}),getSetting('currency',DEFAULT_STORE_CURRENCY)]); const answer=await aiService.shoppingAssistant(message,products,currency); return res.json({answer}); }
