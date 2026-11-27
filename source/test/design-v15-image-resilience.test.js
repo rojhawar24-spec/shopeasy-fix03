@@ -75,7 +75,9 @@ test('V17 product image selection previews the exact file and the homepage does 
   assert.match(form, /data-product-cover-input/);
   assert.match(form, /data-product-cover-preview/);
   assert.match(js, /URL\.createObjectURL\(file\)/);
-  assert.match(js, /const MAX_BYTES = 2 \* 1024 \* 1024/);
+  // Cover plus five gallery photos must remain within the serverless request budget.
+  assert.match(js, /const MAX_BYTES = 550 \* 1024/);
+  assert.ok(6*550*1024<4*1024*1024);
   assert.match(js, /async function optimizeLargeImage/);
   assert.match(js, /canvas\.toBlob/);
   assert.match(js, /new DataTransfer\(\)/);
