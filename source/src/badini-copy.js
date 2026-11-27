@@ -532,7 +532,25 @@ export const badiniCopy = Object.freeze({
   "Select your colour": "رەنگێ خۆ هەلبژێرە",
   "Payment options": "رێکێن پارەدانێ",
   "See available methods at checkout.": "رێکێن بەردەست د دەمێ پارەدانێ دا ببینە.",
-  "Optional": "نە ناچاری"
+  "Optional": "نە ناچاری",
+  "NEW": "نوی",
+  "Decrease quantity": "ژمارێ کێم بکە",
+  "Increase quantity": "ژمارێ زێدە بکە",
+  "Configured standard fee:": "بهایێ ستاندارد یێ دیارکری:",
+  "Any regional override is confirmed at checkout.": "هەر گوهۆڕینەکا بهایێ هەرێمی د دەمێ پارەدانێ دا دهێتە پشتڕاستکرن.",
+  "Choose options & add to bag": "هەلبژێرە و بخە سەبەتێ",
+  "Email me when available": "د دەمێ بەرهەم بەردەست بیت ب ئیمێلێ من ئاگەهدار بکە",
+  "Customer reviews": "هەلسەنگاندنێن کڕیاران",
+  "No published reviews yet": "هێشتا هیچ هەلسەنگاندنەک نەهاتیە بەلاڤکرن",
+  "Verified buyer": "کڕیارێ پشتڕاستکری",
+  "VERIFIED PURCHASES": "کڕینێن پشتڕاستکری",
+  "Variant photo": "وێنەیێ جۆری",
+  "Photo": "وێنە",
+  "Close photo": "وێنەیێ داخە",
+  "Availability confirmed on product page": "بەردەستبوون ل لاپەڕا بەرهەمی دهێتە پشتڕاستکرن",
+  "Currently out of stock": "نوکە نەماوە",
+  "Remove −": "ژێببە −",
+  "Delivery pricing for your location is not currently available. Contact the store before ordering.": "بهایێ گەهاندنێ بۆ جهێ تە نوکە بەردەست نینە. بەری داواکرنێ پەیوەندیێ ب فرۆشگەهێ ڤە بکە."
 });
 export function badiniText(value, parameters) {
  const text=String(value??'');const key=text.trim(); if(!Object.hasOwn(badiniCopy,key))return undefined;
