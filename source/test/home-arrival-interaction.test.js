@@ -96,7 +96,7 @@ test('arrival template handles zero, one and five products without duplicate sta
 });
 
 test('home arrivals are capped at five and localized in six languages',()=>{
-  assert.ok(server.includes('const newProducts=latestProducts.filter(isRecentlyAddedProduct).slice(0,5);'));
+  assert.ok(server.includes("listProducts({onlyActive:true,newOnly:true,sort:'newest',limit:5,offset:0})"));
   for(const locale of ['en','nl','fr','ar','ckb','kmr']){
     for(const key of ['JUST ADDED','New in the shop','See all products →','NEW','Pause animation','Resume animation']){
       const value=pageText(locale,key);
