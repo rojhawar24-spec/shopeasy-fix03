@@ -121,7 +121,7 @@
     count.setAttribute('role','status'); count.setAttribute('aria-live','polite'); count.setAttribute('aria-atomic','true');
     counters.push(count); nav.append(create(-1),count,create(1)); parent.append(nav);
   };
-  makeNav(stage,'is-stage');
+  makeNav(stage.parentElement,'is-stage');
   makeNav(large.parentElement,'is-dialog');
   if (thumbs.length > 1) {
     root.classList.add('has-multiple-photos');
