@@ -4,6 +4,9 @@ import { authPolicyText } from './auth-policy-copy.js';
 
 const copy = {
   "nl": {
+    "NEW": "NIEUW",
+    "Pause animation": "Animatie pauzeren",
+    "Resume animation": "Animatie hervatten",
     "A little help choosing?": "Hulp nodig bij het kiezen?",
     "Account access": "Accounttoegang",
     "All products →": "Alle producten →",
@@ -164,6 +167,9 @@ const copy = {
     "Product highlights": "Producthoogtepunten"
   },
   "fr": {
+    "NEW": "NOUVEAU",
+    "Pause animation": "Mettre l’animation en pause",
+    "Resume animation": "Reprendre l’animation",
     "A little help choosing?": "Besoin d’aide pour choisir ?",
     "Account access": "Accès au compte",
     "All products →": "Tous les produits →",
@@ -324,6 +330,9 @@ const copy = {
     "Product highlights": "Points forts du produit"
   },
   "ar": {
+    "NEW": "جديد",
+    "Pause animation": "إيقاف الحركة مؤقتًا",
+    "Resume animation": "استئناف الحركة",
     "A little help choosing?": "هل تحتاج إلى مساعدة في الاختيار؟",
     "Account access": "الوصول إلى الحساب",
     "All products →": "جميع المنتجات ←",
@@ -484,6 +493,9 @@ const copy = {
     "Product highlights": "مزايا المنتج"
   },
   "ckb": {
+    "NEW": "نوێ",
+    "Pause animation": "وەستاندنی جووڵە",
+    "Resume animation": "بەردەوامکردنی جووڵە",
     "A little help choosing?": "یارمەتی بۆ هەڵبژاردن پێویستە؟",
     "Account access": "دەستگەیشتن بە هەژمار",
     "All products →": "هەموو بەرهەمەکان →",
