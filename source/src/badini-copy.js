@@ -1,5 +1,21 @@
-// Draft Badini (Northern Kurdish, Arabic script). Preview only; native review required.
+// Badini (Northern Kurdish, Arabic script) storefront translations; independent native-language review is recommended.
 export const badiniCopy = Object.freeze({
+  "EXPLORE AGAIN": "دووبارە ببینە",
+  "Language and region suggestion": "پێشنیارا زمانی و ناڤچەیێ",
+  "Based only on your browser settings. Choose a language if you want. Confirm your real delivery country and prices at checkout.": "ب تنێ ل سەر بنەمایێ رێکخستنێن وێبگەڕێ تە. ئەگەر تو دخوازیت زمانەکی هەلبژێرە. وەلاتێ گەهاندنێ یێ راستەقینە و بها د دەمێ کڕینێ دا پشتڕاست بکە.",
+  "Dismiss language suggestion": "پێشنیارا زمانی داخە",
+  "Not now": "نە نوکە",
+  "Close product preview": "پێشبینینا بەرهەمی داخە",
+  "Product preview": "پێشبینینا بەرهەمی",
+  "Review sizes, variants, availability and shipping on the full product page.": "قەبارە، جۆر، بەردەستبوون و گەهاندنێ ل لاپەڕا تەمام یا بەرهەمی بپشکنە.",
+  "View full product →": "لاپەڕا تەمام یا بەرهەمی ببینە ←",
+  "Products selected for comparison": "بەرهەمێن هەلبژارتی بۆ بەراوردکرنێ",
+  "Compare products ·": "بەرهەمان بەراورد بکە ·",
+  "Compare selection": "هەلبژارتنێ بەراورد بکە",
+  "Compare your selection": "هەلبژارتنا خۆ بەراورد بکە",
+  "Close comparison": "بەراوردکرنێ داخە",
+  "Compare displayed prices and open each product for current stock, delivery and complete specifications.": "بهایێن دیار بەراورد بکە و هەر بەرهەمەکی ڤەکە بۆ ژمارا بەردەست، گەهاندن و تایبەتمەندیێن تەمام.",
+  "Saved": "پاشەکەفتکری",
   "Browse categories": "پۆلان ببینە",
   "No categories found.": "هیچ پۆلەک نەهاتە دیتن.",
   "Open search": "لێگەڕیانێ ڤەکە",
