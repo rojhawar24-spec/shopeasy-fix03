@@ -50,6 +50,7 @@ try { aiService = await import('./services/ai.js'); } catch (error) {
 import { emailEnabled, sendPasswordResetCodeEmail, sendEmailVerificationEmail, sendReturnRequestEmail, prepareOrderNotificationEmail, sendPreparedOrderNotificationEmail, sendEngagementEmail, sendNewsletterCampaignEmail } from './services/email.js';
 import { recordLoginFailure } from './services/security-events.js';
 import { DEFAULT_STORE_CURRENCY, SUPPORTED_UI_LOCALES, UI_LOCALE_OPTIONS, getDefaultUiLocale, getIntlLocaleForUi, getUiLanguagePreferences, getStoreName, getStoreTimezone } from './store-config.js';
+import { normalizeNewArrivalInput, productArrivalKey } from './product-arrival-policy.js';
 import { resolvePublicBaseUrl, warnIfProductionBaseUrlMisconfigured } from './startup-config.js';
 import { resolveSettingsCurrency, resolveDeliveryCountries, readSettingsStringField, CURRENCY_SENSITIVE_COUPON_WHERE } from './settings-inputs.js';
 import { readShopFilters } from './shop-filters.js';
@@ -1314,26 +1315,19 @@ function boundedPage(value,total,pageSize) {
 }
 
 // Use the same definition of a new arrival on the home and product pages.
-function isRecentlyAddedProduct(product){
-  const raw=String(product?.created_at||'').trim();
-  if(!raw)return false;
-  const normalized=raw.replace(/^(\d{4}-\d{2}-\d{2}) /,'$1T');
-  const timestamp=Date.parse(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/.test(normalized)?normalized+'Z':normalized);
-  const now=Date.now();
-  return Number.isFinite(timestamp)&&timestamp<=now&&timestamp>=now-30*86400000;
-}
+// Arrival eligibility is applied inside the database query before the display limit.
 
 app.get('/',async(req,res)=>{
-  const [featuredProducts,latestProducts,categories,heroSettings]=await Promise.all([
+  const [featuredProducts,latestProducts,newProducts,categories,heroSettings]=await Promise.all([
     listProducts({onlyActive:true,sort:'featured',limit:48,offset:0}),
     listProducts({onlyActive:true,sort:'newest',limit:32,offset:0}),
+    listProducts({onlyActive:true,newOnly:true,sort:'newest',limit:5,offset:0}),
     listCategories({activeOnly:true}),
     Promise.all([
       ...BRANDING_FIELDS.map(field=>getSetting(`hero_${field}_${BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en'}`,BRANDING_DEFAULTS[BRANDING_LOCALES.includes(res.locals.locale)?res.locals.locale:'en'][field])),
       getSetting('hero_image',''),getSetting('hero_image_mode','catalogue')
     ])
   ]);
-  const newProducts=latestProducts.filter(isRecentlyAddedProduct).slice(0,5);
   const newIds=new Set(newProducts.map(p=>Number(p.id)));
   // The collection is a catalogue preview, not a mutually exclusive status.
   // Prioritise ordinary products, then use new products to fill available slots.
@@ -1422,7 +1416,7 @@ app.get('/product/:slug',async(req,res)=>{
     getSetting('delivery_countries',''),
     isManager?getProductById(product.id):Promise.resolve(null),
     res.locals.appearance.reviews ? Promise.all([visibleReviews(product.id),reviewSummary(product.id),req.user?.role==='customer'?userCanReview(req.user.id,product.id):Promise.resolve(false)]) : Promise.resolve([[],{count:0,average:0},false]),
-    listProducts({onlyActive:true,sort:'newest',limit:13,offset:0}).catch(()=>[])
+    listProducts({onlyActive:true,newOnly:true,inStockOnly:true,sort:'newest',limit:7,offset:0}).catch(()=>[])
   ]);
   const deliveryCountries=normalizeDeliveryCountries(deliveryCountriesSetting);
   const shippingRuleValidation=parseShippingZoneRules(shippingZoneRulesText,currency,deliveryCountries);
@@ -1467,7 +1461,7 @@ app.get('/product/:slug',async(req,res)=>{
     res.locals.breadcrumbJsonLdSafe=serializeJsonLdSafely({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:crumbs});
   }
   const [reviews,reviewStats,canReview]=reviewData;
-  const newArrivalPreview=arrivalCandidates.filter(item=>Number(item.id)!==Number(product.id)&&isRecentlyAddedProduct(item)&&Number(item.available_stock)>0).slice(0,6);
+  const newArrivalPreview=arrivalCandidates.filter(item=>Number(item.id)!==Number(product.id)&&Number(item.available_stock)>0).slice(0,6);
   render(res,'product',{product,managerProduct,isManager,variants,images,shippingDisplay,selectedVariantId,relatedProducts,newArrivalPreview,reviews,reviewStats,canReview,reviewNotice:cleanText(req.query.review,24),alertNotice:cleanText(req.query.alert,24),description:String(product.short_description||product.description||'').slice(0,290),productJsonLdSafe,cartError:safeCartError(req.query.cartError),added:req.query.added==='1'});
 });
 
@@ -2972,6 +2966,7 @@ app.post('/admin/products/save',requireManager,upload.fields([{name:'image',maxC
   let productCommitted=false;
   try {
     const id=optionalFormId(req.body.id);
+    const newArrivalValue=normalizeNewArrivalInput(req.body.newArrivalMode,req.body.newArrivalDays);
     const existingProduct=id?await getProductById(id):null;
     if(id && !existingProduct) throw new Error('NOT_FOUND');
     const previousGallery=id?await listProductImages(id):[];
@@ -3052,7 +3047,7 @@ app.post('/admin/products/save',requireManager,upload.fields([{name:'image',maxC
     const categoryId=optionalFormId(req.body.categoryId);
     if(categoryId && !await getRow('SELECT 1 FROM categories WHERE id=?',[categoryId]))throw new Error('CATEGORY');
     const stableSlug=existingProduct?.slug || await uniqueSlug(name,id);
-    const data={id,name,slug:stableSlug,shortDescription:cleanText(req.body.shortDescription,300),description:cleanText(req.body.description,5000),imageUrl:image, galleryImages,priceCents:price,costPriceCents,salePriceCents:sale,saleStart,saleEnd,sku,stock,reorderLevel,categoryId,tags:cleanText(req.body.tags,300),featured:req.body.featured==='on',active:req.body.active==='on',automaticDiscountPercent,variants,variantOptionName,variantOptionName2};
+    const data={id,newArrivalValue,name,slug:stableSlug,shortDescription:cleanText(req.body.shortDescription,300),description:cleanText(req.body.description,5000),imageUrl:image, galleryImages,priceCents:price,costPriceCents,salePriceCents:sale,saleStart,saleEnd,sku,stock,reorderLevel,categoryId,tags:cleanText(req.body.tags,300),featured:req.body.featured==='on',active:req.body.active==='on',automaticDiscountPercent,variants,variantOptionName,variantOptionName2};
     const savedId=await adminCreateOrUpdateProduct(data);
     productCommitted=true;
     invalidateCategoryNav();
@@ -3063,11 +3058,11 @@ app.post('/admin/products/save',requireManager,upload.fields([{name:'image',maxC
   } catch(err) {
     if(!productCommitted) for(const uploaded of new Set(newUploadedImages)) await deleteUploadedAsset(uploaded).catch(cleanupError=>logOperationalFailure('Uncommitted product image cleanup',cleanupError));
     if(productCommitted) return res.status(500).render('error',{title:'Product saved with a follow-up issue',message:'The product data was saved, but an audit or cleanup step could not be completed. Reload the product list and verify the saved product before retrying.'});
-    const errors={INVALID_ID:'This product form contains an invalid ID. Reload it and check the product and category fields.',NAME:'Enter a product name.',PRICE:'Regular price is invalid. Enter an amount greater than zero in the store currency (for example 32,80 or 32.80).',COST:'Purchase cost is invalid. Enter the cost of one unit in the store currency; zero is allowed.',REORDER_LEVEL:'Enter a whole reorder threshold from 0 to 100,000,000.',SALE_PRICE:'Sale price is optional, but when entered it must be greater than zero and lower than the regular price. Leave Sale price blank if you only want to use Automatic discount %.',DISCOUNT:'Automatic discount must be a whole number from 0 to 90.',STOCK:'Enter a whole stock quantity from 0 to 100,000,000.',SALE_DATE:'Enter valid sale dates, or leave them empty.',SALE_WINDOW:'Sale end must be later than sale start.',SKU_TAKEN:'This SKU is already used by another product. Change it or leave it blank for an automatic SKU.',CATEGORY:'Choose an existing category or select No category.',IMAGE:'Use a valid JPG, PNG or WebP image up to 2 MiB.',URL:'Image URL must use a trusted HTTPS address.',RESERVED_STOCK:'Stock cannot be lower than stock currently reserved in checkout.',RESERVED_PRODUCT_VISIBILITY:'Finish or cancel the active order before hiding a product with reserved stock.',RESERVED_VARIANT_STOCK:'You cannot deactivate or reduce an option while its stock is reserved in an open order.',RESERVED_STOCK_MODE_CHANGE:'Cancel or complete open orders before changing this product between option inventory and simple inventory.',VARIANT_VALIDATION:'Check product options. Add 1–50 unique option combinations and enter a whole stock number for each. Use a value for the second option on every row when the second option name is set.',VARIANT_SKU_CONFLICT:'A variant SKU is empty, invalid or already used. Every sellable combination needs a unique SKU.',VARIANT_IMAGE_URL:'Variant image must be a gallery image or a trusted HTTPS image URL.',IMAGE_GALLERY_LIMIT:'Use no more than 6 product images in total, including the main cover. Upload up to 5 additional images.',IMAGE_STORAGE_QUOTA_REACHED:'The image-storage limit has been reached. No new image was saved.',IMAGE_STORAGE_NOT_CONFIGURED:'Image storage is not configured. No new image was saved.'};
+    const errors={INVALID_ID:'This product form contains an invalid ID. Reload it and check the product and category fields.',NAME:'Enter a product name.',NEW_ARRIVAL:'Choose a valid new-product duration: 3, 7, 14, 30, 60 or a whole number from 1 to 3650 days, automatic, off, or until manually disabled.',PRICE:'Regular price is invalid. Enter an amount greater than zero in the store currency (for example 32,80 or 32.80).',COST:'Purchase cost is invalid. Enter the cost of one unit in the store currency; zero is allowed.',REORDER_LEVEL:'Enter a whole reorder threshold from 0 to 100,000,000.',SALE_PRICE:'Sale price is optional, but when entered it must be greater than zero and lower than the regular price. Leave Sale price blank if you only want to use Automatic discount %.',DISCOUNT:'Automatic discount must be a whole number from 0 to 90.',STOCK:'Enter a whole stock quantity from 0 to 100,000,000.',SALE_DATE:'Enter valid sale dates, or leave them empty.',SALE_WINDOW:'Sale end must be later than sale start.',SKU_TAKEN:'This SKU is already used by another product. Change it or leave it blank for an automatic SKU.',CATEGORY:'Choose an existing category or select No category.',IMAGE:'Use a valid JPG, PNG or WebP image up to 2 MiB.',URL:'Image URL must use a trusted HTTPS address.',RESERVED_STOCK:'Stock cannot be lower than stock currently reserved in checkout.',RESERVED_PRODUCT_VISIBILITY:'Finish or cancel the active order before hiding a product with reserved stock.',RESERVED_VARIANT_STOCK:'You cannot deactivate or reduce an option while its stock is reserved in an open order.',RESERVED_STOCK_MODE_CHANGE:'Cancel or complete open orders before changing this product between option inventory and simple inventory.',VARIANT_VALIDATION:'Check product options. Add 1–50 unique option combinations and enter a whole stock number for each. Use a value for the second option on every row when the second option name is set.',VARIANT_SKU_CONFLICT:'A variant SKU is empty, invalid or already used. Every sellable combination needs a unique SKU.',VARIANT_IMAGE_URL:'Variant image must be a gallery image or a trusted HTTPS image URL.',IMAGE_GALLERY_LIMIT:'Use no more than 6 product images in total, including the main cover. Upload up to 5 additional images.',IMAGE_STORAGE_QUOTA_REACHED:'The image-storage limit has been reached. No new image was saved.',IMAGE_STORAGE_NOT_CONFIGURED:'Image storage is not configured. No new image was saved.'};
     return res.status(400).render('admin/product-form',{product:req.body,variants:[],productImages:validId(req.body.id)?await listProductImages(Number(req.body.id)):[],categories:await listCategories(),currency:await getSetting('currency',DEFAULT_STORE_CURRENCY),currencyPriceReviewRequired:await getSetting('currency_price_review_required','0')==='1',error:errors[err.message]||'Could not save the product. Your entries are still here; check the highlighted details and try again.',saved:false,restocked:false,restockError:null,galleryNotice:null});
   }
 });
-app.get('/admin/products/:id/edit',requireManager,async(req,res)=>{const productId=validId(req.params.id)?Number(req.params.id):null;const product=productId?await getProductById(productId):null;if(!product)return res.status(404).render('error',{title:'Product not found',message:'Product does not exist.'});const restockError=cleanText(req.query.restockError,220);const galleryNotices={deleted:{type:'success',message:'Image removed. If it was the cover, the next image is now the main photo.'},last:{type:'warning',message:'A product must keep at least one image. Upload a replacement image before deleting this one.'},missing:{type:'warning',message:'That gallery image no longer exists. Refresh the page and try again.'},failed:{type:'warning',message:'The image could not be removed. Refresh the page and try again.'}};render(res,'admin/product-form',{product,variants:await listProductVariants(product.id),productImages:await listProductImages(product.id),categories:await listCategories(),currency:await getSetting('currency',DEFAULT_STORE_CURRENCY),currencyPriceReviewRequired:await getSetting('currency_price_review_required','0')==='1',error:null,saved:req.query.saved==='1',restocked:req.query.restocked==='1',restockError:restockError||null,galleryNotice:galleryNotices[cleanText(req.query.galleryNotice,20)]||null});});
+app.get('/admin/products/:id/edit',requireManager,async(req,res)=>{const productId=validId(req.params.id)?Number(req.params.id):null;const product=productId?await getProductById(productId):null;if(!product)return res.status(404).render('error',{title:'Product not found',message:'Product does not exist.'});const restockError=cleanText(req.query.restockError,220);const galleryNotices={deleted:{type:'success',message:'Image removed. If it was the cover, the next image is now the main photo.'},last:{type:'warning',message:'A product must keep at least one image. Upload a replacement image before deleting this one.'},missing:{type:'warning',message:'That gallery image no longer exists. Refresh the page and try again.'},failed:{type:'warning',message:'The image could not be removed. Refresh the page and try again.'}};render(res,'admin/product-form',{product,newArrivalValue:await getSetting(productArrivalKey(product.id),'automatic'),variants:await listProductVariants(product.id),productImages:await listProductImages(product.id),categories:await listCategories(),currency:await getSetting('currency',DEFAULT_STORE_CURRENCY),currencyPriceReviewRequired:await getSetting('currency_price_review_required','0')==='1',error:null,saved:req.query.saved==='1',restocked:req.query.restocked==='1',restockError:restockError||null,galleryNotice:galleryNotices[cleanText(req.query.galleryNotice,20)]||null});});
 app.post('/admin/products/:productId/images/:imageId/delete',requireManager,verifyCsrf,async(req,res)=>{
   const productId=validId(req.params.productId)?Number(req.params.productId):null;
   const imageId=validId(req.params.imageId)?Number(req.params.imageId):null;
