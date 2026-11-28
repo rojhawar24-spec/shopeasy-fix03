@@ -666,8 +666,9 @@
       dismissing=true;
       const hadFocus=notice.contains(document.activeElement);
       const finish=()=>{
+        const restoreFocus=hadFocus&&notice.contains(document.activeElement);
         notice.hidden=true;
-        if(hadFocus&&notice.contains(document.activeElement)){
+        if(restoreFocus){
           const main=document.getElementById('main-content');
           if(main){if(!main.hasAttribute('tabindex'))main.setAttribute('tabindex','-1');main.focus({preventScroll:true});}
         }
