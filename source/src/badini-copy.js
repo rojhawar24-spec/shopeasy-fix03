@@ -222,6 +222,7 @@ export const badiniCopy = Object.freeze({
   "Next story": "چیرۆکا پاشێ",
   "Close story": "چیرۆکێ داخە",
   "Pause animation": "جوولانێ بوەستینە",
+  "Resume animation": "جوولانێ بەردەوام بکە",
   "LIVE NOW": "نوکە بەردەستە",
   "New arrivals, helpful updates and store announcements in one place.": "بەرهەمێن نوی، نوکاریێن ب مفا و راگەهاندنێن فرۆشگەهێ ل ئێک جهی.",
   "Store manager": "بەڕێڤەبەرێ فرۆشگەهێ",
