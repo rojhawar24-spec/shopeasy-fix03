@@ -580,10 +580,11 @@
     const normalize = value => String(value || '').normalize('NFKC');
     const setMainImage = (url, alt, selectedGalleryUrl='') => {
       if (!mainImage || !url) return;
-      mainImage.src = url;
+      mainImage.dataset.gallerySelectionUrl = selectedGalleryUrl || url;
+      if (mainImage.getAttribute('src') !== url) mainImage.src = url;
       mainImage.alt = alt || document.querySelector('h1')?.textContent || 'Product image';
       document.querySelectorAll('[data-gallery-image]').forEach(button => {
-        const active = Boolean(selectedGalleryUrl) && button.dataset.imageUrl === selectedGalleryUrl;
+        const active = button.dataset.imageUrl === (selectedGalleryUrl || url);
         button.classList.toggle('is-active', active);
         button.setAttribute('aria-pressed', active ? 'true' : 'false');
       });
@@ -704,7 +705,8 @@
     button.addEventListener('click', () => {
       const mainImage = document.querySelector('[data-product-main-image]');
       if (!mainImage || !button.dataset.imageUrl) return;
-      mainImage.src = button.dataset.imageUrl;
+      mainImage.dataset.gallerySelectionUrl = button.dataset.imageUrl;
+      if (mainImage.getAttribute('src') !== button.dataset.imageUrl) mainImage.src = button.dataset.imageUrl;
       mainImage.alt = button.dataset.imageAlt || 'Product image';
       document.querySelectorAll('[data-gallery-image]').forEach(item => {
         const active = item === button;
