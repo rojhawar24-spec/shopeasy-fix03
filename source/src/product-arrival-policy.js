@@ -11,7 +11,7 @@ export function productArrivalKey(id) {
 }
 export function normalizeNewArrivalInput(mode,customDays,now=new Date()) {
   if(mode===undefined||mode==='keep')return undefined;
-  if(mode==='automatic')return null;
+  if(mode==='automatic')return 'automatic';
   if(mode==='off'||mode==='forever')return mode;
   if(typeof mode!=='string')throw new Error('NEW_ARRIVAL');
   let days;
@@ -22,7 +22,7 @@ export function normalizeNewArrivalInput(mode,customDays,now=new Date()) {
   return new Date(now.getTime()+days*DAY_MS).toISOString();
 }
 export function validStoredArrival(value) {
-  if(value===undefined||value===null||value==='off'||value==='forever')return true;
+  if(value===undefined||value==='automatic'||value==='off'||value==='forever')return true;
   if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value))return false;
   const time=Date.parse(value);
   return Number.isFinite(time)&&new Date(time).toISOString()===value;
