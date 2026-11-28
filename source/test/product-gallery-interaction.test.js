@@ -41,13 +41,13 @@ function harness(source, {rtl=false, count=3, motion=false}={}) {
   class MutationObserver {constructor(fn){observer=fn;}observe(){}}
   class Image extends Element {}
   new Function('document','navigator','matchMedia','MutationObserver','Image','URL',source)(document,{connection:{saveData:true}},()=>({matches:false}),MutationObserver,Image,URL);
-  const nav=stage.children.find(el=>el.className==='product-gallery-nav is-stage');
+  const nav=root.children.find(el=>el.className==='product-gallery-nav is-stage');
   const dialogNav=inner.children.find(el=>el.className==='product-gallery-nav is-dialog');
   return {root,stage,main,link,dialog,large,thumbs,nav,dialogNav,observer};
 }
 const source=readFileSync(new URL('../public/js/product-photo-zoom.js',import.meta.url),'utf8');
 
-test('gallery controls attach to the photo stage and enlarged dialog, with wrapping navigation',()=>{
+test('gallery controls sit outside the photo stage and inside the enlarged dialog, with wrapping navigation',()=>{
   const h=harness(source);
   assert.ok(h.nav);
   assert.ok(h.dialogNav);
