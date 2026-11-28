@@ -24,17 +24,21 @@
   const motion = () => document.body.dataset.motion !== 'off' && !matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Read the selected src attribute first: currentSrc may lag during a variant change.
   const current = () => abs(main.getAttribute('src') || main.currentSrc || main.src || '');
-  const index = () => thumbs.findIndex(b => abs(b.dataset.imageUrl) === current());
+  const selected = () => abs(main.dataset.gallerySelectionUrl || current());
+  const index = () => thumbs.findIndex(b => abs(b.dataset.imageUrl) === selected());
   const counters = [];
   let displayed = main.complete && main.naturalWidth ? current() : '';
-  let layer = null, sequence = 0, latest = current();
+  let layer = null, transition = null, sequence = 0, latest = current();
   let dialogSequence = 0;
-  const removeLayer = () => { if (layer) { layer.remove(); layer = null; } };
+  const removeLayer = () => {
+    if (transition) { const effect = transition; transition = null; effect.cancel(); }
+    if (layer) { layer.remove(); layer = null; }
+  };
   const warm = new Set();
   const preload = () => {
     if (thumbs.length < 2 || navigator.connection?.saveData) return;
     const i = index();
-    for (const n of new Set([(i+1+thumbs.length)%thumbs.length,(i-1+thumbs.length)%thumbs.length])) {
+    for (const n of new Set(i < 0 ? [0,thumbs.length-1] : [(i+1+thumbs.length)%thumbs.length,(i-1+thumbs.length)%thumbs.length])) {
       const url = abs(thumbs[n].dataset.imageUrl);
       if (!url || warm.has(url) || url === current()) continue;
       warm.add(url);
@@ -69,7 +73,8 @@
     if (url === latest) return;
     latest = url;
     const token = ++sequence;
-    if (displayed && displayed !== url && motion() && !layer) {
+    removeLayer();
+    if (displayed && displayed !== url && motion()) {
       layer = document.createElement('img');
       layer.className = 'product-gallery-outgoing';
       layer.alt = ''; layer.setAttribute('aria-hidden','true'); layer.draggable = false;
@@ -82,9 +87,9 @@
       const outgoing = layer;
       if (!motion() || !outgoing.animate) { removeLayer(); return; }
       const effect = outgoing.animate([{opacity:1},{opacity:0}],{duration:300,easing:'cubic-bezier(.22,1,.36,1)',fill:'forwards'});
+      transition = effect;
       effect.finished.catch(() => {}).then(() => {
-        if (layer === outgoing && token === sequence) removeLayer();
-        else if (layer === outgoing) { effect.cancel(); }
+        if (layer === outgoing && token === sequence && transition === effect) removeLayer();
       });
     };
     if (main.decode) main.decode().then(finish).catch(() => { if (token === sequence) removeLayer(); });
@@ -116,7 +121,7 @@
     count.setAttribute('role','status'); count.setAttribute('aria-live','polite'); count.setAttribute('aria-atomic','true');
     counters.push(count); nav.append(create(-1),count,create(1)); parent.append(nav);
   };
-  makeNav(stage.parentElement,'is-stage');
+  makeNav(stage,'is-stage');
   makeNav(large.parentElement,'is-dialog');
   if (thumbs.length > 1) {
     root.classList.add('has-multiple-photos');
@@ -142,7 +147,7 @@
   }
   main.addEventListener('load',()=>{ if (!displayed) displayed=current(); });
   main.addEventListener('error',removeLayer);
-  new MutationObserver(changed).observe(main,{attributes:true,attributeFilter:['src','alt']});
+  new MutationObserver(changed).observe(main,{attributes:true,attributeFilter:['src','alt','data-gallery-selection-url']});
   link.addEventListener('click', event => {
     if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0 || typeof dialog.showModal !== 'function') return;
     event.preventDefault();
