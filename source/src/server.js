@@ -318,7 +318,7 @@ function buildCategoryPath(rows, categoryId){
   return path;
 }
 
-const BRANDING_LOCALES = Object.freeze(['en','ckb','ar','nl','fr']);
+const BRANDING_LOCALES = Object.freeze(['en','ckb','ar','nl','fr',...(SUPPORTED_UI_LOCALES.includes('kmr')?['kmr']:[])]);
 const BRANDING_FIELDS = Object.freeze(['eyebrow','title','accent','description']);
 const BRANDING_DEFAULTS = Object.freeze({
   en: Object.freeze({
@@ -332,6 +332,12 @@ const BRANDING_DEFAULTS = Object.freeze({
     title: 'شتێک بدۆزەرەوە',
     accent: 'کە حەزت لێیە.',
     description: 'بەرهەمی بەسوود ببینە، نرخە ڕوونەکان ببینە و بە ئاسانی داوا بکە. پارەکە بدە کاتێک گەیاندنەکەت دەگات.'
+  }),
+  kmr: Object.freeze({
+    eyebrow: 'بەرهەمێن باش، ب ئاسانی',
+    title: 'تشتەکی ببینە',
+    accent: 'یێ تە حەژێ دکەت.',
+    description: 'بەرهەمێن ب مفا ببینە، بها بەراورد بکە و ب ئاسانی داخوازی بکە.'
   }),
   ar: Object.freeze({
     eyebrow: 'منتجات مميزة، واختيار أسهل',
@@ -363,7 +369,7 @@ async function loadBrandingFormData(overrides = null) {
       const value = submitted !== undefined ? submitted : await getSetting(`hero_${field}_${code}`, BRANDING_DEFAULTS[code][field]);
       return [field, value];
     }));
-    return { code, label: UI_LOCALE_OPTIONS.find(option=>option.code===code)?.label || code, dir: ['ckb','ar'].includes(code) ? 'rtl' : 'ltr', ...Object.fromEntries(fields) };
+    return { code, label: UI_LOCALE_OPTIONS.find(option=>option.code===code)?.label || code, dir: ['ckb','ar','kmr'].includes(code) ? 'rtl' : 'ltr', ...Object.fromEntries(fields) };
   }));
   const storedHeroImage = overrides && Object.hasOwn(overrides, 'heroImage') ? overrides.heroImage : await getSetting('hero_image','');
   const storedHeroMode = overrides && Object.hasOwn(overrides, 'heroImageMode')
