@@ -468,10 +468,10 @@ test('currency allow-list is independent of online payment providers', () => {
 
 test('homepage shows a catalog fallback when nothing is featured and keeps newer products visible', () => {
   const server = read('src/server.js');
-  assert.match(server, /listProducts\(\{onlyActive:true,featured:true,sort:'featured',limit:8,offset:0\}\)/);
+  assert.match(server, /listProducts\(\{onlyActive:true,sort:'featured',limit:48,offset:0\}\)/);
   assert.match(server, /listProducts\(\{onlyActive:true,sort:'newest',limit:32,offset:0\}\)/);
-  assert.match(server, /const products=featuredProducts\.length \? featuredProducts : latestProducts\.slice\(0,8\)/);
-  assert.match(server, /const newProducts=latestProducts\.filter/);
+  assert.match(server, /listProducts\(\{onlyActive:true,newOnly:true,sort:'newest',limit:5,offset:0\}\)/);
+  assert.match(server, /const products=\[\.\.\.ordinary,\.\.\.arrivals\]\.slice\(0,8\)/);
 });
 
 
