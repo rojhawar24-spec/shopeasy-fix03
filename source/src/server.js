@@ -1333,7 +1333,7 @@ app.get('/',async(req,res)=>{
       getSetting('hero_image',''),getSetting('hero_image_mode','catalogue')
     ])
   ]);
-  const newProducts=latestProducts.filter(isRecentlyAddedProduct).slice(0,12);
+  const newProducts=latestProducts.filter(isRecentlyAddedProduct).slice(0,5);
   const newIds=new Set(newProducts.map(p=>Number(p.id)));
   // The collection is a catalogue preview, not a mutually exclusive status.
   // Prioritise ordinary products, then use new products to fill available slots.
