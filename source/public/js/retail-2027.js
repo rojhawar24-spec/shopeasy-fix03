@@ -252,7 +252,7 @@
       const version=requestVersion;
       controller=new AbortController();
       if(!drawer.open)drawer.showModal();
-      close.focus();list.replaceChildren();list.setAttribute('aria-busy','true');total.textContent='';status.hidden=false;status.textContent='Loading cart…';
+      close.focus();list.replaceChildren();list.setAttribute('aria-busy','true');total.textContent='';status.hidden=false;status.textContent=drawer.dataset.loadingLabel||'Loading cart…';
       checkout.hidden=true;checkout.href='/cart';
       try{
         const response=await fetch('/api/cart/preview',{credentials:'same-origin',headers:{Accept:'application/json'},cache:'no-store',signal:controller.signal});
@@ -260,17 +260,17 @@
         const data=await response.json();
         if(version!==requestVersion || !drawer.open)return;
         if(!Array.isArray(data.items))throw new Error('Invalid cart response');
-        status.textContent=data.items.length?'':'Your bag is currently empty.';
+        status.textContent=data.items.length?'':(drawer.dataset.emptyLabel||'Your bag is currently empty.');
         const lines=[];
         for(const item of data.items){
           const line=document.createElement('li');line.append(sellerText('strong',item.name),text('span',` × ${item.quantity}`),sellerText('strong',fmt(item.total,data.currency)));
           lines.push(line);
         }
         list.replaceChildren(...lines);
-        total.textContent=data.items.length?`Total before address-specific adjustments: ${fmt(data.total,data.currency)}`:'';
+        total.textContent=data.items.length?`${drawer.dataset.totalLabel||'Total before address-specific adjustments:'} ${fmt(data.total,data.currency)}`:'';
         checkout.hidden=!!data.hasStockIssues || data.items.length===0;
         checkout.href=data.checkoutHref==='/checkout'?'/checkout':'/cart';
-      }catch(error){if(version===requestVersion && drawer.open && error?.name!=='AbortError')status.textContent='Cart preview is unavailable. Open your bag to continue.';}
+      }catch(error){if(version===requestVersion && drawer.open && error?.name!=='AbortError')status.textContent=drawer.dataset.errorLabel||'Cart preview is unavailable. Open your bag to continue.';}
       finally{if(version===requestVersion)list.removeAttribute('aria-busy');}
     });
     close.addEventListener('click',closeDrawer);
