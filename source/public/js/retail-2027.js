@@ -29,6 +29,58 @@
     element.textContent=String(value??'');
   };
 
+  // HOME ARRIVALS START
+  // Pausing switches to a single, horizontally scrollable set of real products.
+  // The duplicate set exists only for the seamless rightward animation.
+  const arrivalSection = q('#new-arrivals');
+  const arrivalRibbon = arrivalSection?.querySelector('.arrival-ribbon');
+  const arrivalTrack = arrivalRibbon?.querySelector('.arrival-ribbon-track');
+  const arrivalPause = arrivalSection?.querySelector('[data-arrival-pause]');
+  const arrivalCopy = arrivalTrack?.querySelector('[data-arrival-copy]');
+  if (arrivalRibbon && arrivalTrack && arrivalPause && arrivalCopy) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const label = arrivalPause.closest('label');
+    let manual = null;
+    const syncArrivalMotion = () => {
+      const next = arrivalPause.checked || reducedMotion.matches;
+      if (label) label.title = arrivalPause.checked
+        ? arrivalPause.dataset.resumeLabel : arrivalPause.dataset.pauseLabel;
+      if (manual === next) return;
+      if (next) {
+        const offset = Math.max(0, arrivalRibbon.getBoundingClientRect().left
+          - arrivalTrack.getBoundingClientRect().left);
+        arrivalTrack.style.animation = 'none';
+        arrivalTrack.style.transform = 'none';
+        arrivalTrack.style.willChange = 'auto';
+        arrivalRibbon.style.overflowX = 'auto';
+        arrivalCopy.style.display = 'none';
+        arrivalRibbon.scrollLeft = Math.min(offset,
+          Math.max(0, arrivalRibbon.scrollWidth - arrivalRibbon.clientWidth));
+      } else {
+        arrivalRibbon.scrollLeft = 0;
+        for (const property of ['animation', 'transform', 'will-change']) {
+          arrivalTrack.style.removeProperty(property);
+        }
+        arrivalRibbon.style.removeProperty('overflow-x');
+        arrivalCopy.style.removeProperty('display');
+      }
+      manual = next;
+    };
+    arrivalPause.addEventListener('change', syncArrivalMotion);
+    if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', syncArrivalMotion);
+    else reducedMotion.addListener?.(syncArrivalMotion);
+    // Duplicate links remain pointer-clickable, but must not receive focus and
+    // collapse the moving row before the visitor can follow the product link.
+    arrivalCopy.addEventListener('mousedown', event => {
+      if (event.target.closest('a')) event.preventDefault();
+    });
+    arrivalRibbon.addEventListener('focusout', event => {
+      if (!manual && !arrivalRibbon.contains(event.relatedTarget)) arrivalRibbon.scrollLeft = 0;
+    });
+    syncArrivalMotion();
+  }
+  // HOME ARRIVALS END
+
   // User-initiated theme preference; not analytics and never sent to the server.
   const themeButtons=[...document.querySelectorAll('[data-theme-toggle]')];
   if(themeButtons.length){
