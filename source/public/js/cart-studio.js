@@ -52,6 +52,7 @@
     const input=form.querySelector('input[name=quantity]'),save=form.querySelector('button[type=submit]');
     if(!input||!save)continue;
     const steps=[...form.querySelectorAll('[data-cart-qty-step]')];
+    const revert=form.querySelector('[data-cart-quantity-revert]');
     const initialReadOnly=input.readOnly;
     const sync=()=>{
       const n=input.valueAsNumber,min=Number(input.min)||1,max=Number(input.max)||99;
@@ -64,6 +65,7 @@
       input.readOnly=initialReadOnly||busy||locked;
       form.classList.toggle('is-dirty',dirty);
       save.disabled=busy||!valid||!dirty||otherDirty;
+      if(revert){revert.hidden=!dirty;revert.disabled=busy;}
       steps.forEach(b=>{b.disabled=busy||otherDirty||(Number(b.dataset.cartQtyStep)<0?Number.isFinite(n)&&n<=min:Number.isFinite(n)&&n>=max);});
     };
     syncs.push(sync);
@@ -79,6 +81,7 @@
       if(motion()&&input.animate)input.animate([{transform:'scale(.86)',opacity:.65},{transform:'scale(1)',opacity:1}],{duration:160,easing:'ease-out'});
       if(typeof form.requestSubmit==='function')form.requestSubmit();else save.click();
     },true);
+    revert?.addEventListener('click',()=>{if(busy)return;input.value=input.defaultValue;syncDraft();input.focus();});
     input.addEventListener('input',syncDraft);input.addEventListener('change',syncDraft);
     form.addEventListener('submit',e=>{
       if(e.defaultPrevented)return;
