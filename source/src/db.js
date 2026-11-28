@@ -10,6 +10,7 @@ import { DEFAULT_STORE_CURRENCY, getStoreName } from './store-config.js';
 import { calculateBundleDiscount, normalizeBundleRules } from './bundle-promotions.js';
 import { allocateCouponDiscountAcrossItems, maxRefundForRequestCents, availableRefundMaximumCents } from './order-return-rules.js';
 import { normalizeProductGallery } from './product-images.js';
+import { productArrivalKey, validStoredArrival, defaultArrivalStart } from './product-arrival-policy.js';
 import { normalizeBankTransferConfig, buildBankTransferSnapshot, normalizeBankTransactionReference, parseBankTransferSnapshot } from './services/bank-transfer.js';
 import { canCancelOpenOrder, canRequestOrderCancellation } from './order-cancellation-rules.js';
 import { validCustomerApprovalPasswordHash } from './customer-approval-rules.js';
@@ -1596,9 +1597,19 @@ function buildProductSearchPredicate(search, searchAlternatives, prefix, params)
 // separated datetime('now'). Bind one timestamp for all price predicates in a query.
 const productSalePriceSql = `CASE WHEN p.sale_price_cents IS NOT NULL AND p.sale_price_cents<p.price_cents AND (p.sale_start IS NULL OR p.sale_start='' OR julianday(p.sale_start)<=julianday(@catalogNow)) AND (p.sale_end IS NULL OR p.sale_end='' OR julianday(p.sale_end)>=julianday(@catalogNow)) THEN p.sale_price_cents ELSE p.price_cents END`;
 
-export async function listProducts({search='', searchAlternatives=[], category='', sort='featured', onlyActive=true, featured=false, status='all', minPriceCents=null, maxPriceCents=null, inStockOnly=false, limit=48, offset=0, now=new Date(), includeAnalytics=!onlyActive} = {}) {
+export async function listProducts({search='', searchAlternatives=[], category='', sort='featured', onlyActive=true, featured=false, status='all', minPriceCents=null, maxPriceCents=null, inStockOnly=false, limit=48, offset=0, now=new Date(), includeAnalytics=!onlyActive, newOnly=false} = {}) {
   const conditions = [];
   const params = {catalogNow:now.toISOString()};
+  // Reuse settings metadata so existing PostgreSQL/SQLite installations need no DDL.
+  const arrivalJoin = newOnly ? "LEFT JOIN settings arrival_setting ON arrival_setting.key=('product_new_' || CAST(p.id AS TEXT))" : '';
+  if(newOnly){
+    params.arrivalStart=defaultArrivalStart(now);
+    conditions.push(`p.active=1 AND (CASE
+      WHEN arrival_setting.value IS NULL OR arrival_setting.value='automatic' THEN CASE WHEN julianday(p.created_at)<=julianday(@catalogNow) AND julianday(p.created_at)>=julianday(@arrivalStart) THEN 1 ELSE 0 END
+      WHEN arrival_setting.value='forever' THEN 1
+      WHEN arrival_setting.value LIKE '____-__-__T__:__:__.___Z' AND arrival_setting.value>@catalogNow THEN 1
+      ELSE 0 END)=1`);
+  }
   if (status === 'active') conditions.push('p.active=1');
   else if (status === 'archived') conditions.push('p.active=0');
   else if (onlyActive) conditions.push('p.active=1');
@@ -1639,7 +1650,7 @@ export async function listProducts({search='', searchAlternatives=[], category='
     CASE WHEN EXISTS(SELECT 1 FROM product_variants pv WHERE pv.product_id=p.id)
       THEN (SELECT COALESCE(SUM(pv.reserved_stock),0) FROM product_variants pv WHERE pv.product_id=p.id)
       ELSE COALESCE(p.reserved_stock,0) END AS reserved_inventory_total
-    FROM products p LEFT JOIN categories c ON c.id=p.category_id ${where} ORDER BY ${order} LIMIT @limit OFFSET @offset`,params);
+    FROM products p LEFT JOIN categories c ON c.id=p.category_id ${arrivalJoin} ${where} ORDER BY ${order} LIMIT @limit OFFSET @offset`,params);
   // Storefront pages never compute management history. Even management queries
   // select the bounded catalogue page first, then batch only its product IDs.
   if(!includeAnalytics||products.length===0) return products;
@@ -2932,6 +2943,7 @@ export async function setOrderStatus(id,status,actorUserId=null) {
 }
 
 export async function adminCreateOrUpdateProduct(data) {
+  if(!validStoredArrival(data.newArrivalValue))throw new Error('NEW_ARRIVAL');
   const discountPercent = normalizeProductDiscountPercent(data.automaticDiscountPercent);
   const costPriceCents = requirePurchaseCostCents(data.costPriceCents);
   const hasVariants=Array.isArray(data.variants)&&data.variants.length>0;
@@ -3012,6 +3024,9 @@ export async function adminCreateOrUpdateProduct(data) {
       }
     }
 
+    if(data.newArrivalValue!==undefined){
+      await run('INSERT INTO settings(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value',[productArrivalKey(savedId),data.newArrivalValue],tx);
+    }
     await run('DELETE FROM product_images WHERE product_id=?',[savedId],tx);
     for(let index=0;index<galleryImages.length;index++){
       const imageUrl=galleryImages[index];
